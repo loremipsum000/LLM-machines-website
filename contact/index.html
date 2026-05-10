@@ -107,7 +107,12 @@
         <p>Submit this form and your email client will open a pre-filled draft to <strong style="color:var(--fg);">hello@llm-machines.com</strong>. No data is stored on our side until you press send.</p>
       </div>
 
-      <form class="contact-form reveal" id="contact-form" onsubmit="return composeMailto(event);">
+      <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/ajax/hello@llm-machines.com" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — LLM Machines website" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off" />
+
         <div class="form-row">
           <label>
             <span class="form-label">Your name</span>
@@ -143,33 +148,62 @@
           <span class="form-label">What should we know?</span>
           <textarea name="message" rows="5" placeholder="Team size, current AI spend, what you're trying to ship, deployment constraints, timing — whatever's helpful." required></textarea>
         </label>
+
+        <div class="form-status" id="form-status" hidden></div>
+
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Compose email <span class="arr">→</span></button>
-          <a href="mailto:hello@llm-machines.com" class="btn btn-ghost">Or just email us</a>
+          <button type="submit" class="btn btn-primary" id="form-submit">Send message <span class="arr">→</span></button>
+          <a href="mailto:hello@llm-machines.com" class="btn btn-ghost">Or use your mail client</a>
         </div>
       </form>
 
       <script>
-        function composeMailto(e) {
-          e.preventDefault();
-          const f = e.target;
-          const name    = encodeURIComponent(f.name.value || '');
-          const email   = encodeURIComponent(f.email.value || '');
-          const company = encodeURIComponent(f.company.value || '');
-          const role    = encodeURIComponent(f.role.value || '');
-          const topic   = encodeURIComponent(f.topic.value || '');
-          const message = encodeURIComponent(f.message.value || '');
-          const subject = encodeURIComponent(`[${f.topic.value}] ${f.name.value} · ${f.company.value || 'LLM Machines enquiry'}`);
-          const body =
-            `Name: ${decodeURIComponent(name)}%0D%0A` +
-            `Email: ${decodeURIComponent(email)}%0D%0A` +
-            `Company: ${decodeURIComponent(company)}%0D%0A` +
-            `Role: ${decodeURIComponent(role)}%0D%0A` +
-            `Topic: ${decodeURIComponent(topic)}%0D%0A%0D%0A` +
-            `${decodeURIComponent(message)}`;
-          window.location.href = `mailto:hello@llm-machines.com?subject=${subject}&body=${body}`;
-          return false;
-        }
+        (function () {
+          const form = document.getElementById('contact-form');
+          const status = document.getElementById('form-status');
+          const submitBtn = document.getElementById('form-submit');
+          if (!form) return;
+
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Honeypot — silently drop bots
+            if (form.querySelector('input[name="_honey"]').value) return;
+
+            const originalLabel = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending…';
+            status.hidden = true;
+            status.className = 'form-status';
+
+            try {
+              const data = new FormData(form);
+              const res = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+              });
+              const json = await res.json().catch(function () { return {}; });
+
+              if (res.ok && (json.success === 'true' || json.success === true || res.status === 200)) {
+                status.className = 'form-status form-status--ok';
+                status.innerHTML = '<strong>Message sent.</strong> We\'ll reply within one business day. If you don\'t hear back, email us directly at <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a>.';
+                status.hidden = false;
+                form.reset();
+                submitBtn.innerHTML = 'Sent ✓';
+              } else {
+                throw new Error(json.message || 'submit failed');
+              }
+            } catch (err) {
+              status.className = 'form-status form-status--err';
+              status.innerHTML = '<strong>Couldn\'t send.</strong> Please email us at <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a> — we\'ll reply within one business day.';
+              status.hidden = false;
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalLabel;
+              console.error('[contact form]', err);
+            }
+          });
+        })();
       </script>
     </div>
   </section>

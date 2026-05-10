@@ -3049,3 +3049,34 @@ body:has(#channels) #channels .container > .contact-channels { margin-top: 0; }
 .contact-page .page-hero { padding: 140px var(--pad) 28px !important; min-height: auto; }
 .contact-page #channels { padding: 32px 0 80px !important; }
 .contact-page #channels .sect-head { display: none; }
+
+/* ============================================================
+   CONTACT form status (success / error)
+   ============================================================ */
+.form-status {
+  padding: 16px 20px;
+  border-left: 2px solid var(--fg-mute);
+  background: var(--bg-soft);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg);
+}
+.form-status--ok {
+  border-left-color: #22c55e;
+  background: rgba(34, 197, 94, 0.06);
+}
+.form-status--err {
+  border-left-color: #ef4444;
+  background: rgba(239, 68, 68, 0.06);
+}
+.form-status strong { font-weight: 600; }
+.form-status a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--fg-dim);
+  text-underline-offset: 3px;
+}
+.contact-form button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
