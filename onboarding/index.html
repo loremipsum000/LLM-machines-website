@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onboarding — LLM Machines</title>
+  <meta name="description" content="From signed contract to live system in 4–6 weeks. Nine phases, each customised to your environment — your IdP, your network, your tools, your compliance constraints." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://llm-machines.com/onboarding/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Signed contract to live system: 4–6 weeks — LLM Machines" />
+  <meta property="og:description" content="9-phase deployment playbook with tier model + Pure Mode + RACI matrix. Tailored to your environment." />
+  <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://llm-machines.com/onboarding/" />
+  <meta property="og:site_name" content="LLM Machines" />
+  <meta property="og:locale" content="en_EU" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Signed contract to live system: 4–6 weeks — LLM Machines" />
+  <meta name="twitter:description" content="9-phase deployment playbook with tier model + Pure Mode + RACI matrix. Tailored to your environment." />
+  <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
+
+  <!-- Theme + indexing -->
+  <meta name="theme-color" content="#0E0E0E" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="LLM Machines" />
+  <link rel="icon" type="image/svg+xml" href="../assets/Favi-32.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LLM Machines",
+  "url": "https://llm-machines.com/",
+  "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
+  "description": "A Croatia-based startup building sovereign on-premise AI appliances for European enterprises. EU AI Act, GDPR, NIS2 and EU Data Act ready by design.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "HR",
+    "addressRegion": "European Union"
+  },
+  "areaServed": "EU",
+  "sameAs": []
+}
+</script>
+</head>
+
+<body>
+
+  <!-- ============== NAV ============== -->
+  <nav class="top">
+    <div class="container nav-inner">
+      <a href="../" class="brand">
+        <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
+      </a>
+      <div class="nav-links">
+        <a href="../technology/">Technology</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../onboarding/" aria-current="page">Onboarding</a>
+        <a href="../company/">Company</a>
+      </div>
+      <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+    </div>
+  </nav>
+
+  <!-- ============== PAGE HERO ============== -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="label">Onboarding</span>
+      <h1>Signed contract to live system: 4–6 weeks.</h1>
+      <p class="lead">A tailored deployment, not a SaaS sign-up. Nine phases, each customised to your environment — your IdP, your network, your tools, your compliance constraints. With explicit support boundaries that scale.</p>
+    </div>
+  </header>
+
+  <!-- ============== TIER MODEL INTRO ============== -->
+  <section id="tier-model">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">01 — The support tier model</span>
+        <h2>Three tiers. Manifest-enforced. No ambiguity.</h2>
+        <p>Every component on the box belongs to one of three tiers, encoded in a signed manifest at install time and surfaced in the admin UI, telemetry, and support tickets.</p>
+      </div>
+
+      <div class="preview-callouts reveal">
+        <div class="preview-card">
+          <div class="pc-tag">T1 · Certified core</div>
+          <h3>Full SLA per contract.</h3>
+          <p>Firmware, OS, Kubernetes, inference gateway, inference servers, identity, bundled apps, curated connector catalog, blessed models. Runs with host privileges. We own the issues.</p>
+        </div>
+        <div class="preview-card">
+          <div class="pc-tag">T2 · Verified partners</div>
+          <h3>Best-effort, defined per partner.</h3>
+          <p>Connectors, models, and apps from our partner registry that passed review. Runs in restricted containers. Integration surface ours; partner's internal logic theirs.</p>
+        </div>
+        <div class="preview-card">
+          <div class="pc-tag">T3 · Client BYO</div>
+          <h3>None on the additions; T1/T2 still covered.</h3>
+          <p>Custom connectors, custom apps deployed to K8s, custom models, custom workflows. Sandboxed. No host access. No inbound network unless explicitly granted. You build it, you own it.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 24px 28px; background: var(--bg-soft); border: 1px solid var(--line); display: flex; gap: 24px; flex-wrap: wrap; align-items: center;" class="reveal">
+        <div style="font-family: 'Acid Grotesk', system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mute); padding-right: 24px; border-right: 1px solid var(--line-bright);">Pure&nbsp;Mode</div>
+        <p style="margin: 0; flex: 1; min-width: 280px; font-size: 14px; color: var(--fg-mute); line-height: 1.55;">A one-click admin action that disables all T2/T3 components. If an issue reproduces in Pure Mode, it's our ticket; if not, it routes to client (or partner) with a clear "components involved" report. <strong style="color: var(--fg); font-weight: 600;">This is the contract that lets us scale support.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== TIMELINE ============== -->
+  <section id="timeline">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">02 — The timeline</span>
+        <h2>Nine phases. Each one tailored to your environment.</h2>
+        <p>Every phase has explicit owners, exit criteria, and a "Tailored to: …" thread that names what gets customised for your stack. Nothing about the install is a surprise.</p>
+      </div>
+
+      <div class="timeline-with-rail">
+        <aside class="timeline-rail">
+          <a href="#phase-00" class="rail-marker active" data-rail="00">00</a>
+          <a href="#phase-01" class="rail-marker" data-rail="01">01</a>
+          <a href="#phase-02" class="rail-marker" data-rail="02">02</a>
+          <a href="#phase-03" class="rail-marker" data-rail="03">03</a>
+          <a href="#phase-04" class="rail-marker" data-rail="04">04</a>
+          <a href="#phase-05" class="rail-marker" data-rail="05">05</a>
+          <a href="#phase-06" class="rail-marker" data-rail="06">06</a>
+          <a href="#phase-07" class="rail-marker" data-rail="07">07</a>
+          <a href="#phase-08" class="rail-marker" data-rail="08">08</a>
+        </aside>
+        <div class="timeline">
+        <div class="phase reveal" data-phase="00" id="phase-00"><div class="phase-bar"><span class="phase-num">00</span>
+            <span class="phase-when">T-14 → T-0 days</span>
+          </div>
+          <div>
+            <h4>Pre-shipment.</h4>
+            <p>Discovery questionnaire — your IdP, network topology, target integrations, user count, model preferences, compliance constraints (HIPAA, SOC2, FedRAMP, air-gap). Network pre-flight. Power &amp; rack spec. License key bound to your hardware. Pre-flight call walks the questionnaire line by line. Sign-off in writing.</p>
+            <span class="phase-tag">Tailored to: your IdP type, compliance regime, target integrations</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="01" id="phase-01"><div class="phase-bar"><span class="phase-num">01</span>
+            <span class="phase-when">Day 0 · ~2 hrs</span>
+          </div>
+          <div>
+            <h4>Hardware delivery &amp; rack.</h4>
+            <p>Receiving inspection — serial matches manifest, no physical damage, tamper seals intact. Rack mount, redundant power, network uplinks (mgmt + data VLANs). BMC / out-of-band management configured. Field engineer verifies remote console access. Boot to firmware check screen, confirm against the certified manifest.</p>
+            <span class="phase-tag">Tailored to: your data-centre layout, network VLANs</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="02" id="phase-02"><div class="phase-bar"><span class="phase-num">02</span>
+            <span class="phase-when">Day 0 · ~30 min</span>
+          </div>
+          <div>
+            <h4>First boot &amp; licensing.</h4>
+            <p>First-boot wizard: hostname, time zone, NTP, initial admin credentials (rotated after IdP federation). License activation — online (signed token returned) or offline (signed bundle uploaded; default for security-sensitive clients). Storage volumes provisioned. Self-test: GPU enumeration, NVMe health, network throughput, inference smoke test.</p>
+            <span class="phase-tag">Tailored to: your security posture (online vs air-gapped)</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="03" id="phase-03"><div class="phase-bar"><span class="phase-num">03</span>
+            <span class="phase-when">Day 1 morning · 1–2 hrs</span>
+          </div>
+          <div>
+            <h4>Network &amp; identity federation.</h4>
+            <p>TLS certs installed (your CA or Let's Encrypt with internal ACME). DNS records pointed at the box for the chosen subdomain. Reverse proxy configured with routes for each app surface. Keycloak federated to your IdP via OIDC or SAML. SCIM provisioning verified with a real user/group sync. Role mapping confirmed: Admin / User / Auditor / Read-Only land in the right places.</p>
+            <span class="phase-tag">Highest-value step — adoption stalls if this is wrong</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="04" id="phase-04"><div class="phase-bar"><span class="phase-num">04</span>
+            <span class="phase-when">Day 1 afternoon · ~1 hr</span>
+          </div>
+          <div>
+            <h4>Inference &amp; app stack.</h4>
+            <p>Models loaded per the questionnaire — chat, code, embeddings — pulled from on-box signed registry (no internet required for T1 models). SGLang / vLLM inference servers registered with the gateway. LiteLLM configured: model aliases, per-team rate limits, per-team budgets, audit logging on. Bundled apps online: Open WebUI, AnythingLLM, n8n, openclaw / nemoclaw. Optional add-ons (Continue, Tabby, Langfuse) per scope.</p>
+            <span class="phase-tag">Tailored to: your model preferences, per-team budgets</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="05" id="phase-05"><div class="phase-bar"><span class="phase-num">05</span>
+            <span class="phase-when">Day 1 → Day 2 · 2–4 hrs</span>
+          </div>
+          <div>
+            <h4>Connector configuration.</h4>
+            <p>Slack / Teams, email, source control (GitHub / GitLab / Bitbucket), issue tracking (Jira / Linear / Asana), docs (Notion / Confluence / SharePoint), CRM, storage. Each one auth'd, scoped (read-only by default for the first 30 days), and smoke-tested with a canned prompt before sign-off. Anything not on the curated catalog is logged as a T3 candidate.</p>
+            <span class="phase-tag">Tailored to: your existing tool stack</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="06" id="phase-06"><div class="phase-bar"><span class="phase-num">06</span>
+            <span class="phase-when">Day 2 · ~1 hr</span>
+          </div>
+          <div>
+            <h4>Validation suite.</h4>
+            <p>Eight end-to-end tests across every surface — chat, IDE, inbound integration, outbound integration, workflow, agentic, observability, audit, Pure Mode toggle. Each one driven by a real user from your team, not the engineer. The test set is canonical — kept identical across every deployment so it's reproducible.</p>
+            <span class="phase-tag">Real users, not engineers — the test must be reproducible</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="07" id="phase-07"><div class="phase-bar"><span class="phase-num">07</span>
+            <span class="phase-when">Day 2 afternoon · ~2 hrs</span>
+          </div>
+          <div>
+            <h4>Training &amp; handoff.</h4>
+            <p>Admin training (60 min): user/group management, model registry, connector lifecycle, Pure Mode, audit export, update channels, backup/restore, the tier model. End-user kickoff (30 min, recorded). Client-specific runbook delivered with your values filled in. Support channel established. On-call escalation paths confirmed on both sides. Update strategy chosen.</p>
+            <span class="phase-tag">Tailored to: your team's roles, your support workflow</span>
+          </div>
+        </div>
+
+        <div class="phase reveal" data-phase="08" id="phase-08"><div class="phase-bar"><span class="phase-num">08</span>
+            <span class="phase-when">+30 days</span>
+          </div>
+          <div>
+            <h4>30-day check-in.</h4>
+            <p>Calendar-locked at handoff. Usage review — active users, prompts/day per surface, top use cases, idle surfaces. Connector review — anything failing, anything underused, anything missing. Tier-boundary review — has anyone built T3 stuff yet? If yes, are the support implications understood? Roadmap conversation. Adoption numbers are healthy — or there's a written remediation plan.</p>
+            <span class="phase-tag">Continuous partnership, not transactional handoff</span>
+          </div>
+        </div>
+      </div>
+      </div></div>
+  </section>
+
+  <!-- ============== RACI ============== -->
+  <section id="raci">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">03 — Who does what</span>
+        <h2>RACI summary.</h2>
+        <p>Explicit ownership for every onboarding activity. R = Responsible (does the work) · A = Accountable (signs off) · C = Consulted · I = Informed.</p>
+      </div>
+
+      <div class="compare-wrap reveal">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Us</th>
+              <th>Client IT</th>
+              <th>Tool Owner</th>
+              <th>End User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Pre-flight &amp; questionnaire</td><td class="v-yes">A / R</td><td class="v-mid">R</td><td class="v-mid">C</td><td class="v-no">I</td></tr>
+            <tr><td>Hardware rack &amp; power</td><td class="v-mid">C</td><td class="v-yes">R / A</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>First boot &amp; licensing</td><td class="v-yes">R / A</td><td class="v-mid">C</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>Network, TLS, DNS</td><td class="v-mid">C</td><td class="v-yes">R / A</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>IdP federation</td><td class="v-yes">R</td><td class="v-yes">A / R</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>Inference &amp; app stack</td><td class="v-yes">R / A</td><td class="v-mid">C</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>Connector auth &amp; scope</td><td class="v-yes">R</td><td class="v-mid">C</td><td class="v-yes">A / R</td><td class="v-no">I</td></tr>
+            <tr><td>Validation tests</td><td class="v-yes">R</td><td class="v-mid">C</td><td class="v-mid">C</td><td class="v-yes">A</td></tr>
+            <tr><td>Admin training</td><td class="v-yes">R / A</td><td class="v-yes">A</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>End-user kickoff</td><td class="v-yes">R</td><td class="v-no">I</td><td class="v-no">I</td><td class="v-yes">A</td></tr>
+            <tr><td>Day-2 ops &amp; T3 additions</td><td class="v-mid">C (T1/T2 only)</td><td class="v-yes">A / R</td><td class="v-yes">A / R</td><td class="v-no">I</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PAGE CTA ============== -->
+  <section class="page-cta">
+    <div id="us-cta-onboarding" class="cta-bg" data-us-scene="../assets/whats-next_background.json"></div>
+    <div class="cta-blur"></div>
+    <div class="container">
+      <span class="label" style="justify-content:center;">What's next</span>
+      <h2>Pilot the appliance against your real workloads.</h2>
+      <p>Discovery call, sized appliance spec, and a 4–6 week path to live. Same team end-to-end.</p>
+      <div class="hero-ctas">
+        <a href="../technology/" class="btn btn-ghost">See the technology</a>
+        <a href="../pricing/" class="btn btn-ghost">See pricing</a>
+        <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">
+            <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
+          </div>
+          <p class="foot-tag">A European AI appliance company. Sovereign, scalable, on-premise AI for enterprises that take their data — and their compute bills — seriously.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="../technology/">Technology</a>
+          <a href="../pricing/">Pricing</a>
+          <a href="../onboarding/">Onboarding</a>
+          <a href="../#compare">Compare</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="../company/">About</a>
+          <a href="../company/#sovereignty">Sovereignty</a>
+          <a href="../#why-now">Why now</a>
+          <a href="../contact/">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Legal</h4>
+          <a href="../privacy/">Privacy Policy</a>
+          <a href="../terms/">Terms &amp; Conditions</a>
+          <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 LLM Machines · A European company</span>
+        <span>EU AI Act · GDPR · NIS2 · EU Data Act — ready by design</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/site.js" defer></script>
+</body>
+</html>

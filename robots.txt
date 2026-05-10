@@ -1,0 +1,8 @@
+# robots.txt for LLM Machines
+User-agent: *
+Allow: /
+
+# Disallow common bot traps and assets that don't need indexing
+Disallow: /assets/fonts/
+
+Sitemap: https://llm-machines.com/sitemap.xml

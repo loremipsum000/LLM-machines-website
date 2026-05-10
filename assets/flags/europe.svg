@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 900 600">
+  <!-- Generator: Adobe Illustrator 30.3.0, SVG Export Plug-In . SVG Version: 2.1.3 Build 182)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fc0;
+      }
+
+      .st1 {
+        fill: #039;
+      }
+    </style>
+  </defs>
+  <rect class="st1" width="900" height="600"/>
+  <g>
+    <path id="s" class="st0" d="M450,462.5l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+    <path id="s1" data-name="s" class="st0" d="M450,62.5l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+    <g id="s5">
+      <path id="s2" data-name="s" class="st0" d="M350,435.7l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+      <path id="s3" data-name="s" class="st0" d="M276.8,362.5l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+      <path id="s4" data-name="s" class="st0" d="M250,262.5l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+      <path id="s6" data-name="s" class="st0" d="M276.8,162.5l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+      <path id="s7" data-name="s" class="st0" d="M350,89.3l22,67.8-57.7-41.9h71.3l-57.7,41.9,22-67.8Z"/>
+    </g>
+    <g id="s51" data-name="s5">
+      <path id="s8" data-name="s" class="st0" d="M550,435.7l-22,67.8,57.7-41.9h-71.3l57.7,41.9-22-67.8Z"/>
+      <path id="s9" data-name="s" class="st0" d="M623.2,362.5l-22,67.8,57.7-41.9h-71.3l57.7,41.9-22-67.8Z"/>
+      <path id="s10" data-name="s" class="st0" d="M650,262.5l-22,67.8,57.7-41.9h-71.3l57.7,41.9-22-67.8Z"/>
+      <path id="s11" data-name="s" class="st0" d="M623.2,162.5l-22,67.8,57.7-41.9h-71.3l57.7,41.9-22-67.8Z"/>
+      <path id="s12" data-name="s" class="st0" d="M550,89.3l-22,67.8,57.7-41.9h-71.3l57.7,41.9-22-67.8Z"/>
+    </g>
+  </g>
+</svg>
