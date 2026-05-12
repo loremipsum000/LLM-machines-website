@@ -49,20 +49,60 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "LLM Machines",
-  "url": "https://llm-machines.com/",
-  "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
-  "description": "A Croatia-based startup building sovereign on-premise AI appliances for European enterprises. EU AI Act, GDPR, NIS2 and EU Data Act ready by design.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "HR",
-    "addressRegion": "European Union"
-  },
-  "areaServed": "EU",
-  "sameAs": []
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://llm-machines.com/#website",
+      "url": "https://llm-machines.com/",
+      "name": "LLM Machines",
+      "description": "Sovereign on-prem AI for European enterprises",
+      "publisher": { "@id": "https://llm-machines.com/#organization" },
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://llm-machines.com/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://llm-machines.com/#nav",
+      "name": ["Technology", "Pricing", "Onboarding", "Company", "Contact"],
+      "url": [
+        "https://llm-machines.com/technology/",
+        "https://llm-machines.com/pricing/",
+        "https://llm-machines.com/onboarding/",
+        "https://llm-machines.com/company/",
+        "https://llm-machines.com/contact/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://llm-machines.com/#organization",
+      "name": "LLM Machines",
+      "url": "https://llm-machines.com/",
+      "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
+      "description": "A Croatia-based startup building sovereign on-premise AI appliances for European enterprises. EU AI Act, GDPR, NIS2 and EU Data Act ready by design.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "HR",
+        "addressRegion": "European Union"
+      },
+      "areaServed": "EU",
+      "email": "hello@llm-machines.com",
+      "contactPoint": [
+        { "@type": "ContactPoint", "contactType": "sales", "email": "hello@llm-machines.com", "areaServed": "EU", "availableLanguage": ["English"] },
+        { "@type": "ContactPoint", "contactType": "technical support", "email": "security@llm-machines.com", "areaServed": "EU", "availableLanguage": ["English"] },
+        { "@type": "ContactPoint", "contactType": "privacy", "email": "privacy@llm-machines.com", "areaServed": "EU", "availableLanguage": ["English"] }
+      ],
+      "sameAs": []
+    }
+  ]
 }
-</script>
+  </script>
 </head>
 
 <body>
