@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Technology — LLM Machines</title>
-  <meta name="description" content="The full LLM Machines architecture: twelve layers of certified core, T1/T2/T3 tier model with manifest enforcement, Pure Mode, vetted MCP catalog, open-source stack." />
+  <meta name="description" content="Explore the LLM Machines on-prem AI architecture: certified core, T1/T2/T3 tiers, Pure Mode, model serving, RAG, agents and OpenAI-compatible APIs." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/technology/" />
@@ -73,6 +73,20 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can existing OpenAI API clients use LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The gateway exposes OpenAI-compatible endpoints so applications can point to the appliance instead of a public cloud API, while keeping authentication, logging and routing local." } },
+    { "@type": "Question", "name": "Can the appliance run air-gapped?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Security-sensitive deployments can use offline license activation and local model registries so core inference, RAG and application surfaces work without public internet access." } },
+    { "@type": "Question", "name": "Which models can run locally?", "acceptedAnswer": { "@type": "Answer", "text": "The architecture is designed for open-weight model families such as Llama, Mistral and Qwen, with model choice sized to your hardware, latency and quality requirements." } },
+    { "@type": "Question", "name": "Where are connector credentials stored?", "acceptedAnswer": { "@type": "Answer", "text": "Connector credentials live in the on-box vault inside your environment. MCP servers and integration services use those credentials locally instead of sending them to LLM Machines infrastructure." } },
+    { "@type": "Question", "name": "What does Pure Mode do?", "acceptedAnswer": { "@type": "Answer", "text": "Pure Mode disables T2/T3 custom components and keeps the certified T1 core running. It is useful for incident response, support diagnosis and audit preparation." } },
+    { "@type": "Question", "name": "What is inside the support boundary?", "acceptedAnswer": { "@type": "Answer", "text": "The signed certified core, tier model, manifest, gateway, inference services and documented T1/T2 components are supported. Client-built T3 extensions remain isolated from the SLA." } }
+  ]
+}
+  </script>
 </head>
 
 <body>
@@ -88,8 +102,24 @@
         <a href="../pricing/">Pricing</a>
         <a href="../onboarding/">Onboarding</a>
         <a href="../company/">Company</a>
+        <a href="../contact/">Contact us</a>
       </div>
-      <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+      <div class="nav-actions">
+        <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobile-menu" hidden>
+      <div class="container mobile-drawer-inner">
+        <a href="../technology/" aria-current="page">Technology</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../onboarding/">Onboarding</a>
+        <a href="../company/">Company</a>
+        <a href="../contact/">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -97,8 +127,8 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Technology</span>
-      <h1>The full stack, layered and tier-bounded.</h1>
-      <p class="lead">One appliance. Twelve layers of certified core. A signed manifest enforces what runs where — and Pure Mode keeps anything custom from blocking your SLA.</p>
+      <h1>On-Prem AI Appliance Architecture</h1>
+      <p class="lead">One private AI appliance with an OpenAI-compatible API gateway, local inference, RAG, agents, MCP connectors, audit logs and Pure Mode. A signed manifest enforces what runs where — and what remains inside the support boundary.</p>
     </div>
   </header>
 
@@ -315,6 +345,34 @@
     </div>
   </section>
 
+  <!-- ============== DEVELOPERS ============== -->
+  <section id="developers">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">02 — For developers</span>
+        <h2>Build against local AI like a standard API.</h2>
+        <p>LLM Machines gives engineering teams familiar interfaces while keeping traffic, credentials, models and logs under enterprise control.</p>
+      </div>
+      <div class="seo-grid reveal">
+        <article class="seo-card">
+          <div class="pc-tag">API compatibility</div>
+          <h3>Swap the base URL.</h3>
+          <p>Use OpenAI-compatible endpoints for chat, embeddings and model routing so existing SDK-based tools can move to local infrastructure.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Tooling</div>
+          <h3>Works with developer workflows.</h3>
+          <p>Integrate private models with IDE assistants, internal applications, LangChain-style workflows, n8n automations and MCP servers.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Operations</div>
+          <h3>Observable by default.</h3>
+          <p>Keep request logs, model routing, usage attribution, rate limits and metrics available to admins without sending telemetry outside.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== STACK COMPONENTS (sticky list, same as Solution) ============== -->
   <section id="stack">
     <div class="container">
@@ -410,6 +468,43 @@
     </div>
   </section>
 
+  <!-- ============== FAQ ============== -->
+  <section id="technology-faq">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">03 — FAQ</span>
+        <h2>Architecture questions.</h2>
+        <p>Details security, platform and developer teams usually ask before approving an on-prem AI deployment.</p>
+      </div>
+      <div class="faq-list reveal">
+        <article class="faq-item">
+          <h3>Can existing OpenAI API clients use LLM Machines?</h3>
+          <p>Yes. The gateway exposes OpenAI-compatible endpoints so applications can point to the appliance instead of a public cloud API, while keeping authentication, logging and routing local.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can the appliance run air-gapped?</h3>
+          <p>Yes. Security-sensitive deployments can use offline license activation and local model registries so core inference, RAG and application surfaces work without public internet access.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Which models can run locally?</h3>
+          <p>The architecture is designed for open-weight model families such as Llama, Mistral and Qwen, with model choice sized to your hardware, latency and quality requirements.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Where are connector credentials stored?</h3>
+          <p>Connector credentials live in the on-box vault inside your environment. MCP servers and integration services use those credentials locally instead of sending them to our infrastructure.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What does Pure Mode do?</h3>
+          <p>Pure Mode disables T2/T3 custom components and keeps the certified T1 core running. It is useful for incident response, support diagnosis and audit preparation.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What is inside the support boundary?</h3>
+          <p>The signed certified core, tier model, manifest, gateway, inference services and documented T1/T2 components are supported. Client-built T3 extensions remain isolated from the SLA.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== PAGE CTA ============== -->
   <section class="page-cta">
     <div id="us-cta-technology" class="cta-bg" data-us-scene="../assets/whats-next_background.json"></div>
@@ -441,13 +536,14 @@
           <a href="../technology/">Technology</a>
           <a href="../pricing/">Pricing</a>
           <a href="../onboarding/">Onboarding</a>
-          <a href="../#compare">Compare</a>
+          <a href="../on-prem-ai-appliance/">On-Prem AI Appliance</a>
         </div>
         <div class="foot-col">
-          <h4>Company</h4>
+          <h4>Guides</h4>
           <a href="../company/">About</a>
-          <a href="../company/#sovereignty">Sovereignty</a>
-          <a href="../#why-now">Why now</a>
+          <a href="../sovereign-ai/">Sovereign AI</a>
+          <a href="../cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a>
+          <a href="../use-cases/regulated-enterprise/">Regulated Enterprise</a>
           <a href="../contact/">Contact</a>
         </div>
         <div class="foot-col">

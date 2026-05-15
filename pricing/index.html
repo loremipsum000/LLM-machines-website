@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing — LLM Machines</title>
-  <meta name="description" content="Custom-quoted to your usage profile. From €5K setup, €3K/month retainer, zero hardware commission. Plus a side-by-side build-vs-partner cost comparison including the NVIDIA AI Enterprise tax." />
+  <meta name="description" content="Custom-quoted on-prem AI appliance pricing from €5K setup and €3K/month retainer, with zero hardware commission and predictable ownership costs." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/pricing/" />
@@ -73,6 +73,20 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What does the setup fee cover?", "acceptedAnswer": { "@type": "Answer", "text": "Setup covers discovery, appliance configuration, installation, identity federation, connector wiring, validation, training and handoff." } },
+    { "@type": "Question", "name": "What does the monthly retainer cover?", "acceptedAnswer": { "@type": "Answer", "text": "The retainer covers ongoing service, support, updates and operational partnership, scaled to your hardware footprint, users and SLA." } },
+    { "@type": "Question", "name": "Do you add margin to hardware?", "acceptedAnswer": { "@type": "Answer", "text": "No. Hardware is passed through at zero commission, so your infrastructure investment stays with you." } },
+    { "@type": "Question", "name": "Is there an annual prepay discount?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Annual prepay receives a 20% discount on the recurring service retainer." } },
+    { "@type": "Question", "name": "How does pricing scale?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing scales with capacity, user count, deployment mode, high-availability requirements, connector scope and support expectations." } },
+    { "@type": "Question", "name": "What affects quote size most?", "acceptedAnswer": { "@type": "Answer", "text": "The largest variables are local model capacity, number of users, availability requirements, regulated deployment constraints and integration complexity." } }
+  ]
+}
+  </script>
 </head>
 
 <body>
@@ -88,8 +102,24 @@
         <a href="../pricing/" aria-current="page">Pricing</a>
         <a href="../onboarding/">Onboarding</a>
         <a href="../company/">Company</a>
+        <a href="../contact/">Contact us</a>
       </div>
-      <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+      <div class="nav-actions">
+        <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobile-menu" hidden>
+      <div class="container mobile-drawer-inner">
+        <a href="../technology/">Technology</a>
+        <a href="../pricing/" aria-current="page">Pricing</a>
+        <a href="../onboarding/">Onboarding</a>
+        <a href="../company/">Company</a>
+        <a href="../contact/">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -97,8 +127,8 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Pricing</span>
-      <h1>Custom-quoted to your usage profile.</h1>
-      <p class="lead">Every quote is sized to your actual usage, hardware footprint, and SLA — not a list price. Three guideposts for what to expect, then a side-by-side breakdown of what it costs to build the same thing in-house.</p>
+      <h1>Predictable On-Prem AI Appliance Pricing</h1>
+      <p class="lead">Every quote is sized to your actual usage, hardware footprint and SLA. No per-token billing. No hidden hardware margin. A setup fee and service retainer give you a clear 36-month TCO against cloud AI spend.</p>
     </div>
   </header>
 
@@ -282,6 +312,72 @@
     </div>
   </section>
 
+  <!-- ============== CLOUD VS ON-PREM ============== -->
+  <section id="cloud-vs-on-prem">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">05 — Cloud vs. on-prem</span>
+        <h2>Flat ownership cost beats runaway usage bills.</h2>
+        <p>Public-cloud AI looks flexible until sensitive data, audit requirements, rate limits and token usage all become board-level concerns.</p>
+      </div>
+      <div class="compare-wrap reveal">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Cloud AI APIs</th>
+              <th class="hot">LLM Machines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Data control</td><td class="v-no">Prompts leave your perimeter</td><td class="hot v-yes">Data stays inside your environment</td></tr>
+            <tr><td>Cost model</td><td class="v-no">Usage-based token spend</td><td class="hot v-yes">Setup + service retainer + owned hardware</td></tr>
+            <tr><td>Vendor lock-in</td><td class="v-mid">Provider-specific APIs and policies</td><td class="hot v-yes">Open-source stack and OpenAI-compatible gateway</td></tr>
+            <tr><td>Deployment time</td><td class="v-yes">Fast to start, slower to govern</td><td class="hot v-yes">4–6 week controlled deployment</td></tr>
+            <tr><td>Auditability</td><td class="v-mid">Limited to provider logs and exports</td><td class="hot v-yes">Logs, routing and controls inside your perimeter</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FAQ ============== -->
+  <section id="pricing-faq">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">06 — FAQ</span>
+        <h2>Pricing questions.</h2>
+        <p>How quotes, hardware, retainers and scaling work before a commercial conversation.</p>
+      </div>
+      <div class="faq-list reveal">
+        <article class="faq-item">
+          <h3>What does the setup fee cover?</h3>
+          <p>Setup covers discovery, appliance configuration, installation, identity federation, connector wiring, validation, training and handoff.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What does the monthly retainer cover?</h3>
+          <p>The retainer covers ongoing service, support, updates and operational partnership, scaled to your hardware footprint, users and SLA.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Do you add margin to hardware?</h3>
+          <p>No. Hardware is passed through at zero commission, so your infrastructure investment stays with you.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is there an annual prepay discount?</h3>
+          <p>Yes. Annual prepay receives a 20% discount on the recurring service retainer.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How does pricing scale?</h3>
+          <p>Pricing scales with capacity, user count, deployment mode, high-availability requirements, connector scope and support expectations.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What affects quote size most?</h3>
+          <p>The largest variables are local model capacity, number of users, availability requirements, regulated deployment constraints and integration complexity.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== PAGE CTA ============== -->
   <section class="page-cta">
     <div id="us-cta-pricing" class="cta-bg" data-us-scene="../assets/whats-next_background.json"></div>
@@ -312,13 +408,14 @@
           <a href="../technology/">Technology</a>
           <a href="../pricing/">Pricing</a>
           <a href="../onboarding/">Onboarding</a>
-          <a href="../#compare">Compare</a>
+          <a href="../on-prem-ai-appliance/">On-Prem AI Appliance</a>
         </div>
         <div class="foot-col">
-          <h4>Company</h4>
+          <h4>Guides</h4>
           <a href="../company/">About</a>
-          <a href="../company/#sovereignty">Sovereignty</a>
-          <a href="../#why-now">Why now</a>
+          <a href="../sovereign-ai/">Sovereign AI</a>
+          <a href="../cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a>
+          <a href="../use-cases/regulated-enterprise/">Regulated Enterprise</a>
           <a href="../contact/">Contact</a>
         </div>
         <div class="foot-col">

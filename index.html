@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LLM Machines — Sovereign on-prem AI for European enterprises</title>
-  <meta name="description" content="A complete, private AI appliance for European enterprises that are done overpaying cloud providers and handing their data to foreign infrastructure. EU AI Act, GDPR, NIS2 and EU Data Act ready — by design." />
+  <meta name="description" content="Private on-prem AI appliance for European enterprises. Keep data in your perimeter, control costs, and meet EU AI Act, GDPR, NIS2 and Data Act requirements." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/" />
@@ -103,6 +103,59 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "LLM Machines Sovereign On-Prem AI Appliance",
+  "serviceType": "Sovereign on-prem AI appliance",
+  "description": "A private AI appliance for European enterprises that combines local model serving, an OpenAI-compatible gateway, RAG, agents, audit logs, PII redaction and MCP connectors.",
+  "provider": { "@id": "https://llm-machines.com/#organization" },
+  "areaServed": "EU",
+  "audience": {
+    "@type": "BusinessAudience",
+    "name": "European enterprises"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an on-prem AI appliance?",
+      "acceptedAnswer": { "@type": "Answer", "text": "An on-prem AI appliance is a pre-integrated hardware and software stack that runs models, API gateways, RAG, agents and controls inside your own data centre or private environment." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does company data leave our network?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The default deployment keeps prompts, documents, model traffic, logs and credentials inside your perimeter." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it compatible with OpenAI-style tooling?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The gateway exposes OpenAI-compatible endpoints so teams can point existing applications, developer tools and automation frameworks at local or approved models." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does deployment take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A typical deployment moves from signed contract to live system in 4-6 weeks, including discovery, sizing, installation, SSO, connectors, validation and handoff." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which models are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The stack is built for open-weight models such as Llama, Mistral, Qwen and similar families, with routing and serving handled through the local inference layer." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does pricing work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pricing starts from a setup fee and service retainer sized to your usage profile, hardware footprint, user count and SLA. Hardware is passed through at zero commission." }
+    }
+  ]
+}
+  </script>
 </head>
 
 <body>
@@ -118,8 +171,24 @@
         <a href="pricing/">Pricing</a>
         <a href="onboarding/">Onboarding</a>
         <a href="company/">Company</a>
+        <a href="contact/">Contact us</a>
       </div>
-      <a href="#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+      <div class="nav-actions">
+        <a href="/contact/" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobile-menu" hidden>
+      <div class="container mobile-drawer-inner">
+        <a href="technology/">Technology</a>
+        <a href="pricing/">Pricing</a>
+        <a href="onboarding/">Onboarding</a>
+        <a href="company/">Company</a>
+        <a href="contact/">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -128,10 +197,10 @@
     <div id="us-hero" class="hero-bg" data-us-scene="assets/hero_background.json"></div>
     <div class="hero-blur"></div>
     <div class="hero-content">
-      <h1>Sovereign. Scalable.<br>Fully yours.</h1>
-      <p class="hero-sub">A complete, private AI appliance for European enterprises that are done overpaying cloud providers and handing their data to foreign infrastructure. EU AI Act, GDPR, NIS2 and EU Data Act ready — by design, not by patchwork.</p>
+      <h1>Sovereign On-Prem AI<br>for European Enterprises</h1>
+      <p class="hero-sub">A private AI appliance with local inference, an OpenAI-compatible gateway, RAG, agents, audit logs, PII redaction and MCP connectors. Deploy inside your perimeter — no cloud exposure, no per-token bills, EU AI Act, GDPR, NIS2 and Data Act ready by design.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
+        <a href="/contact/" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
         <a href="technology/" class="btn btn-ghost">Explore the technology</a>
       </div>
     </div>
@@ -156,6 +225,49 @@
           <div class="stat-desc">In GDPR fines — AI data handling is the next frontier.</div>
           <div class="stat-source">EU regulatory exposure</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== WHAT YOU GET ============== -->
+  <section id="what-you-get">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">00 — What you get</span>
+        <h2>A complete private AI stack in one appliance.</h2>
+        <p>LLM Machines packages the core services enterprises need to run generative AI locally, with clear support boundaries and no dependency on public-cloud LLM APIs.</p>
+      </div>
+      <div class="seo-grid reveal">
+        <article class="seo-card">
+          <div class="pc-tag">API gateway</div>
+          <h3>OpenAI-compatible endpoints.</h3>
+          <p>Point existing tools at a private gateway for local models, usage tracking, rate limiting, audit logging and team-level controls.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Knowledge</div>
+          <h3>RAG over internal data.</h3>
+          <p>Connect documents, wikis, tickets and repositories so answers are grounded in your own knowledge base without moving data out.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Automation</div>
+          <h3>Agents and workflows.</h3>
+          <p>Run controlled agentic tasks, n8n-style workflows and MCP tools inside your network, with credentials stored on the appliance.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Privacy</div>
+          <h3>PII redaction layer.</h3>
+          <p>Detect and anonymise sensitive personal data before prompts reach models, with policies aligned to regulated European workloads.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Governance</div>
+          <h3>Audit logs by default.</h3>
+          <p>Keep prompt, response, user, model and routing records inside your perimeter so security teams can inspect what happened.</p>
+        </article>
+        <article class="seo-card">
+          <div class="pc-tag">Connectors</div>
+          <h3>Vetted MCP catalog.</h3>
+          <p>Wire chat, source control, ticketing, docs, CRM, mail and storage through curated connectors instead of ad hoc integrations.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -554,11 +666,47 @@
   </section>
 
   <!-- ============== CTA ============== -->
+  <section id="faq">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">11 — FAQ</span>
+        <h2>Questions enterprises ask first.</h2>
+        <p>Short answers for teams comparing on-prem AI, private AI platforms and cloud LLM APIs.</p>
+      </div>
+      <div class="faq-list reveal">
+        <article class="faq-item">
+          <h3>What is an on-prem AI appliance?</h3>
+          <p>An on-prem AI appliance is a pre-integrated hardware and software stack that runs models, API gateways, RAG, agents and controls inside your own data centre or private environment.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Does company data leave our network?</h3>
+          <p>No. The default deployment keeps prompts, documents, model traffic, logs and credentials inside your perimeter. We do not need data-plane visibility to support the appliance.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is it compatible with OpenAI-style tooling?</h3>
+          <p>Yes. The gateway exposes OpenAI-compatible endpoints so teams can point existing applications, developer tools and automation frameworks at local or approved models.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How long does deployment take?</h3>
+          <p>A typical deployment moves from signed contract to live system in 4–6 weeks, including discovery, sizing, installation, SSO, connectors, validation and handoff.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Which models are supported?</h3>
+          <p>The stack is built for open-weight models such as Llama, Mistral, Qwen and similar families, with routing and serving handled through the local inference layer.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How does pricing work?</h3>
+          <p>Pricing starts from a setup fee and service retainer sized to your usage profile, hardware footprint, user count and SLA. Hardware is passed through at zero commission.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="cta">
     <div id="us-cta-home" class="cta-bg" data-us-scene="assets/whats-next_background.json"></div>
     <div class="cta-blur"></div>
     <div class="container">
-      <span class="label" style="justify-content:center;">11 — Bring AI in-house</span>
+      <span class="label" style="justify-content:center;">12 — Bring AI in-house</span>
       <h2>Sovereign AI, deployed in days.</h2>
       <p>Pilot the appliance against your real workloads. We'll deploy it inside your perimeter — no cloud exposure, no per-token bills.</p>
       <div class="hero-ctas">
@@ -583,13 +731,14 @@
           <a href="technology/">Technology</a>
           <a href="pricing/">Pricing</a>
           <a href="onboarding/">Onboarding</a>
-          <a href="#compare">Compare</a>
+          <a href="on-prem-ai-appliance/">On-Prem AI Appliance</a>
         </div>
         <div class="foot-col">
-          <h4>Company</h4>
+          <h4>Guides</h4>
           <a href="company/">About</a>
-          <a href="company/#sovereignty">Sovereignty</a>
-          <a href="#why-now">Why now</a>
+          <a href="sovereign-ai/">Sovereign AI</a>
+          <a href="cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a>
+          <a href="use-cases/regulated-enterprise/">Regulated Enterprise</a>
           <a href="contact/">Contact</a>
         </div>
         <div class="foot-col">

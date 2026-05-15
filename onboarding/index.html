@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Onboarding — LLM Machines</title>
-  <meta name="description" content="From signed contract to live system in 4–6 weeks. Nine phases, each customised to your environment — your IdP, your network, your tools, your compliance constraints." />
+  <meta name="description" content="Deploy sovereign on-prem AI in 4–6 weeks with discovery, hardware setup, SSO, connectors, validation, training and a structured handoff." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/onboarding/" />
@@ -73,6 +73,19 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What do we need before deployment starts?", "acceptedAnswer": { "@type": "Answer", "text": "You need an agreed deployment mode, network details, identity provider access, approved data sources, admin contacts and pilot workloads for validation." } },
+    { "@type": "Question", "name": "Can onboarding work for air-gapped environments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Security-sensitive deployments can use offline license activation, local model bundles and controlled connector setup without public internet dependency." } },
+    { "@type": "Question", "name": "Which identity providers are supported?", "acceptedAnswer": { "@type": "Answer", "text": "The stack is designed for standard enterprise identity federation through OIDC or SAML, with role mapping for admins, users, auditors and read-only access." } },
+    { "@type": "Question", "name": "How are connectors selected?", "acceptedAnswer": { "@type": "Answer", "text": "Connectors are chosen during discovery based on business value, data sensitivity, credential model and whether they belong in the certified core, partner tier or client sandbox." } },
+    { "@type": "Question", "name": "What makes a good pilot workload?", "acceptedAnswer": { "@type": "Answer", "text": "A good pilot has real users, clear success criteria, representative internal data and enough risk to test governance without blocking production operations." } }
+  ]
+}
+  </script>
 </head>
 
 <body>
@@ -88,8 +101,24 @@
         <a href="../pricing/">Pricing</a>
         <a href="../onboarding/" aria-current="page">Onboarding</a>
         <a href="../company/">Company</a>
+        <a href="../contact/">Contact us</a>
       </div>
-      <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+      <div class="nav-actions">
+        <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobile-menu" hidden>
+      <div class="container mobile-drawer-inner">
+        <a href="../technology/">Technology</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../onboarding/" aria-current="page">Onboarding</a>
+        <a href="../company/">Company</a>
+        <a href="../contact/">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -97,10 +126,29 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Onboarding</span>
-      <h1>Signed contract to live system: 4–6 weeks.</h1>
-      <p class="lead">A tailored deployment, not a SaaS sign-up. Nine phases, each customised to your environment — your IdP, your network, your tools, your compliance constraints. With explicit support boundaries that scale.</p>
+      <h1>Deploy On-Prem AI in 4–6 Weeks</h1>
+      <p class="lead">A tailored deployment, not a SaaS sign-up. We size the appliance, install the stack, federate identity, wire connectors, validate workloads, train admins and hand off a live sovereign AI system.</p>
     </div>
   </header>
+
+  <!-- ============== DEPLOYMENT CHECKLIST ============== -->
+  <section id="deployment-checklist">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">00 — Deployment path</span>
+        <h2>From discovery to handoff.</h2>
+        <p>The same deployment spine applies whether the appliance lands on-premise, in your private cloud, or in our Croatian data centre.</p>
+      </div>
+      <div class="seo-grid reveal">
+        <article class="seo-card"><div class="pc-tag">01</div><h3>Discovery and sizing.</h3><p>Map users, workloads, model needs, data sources, compliance constraints and expected capacity before hardware is finalised.</p></article>
+        <article class="seo-card"><div class="pc-tag">02</div><h3>Hardware and first boot.</h3><p>Rack, power, license, provision storage, validate GPUs, test network throughput and run local inference smoke tests.</p></article>
+        <article class="seo-card"><div class="pc-tag">03</div><h3>SSO and roles.</h3><p>Federate to your identity provider, map admin/user/auditor roles and confirm access boundaries before broader rollout.</p></article>
+        <article class="seo-card"><div class="pc-tag">04</div><h3>Connectors and data.</h3><p>Wire approved sources such as docs, ticketing, repositories, chat and storage through the vetted connector catalog.</p></article>
+        <article class="seo-card"><div class="pc-tag">05</div><h3>Validation.</h3><p>Run canonical tests across chat, API, RAG, agents, observability, audit logs and Pure Mode with real users.</p></article>
+        <article class="seo-card"><div class="pc-tag">06</div><h3>Training and handoff.</h3><p>Train admins and champions, document support boundaries, hand over runbooks and calendar the 30-day check-in.</p></article>
+      </div>
+    </div>
+  </section>
 
   <!-- ============== TIER MODEL INTRO ============== -->
   <section id="tier-model">
@@ -289,6 +337,39 @@
     </div>
   </section>
 
+  <!-- ============== FAQ ============== -->
+  <section id="onboarding-faq">
+    <div class="container">
+      <div class="sect-head reveal">
+        <span class="label">04 — FAQ</span>
+        <h2>Deployment questions.</h2>
+        <p>What security, IT and business teams usually need to know before scheduling an on-prem AI rollout.</p>
+      </div>
+      <div class="faq-list reveal">
+        <article class="faq-item">
+          <h3>What do we need before deployment starts?</h3>
+          <p>You need an agreed deployment mode, network details, identity provider access, approved data sources, admin contacts and pilot workloads for validation.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can onboarding work for air-gapped environments?</h3>
+          <p>Yes. Security-sensitive deployments can use offline license activation, local model bundles and controlled connector setup without public internet dependency.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Which identity providers are supported?</h3>
+          <p>The stack is designed for standard enterprise identity federation through OIDC or SAML, with role mapping for admins, users, auditors and read-only access.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How are connectors selected?</h3>
+          <p>Connectors are chosen during discovery based on business value, data sensitivity, credential model and whether they belong in the certified core, partner tier or client sandbox.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What makes a good pilot workload?</h3>
+          <p>A good pilot has real users, clear success criteria, representative internal data and enough risk to test governance without blocking production operations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== PAGE CTA ============== -->
   <section class="page-cta">
     <div id="us-cta-onboarding" class="cta-bg" data-us-scene="../assets/whats-next_background.json"></div>
@@ -320,13 +401,14 @@
           <a href="../technology/">Technology</a>
           <a href="../pricing/">Pricing</a>
           <a href="../onboarding/">Onboarding</a>
-          <a href="../#compare">Compare</a>
+          <a href="../on-prem-ai-appliance/">On-Prem AI Appliance</a>
         </div>
         <div class="foot-col">
-          <h4>Company</h4>
+          <h4>Guides</h4>
           <a href="../company/">About</a>
-          <a href="../company/#sovereignty">Sovereignty</a>
-          <a href="../#why-now">Why now</a>
+          <a href="../sovereign-ai/">Sovereign AI</a>
+          <a href="../cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a>
+          <a href="../use-cases/regulated-enterprise/">Regulated Enterprise</a>
           <a href="../contact/">Contact</a>
         </div>
         <div class="foot-col">
