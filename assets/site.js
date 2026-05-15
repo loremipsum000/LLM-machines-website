@@ -376,42 +376,39 @@
 })();
 
 /* ============================================================
-   UNICORN STUDIO — initialize on all pages (replaces inline script)
+   UNICORN STUDIO — gated behind FUNCTIONAL cookie consent.
+   The cookie module dispatches 'cc:functional-allowed' once the
+   user has opted in (or on subsequent visits when previously opted in).
    ============================================================ */
-(function () {
-  if (!document.querySelector('[data-us-project]')) return;
-  if (window.UnicornStudio && window.UnicornStudio.init) {
-    window.UnicornStudio.init();
-    return;
+function __ccBootUnicorn() {
+  // Project-style targets (legacy data-us-project)
+  if (document.querySelector('[data-us-project]')) {
+    if (window.UnicornStudio && window.UnicornStudio.init) {
+      window.UnicornStudio.init();
+    } else if (!window.__unicornLoaded) {
+      window.__unicornLoaded = true;
+      window.UnicornStudio = { isInitialized: false };
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.12/dist/unicornStudio.umd.js';
+      s.setAttribute('data-cc', 'unicorn');
+      s.onload = function () {
+        if (window.UnicornStudio && window.UnicornStudio.init) window.UnicornStudio.init();
+      };
+      (document.head || document.body).appendChild(s);
+    }
   }
-  if (window.__unicornLoaded) return;
-  window.__unicornLoaded = true;
-  window.UnicornStudio = { isInitialized: false };
-  const s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.12/dist/unicornStudio.umd.js';
-  s.onload = function () {
-    if (window.UnicornStudio && window.UnicornStudio.init) window.UnicornStudio.init();
-  };
-  (document.head || document.body).appendChild(s);
-})();
 
-/* ============================================================
-   UNICORN STUDIO — programmatic scene loader (v2.1.12)
-   Reads each [data-us-scene] element, resolves the JSON path,
-   loads the scene, and adds it via UnicornStudio.addScene().
-   Tries multiple known parameter names (filePath / projectPath / project).
-   ============================================================ */
-(function () {
+  // Scene-style targets (data-us-scene)
   const targets = document.querySelectorAll('[data-us-scene]');
   if (!targets.length) return;
 
   function whenReady(cb) {
     if (window.UnicornStudio && typeof window.UnicornStudio.addScene === 'function') return cb();
-    // Inject script if not already
     if (!window.__usScriptLoading) {
       window.__usScriptLoading = true;
       const s = document.createElement('script');
       s.src = 'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.12/dist/unicornStudio.umd.js';
+      s.setAttribute('data-cc', 'unicorn');
       s.onload = () => { setTimeout(() => whenReady(cb), 50); };
       s.onerror = () => console.error('[Unicorn] script failed to load from CDN');
       (document.head || document.body).appendChild(s);
@@ -428,7 +425,7 @@
       const params = {
         elementId: el.id,
         filePath: filePath,
-        projectPath: filePath,  // alternate name some versions use
+        projectPath: filePath,
         fps: 60,
         scale: 1,
         dpi: 1.5,
@@ -443,4 +440,468 @@
       }
     });
   });
+}
+
+// Listen for consent. If already granted (e.g., previously opted in), the
+// module dispatches the event during init. We listen and also poll the flag.
+if (window.__cc_functional_allowed === true) {
+  __ccBootUnicorn();
+} else {
+  window.addEventListener('cc:functional-allowed', __ccBootUnicorn, { once: true });
+}
+
+/* ============================================================
+   COOKIE CONSENT MODULE (GDPR / ePrivacy / EU AI Act friendly)
+   - Strict opt-in: nothing non-essential loads until accepted
+   - Bottom-left banner + full granular preferences modal
+   - Bilingual (EN / HR) — picks via <html lang>
+   - Persisted in localStorage as 'llm-consent-v1'
+   - Re-openable via "Cookie settings" link injected in footer
+   ============================================================ */
+(function () {
+  const STORAGE_KEY = 'llm-consent-v1';
+  const CURRENT_VERSION = '1.0';
+  const lang = (document.documentElement.lang || 'en').toLowerCase().startsWith('hr') ? 'hr' : 'en';
+
+  // -------- i18n strings --------
+  const STRINGS = {
+    en: {
+      bannerLabel: 'Cookie notice',
+      bannerTitle: 'We respect your data.',
+      bannerBody: 'This site loads only the cookies and third-party assets you allow. Strictly necessary storage is on by default; everything else is off until you opt in. See our <a href="/privacy/">Privacy Policy</a> for details.',
+      btnAcceptAll: 'Accept all',
+      btnRejectAll: 'Reject all',
+      btnCustomize: 'Customise preferences',
+      modalTitle: 'Cookie preferences',
+      modalIntro: 'Below is the complete list of storage and third-party assets this site can use, grouped by purpose. Strictly necessary items can\'t be disabled because the site can\'t remember your choice without them. Everything else stays off until you switch it on.',
+      catNecessary: 'Strictly necessary',
+      catNecessaryDesc: 'Required for the site to function and to remember your consent choices. Cannot be disabled.',
+      catFunctional: 'Functional',
+      catFunctionalDesc: 'Loads visual assets — hero/background animations and the Urbanist webfont — that make the site feel like our brand. The site works without them, just with system fonts and static backgrounds.',
+      catAnalytics: 'Analytics',
+      catAnalyticsDesc: 'We don\'t currently use any analytics, tracking, or measurement tools. This toggle exists so future analytics will only run with your explicit consent. Stays off by default.',
+      catMarketing: 'Marketing',
+      catMarketingDesc: 'We don\'t run any marketing tags, retargeting pixels, or ad networks. If that ever changes, you\'ll see the specific vendors listed here and be asked again. Stays off by default.',
+      always: 'Always on',
+      empty: 'No cookies or third-party assets currently used in this category.',
+      btnSavePrefs: 'Save preferences',
+      btnAcceptAllModal: 'Accept all',
+      btnRejectAllModal: 'Reject all',
+      version: 'v ' + CURRENT_VERSION,
+      footerLink: 'Cookie settings',
+      ariaClose: 'Close cookie preferences',
+      labels: {
+        type: 'Type',
+        storage: 'localStorage',
+        cookie: 'Cookie',
+        script: 'Third-party script',
+        stylesheet: 'Third-party stylesheet',
+        formAction: 'Third-party form endpoint',
+        duration: 'Duration',
+        provider: 'Provider',
+        purpose: 'Purpose',
+        domain: 'Domain',
+        persistent: 'Persistent (12 months)',
+        sessionDur: 'Session',
+        loadOnly: 'On-demand (only when used)',
+        loadFunctional: 'On page load (if functional accepted)',
+      },
+      items: {
+        consent: {
+          name: 'llm-consent-v1',
+          purpose: 'Records your cookie preferences and the timestamp of your choice. Required so we don\'t ask you again on every page load.',
+        },
+        unicorn: {
+          name: 'Unicorn Studio',
+          purpose: 'Animation engine used for the hero and call-to-action background visuals. Loaded from a public CDN. No cookies set; the CDN logs the request (IP + user agent) per standard HTTP behaviour.',
+        },
+        fonts: {
+          name: 'Google Fonts (Urbanist)',
+          purpose: 'Loads the Urbanist body font used across the site. Google receives your IP address when the font CSS is fetched. We do not pass any personal data. Declining falls back to your system font.',
+        },
+        formsubmit: {
+          name: 'FormSubmit (contact form)',
+          purpose: 'Used only when you submit the contact form. The data you typed plus your IP are sent to formsubmit.co to be delivered to us by email. Never loaded otherwise.',
+        },
+      },
+    },
+    hr: {
+      bannerLabel: 'Obavijest o kolačićima',
+      bannerTitle: 'Poštujemo vaše podatke.',
+      bannerBody: 'Ova stranica učitava samo one kolačiće i resurse trećih strana koje vi dopustite. Strogo nužna pohrana uključena je prema zadanim postavkama; sve ostalo je isključeno dok se ne odlučite uključiti. Detalji u <a href="/privacy/">Pravilima privatnosti</a>.',
+      btnAcceptAll: 'Prihvati sve',
+      btnRejectAll: 'Odbij sve',
+      btnCustomize: 'Prilagodi postavke',
+      modalTitle: 'Postavke kolačića',
+      modalIntro: 'Ispod je potpuni popis pohrane i resursa trećih strana koje ova stranica može koristiti, grupirano po namjeni. Strogo nužne stavke ne mogu se onemogućiti jer stranica bez njih ne može zapamtiti vaš izbor. Sve ostalo ostaje isključeno dok ga ne uključite.',
+      catNecessary: 'Strogo nužni',
+      catNecessaryDesc: 'Potrebni za rad stranice i za pamćenje vaše odluke o pristanku. Ne mogu se onemogućiti.',
+      catFunctional: 'Funkcionalni',
+      catFunctionalDesc: 'Učitava vizualne resurse — animacije hero i pozadinskih scena te Urbanist webfont — koji daju stranici naš brand. Stranica radi i bez njih, samo sa sistemskim fontovima i statičnim pozadinama.',
+      catAnalytics: 'Analitika',
+      catAnalyticsDesc: 'Trenutno ne koristimo nijedan alat za analitiku, praćenje ili mjerenje. Ovaj prekidač postoji kako bi se eventualna buduća analitika pokretala samo uz vaš izričiti pristanak. Prema zadanim postavkama isključen.',
+      catMarketing: 'Marketing',
+      catMarketingDesc: 'Ne koristimo marketinške oznake, retargeting piksele ni reklamne mreže. Ako se to ikad promijeni, ovdje ćete vidjeti konkretne dobavljače i bit ćete ponovno upitani. Prema zadanim postavkama isključen.',
+      always: 'Uvijek uključeno',
+      empty: 'Trenutno se u ovoj kategoriji ne koriste nikakvi kolačići ni resursi trećih strana.',
+      btnSavePrefs: 'Spremi postavke',
+      btnAcceptAllModal: 'Prihvati sve',
+      btnRejectAllModal: 'Odbij sve',
+      version: 'v ' + CURRENT_VERSION,
+      footerLink: 'Postavke kolačića',
+      ariaClose: 'Zatvori postavke kolačića',
+      labels: {
+        type: 'Vrsta',
+        storage: 'localStorage',
+        cookie: 'Kolačić',
+        script: 'Skripta treće strane',
+        stylesheet: 'Stylesheet treće strane',
+        formAction: 'Endpoint obrasca treće strane',
+        duration: 'Trajanje',
+        provider: 'Pružatelj',
+        purpose: 'Svrha',
+        domain: 'Domena',
+        persistent: 'Trajno (12 mjeseci)',
+        sessionDur: 'Sesija',
+        loadOnly: 'Na zahtjev (samo pri korištenju)',
+        loadFunctional: 'Pri učitavanju stranice (ako prihvatite funkcionalne)',
+      },
+      items: {
+        consent: {
+          name: 'llm-consent-v1',
+          purpose: 'Bilježi vaše postavke kolačića i vrijeme vaše odluke. Potrebno da vas ne pitamo iznova pri svakom učitavanju stranice.',
+        },
+        unicorn: {
+          name: 'Unicorn Studio',
+          purpose: 'Engine za animacije koji se koristi za hero i call-to-action pozadinske vizuale. Učitava se s javnog CDN-a. Ne postavlja kolačiće; CDN bilježi zahtjev (IP + user agent) prema standardnom HTTP ponašanju.',
+        },
+        fonts: {
+          name: 'Google Fonts (Urbanist)',
+          purpose: 'Učitava Urbanist font tijela teksta koji se koristi na cijeloj stranici. Google prima vašu IP adresu kada se font CSS dohvati. Ne prosljeđujemo nikakve osobne podatke. Ako odbijete, koristi se vaš sistemski font.',
+        },
+        formsubmit: {
+          name: 'FormSubmit (kontakt obrazac)',
+          purpose: 'Koristi se samo kada pošaljete kontakt obrazac. Podaci koje ste upisali i vaša IP adresa šalju se na formsubmit.co i nama dostavljaju email-om. Inače se ne učitava.',
+        },
+      },
+    },
+  };
+
+  const t = STRINGS[lang];
+
+  // -------- storage --------
+  function loadConsent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (obj.version !== CURRENT_VERSION) return null;
+      return obj;
+    } catch (e) { return null; }
+  }
+  function saveConsent(prefs) {
+    const payload = {
+      necessary: true,
+      functional: !!prefs.functional,
+      analytics: !!prefs.analytics,
+      marketing: !!prefs.marketing,
+      timestamp: new Date().toISOString(),
+      version: CURRENT_VERSION,
+    };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) {}
+    return payload;
+  }
+
+  // -------- apply consent (load or unload functional assets) --------
+  function applyConsent(prefs) {
+    const wasAllowed = window.__cc_functional_allowed === true;
+    window.__cc_functional_allowed = !!prefs.functional;
+
+    // Google Fonts (Urbanist) — already in <head>. Toggle by disabling/restoring.
+    document.querySelectorAll('link[href*="fonts.googleapis.com"], link[href*="fonts.gstatic.com"]').forEach(el => {
+      if (prefs.functional) {
+        el.removeAttribute('disabled');
+        if (el.hasAttribute('data-cc-original-media')) {
+          el.setAttribute('media', el.getAttribute('data-cc-original-media'));
+          el.removeAttribute('data-cc-original-media');
+        }
+      } else {
+        if (!el.hasAttribute('data-cc-original-media')) {
+          el.setAttribute('data-cc-original-media', el.getAttribute('media') || 'all');
+        }
+        el.setAttribute('media', 'not all');
+      }
+    });
+
+    // Unicorn — dispatch event so the gated loader picks it up
+    if (prefs.functional && !wasAllowed) {
+      window.dispatchEvent(new CustomEvent('cc:functional-allowed'));
+    }
+    if (!prefs.functional && wasAllowed) {
+      // Best-effort tear-down: remove injected Unicorn script tag.
+      document.querySelectorAll('script[data-cc="unicorn"]').forEach(el => el.remove());
+    }
+  }
+
+  // -------- DOM helpers --------
+  function el(tag, attrs, ...children) {
+    const node = document.createElement(tag);
+    if (attrs) {
+      for (const k in attrs) {
+        if (k === 'class') node.className = attrs[k];
+        else if (k === 'html') node.innerHTML = attrs[k];
+        else if (k.startsWith('on')) node.addEventListener(k.slice(2).toLowerCase(), attrs[k]);
+        else if (attrs[k] === true) node.setAttribute(k, '');
+        else if (attrs[k] !== false && attrs[k] != null) node.setAttribute(k, attrs[k]);
+      }
+    }
+    for (const c of children) {
+      if (c == null) continue;
+      node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+    }
+    return node;
+  }
+
+  // -------- banner --------
+  let bannerEl, modalEl;
+
+  function buildBanner() {
+    const banner = el('div', { class: 'cc-banner', role: 'dialog', 'aria-modal': 'false', 'aria-labelledby': 'cc-banner-title' });
+
+    const head = el('div', { class: 'cc-banner-head' },
+      el('span', { class: 'cc-banner-mark' }, t.bannerLabel)
+    );
+    const h4 = el('h4', { id: 'cc-banner-title' }, t.bannerTitle);
+    const p = el('p', { html: t.bannerBody });
+
+    const accept = el('button', { class: 'cc-btn cc-btn--primary', type: 'button', onclick: onAcceptAll }, t.btnAcceptAll);
+    const reject = el('button', { class: 'cc-btn', type: 'button', onclick: onRejectAll }, t.btnRejectAll);
+    const customize = el('button', { class: 'cc-btn cc-btn-customize', type: 'button', onclick: () => { hideBanner(); showModal(); } }, t.btnCustomize);
+
+    const actions = el('div', { class: 'cc-banner-actions' }, accept, reject, customize);
+
+    banner.appendChild(head);
+    banner.appendChild(h4);
+    banner.appendChild(p);
+    banner.appendChild(actions);
+
+    return banner;
+  }
+
+  function buildModal(initialPrefs) {
+    const overlay = el('div', { class: 'cc-modal', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'cc-modal-title', onclick: (e) => { if (e.target === overlay) hideModal(); } });
+    const panel = el('div', { class: 'cc-modal-panel' });
+
+    // Head
+    const head = el('div', { class: 'cc-modal-head' },
+      el('h3', { id: 'cc-modal-title' }, t.modalTitle),
+      el('button', { class: 'cc-modal-close', type: 'button', 'aria-label': t.ariaClose, onclick: hideModal }, '×')
+    );
+
+    // Body
+    const body = el('div', { class: 'cc-modal-body' });
+    body.appendChild(el('p', null, t.modalIntro));
+
+    // Category builder
+    function buildCategory(catKey, name, desc, always, techList) {
+      const cat = el('section', { class: 'cc-cat', 'data-cat': catKey });
+      const catHead = el('div', { class: 'cc-cat-head' },
+        el('h4', null, name),
+        buildToggleControl(catKey, !!initialPrefs[catKey], always)
+      );
+      const descP = el('p', { class: 'cc-cat-desc' }, desc);
+      cat.appendChild(catHead);
+      cat.appendChild(descP);
+      if (techList && techList.length) {
+        const ul = el('ul', { class: 'cc-tech-list' });
+        techList.forEach(it => ul.appendChild(buildTech(it)));
+        cat.appendChild(ul);
+      } else {
+        cat.appendChild(el('div', { class: 'cc-empty' }, t.empty));
+      }
+      return cat;
+    }
+
+    function buildToggleControl(catKey, checked, always) {
+      const wrap = el('label', { class: 'cc-toggle', 'aria-label': name });
+      const input = el('input', { type: 'checkbox', 'data-cat-toggle': catKey });
+      if (checked || always) input.checked = true;
+      if (always) input.disabled = true;
+      const track = el('span', { class: 'cc-toggle-track' });
+      wrap.appendChild(input);
+      wrap.appendChild(track);
+      if (always) {
+        const note = el('span', { style: 'position:absolute;right:48px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-mute);white-space:nowrap;' }, t.always);
+        wrap.appendChild(note);
+      }
+      return wrap;
+    }
+
+    function buildTech(item) {
+      const wrap = el('li', { class: 'cc-tech' });
+      const name = el('div', { class: 'cc-tech-name' }, item.name);
+      if (item.code) {
+        name.appendChild(el('code', null, item.code));
+      }
+      wrap.appendChild(name);
+      wrap.appendChild(el('p', { class: 'cc-tech-purpose' }, item.purpose));
+      const meta = el('div', { class: 'cc-tech-meta' });
+      if (item.type) meta.appendChild(el('span', null, `${t.labels.type}: ${item.type}`));
+      if (item.duration) meta.appendChild(el('span', null, `${t.labels.duration}: ${item.duration}`));
+      if (item.domain) meta.appendChild(el('span', null, `${t.labels.domain}: ${item.domain}`));
+      if (meta.children.length) wrap.appendChild(meta);
+      return wrap;
+    }
+
+    // -------- Categories --------
+    // Necessary
+    body.appendChild(buildCategory('necessary', t.catNecessary, t.catNecessaryDesc, true, [
+      {
+        name: t.items.consent.name,
+        code: 'localStorage',
+        purpose: t.items.consent.purpose,
+        type: t.labels.storage,
+        duration: t.labels.persistent,
+        domain: 'llm-machines.com',
+      },
+    ]));
+
+    // Functional
+    body.appendChild(buildCategory('functional', t.catFunctional, t.catFunctionalDesc, false, [
+      {
+        name: t.items.unicorn.name,
+        code: 'cdn.jsdelivr.net',
+        purpose: t.items.unicorn.purpose,
+        type: t.labels.script,
+        duration: t.labels.loadFunctional,
+        domain: 'cdn.jsdelivr.net',
+      },
+      {
+        name: t.items.fonts.name,
+        code: 'fonts.googleapis.com',
+        purpose: t.items.fonts.purpose,
+        type: t.labels.stylesheet,
+        duration: t.labels.loadFunctional,
+        domain: 'fonts.googleapis.com · fonts.gstatic.com',
+      },
+      {
+        name: t.items.formsubmit.name,
+        code: 'formsubmit.co',
+        purpose: t.items.formsubmit.purpose,
+        type: t.labels.formAction,
+        duration: t.labels.loadOnly,
+        domain: 'formsubmit.co',
+      },
+    ]));
+
+    // Analytics — empty by design
+    body.appendChild(buildCategory('analytics', t.catAnalytics, t.catAnalyticsDesc, false, []));
+
+    // Marketing — empty by design
+    body.appendChild(buildCategory('marketing', t.catMarketing, t.catMarketingDesc, false, []));
+
+    // Foot
+    const foot = el('div', { class: 'cc-modal-foot' });
+    const version = el('span', { class: 'cc-version' }, t.version);
+    const actions = el('div', { class: 'cc-modal-foot-actions' },
+      el('button', { class: 'cc-btn', type: 'button', onclick: onRejectAll }, t.btnRejectAllModal),
+      el('button', { class: 'cc-btn', type: 'button', onclick: onSavePrefs }, t.btnSavePrefs),
+      el('button', { class: 'cc-btn cc-btn--primary', type: 'button', onclick: onAcceptAll }, t.btnAcceptAllModal)
+    );
+    foot.appendChild(version);
+    foot.appendChild(actions);
+
+    panel.appendChild(head);
+    panel.appendChild(body);
+    panel.appendChild(foot);
+    overlay.appendChild(panel);
+
+    return overlay;
+  }
+
+  // -------- show / hide --------
+  function showBanner() {
+    if (!bannerEl) {
+      bannerEl = buildBanner();
+      document.body.appendChild(bannerEl);
+    }
+    requestAnimationFrame(() => bannerEl.classList.add('is-open'));
+  }
+  function hideBanner() {
+    if (bannerEl) bannerEl.classList.remove('is-open');
+  }
+  function showModal() {
+    const current = loadConsent() || { necessary: true, functional: false, analytics: false, marketing: false };
+    if (modalEl) { modalEl.remove(); modalEl = null; }
+    modalEl = buildModal(current);
+    document.body.appendChild(modalEl);
+    requestAnimationFrame(() => modalEl.classList.add('is-open'));
+    document.body.style.overflow = 'hidden';
+  }
+  function hideModal() {
+    if (modalEl) {
+      modalEl.classList.remove('is-open');
+      setTimeout(() => { if (modalEl) { modalEl.remove(); modalEl = null; } }, 320);
+    }
+    document.body.style.overflow = '';
+  }
+
+  // -------- handlers --------
+  function onAcceptAll() {
+    const prefs = saveConsent({ functional: true, analytics: true, marketing: true });
+    applyConsent(prefs);
+    hideBanner();
+    hideModal();
+  }
+  function onRejectAll() {
+    const prefs = saveConsent({ functional: false, analytics: false, marketing: false });
+    applyConsent(prefs);
+    hideBanner();
+    hideModal();
+  }
+  function onSavePrefs() {
+    // Read toggles from modal
+    if (!modalEl) return;
+    const get = (cat) => {
+      const input = modalEl.querySelector(`input[data-cat-toggle="${cat}"]`);
+      return !!(input && input.checked);
+    };
+    const prefs = saveConsent({
+      functional: get('functional'),
+      analytics: get('analytics'),
+      marketing: get('marketing'),
+    });
+    applyConsent(prefs);
+    hideBanner();
+    hideModal();
+  }
+
+  // -------- footer link injection --------
+  function injectFooterLink() {
+    const footerCols = document.querySelectorAll('footer .foot-col');
+    if (!footerCols.length) return;
+    const lastCol = footerCols[footerCols.length - 1];
+    if (lastCol.querySelector('.foot-cookie-settings')) return;
+    const btn = el('button', { class: 'foot-cookie-settings', type: 'button', onclick: showModal }, t.footerLink);
+    lastCol.appendChild(btn);
+  }
+
+  // -------- init --------
+  function init() {
+    const consent = loadConsent();
+    if (consent) {
+      applyConsent(consent);
+    } else {
+      // No prior consent — disable Google Fonts immediately
+      applyConsent({ necessary: true, functional: false, analytics: false, marketing: false });
+      showBanner();
+    }
+    injectFooterLink();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();

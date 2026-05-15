@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary — LLM Machines</title>
+  <meta name="description" content="A working glossary of sovereign on-prem AI: models, architecture, privacy, EU regulation and deployment terminology used across LLM Machines and the wider enterprise AI landscape." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://llm-machines.com/glossary/" />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href="https://llm-machines.com/glossary/" />
+  <link rel="alternate" hreflang="hr" href="https://llm-machines.com/hr/glossary/" />
+  <link rel="alternate" hreflang="x-default" href="https://llm-machines.com/glossary/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Glossary — Sovereign AI vocabulary for enterprises" />
+  <meta property="og:description" content="60+ terms covering models, architecture, privacy, EU regulation and operations. Plain-English definitions for technical buyers." />
+  <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://llm-machines.com/glossary/" />
+  <meta property="og:site_name" content="LLM Machines" />
+  <meta property="og:locale" content="en_EU" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Glossary — Sovereign AI vocabulary for enterprises" />
+  <meta name="twitter:description" content="60+ terms covering models, architecture, privacy, EU regulation and operations." />
+  <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
+
+  <!-- Theme + indexing -->
+  <meta name="theme-color" content="#0E0E0E" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="LLM Machines" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/svg+xml" href="/assets/Favi-32.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="msapplication-TileColor" content="#0E0E0E" />
+  <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://llm-machines.com/glossary/",
+  "name": "LLM Machines Glossary",
+  "description": "Working glossary of sovereign on-prem AI terminology.",
+  "inLanguage": "en",
+  "publisher": { "@type": "Organization", "name": "LLM Machines", "url": "https://llm-machines.com/" }
+}
+  </script>
+</head>
+
+<body>
+
+  <!-- ============== NAV ============== -->
+  <nav class="top">
+    <div class="container nav-inner">
+      <a href="../" class="brand">
+        <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
+      </a>
+      <div class="nav-links">
+        <a href="../technology/">Technology</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../onboarding/">Onboarding</a>
+        <a href="../company/">Company</a>
+        <a href="../contact/">Contact us</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-switch lang-switch--desktop" role="group" aria-label="Language / Jezik">
+          <a href="./" class="lang-opt" aria-current="page" hreflang="en">EN</a>
+          <a href="../hr/glossary/" class="lang-opt" hreflang="hr">HR</a>
+        </div>
+        <a href="../contact/" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-drawer" id="mobile-menu" hidden>
+      <div class="container mobile-drawer-inner">
+        <div class="lang-switch lang-switch--mobile" role="group" aria-label="Language / Jezik">
+          <a href="./" class="lang-opt" aria-current="page" hreflang="en">EN</a>
+          <a href="../hr/glossary/" class="lang-opt" hreflang="hr">HR</a>
+        </div>
+        <a href="../technology/">Technology</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../onboarding/">Onboarding</a>
+        <a href="../company/">Company</a>
+        <a href="../contact/">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <header class="glossary-hero">
+    <div class="container">
+      <span class="label">Reference</span>
+      <h1>Glossary.</h1>
+      <p>A working vocabulary for sovereign on-prem AI — covering the models, architecture, security, EU regulation and operations terminology we use across the site, plus context most buyers and architects need when comparing private AI platforms.</p>
+    </div>
+  </header>
+
+  <!-- ============== GLOSSARY ============== -->
+  <section>
+    <div class="container">
+      <div class="glossary-layout">
+        <aside class="glossary-toc" aria-label="Categories">
+          <a href="#ai-models">AI &amp; Models</a>
+          <a href="#architecture">Architecture &amp; Infrastructure</a>
+          <a href="#privacy">Privacy, Security &amp; Identity</a>
+          <a href="#regulations">Regulations &amp; Compliance</a>
+          <a href="#operations">Operations &amp; Deployment</a>
+        </aside>
+        <div class="glossary-content">
+
+          <!-- AI & MODELS -->
+          <section class="glossary-section" id="ai-models">
+            <h2>AI &amp; Models.</h2>
+            <p class="glossary-section-desc">The model layer — what is being run, how it represents text, and the tuning vocabulary around it.</p>
+            <dl>
+              <div class="glossary-entry" id="llm">
+                <dt>LLM</dt>
+                <dd><strong>Large Language Model.</strong> A neural network trained on massive text corpora to predict the next token in a sequence. Today's chat assistants are LLMs running with instruction tuning and safety layers on top.</dd>
+              </div>
+              <div class="glossary-entry" id="open-weight">
+                <dt>Open-weight model</dt>
+                <dd>A model whose trained parameters are publicly released, so the model can be downloaded, audited, fine-tuned and run locally. Examples: Llama, Mistral, Qwen, DeepSeek. Contrast with proprietary models accessible only through a vendor's API.</dd>
+              </div>
+              <div class="glossary-entry" id="token">
+                <dt>Token <span class="term-aka">tokenization</span></dt>
+                <dd>The atomic unit a language model reads and writes. One token is roughly ¾ of an English word. Tokenization is the preprocessing step that splits text into these units; pricing on cloud LLM APIs is per-token.</dd>
+              </div>
+              <div class="glossary-entry" id="context-window">
+                <dt>Context window</dt>
+                <dd>The maximum number of tokens a model can consider at once when generating a response. Larger context windows let the model reason over longer documents but raise memory and latency costs.</dd>
+              </div>
+              <div class="glossary-entry" id="embedding">
+                <dt>Embedding</dt>
+                <dd>A numeric vector representation of text (or any data) that captures semantic meaning. Embeddings power semantic search, RAG retrieval, clustering and de-duplication.</dd>
+              </div>
+              <div class="glossary-entry" id="vector-database">
+                <dt>Vector database <span class="term-aka">vector store</span></dt>
+                <dd>A specialised database that stores embeddings and supports nearest-neighbour search. Required infrastructure for RAG. Examples: Qdrant, Weaviate, Milvus, pgvector.</dd>
+              </div>
+              <div class="glossary-entry" id="inference">
+                <dt>Inference</dt>
+                <dd>Running a trained model to produce output, as opposed to <em>training</em>, which produces the model in the first place. On-prem inference means the model is executed on your own hardware.</dd>
+              </div>
+              <div class="glossary-entry" id="fine-tuning">
+                <dt>Fine-tuning</dt>
+                <dd>Adapting a pre-trained model to specific tasks or domain language by continuing training on a smaller, targeted dataset. Distinct from prompt engineering, which shapes input rather than weights.</dd>
+              </div>
+              <div class="glossary-entry" id="lora">
+                <dt>LoRA / QLoRA</dt>
+                <dd><strong>Low-Rank Adaptation.</strong> A parameter-efficient fine-tuning method that trains a small set of additional weights instead of updating the full model — drastically cutting compute and storage. QLoRA adds quantisation for further savings.</dd>
+              </div>
+              <div class="glossary-entry" id="quantization">
+                <dt>Quantization</dt>
+                <dd>Reducing the numerical precision of model weights (for example, from 16-bit to 4-bit) to shrink model size and accelerate inference, usually with a small accuracy trade-off.</dd>
+              </div>
+              <div class="glossary-entry" id="hallucination">
+                <dt>Hallucination</dt>
+                <dd>When a model generates plausible-sounding but factually incorrect output. The main reason production AI systems use grounding techniques like RAG.</dd>
+              </div>
+              <div class="glossary-entry" id="temperature">
+                <dt>Temperature</dt>
+                <dd>A sampling parameter that controls randomness in model output. Zero produces deterministic, focused responses; higher values produce more creative or varied output.</dd>
+              </div>
+              <div class="glossary-entry" id="model-families">
+                <dt>Llama · Mistral · Qwen · DeepSeek</dt>
+                <dd>Major families of open-weight LLMs from Meta, Mistral AI, Alibaba and DeepSeek respectively. The four that most enterprises evaluate first when planning local inference.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <!-- ARCHITECTURE -->
+          <section class="glossary-section" id="architecture">
+            <h2>Architecture &amp; Infrastructure.</h2>
+            <p class="glossary-section-desc">How an AI system is assembled, served, and bounded — from the appliance level down to individual protocols.</p>
+            <dl>
+              <div class="glossary-entry" id="on-prem">
+                <dt>On-prem <span class="term-aka">on-premise</span></dt>
+                <dd>Software or hardware that runs inside an organisation's own data centre or private cloud, rather than in a third-party public cloud. The architectural opposite of SaaS.</dd>
+              </div>
+              <div class="glossary-entry" id="appliance">
+                <dt>Appliance</dt>
+                <dd>A pre-integrated hardware-plus-software unit shipped as a single product. Network firewalls, storage arrays, and our AI platform are all appliances — the customer doesn't assemble the components.</dd>
+              </div>
+              <div class="glossary-entry" id="api-gateway">
+                <dt>API gateway</dt>
+                <dd>A service sitting between clients and backend AI models, handling authentication, rate limiting, routing, logging and observability. In our stack: LiteLLM exposing OpenAI-compatible endpoints.</dd>
+              </div>
+              <div class="glossary-entry" id="endpoint">
+                <dt>Endpoint</dt>
+                <dd>A specific URL at which an API can be called (e.g. <code>/v1/chat/completions</code>). "OpenAI-compatible endpoints" means the URLs and request format match what OpenAI's API expects, so existing clients work unchanged.</dd>
+              </div>
+              <div class="glossary-entry" id="rag">
+                <dt>RAG</dt>
+                <dd><strong>Retrieval-Augmented Generation.</strong> An architecture that retrieves relevant documents from a knowledge base and injects them into the model's prompt at query time, grounding responses in trusted data rather than the model's pretrained knowledge alone.</dd>
+              </div>
+              <div class="glossary-entry" id="mcp">
+                <dt>MCP</dt>
+                <dd><strong>Model Context Protocol.</strong> An open standard introduced by Anthropic that lets AI applications connect to external tools, data sources and services through a uniform interface — replacing ad-hoc integrations with one wire protocol.</dd>
+              </div>
+              <div class="glossary-entry" id="tier-model">
+                <dt>Tier model <span class="term-aka">T1 / T2 / T3</span></dt>
+                <dd>The LLM Machines component-tier system. T1 = certified core, host-privileged; T2 = restricted containers; T3 = sandboxed with no host access. Each component carries a signed tier badge enforced by the manifest.</dd>
+              </div>
+              <div class="glossary-entry" id="pure-mode">
+                <dt>Pure Mode</dt>
+                <dd>A one-click admin action on the appliance that disables every T2 and T3 component, leaving only the certified core running. Used during security incidents, audits or support diagnosis.</dd>
+              </div>
+              <div class="glossary-entry" id="manifest-enforcement">
+                <dt>Manifest enforcement</dt>
+                <dd>A signed declaration of what each component is, which tier it belongs to, and what privileges it may request. The appliance refuses to load anything not on the manifest.</dd>
+              </div>
+              <div class="glossary-entry" id="certified-core">
+                <dt>Certified core</dt>
+                <dd>The set of components that ship with the appliance, are signed by LLM Machines, and run at tier T1. Includes the gateway, inference layer, vector store and orchestrator.</dd>
+              </div>
+              <div class="glossary-entry" id="agent">
+                <dt>Agent <span class="term-aka">agentic workflow</span></dt>
+                <dd>An AI system that plans, decides and calls tools to accomplish a multi-step task — as opposed to a single prompt-response interaction. Agentic systems use tool calling and often run multiple LLM steps per user request.</dd>
+              </div>
+              <div class="glossary-entry" id="tool-calling">
+                <dt>Tool calling <span class="term-aka">function calling</span></dt>
+                <dd>An LLM capability where the model emits structured calls to external functions or APIs (e.g. <em>search the database, send the email</em>), enabling automation beyond pure text generation.</dd>
+              </div>
+              <div class="glossary-entry" id="workflow-orchestration">
+                <dt>Workflow orchestration</dt>
+                <dd>Coordinating multiple AI calls, tool executions and human approvals in a defined sequence. n8n and similar engines provide visual workflow building inside our appliance.</dd>
+              </div>
+              <div class="glossary-entry" id="sandboxing">
+                <dt>Sandboxing</dt>
+                <dd>Running code in an isolated environment with restricted system access. T3 components in our stack are sandboxed so they can't see other components' data or escape to the host.</dd>
+              </div>
+              <div class="glossary-entry" id="high-availability">
+                <dt>High availability <span class="term-aka">HA</span></dt>
+                <dd>System design that tolerates component failure without service interruption, usually via redundancy and automatic failover. Required for enterprise SLAs.</dd>
+              </div>
+              <div class="glossary-entry" id="stack-components">
+                <dt>LiteLLM · AnythingLLM · vLLM · SGLang · open-webui · Presidio</dt>
+                <dd>Stack components we ship at T1. <strong>LiteLLM</strong> is the API gateway; <strong>AnythingLLM</strong> is the RAG and chat surface; <strong>vLLM</strong> and <strong>SGLang</strong> are inference engines; <strong>open-webui</strong> is a chat UI; <strong>Microsoft Presidio</strong> handles PII detection and redaction.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <!-- PRIVACY -->
+          <section class="glossary-section" id="privacy">
+            <h2>Privacy, Security &amp; Identity.</h2>
+            <p class="glossary-section-desc">Concepts that decide where data sits, who can reach it, and what proof exists that nothing escaped.</p>
+            <dl>
+              <div class="glossary-entry" id="pii">
+                <dt>PII</dt>
+                <dd><strong>Personally Identifiable Information.</strong> Data that can identify an individual — name, email, national ID, IP address, in some cases more. GDPR's central concept and the first thing PII-redaction layers look for.</dd>
+              </div>
+              <div class="glossary-entry" id="pseudonymisation">
+                <dt>Pseudonymisation vs anonymisation</dt>
+                <dd>Pseudonymisation replaces identifiers with reversible tokens — it remains personal data under GDPR. Anonymisation removes identifiers irreversibly and the result is no longer personal data. Most "anonymisation" in industry is actually pseudonymisation.</dd>
+              </div>
+              <div class="glossary-entry" id="data-residency">
+                <dt>Data residency</dt>
+                <dd>A requirement that data physically resides in a particular geographic location. Often confused with sovereignty — residency is about where bytes sit; sovereignty is about which legal regime governs them.</dd>
+              </div>
+              <div class="glossary-entry" id="data-sovereignty">
+                <dt>Data sovereignty</dt>
+                <dd>The principle that data is subject to the laws and jurisdiction of the country where it is collected or processed. For EU data, sovereignty means EU law applies and non-EU governments cannot compel disclosure.</dd>
+              </div>
+              <div class="glossary-entry" id="sovereign-ai">
+                <dt>Sovereign AI</dt>
+                <dd>AI systems where the model, the infrastructure it runs on, and the data flowing through it remain under the user's jurisdictional and operational control. The product category LLM Machines sells.</dd>
+              </div>
+              <div class="glossary-entry" id="air-gapped">
+                <dt>Air-gapped</dt>
+                <dd>A deployment with no network connection to external systems. Air-gapped AI runs purely on internal data and updates ship via removable media. Used in defence, intelligence and critical infrastructure.</dd>
+              </div>
+              <div class="glossary-entry" id="zero-trust">
+                <dt>Zero-trust architecture</dt>
+                <dd>A security model that verifies every request as if it came from an untrusted network, regardless of origin. The maxim: <em>never trust, always verify.</em></dd>
+              </div>
+              <div class="glossary-entry" id="rbac">
+                <dt>RBAC</dt>
+                <dd><strong>Role-Based Access Control.</strong> Permissions are assigned to roles (e.g. "engineer", "admin"); users inherit the permissions of their roles. The standard enterprise authorisation model.</dd>
+              </div>
+              <div class="glossary-entry" id="sso">
+                <dt>SSO</dt>
+                <dd><strong>Single Sign-On.</strong> A user authenticates once with a central identity provider and accesses many applications without re-entering credentials.</dd>
+              </div>
+              <div class="glossary-entry" id="saml-oidc">
+                <dt>SAML · OIDC</dt>
+                <dd><strong>SAML</strong> is the XML-based SSO protocol enterprises typically use with legacy identity providers. <strong>OIDC</strong> (OpenID Connect) is the modern JSON-based equivalent built on OAuth 2.0; preferred for new applications.</dd>
+              </div>
+              <div class="glossary-entry" id="identity-federation">
+                <dt>Identity federation</dt>
+                <dd>A trust relationship between systems that lets a user authenticated by one system be recognised by another, without sharing passwords. The mechanism behind SSO.</dd>
+              </div>
+              <div class="glossary-entry" id="mtls">
+                <dt>mTLS</dt>
+                <dd><strong>Mutual TLS.</strong> Standard TLS proves the server's identity to the client; mTLS additionally proves the client's identity to the server, using certificates on both sides. Common between trusted internal services.</dd>
+              </div>
+              <div class="glossary-entry" id="vault">
+                <dt>Vault</dt>
+                <dd>A service that stores secrets (API keys, passwords, certificates) encrypted at rest and accessible only through audited APIs. The appliance ships with an on-box vault for all credentials.</dd>
+              </div>
+              <div class="glossary-entry" id="audit-log">
+                <dt>Audit log</dt>
+                <dd>An append-only record of significant system events — who did what, when, against which resource. Required by GDPR, NIS2, SOC 2 and most other compliance regimes.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <!-- REGULATIONS -->
+          <section class="glossary-section" id="regulations">
+            <h2>Regulations &amp; Compliance.</h2>
+            <p class="glossary-section-desc">The EU framework that increasingly shapes which AI architectures are acceptable, plus the global standards enterprise buyers check first.</p>
+            <dl>
+              <div class="glossary-entry" id="eu-ai-act">
+                <dt>EU AI Act</dt>
+                <dd>The European Union's regulation classifying AI systems by risk and imposing obligations on developers and deployers, especially for high-risk uses. In force from 2024 with phased enforcement through 2026–2027. The first comprehensive horizontal AI law in any major jurisdiction.</dd>
+              </div>
+              <div class="glossary-entry" id="gdpr">
+                <dt>GDPR</dt>
+                <dd><strong>General Data Protection Regulation.</strong> The EU's comprehensive data-protection law, effective 2018. Establishes rights for data subjects and obligations for controllers and processors; fines can reach 4% of global annual turnover.</dd>
+              </div>
+              <div class="glossary-entry" id="nis2">
+                <dt>NIS2</dt>
+                <dd><strong>Network and Information Security Directive 2.</strong> The EU's cybersecurity framework for essential and important entities. Adds board-level accountability and supply-chain security requirements. Must be transposed into national law by each member state.</dd>
+              </div>
+              <div class="glossary-entry" id="eu-data-act">
+                <dt>EU Data Act</dt>
+                <dd>Regulation on harmonised rules for access to and use of data, in force from 2024. Targets cloud lock-in by mandating portability and switching rights for cloud services.</dd>
+              </div>
+              <div class="glossary-entry" id="schrems-ii">
+                <dt>Schrems II</dt>
+                <dd>The 2020 Court of Justice of the EU decision that invalidated the EU-US Privacy Shield. Established that EU personal data sent to the US is not adequately protected against US surveillance, making most transatlantic data transfers legally fragile.</dd>
+              </div>
+              <div class="glossary-entry" id="dpa">
+                <dt>DPA</dt>
+                <dd><strong>Data Processing Agreement.</strong> The contract between a data controller and a data processor mandated by GDPR Article 28. Note: DPA also stands for Data Protection Authority — the national regulator. Context determines meaning.</dd>
+              </div>
+              <div class="glossary-entry" id="dpia">
+                <dt>DPIA</dt>
+                <dd><strong>Data Protection Impact Assessment.</strong> A GDPR-mandated risk assessment performed before deploying systems that handle personal data at scale or with elevated risk.</dd>
+              </div>
+              <div class="glossary-entry" id="controller-processor">
+                <dt>Data controller · Data processor</dt>
+                <dd>Under GDPR, the <strong>controller</strong> decides why and how personal data is processed; the <strong>processor</strong> acts on the controller's instructions. AI vendors are usually processors; their enterprise customers are usually controllers.</dd>
+              </div>
+              <div class="glossary-entry" id="right-to-be-forgotten">
+                <dt>Right to be forgotten</dt>
+                <dd>A GDPR right (Article 17) allowing data subjects to require deletion of their personal data under specified conditions. Creates real engineering challenges for AI systems trained on personal data.</dd>
+              </div>
+              <div class="glossary-entry" id="soc2">
+                <dt>SOC 2</dt>
+                <dd><strong>Service Organization Control 2.</strong> A US audit framework focused on five trust principles: security, availability, processing integrity, confidentiality and privacy. The common B2B SaaS compliance baseline.</dd>
+              </div>
+              <div class="glossary-entry" id="iso-27001">
+                <dt>ISO 27001</dt>
+                <dd>The international standard for information security management systems. Required by many enterprise and government procurement processes.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <!-- OPERATIONS -->
+          <section class="glossary-section" id="operations">
+            <h2>Operations &amp; Deployment.</h2>
+            <p class="glossary-section-desc">The vocabulary of getting an AI appliance from contract to live service, and the commercial concepts shaping the buy decision.</p>
+            <dl>
+              <div class="glossary-entry" id="discovery">
+                <dt>Discovery</dt>
+                <dd>The opening phase of an enterprise deployment, where we map your environment, identity provider, network topology, data sources and SLA expectations. Drives sizing and configuration decisions downstream.</dd>
+              </div>
+              <div class="glossary-entry" id="sizing">
+                <dt>Sizing</dt>
+                <dd>Calculating the hardware footprint (GPU count, RAM, storage) needed to meet your performance and concurrency targets.</dd>
+              </div>
+              <div class="glossary-entry" id="pre-flight">
+                <dt>Pre-flight check</dt>
+                <dd>Validating that all prerequisites — network, identity, storage, power — are in place before the appliance ships.</dd>
+              </div>
+              <div class="glossary-entry" id="smoke-test">
+                <dt>Smoke test</dt>
+                <dd>A fast end-to-end test confirming a freshly installed system performs core functions correctly. Not a full QA suite — just enough to catch broken deployments early.</dd>
+              </div>
+              <div class="glossary-entry" id="self-test">
+                <dt>Self-test</dt>
+                <dd>Built-in diagnostics that the appliance runs on boot to verify hardware health and software integrity.</dd>
+              </div>
+              <div class="glossary-entry" id="pre-shipment">
+                <dt>Pre-shipment</dt>
+                <dd>Everything that happens before hardware leaves our integration facility: license binding, image preparation, signed manifest assembly.</dd>
+              </div>
+              <div class="glossary-entry" id="pass-through">
+                <dt>Pass-through <span class="term-aka">hardware pass-through</span></dt>
+                <dd>Selling hardware to the customer at the manufacturer's price with no markup. We pass through Supermicro hardware at 0% commission so your infrastructure investment stays with you.</dd>
+              </div>
+              <div class="glossary-entry" id="retainer">
+                <dt>Retainer</dt>
+                <dd>A recurring service contract covering support, updates and platform engineering hours. Distinct from the one-time setup fee.</dd>
+              </div>
+              <div class="glossary-entry" id="sla">
+                <dt>SLA</dt>
+                <dd><strong>Service-Level Agreement.</strong> The contractual commitment to specific availability, response-time or performance targets.</dd>
+              </div>
+              <div class="glossary-entry" id="opex-capex">
+                <dt>OPEX vs CAPEX</dt>
+                <dd>Operating expenses (recurring, e.g. cloud bills) versus capital expenditure (one-time investments in owned assets, e.g. hardware). Sovereign on-prem AI shifts cloud OPEX into owned CAPEX, with operational consequences for accounting and planning.</dd>
+              </div>
+              <div class="glossary-entry" id="per-token-billing">
+                <dt>Per-token billing</dt>
+                <dd>Pricing AI usage by the number of tokens processed. The standard cloud LLM model — and the source of most "AI cost surprise" stories at scale.</dd>
+              </div>
+              <div class="glossary-entry" id="vendor-lock-in">
+                <dt>Vendor lock-in</dt>
+                <dd>Dependence on a single vendor's platform such that switching becomes prohibitively expensive or technically infeasible. The EU Data Act explicitly targets cloud lock-in.</dd>
+              </div>
+              <div class="glossary-entry" id="pilot">
+                <dt>Pilot <span class="term-aka">proof of concept</span></dt>
+                <dd>A bounded, time-limited deployment to validate the appliance against your real workloads before committing to a full rollout.</dd>
+              </div>
+            </dl>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CTA ============== -->
+  <section id="contact" class="cta">
+    <div id="us-cta-glossary" class="cta-bg" data-us-scene="../assets/whats-next_background.json"></div>
+    <div class="cta-blur"></div>
+    <div class="container">
+      <span class="label" style="justify-content:center;">Next</span>
+      <h2>Want this in your stack?</h2>
+      <p>Bring sovereign on-prem AI inside your perimeter — fully integrated, EU-built, deployed in days.</p>
+      <div class="hero-ctas">
+        <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
+        <a href="../technology/" class="btn btn-ghost">Explore the technology</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">
+            <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
+          </div>
+          <p class="foot-tag">A European AI appliance company. Sovereign, scalable, on-premise AI for enterprises that take their data — and their compute bills — seriously.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="../technology/">Technology</a>
+          <a href="../pricing/">Pricing</a>
+          <a href="../onboarding/">Onboarding</a>
+          <a href="../on-prem-ai-appliance/">On-Prem AI Appliance</a>
+        </div>
+        <div class="foot-col">
+          <h4>Guides</h4>
+          <a href="../company/">About</a>
+          <a href="../sovereign-ai/">Sovereign AI</a>
+          <a href="../cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a>
+          <a href="../use-cases/regulated-enterprise/">Regulated Enterprise</a>
+          <a href="./">Glossary</a>
+          <a href="../contact/">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Legal</h4>
+          <a href="../privacy/">Privacy Policy</a>
+          <a href="../terms/">Terms &amp; Conditions</a>
+          <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 LLM Machines · A European company</span>
+        <span>EU AI Act · GDPR · NIS2 · EU Data Act — ready by design</span>
+      </div>
+    </div>
+  </footer>
+<script src="../assets/site.js" defer></script>
+
+</body>
+</html>
