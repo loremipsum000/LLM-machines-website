@@ -1091,8 +1091,7 @@
     }
     /* Logo treatment: dark-backed frame with padding so each
        brand mark sits in a consistent ~28×28 space inside a 40×40 chip.
-       Logos uploaded by the brand teams (anything-llm "light",
-       openclaw "dark") are designed for dark backgrounds. */
+       Some uploaded marks are designed for dark backgrounds. */
     .card-logo {
       display: block;
       width: 40px;

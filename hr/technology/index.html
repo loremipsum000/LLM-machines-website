@@ -13,14 +13,14 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Cijeli stack, slojevit i tier-omeđen — LLM Machines" />
-  <meta property="og:description" content="12 slojeva certificirane jezgre. Granica Pure Mode-a. Provjereni MCP katalog. Izgrađeno na LiteLLM, SGLang, AnythingLLM, Microsoft Presidio." />
+  <meta property="og:description" content="12 slojeva certificirane jezgre. Granica Pure Mode-a. Provjereni MCP katalog. Izgrađeno na LiteLLM, LibreChat, SGLang, Microsoft Presidio." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://llm-machines.com/hr/technology/" />
   <meta property="og:site_name" content="LLM Machines" />
   <meta property="og:locale" content="hr_HR" />
-  <meta property="og:locale:alternate" content="en_EU" />
+  <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cijeli stack, slojevit i tier-omeđen — LLM Machines" />
@@ -202,7 +202,7 @@
               <div class="sub-tile">
                 <div class="tile-title">Chat sučelje</div>
                 <div class="tile-sub">RAG · više-korisnički · MCP</div>
-                <div class="tile-eg">Open WebUI</div>
+                <div class="tile-eg">LibreChat</div>
               </div>
               <div class="sub-tile">
                 <div class="tile-title">IDE backend</div>
@@ -215,14 +215,14 @@
                 <div class="tile-eg">opencode / Tabby</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Workflow editor</div>
-                <div class="tile-sub">predlošci · webhooks</div>
-                <div class="tile-eg">n8n</div>
+                <div class="tile-title">Workflow runner</div>
+                <div class="tile-sub">predlošci · odobrenja · webhooks</div>
+                <div class="tile-eg">Console workflows</div>
               </div>
               <div class="sub-tile">
                 <div class="tile-title">Knowledge workspace</div>
                 <div class="tile-sub">RAG · radni prostor dokumenata</div>
-                <div class="tile-eg">AnythingLLM</div>
+                <div class="tile-eg">Lokalni RAG workspace</div>
               </div>
             </div>
           </div>
@@ -270,8 +270,8 @@
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Workflow i orkestracija</h4>
-              <p class="layer-detail">Automatizacija za citizen developere + planirani pozadinski workflow-ovi</p>
-              <p class="layer-eg">n8n</p>
+              <p class="layer-detail">Odobreni workflow predlošci, zakazani zadaci i dugotrajna orkestracija</p>
+              <p class="layer-eg">Console workflow runtime · Temporal-style orkestracija</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
@@ -280,7 +280,7 @@
             <div class="layer-info">
               <h4 class="layer-title">Podaci</h4>
               <p class="layer-detail">Vector + RAG store unutar knowledge workspace-a · object storage · cache · opcionalni namjenski DB po dogovoru</p>
-              <p class="layer-eg">AnythingLLM-vodi vektore · MinIO · Redis · (Postgres + pgvector)</p>
+              <p class="layer-eg">Lokalni vector store · MinIO · Redis · (Postgres + pgvector)</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
@@ -366,7 +366,7 @@
         <article class="seo-card">
           <div class="pc-tag">Tooling</div>
           <h3>Radi s developer workflow-ovima.</h3>
-          <p>Integrirajte privatne modele s IDE asistentima, internim aplikacijama, LangChain-style workflow-ovima, n8n automatizacijama i MCP serverima.</p>
+          <p>Integrirajte privatne modele s IDE asistentima, internim aplikacijama, LangChain-style workflow-ovima i MCP serverima.</p>
         </article>
         <article class="seo-card">
           <div class="pc-tag">Operacije</div>
@@ -400,17 +400,17 @@
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 02 ]</span>
-              <h3>Open WebUI <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Korisničko sučelje</span></h3>
+              <h3>LibreChat <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Korisničko sučelje</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>Uglađeno, ChatGPT-style sučelje za sve krajnje korisnike. Bez potrebe za obukom.</p>
+              <p>Uglađeno, ChatGPT-style sučelje za sve krajnje korisnike, povezano kroz SSO i lokalni gateway.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 03 ]</span>
-              <h3>AnythingLLM <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— RAG engine</span></h3>
+              <h3>Knowledge RAG sloj <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Retrieval engine</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>

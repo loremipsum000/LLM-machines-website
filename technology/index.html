@@ -17,18 +17,18 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="The full stack, layered and tier-bounded — LLM Machines" />
-  <meta property="og:description" content="12 layers of certified core. Pure Mode boundary. Vetted MCP catalog. Built on LiteLLM, SGLang, AnythingLLM, Microsoft Presidio." />
+  <meta property="og:description" content="12 layers of certified core. Pure Mode boundary. Vetted MCP catalog. Built on LiteLLM, LibreChat, SGLang, Microsoft Presidio." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://llm-machines.com/technology/" />
   <meta property="og:site_name" content="LLM Machines" />
-  <meta property="og:locale" content="en_EU" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The full stack, layered and tier-bounded — LLM Machines" />
-  <meta name="twitter:description" content="12 layers of certified core. Pure Mode boundary. Vetted MCP catalog. Built on LiteLLM, SGLang, AnythingLLM, Microsoft Presidio." />
+  <meta name="twitter:description" content="12 layers of certified core. Pure Mode boundary. Vetted MCP catalog. Built on LiteLLM, LibreChat, SGLang, Microsoft Presidio." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <!-- Theme + indexing -->
@@ -211,7 +211,7 @@
               <div class="sub-tile">
                 <div class="tile-title">Chat Interface</div>
                 <div class="tile-sub">RAG · multi-user · MCP</div>
-                <div class="tile-eg">Open WebUI</div>
+                <div class="tile-eg">LibreChat</div>
               </div>
               <div class="sub-tile">
                 <div class="tile-title">IDE Backend</div>
@@ -224,14 +224,14 @@
                 <div class="tile-eg">opencode / Tabby</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Workflow Editor</div>
-                <div class="tile-sub">templates · webhooks</div>
-                <div class="tile-eg">n8n</div>
+                <div class="tile-title">Workflow Runner</div>
+                <div class="tile-sub">templates · approvals · webhooks</div>
+                <div class="tile-eg">Console workflows</div>
               </div>
               <div class="sub-tile">
                 <div class="tile-title">Knowledge Workspace</div>
                 <div class="tile-sub">RAG · workspace docs</div>
-                <div class="tile-eg">AnythingLLM</div>
+                <div class="tile-eg">Local RAG workspace</div>
               </div>
             </div>
           </div>
@@ -279,8 +279,8 @@
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Workflow &amp; Orchestration</h4>
-              <p class="layer-detail">Citizen-developer automation + scheduled background workflows</p>
-              <p class="layer-eg">n8n</p>
+              <p class="layer-detail">Approved workflow templates, scheduled jobs and long-running orchestration</p>
+              <p class="layer-eg">Console workflow runtime · Temporal-style orchestration</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
@@ -289,7 +289,7 @@
             <div class="layer-info">
               <h4 class="layer-title">Data</h4>
               <p class="layer-detail">Vector + RAG store inside knowledge workspace · object storage · cache · optional dedicated DB by agreement</p>
-              <p class="layer-eg">AnythingLLM-managed vectors · MinIO · Redis · (Postgres + pgvector)</p>
+              <p class="layer-eg">Local vector store · MinIO · Redis · (Postgres + pgvector)</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
@@ -375,7 +375,7 @@
         <article class="seo-card">
           <div class="pc-tag">Tooling</div>
           <h3>Works with developer workflows.</h3>
-          <p>Integrate private models with IDE assistants, internal applications, LangChain-style workflows, n8n automations and MCP servers.</p>
+          <p>Integrate private models with IDE assistants, internal applications, LangChain-style workflows and MCP servers.</p>
         </article>
         <article class="seo-card">
           <div class="pc-tag">Operations</div>
@@ -409,17 +409,17 @@
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 02 ]</span>
-              <h3>Open WebUI <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— User Interface</span></h3>
+              <h3>LibreChat <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— User Interface</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>A polished, ChatGPT-like interface for all end users. No training required.</p>
+              <p>A polished, ChatGPT-like interface for all end users, SSO-linked and wired through the local gateway.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 03 ]</span>
-              <h3>AnythingLLM <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— RAG Engine</span></h3>
+              <h3>Knowledge RAG Layer <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Retrieval Engine</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
