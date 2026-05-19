@@ -9,11 +9,6 @@ Live at **[llm-machines.com](https://llm-machines.com)**.
 
 Pure static HTML, CSS, and vanilla JavaScript. No build step, no framework, no bundler.
 
-- **Body type:** [Urbanist](https://fonts.google.com/specimen/Urbanist) via Google Fonts CDN
-- **Display type:** Acid Grotesk (self-hosted in `assets/fonts/`)
-- **Hero & CTA animations:** [Unicorn Studio](https://www.unicorn.studio/) (scenes self-hosted in `assets/`)
-- **Hosting:** GitHub Pages (custom domain via `CNAME`)
-
 ## Structure
 
 ```
@@ -45,43 +40,6 @@ Pure static HTML, CSS, and vanilla JavaScript. No build step, no framework, no b
     └── logos/              ← Tech-stack component logos
 ```
 
-## Run locally
-
-The site requires an HTTP server (CORS prevents `file://` from loading the JSON scenes):
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open <http://localhost:8000/>.
-
-## Deploy on GitHub Pages
-
-1. Push this repo to `main`.
-2. Repo **Settings → Pages**: set source to **`main` branch, `/` (root)**.
-3. Custom domain (`llm-machines.com`) is read automatically from the `CNAME` file.
-4. Configure DNS with your registrar:
-   - Apex `A` records → `185.199.108.153` / `185.199.109.153` / `185.199.110.153` / `185.199.111.153`
-   - `www` `CNAME` → `loremipsum000.github.io`
-5. Enable **Enforce HTTPS** once the cert is provisioned.
-
-## Update legal pages
-
-The `/privacy/` and `/terms/` HTML pages are generated from
-`privacy.md` and `terms.md` (kept in the parent project folder).
-
-To regenerate after editing the markdown:
-
-```bash
-pip install --break-system-packages markdown
-python3 -c "
-import markdown
-md = open('../privacy.md').read()
-md = md.split('\n', 1)[1]  # strip H1
-body = markdown.markdown(md, extensions=['extra', 'sane_lists'])
-# paste body into <article class=\"legal-body\"> in privacy/index.html
-print(body)
-"
 ```
 
 ## License
