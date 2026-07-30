@@ -1,7 +1,7 @@
 {
   "name": "LLM Machines",
   "short_name": "LLM Machines",
-  "description": "Sovereign on-prem AI for European enterprises. EU AI Act, GDPR, NIS2 and EU Data Act ready by design.",
+  "description": "Customer-premises inference, connected applications, agentic workflows and operational control for European enterprises.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

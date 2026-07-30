@@ -144,19 +144,11 @@
               </div>
               <div class="glossary-entry" id="token">
                 <dt>Token <span class="term-aka">tokenization</span></dt>
-                <dd>The atomic unit a language model reads and writes. One token is roughly ¾ of an English word. Tokenization is the preprocessing step that splits text into these units; pricing on cloud LLM APIs is per-token.</dd>
+                <dd>The atomic unit a language model reads and writes. One token is roughly ¾ of an English word. Tokenization is the preprocessing step that splits text into these units.</dd>
               </div>
               <div class="glossary-entry" id="context-window">
                 <dt>Context window</dt>
                 <dd>The maximum number of tokens a model can consider at once when generating a response. Larger context windows let the model reason over longer documents but raise memory and latency costs.</dd>
-              </div>
-              <div class="glossary-entry" id="embedding">
-                <dt>Embedding</dt>
-                <dd>A numeric vector representation of text (or any data) that captures semantic meaning. Embeddings power semantic search, RAG retrieval, clustering and de-duplication.</dd>
-              </div>
-              <div class="glossary-entry" id="vector-database">
-                <dt>Vector database <span class="term-aka">vector store</span></dt>
-                <dd>A specialised database that stores embeddings and supports nearest-neighbour search. Required infrastructure for RAG. Examples: Qdrant, Weaviate, Milvus, pgvector.</dd>
               </div>
               <div class="glossary-entry" id="inference">
                 <dt>Inference</dt>
@@ -176,7 +168,7 @@
               </div>
               <div class="glossary-entry" id="hallucination">
                 <dt>Hallucination</dt>
-                <dd>When a model generates plausible-sounding but factually incorrect output. The main reason production AI systems use grounding techniques like RAG.</dd>
+                <dd>When a model generates plausible-sounding but factually incorrect output. Production systems address this with source verification, careful prompting and human review.</dd>
               </div>
               <div class="glossary-entry" id="temperature">
                 <dt>Temperature</dt>
@@ -196,7 +188,7 @@
             <dl>
               <div class="glossary-entry" id="on-prem">
                 <dt>On-prem <span class="term-aka">on-premise</span></dt>
-                <dd>Software or hardware that runs inside an organisation's own data centre or private cloud, rather than in a third-party public cloud. The architectural opposite of SaaS.</dd>
+                <dd>Software or hardware that runs inside infrastructure physically controlled by an organisation, rather than in a third-party public cloud. The architectural opposite of SaaS.</dd>
               </div>
               <div class="glossary-entry" id="appliance">
                 <dt>Appliance</dt>
@@ -204,59 +196,55 @@
               </div>
               <div class="glossary-entry" id="api-gateway">
                 <dt>API gateway</dt>
-                <dd>A service sitting between clients and backend AI models, handling authentication, rate limiting, routing, logging and observability. In our stack: LiteLLM exposing OpenAI-compatible endpoints.</dd>
+                <dd>The local service between Applications and AI models, handling authentication, model allowlists, routing and usage metadata through the documented Application API.</dd>
               </div>
-              <div class="glossary-entry" id="endpoint">
-                <dt>Endpoint</dt>
-                <dd>A specific URL at which an API can be called (e.g. <code>/v1/chat/completions</code>). "OpenAI-compatible endpoints" means the URLs and request format match what OpenAI's API expects, so existing clients work unchanged.</dd>
+              <div class="glossary-entry" id="chat-completions">
+                <dt>Chat Completions</dt>
+                <dd>The supported interface for sending streaming or non-streaming inference requests through <code>/api/app-gateway/v1/chat/completions</code>. Available models are listed through <code>/api/app-gateway/v1/models</code>.</dd>
               </div>
-              <div class="glossary-entry" id="rag">
-                <dt>RAG</dt>
-                <dd><strong>Retrieval-Augmented Generation.</strong> An architecture that retrieves relevant documents from a knowledge base and injects them into the model's prompt at query time, grounding responses in trusted data rather than the model's pretrained knowledge alone.</dd>
+              <div class="glossary-entry" id="application">
+                <dt>Application</dt>
+                <dd>Your preferred AI application or harness connected to the Core Appliance through a dedicated credential and the documented Application API. Existing client interfaces and workflows stay familiar while inference runs locally.</dd>
               </div>
-              <div class="glossary-entry" id="mcp">
-                <dt>MCP</dt>
-                <dd><strong>Model Context Protocol.</strong> An open standard introduced by Anthropic that lets AI applications connect to external tools, data sources and services through a uniform interface — replacing ad-hoc integrations with one wire protocol.</dd>
+              <div class="glossary-entry" id="model-alias">
+                <dt>Model alias</dt>
+                <dd>A stable model name exposed to an Application while the Core Appliance maps it to the approved local model and inference route. This lets backend models change without changing the connected Application.</dd>
               </div>
-              <div class="glossary-entry" id="tier-model">
-                <dt>Tier model <span class="term-aka">T1 / T2 / T3</span></dt>
-                <dd>The LLM Machines component-tier system. T1 = certified core, host-privileged; T2 = restricted containers; T3 = sandboxed with no host access. Each component carries a signed tier badge enforced by the manifest.</dd>
+              <div class="glossary-entry" id="support-boundary">
+                <dt>Support boundary <span class="term-aka">T1 / T2</span></dt>
+                <dd>T1 is the Core Appliance and LXC agentic runtime supplied and supported by LLM Machines. T2 is the connected Application layer, where customers keep using their chosen apps, harnesses and workflows through the documented API contract.</dd>
               </div>
-              <div class="glossary-entry" id="pure-mode">
-                <dt>Pure Mode</dt>
-                <dd>A one-click admin action on the appliance that disables every T2 and T3 component, leaving only the certified core running. Used during security incidents, audits or support diagnosis.</dd>
+              <div class="glossary-entry" id="emergency-isolation-mode">
+                <dt>Emergency Isolation Mode</dt>
+                <dd>An administrative control that blocks Application inference traffic, approved external web access and agentic workflow access while keeping the Console, identity, audit, hardware monitoring, backup and recovery available.</dd>
               </div>
-              <div class="glossary-entry" id="manifest-enforcement">
-                <dt>Manifest enforcement</dt>
-                <dd>A signed declaration of what each component is, which tier it belongs to, and what privileges it may request. The appliance refuses to load anything not on the manifest.</dd>
+              <div class="glossary-entry" id="signed-offline-update">
+                <dt>Signed offline update</dt>
+                <dd>A manually imported software bundle whose signature and compatibility are verified before installation. Updates use preflight checks, a local snapshot, health validation and rollback without a cloud call-home.</dd>
               </div>
-              <div class="glossary-entry" id="certified-core">
-                <dt>Certified core</dt>
-                <dd>The set of components that ship with the appliance, are signed by LLM Machines, and run at tier T1. Includes the gateway, inference layer, vector store and orchestrator.</dd>
+              <div class="glossary-entry" id="core-appliance">
+                <dt>Core Appliance</dt>
+                <dd>The supported customer-premises product: local inference, Application APIs and credentials, the operational Console, identity, Activity and Audit, the observability layer, lifecycle tooling and the LXC agentic runtime.</dd>
               </div>
               <div class="glossary-entry" id="agent">
                 <dt>Agent <span class="term-aka">agentic workflow</span></dt>
-                <dd>An AI system that plans, decides and calls tools to accomplish a multi-step task — as opposed to a single prompt-response interaction. Agentic systems use tool calling and often run multiple LLM steps per user request.</dd>
+                <dd>An AI system that plans, decides and calls tools to complete a multi-step task. Agentic workflows use the local model and can run multiple inference steps per request.</dd>
               </div>
-              <div class="glossary-entry" id="tool-calling">
-                <dt>Tool calling <span class="term-aka">function calling</span></dt>
-                <dd>An LLM capability where the model emits structured calls to external functions or APIs (e.g. <em>search the database, send the email</em>), enabling automation beyond pure text generation.</dd>
+              <div class="glossary-entry" id="tool-call-transport">
+                <dt>Tool-call transport <span class="term-aka">function calling</span></dt>
+                <dd>The Application API can carry structured tool-call messages produced by a model. Connected Applications and the LXC agentic runtime use those messages to continue familiar tool-enabled workflows.</dd>
               </div>
-              <div class="glossary-entry" id="workflow-orchestration">
-                <dt>Workflow orchestration</dt>
-                <dd>Coordinating multiple AI calls, tool executions and human approvals in a defined sequence. In LLM Machines, workflow execution is governed through the console, approved templates, local credentials and audit logs.</dd>
+              <div class="glossary-entry" id="lxc-agentic-runtime">
+                <dt>LXC agentic runtime</dt>
+                <dd>The isolated Linux container runtime included with the Core Appliance for agentic workflows and approved tool execution. It runs locally alongside the inference and operational layers.</dd>
               </div>
-              <div class="glossary-entry" id="sandboxing">
-                <dt>Sandboxing</dt>
-                <dd>Running code in an isolated environment with restricted system access. T3 components in our stack are sandboxed so they can't see other components' data or escape to the host.</dd>
+              <div class="glossary-entry" id="observability-layer">
+                <dt>Observability layer</dt>
+                <dd>The self-hosted monitoring, metrics and alerting layer used to understand appliance health, inference capacity and operational events without retaining workload content.</dd>
               </div>
-              <div class="glossary-entry" id="high-availability">
-                <dt>High availability <span class="term-aka">HA</span></dt>
-                <dd>System design that tolerates component failure without service interruption, usually via redundancy and automatic failover. Required for enterprise SLAs.</dd>
-              </div>
-              <div class="glossary-entry" id="stack-components">
-                <dt>LiteLLM · LibreChat · vLLM · SGLang · Presidio</dt>
-                <dd>Stack components we ship at T1. <strong>LiteLLM</strong> is the API gateway; <strong>LibreChat</strong> is the chat surface; <strong>vLLM</strong> and <strong>SGLang</strong> are inference engines; <strong>Microsoft Presidio</strong> handles PII detection and redaction. The RAG layer is delivered as a local knowledge workspace backed by on-box storage.</dd>
+              <div class="glossary-entry" id="self-hosted-websearch">
+                <dt>Self-hosted websearch</dt>
+                <dd>A locally controlled plugin that authorised Applications can use under the Customer's network policy, credentials and operational controls.</dd>
               </div>
             </dl>
           </section>
@@ -264,11 +252,11 @@
           <!-- PRIVACY -->
           <section class="glossary-section" id="privacy">
             <h2>Privacy, Security &amp; Identity.</h2>
-            <p class="glossary-section-desc">Concepts that decide where data sits, who can reach it, and what proof exists that nothing escaped.</p>
+            <p class="glossary-section-desc">Concepts that decide where data sits, who can reach it, and how the Core Appliance proves that nothing leaves your infrastructure.</p>
             <dl>
               <div class="glossary-entry" id="pii">
                 <dt>PII</dt>
-                <dd><strong>Personally Identifiable Information.</strong> Data that can identify an individual — name, email, national ID, IP address, in some cases more. GDPR's central concept and the first thing PII-redaction layers look for.</dd>
+                <dd><strong>Personally Identifiable Information.</strong> Data that can identify an individual, such as a name, email address, national identifier or, in some cases, an IP address.</dd>
               </div>
               <div class="glossary-entry" id="pseudonymisation">
                 <dt>Pseudonymisation vs anonymisation</dt>
@@ -280,7 +268,7 @@
               </div>
               <div class="glossary-entry" id="data-sovereignty">
                 <dt>Data sovereignty</dt>
-                <dd>The principle that data is subject to the laws and jurisdiction of the country where it is collected or processed. For EU data, sovereignty means EU law applies and non-EU governments cannot compel disclosure.</dd>
+                <dd>The principle that data remains subject to applicable jurisdiction, access rights and operational controls. Physical location matters, but it does not by itself eliminate foreign-government access risk.</dd>
               </div>
               <div class="glossary-entry" id="sovereign-ai">
                 <dt>Sovereign AI</dt>
@@ -314,13 +302,13 @@
                 <dt>mTLS</dt>
                 <dd><strong>Mutual TLS.</strong> Standard TLS proves the server's identity to the client; mTLS additionally proves the client's identity to the server, using certificates on both sides. Common between trusted internal services.</dd>
               </div>
-              <div class="glossary-entry" id="vault">
-                <dt>Vault</dt>
-                <dd>A service that stores secrets (API keys, passwords, certificates) encrypted at rest and accessible only through audited APIs. The appliance ships with an on-box vault for all credentials.</dd>
+              <div class="glossary-entry" id="application-credential">
+                <dt>Application credential</dt>
+                <dd>A dedicated static key or OAuth client credential used by an Application to access approved model aliases through the Application API. Credentials can be rotated or revoked without changing the connected workflow.</dd>
               </div>
-              <div class="glossary-entry" id="audit-log">
-                <dt>Audit log</dt>
-                <dd>An append-only record of significant system events — who did what, when, against which resource. Required by GDPR, NIS2, SOC 2 and most other compliance regimes.</dd>
+              <div class="glossary-entry" id="activity-audit">
+                <dt>Activity &amp; Audit</dt>
+                <dd>The Console section for metadata-only operational and security events, with signed JSON and CSV exports. It records who changed which resource and when, without retaining prompts, model responses or tool content.</dd>
               </div>
             </dl>
           </section>
@@ -348,7 +336,7 @@
               </div>
               <div class="glossary-entry" id="schrems-ii">
                 <dt>Schrems II</dt>
-                <dd>The 2020 Court of Justice of the EU decision that invalidated the EU-US Privacy Shield. Established that EU personal data sent to the US is not adequately protected against US surveillance, making most transatlantic data transfers legally fragile.</dd>
+                <dd>The 2020 Court of Justice of the EU decision that invalidated the EU-US Privacy Shield. Transatlantic transfers require a valid transfer mechanism and, where necessary, supplementary safeguards based on the specific processing context.</dd>
               </div>
               <div class="glossary-entry" id="dpa">
                 <dt>DPA</dt>
@@ -372,7 +360,7 @@
               </div>
               <div class="glossary-entry" id="iso-27001">
                 <dt>ISO 27001</dt>
-                <dd>The international standard for information security management systems. Required by many enterprise and government procurement processes.</dd>
+                <dd>The international standard for information security management systems. Certification is frequently requested in enterprise and public-sector procurement, depending on the buyer and scope.</dd>
               </div>
             </dl>
           </section>
@@ -384,7 +372,7 @@
             <dl>
               <div class="glossary-entry" id="discovery">
                 <dt>Discovery</dt>
-                <dd>The opening phase of an enterprise deployment, where we map your environment, identity provider, network topology, data sources and SLA expectations. Drives sizing and configuration decisions downstream.</dd>
+                <dd>The opening phase of an enterprise deployment, where we map models, connected Applications, performance targets, identity, network topology, hardware and approved network policy. It drives sizing and configuration decisions downstream.</dd>
               </div>
               <div class="glossary-entry" id="sizing">
                 <dt>Sizing</dt>
@@ -404,27 +392,11 @@
               </div>
               <div class="glossary-entry" id="pre-shipment">
                 <dt>Pre-shipment</dt>
-                <dd>Everything that happens before hardware leaves our integration facility: license binding, image preparation, signed manifest assembly.</dd>
-              </div>
-              <div class="glossary-entry" id="pass-through">
-                <dt>Pass-through <span class="term-aka">hardware pass-through</span></dt>
-                <dd>Selling hardware to the customer at the manufacturer's price with no markup. We pass through Supermicro hardware at 0% commission so your infrastructure investment stays with you.</dd>
-              </div>
-              <div class="glossary-entry" id="retainer">
-                <dt>Retainer</dt>
-                <dd>A recurring service contract covering support, updates and platform engineering hours. Distinct from the one-time setup fee.</dd>
+                <dd>Everything that happens before hardware leaves our integration facility: offline entitlement preparation, image preparation and signed manifest assembly.</dd>
               </div>
               <div class="glossary-entry" id="sla">
                 <dt>SLA</dt>
                 <dd><strong>Service-Level Agreement.</strong> The contractual commitment to specific availability, response-time or performance targets.</dd>
-              </div>
-              <div class="glossary-entry" id="opex-capex">
-                <dt>OPEX vs CAPEX</dt>
-                <dd>Operating expenses (recurring, e.g. cloud bills) versus capital expenditure (one-time investments in owned assets, e.g. hardware). Sovereign on-prem AI shifts cloud OPEX into owned CAPEX, with operational consequences for accounting and planning.</dd>
-              </div>
-              <div class="glossary-entry" id="per-token-billing">
-                <dt>Per-token billing</dt>
-                <dd>Pricing AI usage by the number of tokens processed. The standard cloud LLM model — and the source of most "AI cost surprise" stories at scale.</dd>
               </div>
               <div class="glossary-entry" id="vendor-lock-in">
                 <dt>Vendor lock-in</dt>
@@ -449,7 +421,7 @@
     <div class="container">
       <span class="label" style="justify-content:center;">Next</span>
       <h2>Want this in your stack?</h2>
-      <p>Bring sovereign on-prem AI inside your perimeter — fully integrated, EU-built, deployed in days.</p>
+      <p>Run local inference, your connected Applications and agentic workflows inside infrastructure you control.</p>
       <div class="hero-ctas">
         <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
         <a href="../technology/" class="btn btn-ghost">Explore the technology</a>
@@ -465,7 +437,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">A European AI appliance company. Sovereign, scalable, on-premise AI for enterprises that take their data — and their compute bills — seriously.</p>
+          <p class="foot-tag">A European AI appliance company. Customer-premises inference, operational control and agentic workflows inside your infrastructure.</p>
         </div>
         <div class="foot-col">
           <h4>Product</h4>
@@ -492,7 +464,7 @@
       </div>
       <div class="foot-bottom">
         <span>© 2026 LLM Machines · A European company</span>
-        <span>EU AI Act · GDPR · NIS2 · EU Data Act — ready by design</span>
+        <span>Private AI infrastructure for EU-regulated teams</span>
       </div>
     </div>
   </footer>

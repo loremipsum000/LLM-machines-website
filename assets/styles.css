@@ -1,14 +1,14 @@
     /* ---------- Display type: Acid Grotesk (loaded from /assets/fonts) ---------- */
     @font-face {
       font-family: "Acid Grotesk";
-      src: url("assets/fonts/AcidGrotesk-Regular.otf") format("opentype");
+      src: url("fonts/AcidGrotesk-Regular.otf") format("opentype");
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
     @font-face {
       font-family: "Acid Grotesk";
-      src: url("assets/fonts/AcidGrotesk-Bold.otf") format("opentype");
+      src: url("fonts/AcidGrotesk-Bold.otf") format("opentype");
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -1206,18 +1206,6 @@
     }
     .tier.feature {
       background: var(--bg-soft);
-      position: relative;
-    }
-    .tier.feature::after {
-      content: "Most popular";
-      position: absolute;
-      top: 16px; right: 16px;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--fg);
-      border: 1px solid var(--fg);
-      padding: 4px 8px;
     }
     .tier-name {
       font-family: "Acid Grotesk", system-ui, sans-serif;
@@ -1271,9 +1259,14 @@
       font-family: "Acid Grotesk", monospace;
     }
     .tier li.muted { color: var(--fg-dim); }
-    .tier .tier-cta {
-      margin-top: auto;
-      padding-top: 32px;
+    .pricing-cta {
+      grid-column: 1 / -1;
+      background: var(--bg);
+      padding: 28px 36px;
+    }
+    .pricing-cta .btn {
+      width: 100%;
+      justify-content: center;
     }
 
     /* ---------- Why now ---------- */

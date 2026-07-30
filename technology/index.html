@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Technology — LLM Machines</title>
-  <meta name="description" content="Explore the LLM Machines on-prem AI architecture: certified core, T1/T2/T3 tiers, Pure Mode, model serving, RAG, agents and OpenAI-compatible APIs." />
+  <title>On-Prem Inference Architecture — LLM Machines</title>
+  <meta name="description" content="Explore the LLM Machines customer-premises architecture: local model serving, supported APIs, a compact operational Console, an observability layer and an LXC agentic runtime." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/technology/" />
@@ -16,8 +16,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="The full stack, layered and tier-bounded — LLM Machines" />
-  <meta property="og:description" content="12 layers of certified core. Pure Mode boundary. Vetted MCP catalog. Built on LiteLLM, LibreChat, SGLang, Microsoft Presidio." />
+  <meta property="og:title" content="A compact on-prem inference stack — LLM Machines" />
+  <meta property="og:description" content="Local inference, a documented API contract, operational control, an observability layer and an LXC runtime for agentic workflows." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -27,8 +27,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The full stack, layered and tier-bounded — LLM Machines" />
-  <meta name="twitter:description" content="12 layers of certified core. Pure Mode boundary. Vetted MCP catalog. Built on LiteLLM, LibreChat, SGLang, Microsoft Presidio." />
+  <meta name="twitter:title" content="A compact on-prem inference stack — LLM Machines" />
+  <meta name="twitter:description" content="Local inference, a documented API contract, operational control, an observability layer and an LXC runtime for agentic workflows." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <!-- Theme + indexing -->
@@ -58,11 +58,10 @@
   "name": "LLM Machines",
   "url": "https://llm-machines.com/",
   "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
-  "description": "A Croatia-based startup building sovereign on-premise AI appliances for European enterprises. EU AI Act, GDPR, NIS2 and EU Data Act ready by design.",
+  "description": "A Croatia-based startup building sovereign on-premise AI appliances for European enterprises. Built for EU-regulated environments.",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "HR",
-    "addressRegion": "European Union"
+    "addressCountry": "HR"
   },
   "areaServed": "EU",
   "sameAs": []
@@ -83,12 +82,12 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Can existing OpenAI API clients use LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The gateway exposes OpenAI-compatible endpoints so applications can point to the appliance instead of a public cloud API, while keeping authentication, logging and routing local." } },
-    { "@type": "Question", "name": "Can the appliance run air-gapped?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Security-sensitive deployments can use offline license activation and local model registries so core inference, RAG and application surfaces work without public internet access." } },
+    { "@type": "Question", "name": "Can existing API clients use LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Connect your favourite apps and harnesses through /models and streaming or non-streaming /chat/completions, including tool-call message transport." } },
+    { "@type": "Question", "name": "Can the appliance run air-gapped?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure." } },
     { "@type": "Question", "name": "Which models can run locally?", "acceptedAnswer": { "@type": "Answer", "text": "The architecture is designed for open-weight model families such as Llama, Mistral and Qwen, with model choice sized to your hardware, latency and quality requirements." } },
-    { "@type": "Question", "name": "Where are connector credentials stored?", "acceptedAnswer": { "@type": "Answer", "text": "Connector credentials live in the on-box vault inside your environment. MCP servers and integration services use those credentials locally instead of sending them to LLM Machines infrastructure." } },
-    { "@type": "Question", "name": "What does Pure Mode do?", "acceptedAnswer": { "@type": "Answer", "text": "Pure Mode disables T2/T3 custom components and keeps the certified T1 core running. It is useful for incident response, support diagnosis and audit preparation." } },
-    { "@type": "Question", "name": "What is inside the support boundary?", "acceptedAnswer": { "@type": "Answer", "text": "The signed certified core, tier model, manifest, gateway, inference services and documented T1/T2 components are supported. Client-built T3 extensions remain isolated from the SLA." } }
+    { "@type": "Question", "name": "How do applications authenticate?", "acceptedAnswer": { "@type": "Answer", "text": "Each Application receives its own credential, model access and operational controls through the local Console." } },
+    { "@type": "Question", "name": "What does Emergency Isolation Mode do?", "acceptedAnswer": { "@type": "Answer", "text": "Emergency Isolation Mode blocks Application inference and agentic access while Console, identity, audit, hardware monitoring, backup and recovery remain available." } },
+    { "@type": "Question", "name": "What is inside the supported core?", "acceptedAnswer": { "@type": "Answer", "text": "The supported core includes the signed appliance platform, local inference, gateway, Console, identity, observability, lifecycle tooling and LXC agentic runtime." } }
   ]
 }
   </script>
@@ -140,8 +139,8 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Technology</span>
-      <h1>On-Prem AI Appliance Architecture</h1>
-      <p class="lead">One private AI appliance with an OpenAI-compatible API gateway, local inference, RAG, agents, MCP connectors, audit logs and Pure Mode. A signed manifest enforces what runs where — and what remains inside the support boundary.</p>
+      <h1>A Compact On-Prem Inference Architecture</h1>
+      <p class="lead">One customer-premises appliance with local model serving, a compact operational Console, a documented API contract, an observability layer and an LXC agentic runtime. Connect your favourite apps and harnesses. Nothing leaves your infrastructure.</p>
     </div>
   </header>
 
@@ -151,7 +150,7 @@
       <div class="sect-head reveal">
         <span class="label">01 — Architecture</span>
         <h2>Reference architecture.</h2>
-        <p>External entities at the top. The appliance below. The support boundary line cleanly separates certified core from anything you build in T3.</p>
+        <p>Your users, identity provider and existing client applications connect to a signed operational core inside your infrastructure.</p>
       </div>
 
       <div class="arch zoom-in reveal">
@@ -159,21 +158,21 @@
         <div class="arch-external">
           <div class="ext-card">
             <span class="ext-tag">External</span>
-            <div class="ext-name">End Users</div>
-            <p class="ext-desc">Developers · analysts · support · legal · operations.<br>Browser · IDE · Slack/Teams · Email · CLI.</p>
-            <div class="ext-proto">Authenticate via client SSO</div>
+            <div class="ext-name">Teams &amp; Users</div>
+            <p class="ext-desc">Developers · analysts · support · legal · operations.<br>Use the client experiences they already know.</p>
+            <div class="ext-proto">Authenticate through enterprise identity</div>
           </div>
           <div class="ext-card">
             <span class="ext-tag">External</span>
-            <div class="ext-name">Client Identity Provider</div>
-            <p class="ext-desc">Your existing IdP — we federate, never replace.<br>e.g., Okta · Azure AD · Google · Ping.</p>
-            <div class="ext-proto">OIDC · SAML 2.0 · SCIM</div>
+            <div class="ext-name">Enterprise Identity Provider</div>
+            <p class="ext-desc">Federate the identity provider your organisation already operates.</p>
+            <div class="ext-proto">OIDC · SAML 2.0</div>
           </div>
           <div class="ext-card">
             <span class="ext-tag">External</span>
-            <div class="ext-name">Client's Existing Tools</div>
-            <p class="ext-desc">Whatever you already use — chat, source control, ticketing, docs, CRM, mail, storage.</p>
-            <div class="ext-proto">OAuth · REST · GraphQL · Webhooks</div>
+            <div class="ext-name">Favourite Apps &amp; Harnesses</div>
+            <p class="ext-desc">Keep the client applications, developer tools and automation workflows your teams already use.</p>
+            <div class="ext-proto">Documented inference API</div>
           </div>
         </div>
 
@@ -181,7 +180,7 @@
         <div class="arch-box">
           <div class="arch-box-head">
             <span>LLM Machine · On-Prem Appliance</span>
-            <span class="muted">Certified Core</span>
+            <span class="muted">Signed Core</span>
           </div>
 
           <div class="layer">
@@ -196,42 +195,42 @@
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Identity &amp; SSO</h4>
-              <p class="layer-detail">Federated to your IdP via OIDC / SAML — never replaces it · SCIM user provisioning · role mapping (Admin / User / Auditor / Read-Only)</p>
-              <p class="layer-eg">Keycloak · Authentik · Zitadel</p>
+              <p class="layer-detail">Enterprise federation · local Application credentials · role mapping for Admin and Operator</p>
+              <p class="layer-eg">Keycloak</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
 
           <div class="layer layer-with-tiles">
             <div class="layer-info">
-              <h4 class="layer-title">App Surfaces · user-facing</h4>
+              <h4 class="layer-title">Compact Operational Console</h4>
             </div>
             <span class="tier-badge t1">T1</span>
             <div class="sub-tiles">
               <div class="sub-tile">
-                <div class="tile-title">Chat Interface</div>
-                <div class="tile-sub">RAG · multi-user · MCP</div>
-                <div class="tile-eg">LibreChat</div>
+                <div class="tile-title">Overview</div>
+                <div class="tile-sub">system status · alerts</div>
+                <div class="tile-eg">Operational summary</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">IDE Backend</div>
-                <div class="tile-sub">VS Code · JetBrains plugin</div>
-                <div class="tile-eg">Continue</div>
+                <div class="tile-title">Applications</div>
+                <div class="tile-sub">credentials · model access</div>
+                <div class="tile-eg">Client connectivity</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Code Completion</div>
-                <div class="tile-sub">FIM · self-hosted</div>
-                <div class="tile-eg">opencode / Tabby</div>
+                <div class="tile-title">Inference</div>
+                <div class="tile-sub">models · routes · usage</div>
+                <div class="tile-eg">Local model control</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Workflow Runner</div>
-                <div class="tile-sub">templates · approvals · webhooks</div>
-                <div class="tile-eg">Console workflows</div>
+                <div class="tile-title">Hardware</div>
+                <div class="tile-sub">capacity · health · inventory</div>
+                <div class="tile-eg">Appliance status</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Knowledge Workspace</div>
-                <div class="tile-sub">RAG · workspace docs</div>
-                <div class="tile-eg">Local RAG workspace</div>
+                <div class="tile-title">Activity &amp; Audit</div>
+                <div class="tile-sub">metadata · events · exports</div>
+                <div class="tile-eg">Operational evidence</div>
               </div>
             </div>
           </div>
@@ -239,7 +238,7 @@
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Inference Gateway</h4>
-              <p class="layer-detail">OpenAI &amp; Anthropic-compatible API · model routing · per-team budgets · audit logging</p>
+              <p class="layer-detail"><code>/models</code> · streaming and non-streaming <code>/chat/completions</code> · tool-call message transport · model routing</p>
               <p class="layer-eg">LiteLLM</p>
             </div>
             <span class="tier-badge t1">T1</span>
@@ -248,57 +247,56 @@
           <div class="layer-split">
             <div class="layer">
               <div class="layer-info">
-                <h4 class="layer-title">Inference Servers</h4>
-                <p class="layer-detail">High-throughput model serving · chat · code · embeddings · client fine-tunes · loaded from on-box signed registry</p>
-                <p class="layer-eg">SGLang · vLLM</p>
+                <h4 class="layer-title">Local Inference Runtime</h4>
+                <p class="layer-detail">Qualified open-weight model serving sized for throughput, latency and quality</p>
+                <p class="layer-eg">Signed local model registry</p>
               </div>
               <span class="tier-badge t1">T1</span>
             </div>
             <div class="layer">
               <div class="layer-info">
-                <h4 class="layer-title">Tool / Integration Layer</h4>
-                <p class="layer-detail">Vetted MCP catalog (T1) + verified partner connectors (T2). All credentials in on-box vault — they never leave the appliance.</p>
-                <p class="layer-eg">MCP servers · chat · source control · ticketing · CRM · docs · …</p>
+                <h4 class="layer-title">Self-hosted websearch</h4>
+                <p class="layer-detail">Locally governed plugin for authorised Application web access</p>
+                <p class="layer-eg">Application-controlled access</p>
               </div>
               <div class="tier-badges">
                 <span class="tier-badge t1">T1</span>
-                <span class="tier-badge t2">T2</span>
               </div>
             </div>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Agentic Layer</h4>
-              <p class="layer-detail">Agent runtimes for multi-step tasks · default catalog of agents we configure · client-extensible in T3</p>
-              <p class="layer-eg">openclaw / nemoclaw</p>
+              <h4 class="layer-title">LXC agentic runtime</h4>
+              <p class="layer-detail">Dedicated local LXC runtime for agentic workflows using the supported inference contract</p>
+              <p class="layer-eg">Isolated runtime · tool-call transport</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Workflow &amp; Orchestration</h4>
-              <p class="layer-detail">Approved workflow templates, scheduled jobs and long-running orchestration</p>
-              <p class="layer-eg">Console workflow runtime · Temporal-style orchestration</p>
+              <h4 class="layer-title">Operations &amp; Recovery</h4>
+              <p class="layer-detail">Signed updates · preflight · snapshots · backup · restore · rollback · recovery history</p>
+              <p class="layer-eg">Offline lifecycle tooling</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Data</h4>
-              <p class="layer-detail">Vector + RAG store inside knowledge workspace · object storage · cache · optional dedicated DB by agreement</p>
-              <p class="layer-eg">Local vector store · MinIO · Redis · (Postgres + pgvector)</p>
+              <h4 class="layer-title">Product Metadata &amp; Audit</h4>
+              <p class="layer-detail">Application configuration · usage metadata · system events · signed audit exports</p>
+              <p class="layer-eg">Local PostgreSQL · no workload-content retention</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Observability &amp; Audit</h4>
-              <p class="layer-detail">LLM tracing · metrics · logs — fully on-prem. No telemetry leaves the box.</p>
-              <p class="layer-eg">Langfuse · Grafana · Loki · Prometheus</p>
+              <h4 class="layer-title">Observability Layer</h4>
+              <p class="layer-detail">Model health · capacity · metrics · alerts · hardware telemetry, all locally operated</p>
+              <p class="layer-eg">Nothing leaves your infrastructure</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
@@ -306,8 +304,8 @@
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Platform</h4>
-              <p class="layer-detail">Container orchestration · VM management · OS · out-of-band management · signed-update + license daemons</p>
-              <p class="layer-eg">Kubernetes · Portainer · Proxmox · Linux · BMC</p>
+              <p class="layer-detail">Container orchestration · operating system · signed update and entitlement services · appliance management</p>
+              <p class="layer-eg">Integrated local platform</p>
             </div>
             <span class="tier-badge t1">T1</span>
           </div>
@@ -322,17 +320,17 @@
           </div>
 
           <div class="pure-boundary">
-            <span class="boundary-label">SUPPORT BOUNDARY · PURE MODE SHUTS DOWN EVERYTHING BELOW</span>
+            <span class="boundary-label">EMERGENCY ISOLATION BOUNDARY · CORE OPERATIONS REMAIN AVAILABLE</span>
           </div>
 
           <div class="layer sandbox">
             <div class="layer-info">
-              <h4 class="layer-title">Client BYO Sandbox</h4>
-              <p class="layer-detail">Custom apps · custom connectors · custom workflows · client-trained models</p>
-              <p class="layer-detail">No host privileges · egress allowlist · isolated secrets · outage here never blocks T1</p>
-              <p class="layer-eg">Defined by you, on your clock — outside our SLA</p>
+              <h4 class="layer-title">Connected Applications</h4>
+              <p class="layer-detail">Your favourite client applications, developer tools and automation harnesses</p>
+              <p class="layer-detail">LLM Machines provides local inference and a documented API contract. Your client applications and workflows stay the same.</p>
+              <p class="layer-eg">Application credentials · model access · familiar client experience</p>
             </div>
-            <span class="tier-badge t3">T3</span>
+            <span class="tier-badge t2">T2</span>
           </div>
         </div>
 
@@ -340,18 +338,18 @@
         <div class="arch-callouts">
           <div class="callout reveal">
             <div class="callout-tag">Tier model</div>
-            <h3>T1 / T2 / T3 with manifest enforcement.</h3>
-            <p>Every component is signed and labelled. T1 runs with host privileges. T2 in restricted containers. T3 sandboxed with no host access. The admin UI shows tier badges next to every installed component — never ambiguous, never argued.</p>
+            <h3>A clear T1 / T2 operating model.</h3>
+            <p>T1 is the signed appliance core and LXC agentic runtime. T2 is the client application layer connected through the documented API contract.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">Pure Mode</div>
-            <h3>Kill everything custom. Keep certified core running.</h3>
-            <p>One-click admin action that disables every T2/T3 component. Use it for security incidents, support diagnosis ("if it reproduces in Pure Mode it's our ticket"), or to keep an audit clean.</p>
+            <div class="callout-tag">Emergency Isolation Mode</div>
+            <h3>Protect the core while operations stay available.</h3>
+            <p>Block Application inference and agentic access while Console, identity, audit, hardware monitoring, backup and recovery remain available.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">MCP catalog</div>
-            <h3>Vetted connectors out of the box.</h3>
-            <p>Chat, source control, ticketing, docs, CRM, mail, storage — all wired through curated MCP servers. Every credential lives in your on-box vault. Nothing leaves the appliance.</p>
+            <div class="callout-tag">Application continuity</div>
+            <h3>Connect your favourite apps and harnesses.</h3>
+            <p>LLM Machines provides local inference and a documented API contract. Your client applications and workflows stay the same.</p>
           </div>
         </div>
       </div>
@@ -363,24 +361,24 @@
     <div class="container">
       <div class="sect-head reveal">
         <span class="label">02 — For developers</span>
-        <h2>Build against local AI like a standard API.</h2>
-        <p>LLM Machines gives engineering teams familiar interfaces while keeping traffic, credentials, models and logs under enterprise control.</p>
+        <h2>Build against local AI through a stable contract.</h2>
+        <p>LLM Machines gives engineering teams familiar interfaces while keeping traffic, credentials, models and operations inside the enterprise perimeter.</p>
       </div>
       <div class="seo-grid reveal">
         <article class="seo-card">
-          <div class="pc-tag">API compatibility</div>
-          <h3>Swap the base URL.</h3>
-          <p>Use OpenAI-compatible endpoints for chat, embeddings and model routing so existing SDK-based tools can move to local infrastructure.</p>
+          <div class="pc-tag">Supported API</div>
+          <h3>Point your client to local inference.</h3>
+          <p>Use <code>/models</code> and streaming or non-streaming <code>/chat/completions</code> for existing SDK-based applications and harnesses.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Tooling</div>
-          <h3>Works with developer workflows.</h3>
-          <p>Integrate private models with IDE assistants, internal applications, LangChain-style workflows and MCP servers.</p>
+          <div class="pc-tag">Tool-call transport</div>
+          <h3>Keep agentic workflows moving.</h3>
+          <p>Carry tool-call messages through the same API contract and into the local LXC agentic runtime.</p>
         </article>
         <article class="seo-card">
           <div class="pc-tag">Operations</div>
           <h3>Observable by default.</h3>
-          <p>Keep request logs, model routing, usage attribution, rate limits and metrics available to admins without sending telemetry outside.</p>
+          <p>Keep request metadata, model routing, usage attribution, rate limits and health signals available through the local observability layer.</p>
         </article>
       </div>
     </div>
@@ -392,88 +390,88 @@
       <div class="solution-grid">
         <aside class="solution-side">
           <span class="label">02 — Stack components</span>
-          <h2>Open source.<br>Best-of-breed.<br>Fully integrated.</h2>
-          <p>No proprietary black boxes. Every component is open, auditable, and replaceable. We integrate them, sign the manifest, and stand behind the result.</p>
+          <h2>Open source.<br>Compact core.<br>Integrated stack.</h2>
+          <p>Every retained component has a clear operational role. We integrate the core, sign the manifest and stand behind the result.</p>
         </aside>
         <div class="solution-list stack-list">
           <article class="pillar-item active">
             <header class="pillar-head">
               <span class="num">[ 01 ]</span>
-              <h3>LiteLLM <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Gateway &amp; Router</span></h3>
+              <h3>Console Web &amp; BFF <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Operational Control</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>Unified endpoint for all LLM providers and local models. Usage tracking, rate limiting, cost control.</p>
+              <p>A compact operational surface for Applications, inference, hardware, team access, Activity &amp; Audit and settings.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 02 ]</span>
-              <h3>LibreChat <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— User Interface</span></h3>
+              <h3>LiteLLM <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Inference Gateway</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>A polished, ChatGPT-like interface for all end users, SSO-linked and wired through the local gateway.</p>
+              <p>Routes the supported <code>/models</code> and <code>/chat/completions</code> contract to qualified local models.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 03 ]</span>
-              <h3>Knowledge RAG Layer <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Retrieval Engine</span></h3>
+              <h3>Keycloak <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Identity &amp; Access</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>Document ingestion, vector search, and retrieval-augmented generation for enterprise knowledge bases.</p>
+              <p>Enterprise identity federation, Admin and Operator roles and local access control.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 04 ]</span>
-              <h3>Open Notebook <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Research Agent</span></h3>
+              <h3>PostgreSQL <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Product Metadata</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>AI-powered research and knowledge synthesis. Deep-dive reports generated automatically.</p>
+              <p>Stores Application configuration, usage metadata and operational audit records without workload-content retention.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 05 ]</span>
-              <h3>NemoClaw / OpenClaw <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Agentic Framework</span></h3>
+              <h3>Local Inference Runtime <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Model Serving</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>Autonomous agents for complex, multi-step enterprise workflows.</p>
+              <p>Qualified open-weight model serving sized for the required latency, throughput and quality.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 06 ]</span>
-              <h3>Microsoft Presidio <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— PII Anonymisation</span></h3>
+              <h3>LXC agentic runtime <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Agentic Workflows</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>Automatic detection and redaction of sensitive data before it ever reaches a model.</p>
+              <p>A dedicated local LXC runtime for agentic workflows connected to the supported inference contract.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 07 ]</span>
-              <h3>SGLang <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Inference Engine</span></h3>
+              <h3>Observability Layer <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Local Operations</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>A high-performance engine for running open-weight models locally — pure OSS, no NVIDIA AI Enterprise tax.</p>
+              <p>Local metrics, model health, alerts and hardware telemetry for daily operations.</p>
             </div>
           </article>
           <article class="pillar-item">
             <header class="pillar-head">
               <span class="num">[ 08 ]</span>
-              <h3>LLM Machines <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Integration Layer</span></h3>
+              <h3>LLM Machines Operations <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Lifecycle &amp; Recovery</span></h3>
             </header>
             <div class="pillar-body">
               <span></span>
-              <p>The connective tissue that turns these projects into a single, deployable, production-ready appliance. The signed manifest, the tier model, the support boundary, the runbook.</p>
+              <p>The signed manifest, offline entitlement, updates, preflight, backup, recovery, rollback and operational runbook.</p>
             </div>
           </article>
         </div>
@@ -491,28 +489,28 @@
       </div>
       <div class="faq-list reveal">
         <article class="faq-item">
-          <h3>Can existing OpenAI API clients use LLM Machines?</h3>
-          <p>Yes. The gateway exposes OpenAI-compatible endpoints so applications can point to the appliance instead of a public cloud API, while keeping authentication, logging and routing local.</p>
+          <h3>Can existing API clients use LLM Machines?</h3>
+          <p>Yes. Connect your favourite apps and harnesses through <code>/models</code> and streaming or non-streaming <code>/chat/completions</code>, including tool-call message transport.</p>
         </article>
         <article class="faq-item">
           <h3>Can the appliance run air-gapped?</h3>
-          <p>Yes. Security-sensitive deployments can use offline license activation and local model registries so core inference, RAG and application surfaces work without public internet access.</p>
+          <p>Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure.</p>
         </article>
         <article class="faq-item">
           <h3>Which models can run locally?</h3>
           <p>The architecture is designed for open-weight model families such as Llama, Mistral and Qwen, with model choice sized to your hardware, latency and quality requirements.</p>
         </article>
         <article class="faq-item">
-          <h3>Where are connector credentials stored?</h3>
-          <p>Connector credentials live in the on-box vault inside your environment. MCP servers and integration services use those credentials locally instead of sending them to our infrastructure.</p>
+          <h3>How do applications authenticate?</h3>
+          <p>Each Application receives its own credential, model access and operational controls through the local Console.</p>
         </article>
         <article class="faq-item">
-          <h3>What does Pure Mode do?</h3>
-          <p>Pure Mode disables T2/T3 custom components and keeps the certified T1 core running. It is useful for incident response, support diagnosis and audit preparation.</p>
+          <h3>What does Emergency Isolation Mode do?</h3>
+          <p>Emergency Isolation Mode blocks Application inference and agentic access while Console, identity, audit, hardware monitoring, backup and recovery remain available.</p>
         </article>
         <article class="faq-item">
-          <h3>What is inside the support boundary?</h3>
-          <p>The signed certified core, tier model, manifest, gateway, inference services and documented T1/T2 components are supported. Client-built T3 extensions remain isolated from the SLA.</p>
+          <h3>What is inside the supported core?</h3>
+          <p>The supported core includes the signed appliance platform, local inference, gateway, Console, identity, observability, lifecycle tooling and LXC agentic runtime.</p>
         </article>
       </div>
     </div>
@@ -542,7 +540,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">A European AI appliance company. Sovereign, scalable, on-premise AI for enterprises that take their data — and their compute bills — seriously.</p>
+          <p class="foot-tag">A European AI appliance company. Customer-premises inference, operational control and agentic workflows inside your infrastructure.</p>
         </div>
         <div class="foot-col">
           <h4>Product</h4>
@@ -569,7 +567,7 @@
       </div>
       <div class="foot-bottom">
         <span>© 2026 LLM Machines · A European company</span>
-        <span>EU AI Act · GDPR · NIS2 · EU Data Act — ready by design</span>
+        <span>Private AI infrastructure for EU-regulated teams</span>
       </div>
     </div>
   </footer>

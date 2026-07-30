@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Onboarding — LLM Machines</title>
-  <meta name="description" content="Implementirajte suverenu on-prem AI u 4–6 tjedana uz discovery, postavljanje hardvera, SSO, konektore, validaciju, obuku i strukturiranu primopredaju." />
+  <meta name="description" content="Strukturirani onboarding za LLM Machines Core Appliance: discovery, hardver, potpisani offline entitlement, identitet, lokalna inferencija, Applications, validacija i primopredaja." />
 
   <link rel="canonical" href="https://llm-machines.com/hr/onboarding/" />
   <link rel="alternate" hreflang="en" href="https://llm-machines.com/onboarding/" />
@@ -12,8 +12,8 @@
   <link rel="alternate" hreflang="x-default" href="https://llm-machines.com/onboarding/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Potpisani ugovor do živog sustava: 4–6 tjedana — LLM Machines" />
-  <meta property="og:description" content="Playbook implementacije u 9 faza s tier modelom + Pure Mode + RACI matricom. Prilagođeno vašem okruženju." />
+  <meta property="og:title" content="Od discovery-ja do lokalne inferencije — LLM Machines" />
+  <meta property="og:description" content="Playbook implementacije u devet faza za Core Appliance, LXC agentic runtime, Applications i Emergency Isolation Mode." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -23,8 +23,8 @@
   <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Potpisani ugovor do živog sustava: 4–6 tjedana — LLM Machines" />
-  <meta name="twitter:description" content="Playbook implementacije u 9 faza s tier modelom + Pure Mode + RACI matricom." />
+  <meta name="twitter:title" content="Od discovery-ja do lokalne inferencije — LLM Machines" />
+  <meta name="twitter:description" content="Devet faza za Core Appliance, LXC agentic runtime, Applications i operativnu primopredaju." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <meta name="theme-color" content="#0E0E0E" />
@@ -53,7 +53,7 @@
   "url": "https://llm-machines.com/",
   "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
   "description": "Hrvatski startup koji gradi suverene on-premise AI appliance-e za europska poduzeća.",
-  "address": { "@type": "PostalAddress", "addressCountry": "HR", "addressRegion": "European Union" },
+  "address": { "@type": "PostalAddress", "addressCountry": "HR" },
   "areaServed": "EU",
   "sameAs": []
 }
@@ -74,10 +74,10 @@
   "@type": "FAQPage",
   "inLanguage": "hr-HR",
   "mainEntity": [
-    { "@type": "Question", "name": "Što nam treba prije nego što implementacija počne?", "acceptedAnswer": { "@type": "Answer", "text": "Trebate dogovoren mod implementacije, podatke o mreži, pristup identity provideru, odobrene izvore podataka, admin kontakte i pilot radna opterećenja za validaciju." } },
-    { "@type": "Question", "name": "Može li onboarding raditi za air-gapped okruženja?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Sigurnosno osjetljive implementacije mogu koristiti offline aktivaciju licence, lokalne bundle-ove modela i kontrolirano postavljanje konektora bez ovisnosti o javnom internetu." } },
-    { "@type": "Question", "name": "Koji su identity provideri podržani?", "acceptedAnswer": { "@type": "Answer", "text": "Stack je dizajniran za standardnu enterprise identity federation putem OIDC ili SAML, s mapiranjem uloga za admine, korisnike, auditore i read-only pristup." } },
-    { "@type": "Question", "name": "Kako se odabiru konektori?", "acceptedAnswer": { "@type": "Answer", "text": "Konektori se biraju tijekom discovery-ja na temelju poslovne vrijednosti, osjetljivosti podataka, modela vjerodajnica i pripadaju li certificiranoj jezgri, partnerskoj razini ili klijentskom sandboxu." } },
+    { "@type": "Question", "name": "Što nam treba prije nego što implementacija počne?", "acceptedAnswer": { "@type": "Answer", "text": "Trebate podatke o mreži i napajanju, pristup identity provideru, popis modela i Applications koje želite povezati, kontakte za Admin i Operator uloge te pilot workload za validaciju." } },
+    { "@type": "Question", "name": "Može li onboarding raditi za air-gapped okruženja?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Sigurnosno osjetljive implementacije koriste potpisani offline entitlement, lokalne bundleove modela i potpisane offline update bundleove. Ništa ne napušta vašu infrastrukturu." } },
+    { "@type": "Question", "name": "Koji su identity provideri podržani?", "acceptedAnswer": { "@type": "Answer", "text": "Stack je dizajniran za standardnu enterprise identity federation putem OIDC-a ili SAML-a, s mapiranjem uloga Admin i Operator." } },
+    { "@type": "Question", "name": "Kako povezujemo postojeće aplikacije?", "acceptedAnswer": { "@type": "Answer", "text": "Applications dobivaju zasebne vjerodajnice, dopuštene modele i pristup dokumentiranim /models i /chat/completions endpointima. Vaše aplikacije i workflows ostaju isti." } },
     { "@type": "Question", "name": "Što čini dobar pilot workload?", "acceptedAnswer": { "@type": "Answer", "text": "Dobar pilot ima stvarne korisnike, jasne kriterije uspjeha, reprezentativne interne podatke i dovoljno rizika za testiranje upravljanja bez blokiranja produkcijskih operacija." } }
   ]
 }
@@ -130,8 +130,8 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Onboarding</span>
-      <h1>Implementirajte on-prem AI u 4–6 tjedana</h1>
-      <p class="lead">Prilagođena implementacija, ne SaaS prijava. Dimenzioniramo appliance, instaliramo stack, federiramo identitet, povezujemo konektore, validiramo radna opterećenja, obučavamo admine i predajemo živi suvereni AI sustav.</p>
+      <h1>Dovedite lokalnu inferenciju u produkciju</h1>
+      <p class="lead">Prilagođena implementacija, ne SaaS prijava. Dimenzioniramo Core Appliance, instaliramo operativnu jezgru i LXC agentic runtime, federiramo identitet, povezujemo vaše Applications, validiramo workload i predajemo dokumentiran sustav.</p>
     </div>
   </header>
 
@@ -141,15 +141,15 @@
       <div class="sect-head reveal">
         <span class="label">00 — Put implementacije</span>
         <h2>Od discovery-ja do primopredaje.</h2>
-        <p>Ista kralježnica implementacije vrijedi bilo da appliance sleti on-premise, u vaš privatni oblak ili u naš hrvatski data centar.</p>
+        <p>Core Appliance implementira se u vašoj infrastrukturi, uz jasne kriterije prihvata za svaki korak od mreže i identiteta do lokalne inferencije i Applications.</p>
       </div>
       <div class="seo-grid reveal">
-        <article class="seo-card"><div class="pc-tag">01</div><h3>Discovery i sizing.</h3><p>Mapirajte korisnike, radna opterećenja, potrebe modela, izvore podataka, compliance ograničenja i očekivani kapacitet prije nego što se hardver finalizira.</p></article>
-        <article class="seo-card"><div class="pc-tag">02</div><h3>Hardver i prvo pokretanje.</h3><p>Montaža u rack, napajanje, licenca, dodjela pohrane, validacija GPU-ova, testiranje mrežne propusnosti i smoke testovi lokalne inferencije.</p></article>
-        <article class="seo-card"><div class="pc-tag">03</div><h3>SSO i uloge.</h3><p>Federirajte s vašim identity providerom, mapirajte uloge admin/korisnik/auditor i potvrdite granice pristupa prije šireg rolloutа.</p></article>
-        <article class="seo-card"><div class="pc-tag">04</div><h3>Konektori i podaci.</h3><p>Povežite odobrene izvore poput dokumenata, ticketinga, repozitorija, chata i pohrane kroz provjereni katalog konektora.</p></article>
-        <article class="seo-card"><div class="pc-tag">05</div><h3>Validacija.</h3><p>Pokrenite kanonske testove kroz chat, API, RAG, agente, observability, audit logove i Pure Mode sa stvarnim korisnicima.</p></article>
-        <article class="seo-card"><div class="pc-tag">06</div><h3>Obuka i primopredaja.</h3><p>Obučite admine i champione, dokumentirajte granice podrške, predajte runbookove i kalendarski fiksirajte 30-dnevni check-in.</p></article>
+        <article class="seo-card"><div class="pc-tag">01</div><h3>Discovery i sizing.</h3><p>Mapiramo workload, modele, korisnike, Applications, compliance ograničenja i očekivani kapacitet prije finalizacije hardvera.</p></article>
+        <article class="seo-card"><div class="pc-tag">02</div><h3>Hardver i entitlement.</h3><p>Montiramo appliance, učitavamo potpisani offline entitlement te provjeravamo GPU, pohranu, mrežu i lokalnu inferenciju.</p></article>
+        <article class="seo-card"><div class="pc-tag">03</div><h3>Identitet i uloge.</h3><p>Federiramo vaš identity provider, mapiramo Admin i Operator uloge te potvrđujemo granice pristupa.</p></article>
+        <article class="seo-card"><div class="pc-tag">04</div><h3>Core i agentic runtime.</h3><p>Pokrećemo lokalnu inferenciju, Console, observability sloj i LXC agentic runtime unutar vašeg perimetra.</p></article>
+        <article class="seo-card"><div class="pc-tag">05</div><h3>Applications i API.</h3><p>Povezujemo omiljene aplikacije i agentic harness-e putem zasebnih vjerodajnica, dopuštenih modela i dokumentiranog API-ja.</p></article>
+        <article class="seo-card"><div class="pc-tag">06</div><h3>Validacija i primopredaja.</h3><p>Provjeravamo API, zero-retention granicu, Activity &amp; Audit, observability, backup, recovery i Emergency Isolation Mode sa stvarnim korisnicima.</p></article>
       </div>
     </div>
   </section>
@@ -158,32 +158,32 @@
   <section id="tier-model">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">01 — Tier model podrške</span>
-        <h2>Tri razine. Manifest-enforced. Bez dvosmislenosti.</h2>
-        <p>Svaka komponenta na kutiji pripada jednoj od tri razine, kodirano u potpisanom manifestu pri instalaciji i vidljivo u admin UI-ju, telemetriji i support tiketima.</p>
+        <span class="label">01 — Granice proizvoda</span>
+        <h2>Podržana jezgra. Vaše Applications. Jasne kontrole.</h2>
+        <p>Core Appliance i LXC agentic runtime čine podržani lokalni proizvod. Applications se povezuju kroz dokumentirani API, pa postojeći klijentski workflows ostaju isti.</p>
       </div>
 
       <div class="preview-callouts reveal">
         <div class="preview-card">
-          <div class="pc-tag">T1 · Certificirana jezgra</div>
-          <h3>Puni SLA po ugovoru.</h3>
-          <p>Firmware, OS, Kubernetes, inference gateway, inference serveri, identitet, ugrađene aplikacije, kurirani katalog konektora, odobreni modeli. Izvršava se s host privilegijama. Mi posjedujemo probleme.</p>
+          <div class="pc-tag">Core Appliance · T1</div>
+          <h3>Lokalna inferencija i operativna jezgra.</h3>
+          <p>Hardver, sistemski softver, inference runtime, gateway, Console, identitet, Activity &amp; Audit, observability sloj, backup, recovery i potpisana ažuriranja.</p>
         </div>
         <div class="preview-card">
-          <div class="pc-tag">T2 · Verificirani partneri</div>
-          <h3>Best-effort, definirano po partneru.</h3>
-          <p>Konektori, modeli i aplikacije iz našeg partnerskog registra koji su prošli reviziju. Izvršavaju se u ograničenim kontejnerima. Integracijska površina je naša; partnerska interna logika njihova.</p>
+          <div class="pc-tag">Applications · T2</div>
+          <h3>Povežite alate koje već koristite.</h3>
+          <p>LLM Machines pruža lokalnu inferenciju i dokumentirani API contract. Vaše omiljene aplikacije, agentic harness-i i workflows ostaju isti.</p>
         </div>
         <div class="preview-card">
-          <div class="pc-tag">T3 · Klijentski BYO</div>
-          <h3>Nema podrške za dodatke; T1/T2 i dalje pokriveno.</h3>
-          <p>Prilagođeni konektori, prilagođene aplikacije u K8s, prilagođeni modeli, prilagođeni workflow-ovi. Sandboxiran. Bez host pristupa. Bez ulaznog mrežnog prometa osim ako nije eksplicitno odobreno. Vi gradite, vi posjedujete.</p>
+          <div class="pc-tag">LXC agentic runtime · T1</div>
+          <h3>Agentic workflows u vašem perimetru.</h3>
+          <p>Standardni LXC runtime daje agentic workloads izolirano lokalno okruženje, pristup dopuštenim modelima i operativnu vidljivost unutar appliance-a.</p>
         </div>
       </div>
 
       <div style="margin-top: 32px; padding: 24px 28px; background: var(--bg-soft); border: 1px solid var(--line); display: flex; gap: 24px; flex-wrap: wrap; align-items: center;" class="reveal">
-        <div style="font-family: 'Acid Grotesk', system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mute); padding-right: 24px; border-right: 1px solid var(--line-bright);">Pure&nbsp;Mode</div>
-        <p style="margin: 0; flex: 1; min-width: 280px; font-size: 14px; color: var(--fg-mute); line-height: 1.55;">Jedan klik admin akcija koja onemogućuje sve T2/T3 komponente. Ako se problem reproducira u Pure Mode-u, naš je tiket; ako ne, usmjerava se klijentu (ili partneru) s jasnim izvještajem o „uključenim komponentama". <strong style="color: var(--fg); font-weight: 600;">To je ugovor koji nam omogućuje skaliranje podrške.</strong></p>
+        <div style="font-family: 'Acid Grotesk', system-ui, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mute); padding-right: 24px; border-right: 1px solid var(--line-bright);">Emergency&nbsp;Isolation&nbsp;Mode</div>
+        <p style="margin: 0; flex: 1; min-width: 280px; font-size: 14px; color: var(--fg-mute); line-height: 1.55;">Zaustavlja Application inferenciju, vanjski mrežni pristup i LXC agentic runtime, dok Console, identitet, Activity &amp; Audit, hardverski nadzor, backup i recovery ostaju dostupni. <strong style="color: var(--fg); font-weight: 600;">Kontrolu zadržavate i tijekom incidenta.</strong></p>
       </div>
     </div>
   </section>
@@ -211,92 +211,92 @@
         </aside>
         <div class="timeline">
         <div class="phase reveal" data-phase="00" id="phase-00"><div class="phase-bar"><span class="phase-num">00</span>
-            <span class="phase-when">T-14 → T-0 dana</span>
+            <span class="phase-when">Prije isporuke</span>
           </div>
           <div>
             <h4>Pre-shipment.</h4>
-            <p>Discovery upitnik — vaš IdP, mrežna topologija, ciljane integracije, broj korisnika, preferencije modela, compliance ograničenja (HIPAA, SOC2, FedRAMP, air-gap). Network pre-flight. Specifikacija napajanja i racka. Licencni ključ vezan za vaš hardver. Pre-flight poziv prolazi kroz upitnik liniju po liniju. Pisana suglasnost.</p>
-            <span class="phase-tag">Prilagođeno za: vaš tip IdP-a, compliance režim, ciljane integracije</span>
+            <p>Discovery upitnik obuhvaća IdP, mrežnu topologiju, ciljne Applications, broj korisnika, modele, agentic workflows, compliance ograničenja i očekivani kapacitet. Network pre-flight potvrđuje napajanje, rack, VLAN-ove i kriterije prihvata prije isporuke.</p>
+            <span class="phase-tag">Prilagođeno za: vaš IdP, workload, modele i Applications</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="01" id="phase-01"><div class="phase-bar"><span class="phase-num">01</span>
-            <span class="phase-when">Day 0 · ~2 sata</span>
+            <span class="phase-when">Instalacija</span>
           </div>
           <div>
             <h4>Isporuka i montaža hardvera u rack.</h4>
-            <p>Inspekcija pri preuzimanju — serijski broj odgovara manifestu, bez fizičkih oštećenja, tamper pečati netaknuti. Montaža u rack, redundantno napajanje, mrežni uplink (mgmt + data VLAN-ovi). Konfiguracija BMC / out-of-band managementa. Terenski inženjer provjerava udaljeni konzolni pristup. Boot do firmware check ekrana, potvrda u odnosu na certificirani manifest.</p>
+            <p>Inspekcija pri preuzimanju potvrđuje serijski broj, fizički integritet i tamper pečate. Slijede montaža u rack, redundantno napajanje, mrežni uplink za management i data VLAN-ove te provjera firmwarea prema potpisanom manifestu.</p>
             <span class="phase-tag">Prilagođeno za: layout vašeg data centra, mrežne VLAN-ove</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="02" id="phase-02"><div class="phase-bar"><span class="phase-num">02</span>
-            <span class="phase-when">Day 0 · ~30 min</span>
+            <span class="phase-when">Prvo pokretanje</span>
           </div>
           <div>
-            <h4>Prvo pokretanje i licenciranje.</h4>
-            <p>Čarobnjak za prvo pokretanje: hostname, vremenska zona, NTP, početne admin vjerodajnice (rotiraju se nakon IdP federacije). Aktivacija licence — online (vraćen potpisani token) ili offline (uploadan potpisani bundle; zadano za sigurnosno osjetljive klijente). Dodjela storage volume-a. Self-test: GPU enumeracija, NVMe zdravlje, mrežna propusnost, smoke test inferencije.</p>
-            <span class="phase-tag">Prilagođeno za: vaš sigurnosni stav (online vs air-gapped)</span>
+            <h4>Prvo pokretanje i offline entitlement.</h4>
+            <p>Čarobnjak postavlja hostname, vremensku zonu, NTP i početne Admin vjerodajnice. Učitava se potpisani offline entitlement bez call-homea, dodjeljuje pohrana te pokreće self-test GPU-a, NVMe-a, mreže i lokalne inferencije.</p>
+            <span class="phase-tag">Ništa ne napušta vašu infrastrukturu.</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="03" id="phase-03"><div class="phase-bar"><span class="phase-num">03</span>
-            <span class="phase-when">Day 1 ujutro · 1–2 sata</span>
+            <span class="phase-when">Konfiguracija platforme</span>
           </div>
           <div>
             <h4>Mreža i identity federation.</h4>
-            <p>TLS certifikati instalirani (vaš CA ili Let's Encrypt s internim ACME-om). DNS zapisi usmjereni na kutiju za odabranu subdomenu. Reverse proxy konfiguriran s rutama za svaku app površinu. Keycloak federiran s vašim IdP-om putem OIDC ili SAML. SCIM provisioning verificiran sa stvarnom sinkronizacijom korisnika/grupe. Mapiranje uloga potvrđeno: Admin / Korisnik / Auditor / Read-Only sleti na pravo mjesto.</p>
-            <span class="phase-tag">Najvrjedniji korak — adopcija staje ako je ovo pogrešno</span>
+            <p>Instaliraju se TLS certifikati vašeg CA-a, DNS zapisi i reverse proxy rute. Keycloak se federira s vašim IdP-om putem OIDC-a ili SAML-a, a mapiranje uloga Admin i Operator provjerava se sa stvarnim korisnicima.</p>
+            <span class="phase-tag">Prilagođeno za: vašeg pružatelja identiteta i model pristupa</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="04" id="phase-04"><div class="phase-bar"><span class="phase-num">04</span>
-            <span class="phase-when">Day 1 popodne · ~1 sat</span>
+            <span class="phase-when">Core services</span>
           </div>
           <div>
-            <h4>Inference i app stack.</h4>
-            <p>Modeli učitani prema upitniku — chat, kod, embeddinzi — povučeni iz on-box potpisanog registra (nije potreban internet za T1 modele). SGLang / vLLM inference serveri registrirani s gateway-om. LiteLLM konfiguriran: aliasi modela, rate limiti po timu, proračuni po timu, audit logiranje uključeno. Ugrađene aplikacije online: LibreChat, lokalni RAG workspace, openclaw / nemoclaw. Opcionalni dodaci (Continue, Tabby, Langfuse i workflow tooling) prema opsegu.</p>
-            <span class="phase-tag">Prilagođeno za: vaše preferencije modela, proračune po timu</span>
+            <h4>Core Appliance i LXC agentic runtime.</h4>
+            <p>Učitavaju se odobreni lokalni modeli, registrira inference runtime i konfiguriraju aliasi modela. Pokreću se Console, identitet, Activity &amp; Audit, observability sloj, backup, recovery i standardni LXC agentic runtime.</p>
+            <span class="phase-tag">Prilagođeno za: vaše modele, kapacitet i agentic workflows</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="05" id="phase-05"><div class="phase-bar"><span class="phase-num">05</span>
-            <span class="phase-when">Day 1 → Day 2 · 2–4 sata</span>
+            <span class="phase-when">Povezivanje aplikacija</span>
           </div>
           <div>
-            <h4>Konfiguracija konektora.</h4>
-            <p>Slack / Teams, email, source control (GitHub / GitLab / Bitbucket), praćenje tiketa (Jira / Linear / Asana), dokumenti (Notion / Confluence / SharePoint), CRM, pohrana. Svaki autoriziran, opsegom omeđen (read-only zadano prvih 30 dana) i smoke testiran s pripremljenim promptom prije sign-offа. Sve što nije u kuriranom katalogu logira se kao T3 kandidat.</p>
+            <h4>Applications i dokumentirani API.</h4>
+            <p>Svaka Application dobiva zasebnu vjerodajnicu, dopuštene modele i dogovorene limite. Omiljene aplikacije i agentic harness-i povezuju se kroz <code>/models</code> i <code>/chat/completions</code>, uz streaming i tool-call transport. Vaše aplikacije i workflows ostaju isti.</p>
             <span class="phase-tag">Prilagođeno za: vaš postojeći stack alata</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="06" id="phase-06"><div class="phase-bar"><span class="phase-num">06</span>
-            <span class="phase-when">Day 2 · ~1 sat</span>
+            <span class="phase-when">Prihvat</span>
           </div>
           <div>
             <h4>Validacijski paket.</h4>
-            <p>End-to-end testovi kroz svaku površinu — chat, IDE, ulazna integracija, izlazna integracija, upravljani workflow, agentic, observability, audit, Pure Mode toggle. Svaki vode stvarni korisnici iz vašeg tima, ne inženjeri. Skup testova je kanonski — identičan kroz svaku implementaciju da bude reproducibilan.</p>
-            <span class="phase-tag">Stvarni korisnici, ne inženjeri — test mora biti reproducibilan</span>
+            <p>End-to-end testovi provjeravaju <code>/models</code>, streaming i non-streaming Chat Completions, tool-call transport, Application vjerodajnice, zero-retention granicu, Activity &amp; Audit, observability, backup, recovery i Emergency Isolation Mode. Testove vode stvarni korisnici vašeg tima.</p>
+            <span class="phase-tag">Stvarni korisnici i reproducibilni kriteriji prihvata</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="07" id="phase-07"><div class="phase-bar"><span class="phase-num">07</span>
-            <span class="phase-when">Day 2 popodne · ~2 sata</span>
+            <span class="phase-when">Operativna primopredaja</span>
           </div>
           <div>
             <h4>Obuka i primopredaja.</h4>
-            <p>Admin obuka (60 min): upravljanje korisnicima/grupama, registar modela, životni ciklus konektora, Pure Mode, audit export, kanali ažuriranja, backup/restore, tier model. Kickoff za krajnje korisnike (30 min, snimljen). Klijentski runbook isporučen s ispunjenim vašim vrijednostima. Uspostavljen support kanal. Eskalacijski putevi za on-call potvrđeni s obje strane. Odabrana strategija ažuriranja.</p>
+            <p>Admin i Operator obuka pokriva korisnike, Applications, alias modele, rotaciju vjerodajnica, Activity &amp; Audit export, Emergency Isolation Mode, potpisane offline update bundleove te backup i recovery. Predajemo ispunjene runbookove i potvrđujemo support i eskalacijske kanale.</p>
             <span class="phase-tag">Prilagođeno za: uloge vašeg tima, vaš support workflow</span>
           </div>
         </div>
 
         <div class="phase reveal" data-phase="08" id="phase-08"><div class="phase-bar"><span class="phase-num">08</span>
-            <span class="phase-when">+30 dana</span>
+            <span class="phase-when">Operativni pregled</span>
           </div>
           <div>
-            <h4>30-dnevni check-in.</h4>
-            <p>Kalendarski fiksirano pri primopredaji. Pregled korištenja — aktivni korisnici, promptovi/dan po površini, top use case-ovi, neaktivne površine. Pregled konektora — što ne radi, što je nedovoljno korišteno, što nedostaje. Pregled tier granica — je li itko izgradio T3 stvari? Ako da, jesu li implikacije podrške shvaćene? Razgovor o roadmapu. Brojevi adopcije su zdravi — ili postoji pisani plan ispravljanja.</p>
-            <span class="phase-tag">Kontinuirano partnerstvo, ne transakcijska primopredaja</span>
+            <h4>Operativni pregled.</h4>
+            <p>Pregledavamo Application usage metapodatke, zdravlje modela i ruta, starost vjerodajnica, upozorenja observability sloja, status backupa i otvorene operativne stavke. Potvrđujemo runbook, update put i recovery stanje nakon primopredaje.</p>
+            <span class="phase-tag">Prilagođeno za: vaš ritam operativnih pregleda</span>
           </div>
         </div>
       </div>
@@ -319,22 +319,22 @@
               <th>Aktivnost</th>
               <th>Mi</th>
               <th>Klijent IT</th>
-              <th>Vlasnik alata</th>
-              <th>Krajnji korisnik</th>
+              <th>Vlasnik Applicationa</th>
+              <th>Operator</th>
             </tr>
           </thead>
           <tbody>
             <tr><td>Pre-flight i upitnik</td><td class="v-yes">A / R</td><td class="v-mid">R</td><td class="v-mid">C</td><td class="v-no">I</td></tr>
             <tr><td>Hardware rack i napajanje</td><td class="v-mid">C</td><td class="v-yes">R / A</td><td class="v-no">I</td><td class="v-no">I</td></tr>
-            <tr><td>Prvo pokretanje i licenciranje</td><td class="v-yes">R / A</td><td class="v-mid">C</td><td class="v-no">I</td><td class="v-no">I</td></tr>
+            <tr><td>Prvo pokretanje i offline entitlement</td><td class="v-yes">R / A</td><td class="v-mid">C</td><td class="v-no">I</td><td class="v-no">I</td></tr>
             <tr><td>Mreža, TLS, DNS</td><td class="v-mid">C</td><td class="v-yes">R / A</td><td class="v-no">I</td><td class="v-no">I</td></tr>
             <tr><td>IdP federacija</td><td class="v-yes">R</td><td class="v-yes">A / R</td><td class="v-no">I</td><td class="v-no">I</td></tr>
-            <tr><td>Inference i app stack</td><td class="v-yes">R / A</td><td class="v-mid">C</td><td class="v-no">I</td><td class="v-no">I</td></tr>
-            <tr><td>Autentikacija i opseg konektora</td><td class="v-yes">R</td><td class="v-mid">C</td><td class="v-yes">A / R</td><td class="v-no">I</td></tr>
+            <tr><td>Core Appliance i LXC agentic runtime</td><td class="v-yes">R / A</td><td class="v-mid">C</td><td class="v-no">I</td><td class="v-mid">C</td></tr>
+            <tr><td>Application vjerodajnice i model policy</td><td class="v-yes">R</td><td class="v-mid">C</td><td class="v-yes">A / R</td><td class="v-mid">C</td></tr>
             <tr><td>Validacijski testovi</td><td class="v-yes">R</td><td class="v-mid">C</td><td class="v-mid">C</td><td class="v-yes">A</td></tr>
-            <tr><td>Admin obuka</td><td class="v-yes">R / A</td><td class="v-yes">A</td><td class="v-no">I</td><td class="v-no">I</td></tr>
-            <tr><td>Kickoff za krajnje korisnike</td><td class="v-yes">R</td><td class="v-no">I</td><td class="v-no">I</td><td class="v-yes">A</td></tr>
-            <tr><td>Day-2 operacije i T3 dodaci</td><td class="v-mid">C (T1/T2 samo)</td><td class="v-yes">A / R</td><td class="v-yes">A / R</td><td class="v-no">I</td></tr>
+            <tr><td>Admin i Operator obuka</td><td class="v-yes">R / A</td><td class="v-yes">A</td><td class="v-mid">C</td><td class="v-yes">R</td></tr>
+            <tr><td>Application smoke test</td><td class="v-yes">R</td><td class="v-mid">C</td><td class="v-yes">A / R</td><td class="v-mid">C</td></tr>
+            <tr><td>Day-2 operacije</td><td class="v-mid">C</td><td class="v-yes">A / R</td><td class="v-mid">C</td><td class="v-yes">R</td></tr>
           </tbody>
         </table>
       </div>
@@ -352,19 +352,19 @@
       <div class="faq-list reveal">
         <article class="faq-item">
           <h3>Što nam treba prije nego što implementacija počne?</h3>
-          <p>Trebate dogovoren mod implementacije, podatke o mreži, pristup identity provideru, odobrene izvore podataka, admin kontakte i pilot radna opterećenja za validaciju.</p>
+          <p>Trebate podatke o mreži i napajanju, pristup identity provideru, popis modela i Applications koje želite povezati, kontakte za Admin i Operator uloge te pilot workload za validaciju.</p>
         </article>
         <article class="faq-item">
           <h3>Može li onboarding raditi za air-gapped okruženja?</h3>
-          <p>Da. Sigurnosno osjetljive implementacije mogu koristiti offline aktivaciju licence, lokalne bundle-ove modela i kontrolirano postavljanje konektora bez ovisnosti o javnom internetu.</p>
+          <p>Da. Sigurnosno osjetljive implementacije koriste potpisani offline entitlement, lokalne bundleove modela i potpisane offline update bundleove. Ništa ne napušta vašu infrastrukturu.</p>
         </article>
         <article class="faq-item">
           <h3>Koji su identity provideri podržani?</h3>
-          <p>Stack je dizajniran za standardnu enterprise identity federation putem OIDC ili SAML, s mapiranjem uloga za admine, korisnike, auditore i read-only pristup.</p>
+          <p>Stack je dizajniran za standardnu enterprise identity federation putem OIDC-a ili SAML-a, s mapiranjem uloga Admin i Operator.</p>
         </article>
         <article class="faq-item">
-          <h3>Kako se odabiru konektori?</h3>
-          <p>Konektori se biraju tijekom discovery-ja na temelju poslovne vrijednosti, osjetljivosti podataka, modela vjerodajnica i pripadaju li certificiranoj jezgri, partnerskoj razini ili klijentskom sandboxu.</p>
+          <h3>Kako povezujemo postojeće aplikacije?</h3>
+          <p>Applications dobivaju zasebne vjerodajnice, dopuštene modele i pristup dokumentiranim <code>/models</code> i <code>/chat/completions</code> endpointima. Vaše aplikacije i workflows ostaju isti.</p>
         </article>
         <article class="faq-item">
           <h3>Što čini dobar pilot workload?</h3>
@@ -381,7 +381,7 @@
     <div class="container">
       <span class="label" style="justify-content:center;">Što slijedi</span>
       <h2>Pilotirajte appliance na vašim stvarnim radnim opterećenjima.</h2>
-      <p>Discovery poziv, dimenzionirana specifikacija appliance-a i 4–6-tjedni put do produkcije. Isti tim end-to-end.</p>
+      <p>Discovery poziv, dimenzionirana specifikacija appliance-a, jasan plan validacije i strukturirana operativna primopredaja.</p>
       <div class="hero-ctas">
         <a href="../technology/" class="btn btn-ghost">Pogledajte tehnologiju</a>
         <a href="../pricing/" class="btn btn-ghost">Pogledajte cijene</a>
@@ -398,7 +398,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">Europska AI appliance tvrtka. Suverena, skalabilna, on-premise AI za poduzeća koja svoje podatke — i svoje račune za računalstvo — shvaćaju ozbiljno.</p>
+          <p class="foot-tag">Europska AI appliance tvrtka. Lokalna inferencija, operativna kontrola i agentic workflowi unutar vaše infrastrukture.</p>
         </div>
         <div class="foot-col">
           <h4>Proizvod</h4>
@@ -425,7 +425,7 @@
       </div>
       <div class="foot-bottom">
         <span>© 2026 LLM Machines · Europska tvrtka</span>
-        <span>EU AI Act · GDPR · NIS2 · EU Data Act — spremno po dizajnu</span>
+        <span>Privatna AI infrastruktura za regulirane timove u EU</span>
       </div>
     </div>
   </footer>
