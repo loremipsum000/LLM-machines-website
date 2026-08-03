@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>On-Prem Inference Architecture — LLM Machines</title>
-  <meta name="description" content="Explore the LLM Machines customer-premises architecture: local model serving, supported APIs, a compact operational Console, an observability layer and an LXC agentic runtime." />
+  <title>On-Prem Inference Architecture | LLM Machines</title>
+  <meta name="description" content="Explore the LLM Machines customer-premises architecture: infrastructure, local inference, gateway and policy, an operational Console, an Observability layer, lifecycle and recovery, plus an LXC boundary for advanced integrations." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/technology/" />
@@ -16,8 +16,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="A compact on-prem inference stack — LLM Machines" />
-  <meta property="og:description" content="Local inference, a documented API contract, operational control, an observability layer and an LXC runtime for agentic workflows." />
+  <meta property="og:title" content="A compact on-prem inference stack | LLM Machines" />
+  <meta property="og:description" content="Private inference, operational control and model choice inside infrastructure you control, with an LXC boundary for advanced integrations." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -27,8 +27,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="A compact on-prem inference stack — LLM Machines" />
-  <meta name="twitter:description" content="Local inference, a documented API contract, operational control, an observability layer and an LXC runtime for agentic workflows." />
+  <meta name="twitter:title" content="A compact on-prem inference stack | LLM Machines" />
+  <meta name="twitter:description" content="Private inference, operational control and model choice inside infrastructure you control, with an LXC boundary for advanced integrations." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <!-- Theme + indexing -->
@@ -82,12 +82,12 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Can existing API clients use LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Connect your favourite apps and harnesses through /models and streaming or non-streaming /chat/completions, including tool-call message transport." } },
-    { "@type": "Question", "name": "Can the appliance run air-gapped?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure." } },
+    { "@type": "Question", "name": "Can existing API clients use LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chat Completions is the documented API protocol your favourite apps and harnesses use to access approved local models. The /models endpoint exposes the approved model set." } },
+    { "@type": "Question", "name": "Can the appliance operate without public-internet access?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure." } },
     { "@type": "Question", "name": "Which models can run locally?", "acceptedAnswer": { "@type": "Answer", "text": "The architecture is designed for open-weight model families such as Llama, Mistral and Qwen, with model choice sized to your hardware, latency and quality requirements." } },
     { "@type": "Question", "name": "How do applications authenticate?", "acceptedAnswer": { "@type": "Answer", "text": "Each Application receives its own credential, model access and operational controls through the local Console." } },
-    { "@type": "Question", "name": "What does Emergency Isolation Mode do?", "acceptedAnswer": { "@type": "Answer", "text": "Emergency Isolation Mode blocks Application inference and agentic access while Console, identity, audit, hardware monitoring, backup and recovery remain available." } },
-    { "@type": "Question", "name": "What is inside the supported core?", "acceptedAnswer": { "@type": "Answer", "text": "The supported core includes the signed appliance platform, local inference, gateway, Console, identity, observability, lifecycle tooling and LXC agentic runtime." } }
+    { "@type": "Question", "name": "How does the LXC runtime support advanced integrations?", "acceptedAnswer": { "@type": "Answer", "text": "The LXC runtime provides a secondary execution boundary for separately scoped advanced integrations, including agentic use cases. It connects to approved models through the documented inference API." } },
+    { "@type": "Question", "name": "What is inside the managed inference core?", "acceptedAnswer": { "@type": "Answer", "text": "The managed inference core includes the infrastructure platform, local inference runtime, gateway and policy, operational Console, identity, Observability layer, and lifecycle and recovery controls." } }
   ]
 }
   </script>
@@ -139,8 +139,8 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Technology</span>
-      <h1>A Compact On-Prem Inference Architecture</h1>
-      <p class="lead">One customer-premises appliance with local model serving, a compact operational Console, a documented API contract, an observability layer and an LXC agentic runtime. Connect your favourite apps and harnesses. Nothing leaves your infrastructure.</p>
+      <h1>Private Inference, Operated as One Stack</h1>
+      <p class="lead">LLM Machines configures and maintains the infrastructure layer, inference runtime, gateway and policy, operational Console, Observability layer, and lifecycle and recovery controls. Your favourite apps and harnesses connect through a documented API handoff. Nothing leaves your infrastructure.</p>
     </div>
   </header>
 
@@ -148,64 +148,73 @@
   <section id="architecture">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">01 — Architecture</span>
+        <span class="label">01 · Architecture</span>
         <h2>Reference architecture.</h2>
-        <p>Your users, identity provider and existing client applications connect to a signed operational core inside your infrastructure.</p>
+        <p>A managed inference core runs inside your infrastructure. Customer applications connect through a documented boundary, while an LXC runtime provides a secondary boundary for separately scoped advanced integrations.</p>
       </div>
 
       <div class="arch zoom-in reveal">
         <!-- External entities row -->
         <div class="arch-external">
           <div class="ext-card">
-            <span class="ext-tag">External</span>
+            <span class="ext-tag">Customer environment</span>
             <div class="ext-name">Teams &amp; Users</div>
             <p class="ext-desc">Developers · analysts · support · legal · operations.<br>Use the client experiences they already know.</p>
             <div class="ext-proto">Authenticate through enterprise identity</div>
           </div>
           <div class="ext-card">
-            <span class="ext-tag">External</span>
+            <span class="ext-tag">Customer environment</span>
             <div class="ext-name">Enterprise Identity Provider</div>
             <p class="ext-desc">Federate the identity provider your organisation already operates.</p>
             <div class="ext-proto">OIDC · SAML 2.0</div>
           </div>
           <div class="ext-card">
-            <span class="ext-tag">External</span>
+            <span class="ext-tag">Customer application boundary</span>
             <div class="ext-name">Favourite Apps &amp; Harnesses</div>
-            <p class="ext-desc">Keep the client applications, developer tools and automation workflows your teams already use.</p>
-            <div class="ext-proto">Documented inference API</div>
+            <p class="ext-desc">Connect client applications and developer tools to approved local models.</p>
+            <div class="ext-proto">Models · Chat Completions</div>
           </div>
         </div>
 
         <!-- The appliance box -->
         <div class="arch-box">
           <div class="arch-box-head">
-            <span>LLM Machine · On-Prem Appliance</span>
-            <span class="muted">Signed Core</span>
+            <span>LLM Machines · Customer-Premises Inference Stack</span>
+            <span class="muted">Managed operational boundary</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Edge / Gateway</h4>
-              <p class="layer-detail">TLS termination · reverse proxy · routing · rate-limiting</p>
-              <p class="layer-eg">Traefik · Kong · NGINX</p>
+              <h4 class="layer-title">Infrastructure Layer</h4>
+              <p class="layer-detail">Compute · memory · storage · network · operating platform · physical controls</p>
+              <p class="layer-eg">Workload sizing · distributor-backed Supermicro procurement · customer-controlled environment</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Identity &amp; SSO</h4>
-              <p class="layer-detail">Enterprise federation · local Application credentials · role mapping for Admin and Operator</p>
-              <p class="layer-eg">Keycloak</p>
+              <h4 class="layer-title">Local Inference Runtime</h4>
+              <p class="layer-detail">Qualified open-weight model serving configured for throughput, latency, quality and capacity targets</p>
+              <p class="layer-eg">Approved models · local model registry · managed configuration</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
+          </div>
+
+          <div class="layer">
+            <div class="layer-info">
+              <h4 class="layer-title">Gateway &amp; Policy</h4>
+              <p class="layer-detail"><code>/models</code> · streaming and non-streaming <code>/chat/completions</code> · credentials · model access · routing · rate policy</p>
+              <p class="layer-eg">Enterprise identity federation · documented API handoff</p>
+            </div>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer layer-with-tiles">
             <div class="layer-info">
-              <h4 class="layer-title">Compact Operational Console</h4>
+              <h4 class="layer-title">Operational Console</h4>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
             <div class="sub-tiles">
               <div class="sub-tile">
                 <div class="tile-title">Overview</div>
@@ -213,14 +222,9 @@
                 <div class="tile-eg">Operational summary</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Applications</div>
-                <div class="tile-sub">credentials · model access</div>
-                <div class="tile-eg">Client connectivity</div>
-              </div>
-              <div class="sub-tile">
-                <div class="tile-title">Inference</div>
-                <div class="tile-sub">models · routes · usage</div>
-                <div class="tile-eg">Local model control</div>
+                <div class="tile-title">Model Estate</div>
+                <div class="tile-sub">models · routes · capacity</div>
+                <div class="tile-eg">Inference control</div>
               </div>
               <div class="sub-tile">
                 <div class="tile-title">Hardware</div>
@@ -228,128 +232,71 @@
                 <div class="tile-eg">Appliance status</div>
               </div>
               <div class="sub-tile">
-                <div class="tile-title">Activity &amp; Audit</div>
-                <div class="tile-sub">metadata · events · exports</div>
-                <div class="tile-eg">Operational evidence</div>
+                <div class="tile-title">Access &amp; Activity</div>
+                <div class="tile-sub">credentials · metadata · events</div>
+                <div class="tile-eg">Policy and evidence</div>
               </div>
             </div>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Inference Gateway</h4>
-              <p class="layer-detail"><code>/models</code> · streaming and non-streaming <code>/chat/completions</code> · tool-call message transport · model routing</p>
-              <p class="layer-eg">LiteLLM</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
-          </div>
-
-          <div class="layer-split">
-            <div class="layer">
-              <div class="layer-info">
-                <h4 class="layer-title">Local Inference Runtime</h4>
-                <p class="layer-detail">Qualified open-weight model serving sized for throughput, latency and quality</p>
-                <p class="layer-eg">Signed local model registry</p>
-              </div>
-              <span class="tier-badge t1">T1</span>
-            </div>
-            <div class="layer">
-              <div class="layer-info">
-                <h4 class="layer-title">Self-hosted websearch</h4>
-                <p class="layer-detail">Locally governed plugin for authorised Application web access</p>
-                <p class="layer-eg">Application-controlled access</p>
-              </div>
-              <div class="tier-badges">
-                <span class="tier-badge t1">T1</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">LXC agentic runtime</h4>
-              <p class="layer-detail">Dedicated local LXC runtime for agentic workflows using the supported inference contract</p>
-              <p class="layer-eg">Isolated runtime · tool-call transport</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Operations &amp; Recovery</h4>
-              <p class="layer-detail">Signed updates · preflight · snapshots · backup · restore · rollback · recovery history</p>
-              <p class="layer-eg">Offline lifecycle tooling</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Product Metadata &amp; Audit</h4>
-              <p class="layer-detail">Application configuration · usage metadata · system events · signed audit exports</p>
-              <p class="layer-eg">Local PostgreSQL · no workload-content retention</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Observability Layer</h4>
-              <p class="layer-detail">Model health · capacity · metrics · alerts · hardware telemetry, all locally operated</p>
-              <p class="layer-eg">Nothing leaves your infrastructure</p>
+              <p class="layer-detail">Model health · capacity · operational metrics · alerts · hardware telemetry</p>
+              <p class="layer-eg">Local operational visibility · capacity reviews · support evidence</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Platform</h4>
-              <p class="layer-detail">Container orchestration · operating system · signed update and entitlement services · appliance management</p>
-              <p class="layer-eg">Integrated local platform</p>
+              <h4 class="layer-title">Lifecycle &amp; Recovery</h4>
+              <p class="layer-detail">Controlled updates · preflight · backup · restore · rollback · recovery history</p>
+              <p class="layer-eg">Managed maintenance · documented recovery procedures</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Hardware · enterprise / industry-grade</h4>
-              <p class="layer-detail">Compute · memory · storage · network · power · physical security</p>
-              <p class="layer-eg">Supermicro GPU(s) · CPU · NVMe · 25 / 100 GbE NIC · redundant PSU · TPM · tamper sensors</p>
+              <h4 class="layer-title">LXC Advanced Integration Boundary</h4>
+              <p class="layer-detail">A secondary execution boundary for separately scoped advanced integrations, including agentic use cases</p>
+              <p class="layer-eg">Connects to approved models through the documented inference API</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t2">ADV</span>
           </div>
 
           <div class="pure-boundary">
-            <span class="boundary-label">EMERGENCY ISOLATION BOUNDARY · CORE OPERATIONS REMAIN AVAILABLE</span>
+            <span class="boundary-label">CUSTOMER APPLICATION BOUNDARY · MANAGED INFERENCE OPERATIONS REMAIN AVAILABLE</span>
           </div>
 
           <div class="layer sandbox">
             <div class="layer-info">
-              <h4 class="layer-title">Connected Applications</h4>
-              <p class="layer-detail">Your favourite client applications, developer tools and automation harnesses</p>
-              <p class="layer-detail">LLM Machines provides local inference and a documented API contract. Your client applications and workflows stay the same.</p>
-              <p class="layer-eg">Application credentials · model access · familiar client experience</p>
+              <h4 class="layer-title">Customer Applications</h4>
+              <p class="layer-detail">Your favourite client applications, developer tools and harnesses connect to approved local models</p>
+              <p class="layer-detail">Each application receives its own credential, approved model access and policy controls through the documented local interface.</p>
+              <p class="layer-eg">API handoff · application credentials · model policy · customer-owned experience</p>
             </div>
-            <span class="tier-badge t2">T2</span>
+            <span class="tier-badge t2">CLIENT</span>
           </div>
         </div>
 
         <!-- Three callout cards -->
         <div class="arch-callouts">
           <div class="callout reveal">
-            <div class="callout-tag">Tier model</div>
-            <h3>A clear T1 / T2 operating model.</h3>
-            <p>T1 is the signed appliance core and LXC agentic runtime. T2 is the client application layer connected through the documented API contract.</p>
+            <div class="callout-tag">Managed inference</div>
+            <h3>One operational boundary.</h3>
+            <p>LLM Machines configures and maintains the infrastructure, inference, policy, Console, Observability, update and recovery layers as one managed stack.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">Emergency Isolation Mode</div>
-            <h3>Protect the core while operations stay available.</h3>
-            <p>Block Application inference and agentic access while Console, identity, audit, hardware monitoring, backup and recovery remain available.</p>
+            <div class="callout-tag">API handoff</div>
+            <h3>Connect the tools your teams prefer.</h3>
+            <p>Use one documented contract across the client applications and harnesses your teams already prefer.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">Application continuity</div>
-            <h3>Connect your favourite apps and harnesses.</h3>
-            <p>LLM Machines provides local inference and a documented API contract. Your client applications and workflows stay the same.</p>
+            <div class="callout-tag">Advanced integrations</div>
+            <h3>A dedicated LXC boundary.</h3>
+            <p>The LXC runtime enables separately scoped advanced integrations, including agentic use cases, while the inference core remains dedicated to serving approved models.</p>
           </div>
         </div>
       </div>
@@ -360,121 +307,26 @@
   <section id="developers">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">02 — For developers</span>
-        <h2>Build against local AI through a stable contract.</h2>
-        <p>LLM Machines gives engineering teams familiar interfaces while keeping traffic, credentials, models and operations inside the enterprise perimeter.</p>
+        <span class="label">02 · API handoff</span>
+        <h2>Connect applications through a stable contract.</h2>
+        <p>Engineering teams receive a documented local interface, approved model access and application-specific credentials at handoff.</p>
       </div>
       <div class="seo-grid reveal">
         <article class="seo-card">
           <div class="pc-tag">Supported API</div>
           <h3>Point your client to local inference.</h3>
-          <p>Use <code>/models</code> and streaming or non-streaming <code>/chat/completions</code> for existing SDK-based applications and harnesses.</p>
+          <p>Chat Completions is the documented API protocol your favourite apps and harnesses use to access approved local models. Use <code>/models</code> to discover the approved model set.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Tool-call transport</div>
-          <h3>Keep agentic workflows moving.</h3>
-          <p>Carry tool-call messages through the same API contract and into the local LXC agentic runtime.</p>
+          <div class="pc-tag">Policy</div>
+          <h3>Handoff with clear controls.</h3>
+          <p>Application credentials, model access, routing and rate policies are configured against the customer application boundary.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Operations</div>
-          <h3>Observable by default.</h3>
-          <p>Keep request metadata, model routing, usage attribution, rate limits and health signals available through the local observability layer.</p>
+          <div class="pc-tag">Advanced integrations</div>
+          <h3>Extend through the LXC boundary.</h3>
+          <p>Separately scoped integrations, including agentic use cases, can run in the secondary LXC boundary and access approved models through the same API contract.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== STACK COMPONENTS (sticky list, same as Solution) ============== -->
-  <section id="stack">
-    <div class="container">
-      <div class="solution-grid">
-        <aside class="solution-side">
-          <span class="label">02 — Stack components</span>
-          <h2>Open source.<br>Compact core.<br>Integrated stack.</h2>
-          <p>Every retained component has a clear operational role. We integrate the core, sign the manifest and stand behind the result.</p>
-        </aside>
-        <div class="solution-list stack-list">
-          <article class="pillar-item active">
-            <header class="pillar-head">
-              <span class="num">[ 01 ]</span>
-              <h3>Console Web &amp; BFF <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Operational Control</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>A compact operational surface for Applications, inference, hardware, team access, Activity &amp; Audit and settings.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 02 ]</span>
-              <h3>LiteLLM <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Inference Gateway</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Routes the supported <code>/models</code> and <code>/chat/completions</code> contract to qualified local models.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 03 ]</span>
-              <h3>Keycloak <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Identity &amp; Access</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Enterprise identity federation, Admin and Operator roles and local access control.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 04 ]</span>
-              <h3>PostgreSQL <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Product Metadata</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Stores Application configuration, usage metadata and operational audit records without workload-content retention.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 05 ]</span>
-              <h3>Local Inference Runtime <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Model Serving</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Qualified open-weight model serving sized for the required latency, throughput and quality.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 06 ]</span>
-              <h3>LXC agentic runtime <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Agentic Workflows</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>A dedicated local LXC runtime for agentic workflows connected to the supported inference contract.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 07 ]</span>
-              <h3>Observability Layer <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Local Operations</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Local metrics, model health, alerts and hardware telemetry for daily operations.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 08 ]</span>
-              <h3>LLM Machines Operations <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Lifecycle &amp; Recovery</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>The signed manifest, offline entitlement, updates, preflight, backup, recovery, rollback and operational runbook.</p>
-            </div>
-          </article>
-        </div>
       </div>
     </div>
   </section>
@@ -483,17 +335,17 @@
   <section id="technology-faq">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">03 — FAQ</span>
+        <span class="label">03 · FAQ</span>
         <h2>Architecture questions.</h2>
         <p>Details security, platform and developer teams usually ask before approving an on-prem AI deployment.</p>
       </div>
       <div class="faq-list reveal">
         <article class="faq-item">
           <h3>Can existing API clients use LLM Machines?</h3>
-          <p>Yes. Connect your favourite apps and harnesses through <code>/models</code> and streaming or non-streaming <code>/chat/completions</code>, including tool-call message transport.</p>
+          <p>Yes. Existing clients can connect through the documented Chat Completions protocol, while the <code>/models</code> endpoint exposes the approved model set.</p>
         </article>
         <article class="faq-item">
-          <h3>Can the appliance run air-gapped?</h3>
+          <h3>Can the appliance operate without public-internet access?</h3>
           <p>Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure.</p>
         </article>
         <article class="faq-item">
@@ -505,12 +357,12 @@
           <p>Each Application receives its own credential, model access and operational controls through the local Console.</p>
         </article>
         <article class="faq-item">
-          <h3>What does Emergency Isolation Mode do?</h3>
-          <p>Emergency Isolation Mode blocks Application inference and agentic access while Console, identity, audit, hardware monitoring, backup and recovery remain available.</p>
+          <h3>How does the LXC runtime support advanced integrations?</h3>
+          <p>The LXC runtime provides a secondary execution boundary for separately scoped advanced integrations, including agentic use cases. It connects to approved models through the documented inference API.</p>
         </article>
         <article class="faq-item">
-          <h3>What is inside the supported core?</h3>
-          <p>The supported core includes the signed appliance platform, local inference, gateway, Console, identity, observability, lifecycle tooling and LXC agentic runtime.</p>
+          <h3>What is inside the managed inference core?</h3>
+          <p>The managed inference core includes the infrastructure platform, local inference runtime, gateway and policy, operational Console, identity, Observability layer, and lifecycle and recovery controls.</p>
         </article>
       </div>
     </div>
@@ -523,7 +375,7 @@
     <div class="container">
       <span class="label" style="justify-content:center;">What's next</span>
       <h2>Ready to dig deeper?</h2>
-      <p>See how the technology lands inside your environment — onboarding, pricing, or just talk to us.</p>
+      <p>See how the technology lands inside your environment through onboarding and a defined service scope, or talk to us.</p>
       <div class="hero-ctas">
         <a href="../onboarding/" class="btn btn-ghost">Onboarding playbook</a>
         <a href="../pricing/" class="btn btn-ghost">Pricing</a>
@@ -540,7 +392,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">A European AI appliance company. Customer-premises inference, operational control and agentic workflows inside your infrastructure.</p>
+          <p class="foot-tag">Private inference, operational control, and model choice inside infrastructure you control.</p>
         </div>
         <div class="foot-col">
           <h4>Product</h4>

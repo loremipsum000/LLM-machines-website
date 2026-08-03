@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pojmovnik — LLM Machines</title>
+  <title>Pojmovnik | LLM Machines</title>
   <meta name="description" content="Radni pojmovnik suverene on-prem AI: modeli, arhitektura, privatnost, EU regulativa i terminologija implementacije koja se koristi kroz LLM Machines i širi enterprise AI ekosustav." />
 
   <!-- Canonical -->
@@ -16,7 +16,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Pojmovnik — Vokabular suverene AI za poduzeća" />
+  <meta property="og:title" content="Pojmovnik | Vokabular suverene AI za poduzeća" />
   <meta property="og:description" content="60+ pojmova koji obuhvaćaju modele, arhitekturu, privatnost, EU regulativu i operacije. Jasne definicije za tehničke kupce." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -28,7 +28,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pojmovnik — Vokabular suverene AI za poduzeća" />
+  <meta name="twitter:title" content="Pojmovnik | Vokabular suverene AI za poduzeća" />
   <meta name="twitter:description" content="60+ pojmova koji obuhvaćaju modele, arhitekturu, privatnost, EU regulativu i operacije." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
@@ -113,7 +113,7 @@
     <div class="container">
       <span class="label">Referenca</span>
       <h1>Pojmovnik.</h1>
-      <p>Radni vokabular za suverenu on-prem AI — obuhvaća pojmove modela, arhitekture, sigurnosti, EU regulative i operacija koje koristimo kroz cijelu stranicu, plus kontekst koji većini kupaca i arhitekata treba kada uspoređuju privatne AI platforme.</p>
+      <p>Radni vokabular za suverenu on-prem AI, koji obuhvaća pojmove modela, arhitekture, sigurnosti, EU regulative i operacija koje koristimo kroz cijelu stranicu, plus kontekst koji većini kupaca i arhitekata treba kada uspoređuju privatne AI platforme.</p>
     </div>
   </header>
 
@@ -133,7 +133,7 @@
           <!-- AI & MODELS -->
           <section class="glossary-section" id="ai-models">
             <h2>AI i modeli.</h2>
-            <p class="glossary-section-desc">Sloj modela — što se izvršava, kako prezentira tekst i vokabular ugađanja oko toga.</p>
+            <p class="glossary-section-desc">Sloj modela: što se izvršava, kako prezentira tekst i vokabular ugađanja oko toga.</p>
             <dl>
               <div class="glossary-entry" id="llm">
                 <dt>LLM</dt>
@@ -161,7 +161,7 @@
               </div>
               <div class="glossary-entry" id="lora">
                 <dt>LoRA / QLoRA</dt>
-                <dd><strong>Low-Rank Adaptation.</strong> Parametarski efikasna metoda fine-tuninga koja trenira mali skup dodatnih težina umjesto ažuriranja cijelog modela — drastično smanjuje kompjut i pohranu. QLoRA dodaje kvantizaciju za dodatne uštede.</dd>
+                <dd><strong>Low-Rank Adaptation.</strong> Parametarski efikasna metoda fine-tuninga koja trenira mali skup dodatnih težina umjesto ažuriranja cijelog modela i tako drastično smanjuje kompjut i pohranu. QLoRA dodaje kvantizaciju za dodatne uštede.</dd>
               </div>
               <div class="glossary-entry" id="quantization">
                 <dt>Quantization <span class="term-aka">kvantizacija</span></dt>
@@ -185,7 +185,7 @@
           <!-- ARCHITECTURE -->
           <section class="glossary-section" id="architecture">
             <h2>Arhitektura i infrastruktura.</h2>
-            <p class="glossary-section-desc">Kako je AI sustav sastavljen, posluživan i omeđen — od razine appliance-a do pojedinačnih protokola.</p>
+            <p class="glossary-section-desc">Kako je AI sustav sastavljen, posluživan i omeđen, od razine appliance-a do pojedinačnih protokola.</p>
             <dl>
               <div class="glossary-entry" id="on-prem">
                 <dt>On-prem <span class="term-aka">on-premise</span></dt>
@@ -193,7 +193,11 @@
               </div>
               <div class="glossary-entry" id="appliance">
                 <dt>Appliance</dt>
-                <dd>Pre-integrirana hardversko-softverska jedinica isporučena kao jedan proizvod. Mrežni firewalli, storage arrays i naša AI platforma — sve su to appliance-i; klijent ne sastavlja komponente.</dd>
+                <dd>Pre-integrirana hardversko-softverska jedinica isporučena kao jedan proizvod. Mrežni firewalli, storage arrays i naša AI platforma primjeri su appliance-a; klijent ne sastavlja komponente.</dd>
+              </div>
+              <div class="glossary-entry" id="managed-inference-core">
+                <dt>Upravljana inference jezgra</dt>
+                <dd>Primarna podržana granica usluge za izvršavanje odobrenih lokalnih modela. LLM Machines konfigurira i održava posluživanje modela, API gateway i policy kontrole, operativni Console, observability sloj te alate za lifecycle i oporavak unutar infrastrukture Klijenta.</dd>
               </div>
               <div class="glossary-entry" id="api-gateway">
                 <dt>API gateway</dt>
@@ -204,8 +208,8 @@
                 <dd>Specifični URL na kojem se API može pozvati. Dokumentirani endpointi za Applications su <code>/api/app-gateway/v1/models</code> i <code>/api/app-gateway/v1/chat/completions</code>, pa se postojeće aplikacije mogu povezati bez promjene svojih workflows.</dd>
               </div>
               <div class="glossary-entry" id="application">
-                <dt>Application</dt>
-                <dd>Aplikacija ili agentic harness koji koristi lokalne modele kroz zasebnu vjerodajnicu, dopuštene model aliase i dokumentirani API. Povežite omiljene aplikacije; postojeći workflows ostaju isti.</dd>
+                <dt>Aplikacija Klijenta</dt>
+                <dd>Vaša odabrana AI aplikacija ili harness povezan s upravljanom inference jezgrom kroz zasebnu vjerodajnicu i dokumentirani Application API. Vi birate i upravljate sučeljem i workflowom, a LLM Machines pruža lokalni inference ugovor.</dd>
               </div>
               <div class="glossary-entry" id="model-alias">
                 <dt>Model alias</dt>
@@ -213,11 +217,11 @@
               </div>
               <div class="glossary-entry" id="support-boundary">
                 <dt>Granica podrške <span class="term-aka">T1 / T2</span></dt>
-                <dd>T1 obuhvaća Core Appliance i LXC agentic runtime. T2 obuhvaća Applications koje se povezuju kroz dokumentirani API contract. Granica je vidljiva u operativnoj dokumentaciji i Activity &amp; Audit zapisima.</dd>
+                <dd>Upravljana inference jezgra primarna je podržana usluga. Aplikacije Klijenta povezuju se kroz dokumentirani API ugovor. Uključeni LXC runtime čini zasebnu granicu napredne integracije za posebno ugovorene mogućnosti poput agentic primjene.</dd>
               </div>
               <div class="glossary-entry" id="emergency-isolation-mode">
                 <dt>Emergency Isolation Mode</dt>
-                <dd>Operativna kontrola koja zaustavlja Application inferenciju, odobreni vanjski web pristup i LXC agentic runtime, dok Console, identitet, Activity &amp; Audit, hardverski nadzor, backup i recovery ostaju dostupni.</dd>
+                <dd>Operativna kontrola koja zaustavlja Application inferenciju i zasebno konfigurirano LXC izvršavanje, dok Console, identitet, Activity &amp; Audit, hardverski nadzor, backup i recovery ostaju dostupni.</dd>
               </div>
               <div class="glossary-entry" id="manifest-enforcement">
                 <dt>Manifest enforcement</dt>
@@ -225,19 +229,19 @@
               </div>
               <div class="glossary-entry" id="core-appliance">
                 <dt>Core Appliance</dt>
-                <dd>Podržani customer-premises proizvod za lokalnu inferenciju. Obuhvaća inference runtime, API gateway, Console, identitet, Activity &amp; Audit, observability sloj, LXC agentic runtime te operacije ažuriranja, backupa, oporavka i izolacije.</dd>
+                <dd>Podržana implementacija u prostorima Klijenta. Kombinira upravljanu inference jezgru s uključenim LXC runtimeom za napredne integracije, uz odvojene operativne granice i granice isporuke.</dd>
               </div>
               <div class="glossary-entry" id="lxc-agentic-runtime">
-                <dt>LXC agentic runtime</dt>
-                <dd>Standardno izolirano LXC okruženje za lokalno izvršavanje agentic workflows, povezano s dopuštenim modelima kroz podržani API i obuhvaćeno operativnim kontrolama appliance-a.</dd>
+                <dt>LXC runtime za napredne integracije</dt>
+                <dd>Izolirano Linux container okruženje uključeno uz upravljanu inference jezgru kako bi omogućilo napredne integracije, poput agentic primjene i odobrenog izvršavanja alata. Konkretni workflowi, alati i kriteriji prihvata isporučuju se kroz posebno ugovorenu integraciju ili savjetodavni angažman.</dd>
               </div>
               <div class="glossary-entry" id="tool-call-transport">
                 <dt>Tool-call transport</dt>
-                <dd>Prijenos strukturiranih tool-call poruka kroz Chat Completions API. Model predlaže poziv, a povezana Application ili agentic harness nastavlja postojeći workflow.</dd>
+                <dd>Prijenos strukturiranih tool-call poruka kroz Chat Completions API. Aplikacije Klijenta i posebno ugovorene napredne integracije mogu upotrijebiti te poruke za nastavak workflowa koji koristi alate.</dd>
               </div>
               <div class="glossary-entry" id="chat-completions">
                 <dt>Chat Completions</dt>
-                <dd>Podržani API format za streaming i non-streaming inferenciju kroz <code>/api/app-gateway/v1/chat/completions</code>. Dostupni modeli popisuju se kroz <code>/api/app-gateway/v1/models</code>.</dd>
+                <dd>Dokumentirani API protokol koji vaše omiljene aplikacije i harnessi koriste za pristup odobrenim lokalnim modelima. Podržava streaming i non-streaming inferenciju kroz <code>/api/app-gateway/v1/chat/completions</code>; dostupni modeli popisuju se kroz <code>/api/app-gateway/v1/models</code>.</dd>
               </div>
               <div class="glossary-entry" id="self-hosted-websearch">
                 <dt>Self-hosted websearch</dt>
@@ -265,11 +269,11 @@
               </div>
               <div class="glossary-entry" id="pseudonymisation">
                 <dt>Pseudonimizacija vs anonimizacija</dt>
-                <dd>Pseudonimizacija zamjenjuje identifikatore reverzibilnim tokenima — ostaje osobni podatak prema GDPR-u. Anonimizacija ireverzibilno uklanja identifikatore i rezultat više nije osobni podatak. Većina "anonimizacije" u industriji zapravo je pseudonimizacija.</dd>
+                <dd>Pseudonimizacija zamjenjuje identifikatore reverzibilnim tokenima; ostaje osobni podatak prema GDPR-u. Anonimizacija ireverzibilno uklanja identifikatore i rezultat više nije osobni podatak. Većina "anonimizacije" u industriji zapravo je pseudonimizacija.</dd>
               </div>
               <div class="glossary-entry" id="data-residency">
                 <dt>Data residency</dt>
-                <dd>Zahtjev da podaci fizički borave na određenoj geografskoj lokaciji. Često se zamjenjuje sa suverenošću — residency je o tome gdje bajtovi sjede; suverenost je o tome koji ih pravni režim regulira.</dd>
+                <dd>Zahtjev da podaci fizički borave na određenoj geografskoj lokaciji. Često se zamjenjuje sa suverenošću: residency govori o tome gdje se bajtovi nalaze, a suverenost o tome koji ih pravni režim regulira.</dd>
               </div>
               <div class="glossary-entry" id="data-sovereignty">
                 <dt>Data sovereignty <span class="term-aka">suverenost podataka</span></dt>
@@ -309,6 +313,10 @@
               </div>
               <div class="glossary-entry" id="activity-audit">
                 <dt>Activity &amp; Audit</dt>
+              <div class="glossary-entry" id="operational-metadata">
+                <dt>Operativni metapodaci</dt>
+                <dd>Podaci usluge koji se koriste za upravljanje i podršku appliance-a, poput vremenskih oznaka, identifikatora aplikacija, model aliasa, broja tokena, latencije, statusa, signala kapaciteta i administrativnih događaja. Sadržaj workloada, poput promptova, odgovora modela, argumenata i rezultata alata te request/response bodyja, drži se izvan tog skupa metapodataka.</dd>
+              </div>
                 <dd>Primarna Console površina za administrativne događaje i Application usage metapodatke. Ne uključuje promptove, odgovore, tool argumente, rezultate ni request/response bodyje.</dd>
               </div>
             </dl>
@@ -341,7 +349,7 @@
               </div>
               <div class="glossary-entry" id="dpa">
                 <dt>DPA</dt>
-                <dd><strong>Data Processing Agreement.</strong> Ugovor između voditelja obrade i izvršitelja obrade naložen člankom 28. GDPR-a. Napomena: DPA također znači Data Protection Authority — nacionalni regulator (u Hrvatskoj: AZOP). Kontekst određuje značenje.</dd>
+                <dd><strong>Data Processing Agreement.</strong> Ugovor između voditelja obrade i izvršitelja obrade naložen člankom 28. GDPR-a. Napomena: DPA također znači Data Protection Authority, nacionalni regulator (u Hrvatskoj: AZOP). Kontekst određuje značenje.</dd>
               </div>
               <div class="glossary-entry" id="dpia">
                 <dt>DPIA</dt>
@@ -381,11 +389,11 @@
               </div>
               <div class="glossary-entry" id="pre-flight">
                 <dt>Pre-flight check</dt>
-                <dd>Validacija da su svi preduvjeti — mreža, identitet, pohrana, napajanje — na mjestu prije isporuke appliance-a.</dd>
+                <dd>Validacija da su svi preduvjeti, uključujući mrežu, identitet, pohranu i napajanje, na mjestu prije isporuke appliance-a.</dd>
               </div>
               <div class="glossary-entry" id="smoke-test">
                 <dt>Smoke test</dt>
-                <dd>Brzi end-to-end test koji potvrđuje da svježe instalirani sustav obavlja osnovne funkcije ispravno. Ne potpuni QA paket — samo dovoljno da se rano uhvate slomljene implementacije.</dd>
+                <dd>Brzi end-to-end test koji potvrđuje da svježe instalirani sustav obavlja osnovne funkcije ispravno. To je usmjerena provjera koja rano otkriva neispravne implementacije.</dd>
               </div>
               <div class="glossary-entry" id="self-test">
                 <dt>Self-test</dt>
@@ -393,6 +401,18 @@
               </div>
               <div class="glossary-entry" id="pre-shipment">
                 <dt>Pre-shipment</dt>
+              <div class="glossary-entry" id="api-handoff">
+                <dt>API handoff</dt>
+                <dd>Završna točka standardnog onboardinga, kada se Klijentu predaju validirani Models i Chat Completions endpointi, vjerodajnice aplikacija, popisi dopuštenih modela, operativna dokumentacija i rezultati prihvata za korištenje u odabranim aplikacijama.</dd>
+              </div>
+              <div class="glossary-entry" id="support-session">
+                <dt>Sesija podrške</dt>
+                <dd>Izričito odobren, vremenski ograničen pristupni prozor za dijagnostiku ili rješavanje dogovorenog problema. Opseg, odobrenja, zapisivanje i opoziv slijede potpisane uvjete podrške i kontrole pristupa Klijenta.</dd>
+              </div>
+              <div class="glossary-entry" id="outcome-led-consulting">
+                <dt>Savjetovanje usmjereno na ishod</dt>
+                <dd>Zaseban angažman organiziran oko definiranog poslovnog ili integracijskog ishoda, ograničene isporuke, mjerljivih kriterija prihvata i dokumentirane primopredaje. Napredne integracije mogu koristiti uključeni LXC runtime, a Klijent nakon primopredaje upravlja prihvaćenom aplikacijom ili workflowom.</dd>
+              </div>
                 <dd>Sve što se događa prije nego što hardver napusti našu integracijsku ustanovu: priprema potpisanog offline entitlementa, priprema imagea i sastavljanje potpisanog manifesta.</dd>
               </div>
               <div class="glossary-entry" id="application-credential">
@@ -401,7 +421,7 @@
               </div>
               <div class="glossary-entry" id="signed-offline-entitlement">
                 <dt>Potpisani offline entitlement</dt>
-                <dd>Lokalno provjerljiv dokaz prava korištenja koji ne zahtijeva call-home. Njegov istek ne zaustavlja postojeću inferenciju, Console, backup, recovery ili LXC agentic runtime.</dd>
+                <dd>Lokalno provjerljiv dokaz prava korištenja koji ne zahtijeva call-home. Njegov istek ne zaustavlja postojeću inferenciju, Console, backup, recovery ili LXC runtime za napredne integracije.</dd>
               </div>
               <div class="glossary-entry" id="sla">
                 <dt>SLA</dt>
@@ -438,7 +458,7 @@
     <div class="container">
       <span class="label" style="justify-content:center;">Sljedeće</span>
       <h2>Želite ovo u vašem stacku?</h2>
-      <p>Donesite suverenu on-prem AI u svoju infrastrukturu kroz strukturirani onboarding.</p>
+      <p>Pokrenite upravljanu lokalnu inferenciju i povežite odabrane aplikacije unutar infrastrukture kojom upravljate.</p>
       <div class="hero-ctas">
         <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Razgovarajte s prodajom <span class="arr">→</span></a>
         <a href="../technology/" class="btn btn-ghost">Istražite tehnologiju</a>
@@ -454,7 +474,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">Europska AI appliance tvrtka. Lokalna inferencija, operativna kontrola i agentic workflowi unutar vaše infrastrukture.</p>
+          <p class="foot-tag">Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate.</p>
         </div>
         <div class="foot-col">
           <h4>Proizvod</h4>

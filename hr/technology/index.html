@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kompaktni on-prem inference stack — LLM Machines</title>
-  <meta name="description" content="Istražite LLM Machines arhitekturu: lokalna inferencija, operativni Console, dokumentirani API, observability sloj i LXC agentic runtime." />
+  <title>Kompaktni on-prem inference stack | LLM Machines</title>
+  <meta name="description" content="Istražite LLM Machines customer-premises arhitekturu: infrastrukturu, lokalnu inferenciju, gateway i pravila, operativni Console, Observability sloj, lifecycle i recovery te LXC granicu za napredne integracije." />
 
   <link rel="canonical" href="https://llm-machines.com/hr/technology/" />
   <link rel="alternate" hreflang="en" href="https://llm-machines.com/technology/" />
@@ -12,8 +12,8 @@
   <link rel="alternate" hreflang="x-default" href="https://llm-machines.com/technology/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Kompaktni on-prem inference stack — LLM Machines" />
-  <meta property="og:description" content="Lokalno posluživanje modela, operativni Console, dokumentirani Chat Completions API, observability sloj i LXC agentic runtime." />
+  <meta property="og:title" content="Kompaktni on-prem inference stack | LLM Machines" />
+  <meta property="og:description" content="Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate, uz LXC granicu za napredne integracije." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -23,8 +23,8 @@
   <meta property="og:locale:alternate" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kompaktni on-prem inference stack — LLM Machines" />
-  <meta name="twitter:description" content="Lokalna inferencija, operativni Console, dokumentirani API, observability sloj i LXC agentic runtime." />
+  <meta name="twitter:title" content="Kompaktni on-prem inference stack | LLM Machines" />
+  <meta name="twitter:description" content="Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate, uz LXC granicu za napredne integracije." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <meta name="theme-color" content="#0E0E0E" />
@@ -74,12 +74,12 @@
   "@type": "FAQPage",
   "inLanguage": "hr-HR",
   "mainEntity": [
-    { "@type": "Question", "name": "Mogu li postojeći API klijenti koristiti LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Povežite svoje omiljene aplikacije i harness alate putem /models te streaming i non-streaming /chat/completions endpointa, uključujući prijenos tool-call poruka." } },
-    { "@type": "Question", "name": "Može li appliance raditi air-gapped?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Potpisani offline entitlement i lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture." } },
+    { "@type": "Question", "name": "Mogu li postojeći API klijenti koristiti LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Chat Completions je dokumentirani API protokol putem kojeg se vaše omiljene aplikacije i harness alati povezuju s odobrenim lokalnim modelima. /models endpoint prikazuje skup odobrenih modela." } },
+    { "@type": "Question", "name": "Može li appliance raditi bez pristupa javnom internetu?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Potpisani offline entitlement i lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture." } },
     { "@type": "Question", "name": "Koji se modeli mogu pokretati lokalno?", "acceptedAnswer": { "@type": "Answer", "text": "Arhitektura je dizajnirana za open-weight familije modela kao što su Llama, Mistral i Qwen, s izborom modela dimenzioniranim prema vašim zahtjevima za hardver, latenciju i kvalitetu." } },
     { "@type": "Question", "name": "Kako se upravlja Application vjerodajnicama?", "acceptedAnswer": { "@type": "Answer", "text": "Svaka Application dobiva vlastiti statički ključ ili OAuth client credentials, zasebne modele i lokalno upravljanje rotacijom i opozivom." } },
-    { "@type": "Question", "name": "Što radi Emergency Isolation Mode?", "acceptedAnswer": { "@type": "Answer", "text": "Emergency Isolation Mode zaustavlja Application inference promet i agentic pristup, dok Console, identitet, audit, monitoring hardvera, backup i recovery ostaju dostupni." } },
-    { "@type": "Question", "name": "Što čini podržanu jezgru?", "acceptedAnswer": { "@type": "Answer", "text": "Podržana jezgra obuhvaća lokalnu inferenciju, gateway, Console, identitet, observability sloj, operativne kontrole i LXC agentic runtime. Klijentske aplikacije povezuju se kroz dokumentirani API ugovor." } }
+    { "@type": "Question", "name": "Kako LXC runtime podržava napredne integracije?", "acceptedAnswer": { "@type": "Answer", "text": "LXC runtime pruža sekundarnu granicu izvođenja za zasebno ugovorene napredne integracije, uključujući agentic primjene. S odobrenim modelima povezuje se kroz dokumentirani inferencijski API." } },
+    { "@type": "Question", "name": "Što čini upravljanu inferencijsku jezgru?", "acceptedAnswer": { "@type": "Answer", "text": "Upravljana inferencijska jezgra obuhvaća infrastrukturnu platformu, lokalni inference runtime, gateway i pravila, operativni Console, identitet, Observability sloj te lifecycle i recovery kontrole." } }
   ]
 }
   </script>
@@ -131,8 +131,8 @@
   <header class="page-hero">
     <div class="container">
       <span class="label">Tehnologija</span>
-      <h1>Kompaktna arhitektura za lokalnu AI inferenciju</h1>
-      <p class="lead">Jedan on-prem appliance s lokalnom inferencijom, operativnim Consoleom, dokumentiranim API-jem, observability slojem i LXC agentic runtimeom. Povežite svoje omiljene aplikacije i harness alate. Ništa ne napušta vašu infrastrukturu.</p>
+      <h1>Privatna inferencija, upravljana kao jedna cjelina</h1>
+      <p class="lead">LLM Machines konfigurira i održava infrastrukturni sloj, inference runtime, gateway i pravila, operativni Console, Observability sloj te lifecycle i recovery kontrole. Vaše omiljene aplikacije i harness alati povezuju se kroz dokumentirani API handoff. Ništa ne napušta vašu infrastrukturu.</p>
     </div>
   </header>
 
@@ -140,183 +140,136 @@
   <section id="architecture">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">01 — Arhitektura</span>
+        <span class="label">01 · Arhitektura</span>
         <h2>Referentna arhitektura.</h2>
-        <p>Vaši korisnici i aplikacije na vrhu, podržana inferencijska jezgra ispod. Sve ostaje na lokaciji klijenta i pod vašom operativnom kontrolom.</p>
+        <p>Upravljana inferencijska jezgra radi unutar vaše infrastrukture. Klijentske aplikacije povezuju se kroz dokumentiranu granicu, dok LXC runtime pruža sekundarnu granicu za zasebno ugovorene napredne integracije.</p>
       </div>
 
       <div class="arch zoom-in reveal">
         <div class="arch-external">
           <div class="ext-card">
-            <span class="ext-tag">Vaša infrastruktura</span>
-            <div class="ext-name">Krajnji korisnici</div>
-            <p class="ext-desc">Developeri · analitičari · podrška · pravnici · operacije.<br>Preglednik · IDE · chat · CLI.</p>
-            <div class="ext-proto">Autentikacija putem vašeg SSO-a</div>
+            <span class="ext-tag">Okruženje klijenta</span>
+            <div class="ext-name">Timovi i korisnici</div>
+            <p class="ext-desc">Developeri · analitičari · podrška · pravnici · operacije.<br>Koriste iskustva i alate koje već poznaju.</p>
+            <div class="ext-proto">Autentikacija kroz enterprise identitet</div>
           </div>
           <div class="ext-card">
-            <span class="ext-tag">Vaša infrastruktura</span>
+            <span class="ext-tag">Okruženje klijenta</span>
             <div class="ext-name">Identity Provider</div>
             <p class="ext-desc">Vaš postojeći IdP povezuje se s lokalnim identitetom i ulogama appliance-a.</p>
             <div class="ext-proto">OIDC · SAML 2.0</div>
           </div>
           <div class="ext-card">
-            <span class="ext-tag">Applications</span>
-            <div class="ext-name">Aplikacije i harness alati</div>
-            <p class="ext-desc">Povežite svoje omiljene aplikacije, IDE asistente i interne alate.</p>
-            <div class="ext-proto">/models · /chat/completions</div>
+            <span class="ext-tag">Granica klijentskih aplikacija</span>
+            <div class="ext-name">Omiljene aplikacije i harness alati</div>
+            <p class="ext-desc">Povežite klijentske aplikacije i developer alate s odobrenim lokalnim modelima.</p>
+            <div class="ext-proto">Models · Chat Completions</div>
           </div>
         </div>
 
         <div class="arch-box">
           <div class="arch-box-head">
-            <span>LLM Machine · On-Prem Appliance</span>
-            <span class="muted">Podržana jezgra</span>
+            <span>LLM Machines · Customer-Premises Inference Stack</span>
+            <span class="muted">Upravljana operativna granica</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Edge / Gateway</h4>
-              <p class="layer-detail">TLS terminacija · reverse proxy · usmjeravanje · rate limiting</p>
-              <p class="layer-eg">Lokalni ulaz u appliance</p>
+              <h4 class="layer-title">Infrastrukturni sloj</h4>
+              <p class="layer-detail">Compute · memorija · pohrana · mreža · operativna platforma · fizičke kontrole</p>
+              <p class="layer-eg">Dimenzioniranje workload-a · Supermicro nabava uz podršku distributerskog kanala · okruženje pod kontrolom klijenta</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Identitet i pristup</h4>
-              <p class="layer-detail">Federacija s vašim IdP-om · Admin i Operator uloge · Application vjerodajnice</p>
-              <p class="layer-eg">Keycloak</p>
+              <h4 class="layer-title">Lokalni inference runtime</h4>
+              <p class="layer-detail">Kvalificirano posluživanje open-weight modela konfigurirano prema ciljevima propusnosti, latencije, kvalitete i kapaciteta</p>
+            <span class="tier-badge t1">CORE</span>
+              <p class="layer-eg">Odobreni modeli · lokalni registar modela · upravljana konfiguracija</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+          </div>
+
+          <div class="layer">
+            <div class="layer-info">
+              <h4 class="layer-title">Gateway i pravila</h4>
+              <p class="layer-detail"><code>/models</code> · streaming i non-streaming <code>/chat/completions</code> · vjerodajnice · pristup modelima · routing · rate pravila</p>
+              <p class="layer-eg">Federacija enterprise identiteta · dokumentirani API handoff</p>
+            </div>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer layer-with-tiles">
             <div class="layer-info">
               <h4 class="layer-title">Operativni Console</h4>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
             <div class="sub-tiles">
               <div class="sub-tile"><div class="tile-title">Overview</div><div class="tile-sub">status sustava · upozorenja</div><div class="tile-eg">Operativni sažetak</div></div>
-              <div class="sub-tile"><div class="tile-title">Applications</div><div class="tile-sub">vjerodajnice · modeli · usage</div><div class="tile-eg">Console Web / BFF</div></div>
-              <div class="sub-tile"><div class="tile-title">Inference</div><div class="tile-sub">modeli · rute · status</div><div class="tile-eg">Operativna kontrola</div></div>
-              <div class="sub-tile"><div class="tile-title">Hardware</div><div class="tile-sub">GPU · memorija · kapacitet</div><div class="tile-eg">Lokalni pregled</div></div>
-              <div class="sub-tile"><div class="tile-title">Activity &amp; Audit</div><div class="tile-sub">metapodaci · izvoz</div><div class="tile-eg">Bez sadržaja zahtjeva</div></div>
+              <div class="sub-tile"><div class="tile-title">Model Estate</div><div class="tile-sub">modeli · rute · kapacitet</div><div class="tile-eg">Kontrola inferencije</div></div>
+              <div class="sub-tile"><div class="tile-title">Hardver</div><div class="tile-sub">kapacitet · zdravlje · inventar</div><div class="tile-eg">Status appliance-a</div></div>
+              <div class="sub-tile"><div class="tile-title">Pristup i aktivnost</div><div class="tile-sub">vjerodajnice · metapodaci · događaji</div><div class="tile-eg">Pravila i evidencija</div></div>
             </div>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Inference gateway</h4>
-              <p class="layer-detail"><code>/models</code> · streaming i non-streaming <code>/chat/completions</code> · tool-call prijenos</p>
-              <p class="layer-eg">LiteLLM</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
-          </div>
-
-          <div class="layer-split">
-            <div class="layer">
-              <div class="layer-info">
-                <h4 class="layer-title">Lokalna inferencija</h4>
-                <p class="layer-detail">Visokopropusno posluživanje kvalificiranih open-weight modela</p>
-                <p class="layer-eg">Lokalni inference runtime</p>
-              </div>
-              <span class="tier-badge t1">T1</span>
-            </div>
-            <div class="layer">
-              <div class="layer-info">
-                <h4 class="layer-title">LXC agentic runtime</h4>
-                <p class="layer-detail">Lokalno izvršavanje agentic workflow-a povezano s inferencijskom jezgrom</p>
-                <p class="layer-eg">Namjenski LXC runtime</p>
-              </div>
-              <span class="tier-badge t1">T1</span>
-            </div>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Self-hosted websearch</h4>
-              <p class="layer-detail">Lokalno upravljan plugin za odobreni web pristup Applications</p>
-              <p class="layer-eg">Pod kontrolom klijenta</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Metapodaci i audit</h4>
-              <p class="layer-detail">Application usage · model i ruta · operativni događaji · potpisani izvoz</p>
-              <p class="layer-eg">PostgreSQL · bez promptova i odgovora</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
               <h4 class="layer-title">Observability sloj</h4>
-              <p class="layer-detail">Metrike · alerti · zdravlje modela · hardver · kapacitet</p>
-              <p class="layer-eg">Potpuno lokalna operativna vidljivost</p>
+              <p class="layer-detail">Zdravlje modela · kapacitet · operativne metrike · alerti · telemetrija hardvera</p>
+              <p class="layer-eg">Lokalna operativna vidljivost · pregledi kapaciteta · evidencija za podršku</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Operacije i recovery</h4>
-              <p class="layer-detail">Potpisani offline entitlement · ručni update bundleovi · backup · snapshot · rollback</p>
-              <p class="layer-eg">LLM Machines lifecycle alati</p>
+              <h4 class="layer-title">Lifecycle i recovery</h4>
+              <p class="layer-detail">Kontrolirani updatei · preflight · backup · restore · rollback · povijest recoveryja</p>
+              <p class="layer-eg">Upravljano održavanje · dokumentirani recovery postupci</p>
             </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">Platforma</h4>
-              <p class="layer-detail">Orkestracija kontejnera · operativni sustav · potpisani update i entitlement servisi · upravljanje applianceom</p>
-              <p class="layer-eg">Integrirana lokalna platforma</p>
+              <h4 class="layer-title">LXC granica za napredne integracije</h4>
+              <p class="layer-detail">Sekundarna granica izvođenja za zasebno ugovorene napredne integracije, uključujući agentic primjene</p>
+              <p class="layer-eg">Povezuje se s odobrenim modelima kroz dokumentirani inferencijski API</p>
             </div>
-            <span class="tier-badge t1">T1</span>
-          </div>
-
-          <div class="layer">
-            <div class="layer-info">
-              <h4 class="layer-title">Hardver · enterprise / industry-grade</h4>
-              <p class="layer-detail">Računalstvo · memorija · pohrana · mreža · napajanje · fizička sigurnost</p>
-              <p class="layer-eg">GPU · CPU · NVMe · redundantno napajanje</p>
-            </div>
-            <span class="tier-badge t1">T1</span>
+            <span class="tier-badge t2">ADV</span>
           </div>
 
           <div class="pure-boundary">
-            <span class="boundary-label">EMERGENCY ISOLATION GRANICA · OPERATIVNA JEZGRA OSTAJE DOSTUPNA</span>
+            <span class="boundary-label">GRANICA KLIJENTSKIH APLIKACIJA · UPRAVLJANE INFERENCIJSKE OPERACIJE OSTAJU DOSTUPNE</span>
           </div>
 
           <div class="layer sandbox">
             <div class="layer-info">
-              <h4 class="layer-title">Povezane Applications</h4>
-              <p class="layer-detail">Vaše omiljene klijentske aplikacije, developer alati i automation harness-i</p>
-              <p class="layer-detail">LLM Machines pruža lokalnu inferenciju i dokumentirani API ugovor. Vaše klijentske aplikacije i workflowi ostaju isti.</p>
-              <p class="layer-eg">Application vjerodajnice · pristup modelima · poznato korisničko iskustvo</p>
+              <h4 class="layer-title">Klijentske aplikacije</h4>
+              <p class="layer-detail">Vaše omiljene klijentske aplikacije, developer alati i harness alati povezuju se s odobrenim lokalnim modelima</p>
+              <p class="layer-detail">Svaka aplikacija dobiva vlastitu vjerodajnicu, pristup odobrenim modelima i pravila kroz dokumentirano lokalno sučelje.</p>
+              <p class="layer-eg">API handoff · Application vjerodajnice · pravila modela · iskustvo pod kontrolom klijenta</p>
             </div>
-            <span class="tier-badge t2">T2</span>
+            <span class="tier-badge t2">CLIENT</span>
           </div>
         </div>
 
         <div class="arch-callouts">
           <div class="callout reveal">
-            <div class="callout-tag">Applications</div>
-            <h3>Povežite alate koje već koristite.</h3>
-            <p>Svaka Application dobiva vlastite vjerodajnice i dopuštene modele. Povežite omiljene aplikacije i harness alate kroz Models i Chat Completions endpointe.</p>
+            <div class="callout-tag">Upravljana inferencija</div>
+            <h3>Jedna operativna granica.</h3>
+            <p>LLM Machines konfigurira i održava infrastrukturu, inferenciju, pravila, Console, Observability, update i recovery slojeve kao jednu upravljanu cjelinu.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">Emergency Isolation Mode</div>
-            <h3>Izolirajte promet. Zadržite kontrolu.</h3>
-            <p>Zaustavite Application inference promet i agentic pristup, a zadržite Console, identitet, audit, monitoring, backup i recovery dostupnima.</p>
+            <div class="callout-tag">API handoff</div>
+            <h3>Povežite alate koje vaši timovi preferiraju.</h3>
+            <p>Jedan dokumentirani ugovor povezuje klijentske aplikacije i harness alate koje vaši timovi već koriste.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">LXC agentic runtime</div>
-            <h3>Agentic workflowi, lokalno.</h3>
-            <p>Namjenski LXC runtime izvršava agentic workflow-e unutar vaše infrastrukture i koristi istu lokalnu inferencijsku jezgru.</p>
+            <div class="callout-tag">Napredne integracije</div>
+            <h3>Namjenska LXC granica.</h3>
+            <p>LXC runtime omogućuje zasebno ugovorene napredne integracije, uključujući agentic primjene, dok inferencijska jezgra ostaje posvećena posluživanju odobrenih modela.</p>
           </div>
         </div>
       </div>
@@ -327,121 +280,26 @@
   <section id="developers">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">02 — Za developere</span>
-        <h2>Gradite protiv lokalne AI kao protiv standardnog API-ja.</h2>
-        <p>LLM Machines daje inženjerskim timovima poznati API ugovor, dok promet, vjerodajnice, modeli i operativni metapodaci ostaju unutar vaše infrastrukture.</p>
+        <span class="label">02 · API handoff</span>
+        <h2>Povežite aplikacije kroz stabilan ugovor.</h2>
+        <p>Inženjerski timovi pri handoffu dobivaju dokumentirano lokalno sučelje, pristup odobrenim modelima i vjerodajnice za svaku aplikaciju.</p>
       </div>
       <div class="seo-grid reveal">
         <article class="seo-card">
-          <div class="pc-tag">API kompatibilnost</div>
-          <h3>Zamijenite base URL.</h3>
-          <p>Koristite <code>/models</code> te streaming i non-streaming <code>/chat/completions</code> za povezivanje postojećih SDK alata s lokalnim modelima.</p>
+          <div class="pc-tag">Podržani API</div>
+          <h3>Usmjerite klijent prema lokalnoj inferenciji.</h3>
+          <p>Chat Completions je dokumentirani API protokol putem kojeg se vaše omiljene aplikacije i harness alati povezuju s odobrenim lokalnim modelima. Koristite <code>/models</code> za pregled odobrenog skupa modela.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Applications</div>
-          <h3>Radi s vašim aplikacijama.</h3>
-          <p>Povežite svoje omiljene aplikacije, IDE asistente i harness alate. Tool-call poruke prenose se kroz isti API ugovor.</p>
+          <div class="pc-tag">Pravila</div>
+          <h3>Handoff s jasnim kontrolama.</h3>
+          <p>Application vjerodajnice, pristup modelima, routing i rate pravila konfiguriraju se prema granici klijentskih aplikacija.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Operacije</div>
-          <h3>Observabilno prema zadanim postavkama.</h3>
-          <p>Model, ruta, korištenje i operativne metrike dostupni su Admin i Operator korisnicima kroz lokalni observability sloj. Ništa ne napušta vašu infrastrukturu.</p>
+          <div class="pc-tag">Napredne integracije</div>
+          <h3>Proširite mogućnosti kroz LXC granicu.</h3>
+          <p>Zasebno ugovorene integracije, uključujući agentic primjene, mogu raditi u sekundarnoj LXC granici i pristupati odobrenim modelima kroz isti API ugovor.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== STACK COMPONENTS ============== -->
-  <section id="stack">
-    <div class="container">
-      <div class="solution-grid">
-        <aside class="solution-side">
-          <span class="label">02 — Komponente stacka</span>
-          <h2>Kompaktno.<br>Operativno.<br>Potpuno integrirano.</h2>
-          <p>Svaki sloj ima jasno mjesto u podržanoj jezgri: od identiteta i Application pristupa do inferencije, agentic workflow-a, observability sloja i recoveryja.</p>
-        </aside>
-        <div class="solution-list stack-list">
-          <article class="pillar-item active">
-            <header class="pillar-head">
-              <span class="num">[ 01 ]</span>
-              <h3>Console / BFF <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Operativna kontrola</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Applications, inferencija, hardver, tim, Activity &amp; Audit i postavke u jednom kompaktnom sučelju.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 02 ]</span>
-              <h3>Keycloak <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Identitet i pristup</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Federacija identiteta, Admin i Operator uloge te lokalna kontrola pristupa appliance-u.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 03 ]</span>
-              <h3>LiteLLM <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Inference gateway</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Dokumentirani <code>/models</code> i <code>/chat/completions</code> endpointi, model routing i Application vjerodajnice.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 04 ]</span>
-              <h3>Lokalni inference runtime <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Posluživanje modela</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Visokopropusno posluživanje kvalificiranih open-weight modela na hardveru dimenzioniranom za vaše radno opterećenje.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 05 ]</span>
-              <h3>LXC agentic runtime <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Agentic workflowi</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Namjenski lokalni runtime za agentic workflow-e, povezan s istom inferencijskom jezgrom i operativnim kontrolama.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 06 ]</span>
-              <h3>Observability sloj <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Metrike i alerti</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Lokalne metrike, alerti, zdravlje modela, Application promet, hardver i kapacitet bez vanjske telemetrije.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 07 ]</span>
-              <h3>PostgreSQL <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Metapodaci i audit</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Application usage, modeli, rute i operativni događaji pohranjeni lokalno, bez promptova i odgovora.</p>
-            </div>
-          </article>
-          <article class="pillar-item">
-            <header class="pillar-head">
-              <span class="num">[ 08 ]</span>
-              <h3>LLM Machines <span style="color:var(--fg-dim);font-weight:400;font-size:0.7em;">— Lifecycle i recovery</span></h3>
-            </header>
-            <div class="pillar-body">
-              <span></span>
-              <p>Potpisani offline entitlement, ručni update bundleovi, pre-flight provjere, backup, snapshot, rollback i operativni runbook.</p>
-            </div>
-          </article>
-        </div>
       </div>
     </div>
   </section>
@@ -450,17 +308,17 @@
   <section id="technology-faq">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">03 — FAQ</span>
+        <span class="label">03 · FAQ</span>
         <h2>Pitanja o arhitekturi.</h2>
         <p>Detalji koje sigurnosni, platformski i developer timovi obično pitaju prije odobravanja on-prem AI implementacije.</p>
       </div>
       <div class="faq-list reveal">
         <article class="faq-item">
           <h3>Mogu li postojeći API klijenti koristiti LLM Machines?</h3>
-          <p>Da. Povežite svoje omiljene aplikacije i harness alate putem <code>/models</code> te streaming i non-streaming <code>/chat/completions</code> endpointa, uključujući prijenos tool-call poruka.</p>
+          <p>Da. Postojeći klijenti mogu se povezati kroz dokumentirani Chat Completions protokol, dok <code>/models</code> endpoint prikazuje skup odobrenih modela.</p>
         </article>
         <article class="faq-item">
-          <h3>Može li appliance raditi air-gapped?</h3>
+          <h3>Može li appliance raditi bez pristupa javnom internetu?</h3>
           <p>Da. Potpisani offline entitlement i lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture.</p>
         </article>
         <article class="faq-item">
@@ -472,12 +330,12 @@
           <p>Svaka Application dobiva vlastiti statički ključ ili OAuth client credentials, zasebne modele i lokalno upravljanje rotacijom i opozivom.</p>
         </article>
         <article class="faq-item">
-          <h3>Što radi Emergency Isolation Mode?</h3>
-          <p>Emergency Isolation Mode zaustavlja Application inference promet i agentic pristup, dok Console, identitet, audit, monitoring hardvera, backup i recovery ostaju dostupni.</p>
+          <h3>Kako LXC runtime podržava napredne integracije?</h3>
+          <p>LXC runtime pruža sekundarnu granicu izvođenja za zasebno ugovorene napredne integracije, uključujući agentic primjene. S odobrenim modelima povezuje se kroz dokumentirani inferencijski API.</p>
         </article>
         <article class="faq-item">
-          <h3>Što čini podržanu jezgru?</h3>
-          <p>Podržana jezgra obuhvaća lokalnu inferenciju, gateway, Console, identitet, observability sloj, operativne kontrole i LXC agentic runtime. Klijentske aplikacije povezuju se kroz dokumentirani API ugovor.</p>
+          <h3>Što čini upravljanu inferencijsku jezgru?</h3>
+          <p>Upravljana inferencijska jezgra obuhvaća infrastrukturnu platformu, lokalni inference runtime, gateway i pravila, operativni Console, identitet, Observability sloj te lifecycle i recovery kontrole.</p>
         </article>
       </div>
     </div>
@@ -490,7 +348,7 @@
     <div class="container">
       <span class="label" style="justify-content:center;">Što slijedi</span>
       <h2>Spremni za dublje?</h2>
-      <p>Pogledajte kako tehnologija sleti unutar vašeg okruženja — onboarding, cijene ili jednostavno razgovor s nama.</p>
+      <p>Pogledajte kako se tehnologija implementira u vašem okruženju kroz onboarding i definirani opseg usluge ili razgovarajte s nama.</p>
       <div class="hero-ctas">
         <a href="../onboarding/" class="btn btn-ghost">Onboarding playbook</a>
         <a href="../pricing/" class="btn btn-ghost">Cijene</a>
@@ -507,7 +365,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">Europska AI appliance tvrtka. Lokalna inferencija, operativna kontrola i agentic workflowi unutar vaše infrastrukture.</p>
+          <p class="foot-tag">Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate.</p>
         </div>
         <div class="foot-col">
           <h4>Proizvod</h4>

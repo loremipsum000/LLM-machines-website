@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glossary — LLM Machines</title>
+  <title>Glossary | LLM Machines</title>
   <meta name="description" content="A working glossary of sovereign on-prem AI: models, architecture, privacy, EU regulation and deployment terminology used across LLM Machines and the wider enterprise AI landscape." />
 
   <!-- Canonical -->
@@ -16,7 +16,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Glossary — Sovereign AI vocabulary for enterprises" />
+  <meta property="og:title" content="Glossary | Sovereign AI vocabulary for enterprises" />
   <meta property="og:description" content="60+ terms covering models, architecture, privacy, EU regulation and operations. Plain-English definitions for technical buyers." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -27,7 +27,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Glossary — Sovereign AI vocabulary for enterprises" />
+  <meta name="twitter:title" content="Glossary | Sovereign AI vocabulary for enterprises" />
   <meta name="twitter:description" content="60+ terms covering models, architecture, privacy, EU regulation and operations." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
@@ -112,7 +112,7 @@
     <div class="container">
       <span class="label">Reference</span>
       <h1>Glossary.</h1>
-      <p>A working vocabulary for sovereign on-prem AI — covering the models, architecture, security, EU regulation and operations terminology we use across the site, plus context most buyers and architects need when comparing private AI platforms.</p>
+      <p>A working vocabulary for sovereign on-prem AI, covering the models, architecture, security, EU regulation and operations terminology we use across the site, plus context most buyers and architects need when comparing private AI platforms.</p>
     </div>
   </header>
 
@@ -132,7 +132,7 @@
           <!-- AI & MODELS -->
           <section class="glossary-section" id="ai-models">
             <h2>AI &amp; Models.</h2>
-            <p class="glossary-section-desc">The model layer — what is being run, how it represents text, and the tuning vocabulary around it.</p>
+            <p class="glossary-section-desc">The model layer: what is being run, how it represents text, and the tuning vocabulary around it.</p>
             <dl>
               <div class="glossary-entry" id="llm">
                 <dt>LLM</dt>
@@ -160,7 +160,7 @@
               </div>
               <div class="glossary-entry" id="lora">
                 <dt>LoRA / QLoRA</dt>
-                <dd><strong>Low-Rank Adaptation.</strong> A parameter-efficient fine-tuning method that trains a small set of additional weights instead of updating the full model — drastically cutting compute and storage. QLoRA adds quantisation for further savings.</dd>
+                <dd><strong>Low-Rank Adaptation.</strong> A parameter-efficient fine-tuning method that trains a small set of additional weights instead of updating the full model, drastically cutting compute and storage. QLoRA adds quantisation for further savings.</dd>
               </div>
               <div class="glossary-entry" id="quantization">
                 <dt>Quantization</dt>
@@ -184,7 +184,7 @@
           <!-- ARCHITECTURE -->
           <section class="glossary-section" id="architecture">
             <h2>Architecture &amp; Infrastructure.</h2>
-            <p class="glossary-section-desc">How an AI system is assembled, served, and bounded — from the appliance level down to individual protocols.</p>
+            <p class="glossary-section-desc">How an AI system is assembled, served, and bounded, from the appliance level down to individual protocols.</p>
             <dl>
               <div class="glossary-entry" id="on-prem">
                 <dt>On-prem <span class="term-aka">on-premise</span></dt>
@@ -192,7 +192,11 @@
               </div>
               <div class="glossary-entry" id="appliance">
                 <dt>Appliance</dt>
-                <dd>A pre-integrated hardware-plus-software unit shipped as a single product. Network firewalls, storage arrays, and our AI platform are all appliances — the customer doesn't assemble the components.</dd>
+                <dd>A pre-integrated hardware-plus-software unit shipped as a single product. Network firewalls, storage arrays, and our AI platform are all appliances; the customer does not assemble the components.</dd>
+              </div>
+              <div class="glossary-entry" id="managed-inference-core">
+                <dt>Managed inference core</dt>
+                <dd>The primary supported service boundary for running approved local models. LLM Machines configures and maintains model serving, the API gateway and policy controls, the operational Console, the observability layer, and lifecycle and recovery tooling inside the Customer's infrastructure.</dd>
               </div>
               <div class="glossary-entry" id="api-gateway">
                 <dt>API gateway</dt>
@@ -200,11 +204,11 @@
               </div>
               <div class="glossary-entry" id="chat-completions">
                 <dt>Chat Completions</dt>
-                <dd>The supported interface for sending streaming or non-streaming inference requests through <code>/api/app-gateway/v1/chat/completions</code>. Available models are listed through <code>/api/app-gateway/v1/models</code>.</dd>
+                <dd>The documented API protocol your favourite applications and harnesses use to access approved local models. It supports streaming and non-streaming inference through <code>/api/app-gateway/v1/chat/completions</code>; available models are listed through <code>/api/app-gateway/v1/models</code>.</dd>
               </div>
               <div class="glossary-entry" id="application">
-                <dt>Application</dt>
-                <dd>Your preferred AI application or harness connected to the Core Appliance through a dedicated credential and the documented Application API. Existing client interfaces and workflows stay familiar while inference runs locally.</dd>
+                <dt>Customer application</dt>
+                <dd>Your preferred AI application or harness connected to the managed inference core through a dedicated credential and the documented Application API. You choose and operate the interface and workflow while LLM Machines provides the local inference contract.</dd>
               </div>
               <div class="glossary-entry" id="model-alias">
                 <dt>Model alias</dt>
@@ -212,11 +216,11 @@
               </div>
               <div class="glossary-entry" id="support-boundary">
                 <dt>Support boundary <span class="term-aka">T1 / T2</span></dt>
-                <dd>T1 is the Core Appliance and LXC agentic runtime supplied and supported by LLM Machines. T2 is the connected Application layer, where customers keep using their chosen apps, harnesses and workflows through the documented API contract.</dd>
+                <dd>The managed inference core is the primary supported service. Customer applications connect through the documented API contract. The included LXC runtime forms a separate advanced-integration boundary for separately scoped capabilities such as agentic use.</dd>
               </div>
               <div class="glossary-entry" id="emergency-isolation-mode">
                 <dt>Emergency Isolation Mode</dt>
-                <dd>An administrative control that blocks Application inference traffic, approved external web access and agentic workflow access while keeping the Console, identity, audit, hardware monitoring, backup and recovery available.</dd>
+                <dd>An administrative control that blocks Application inference traffic and separately configured LXC execution while keeping the Console, identity, audit, hardware monitoring, backup and recovery available.</dd>
               </div>
               <div class="glossary-entry" id="signed-offline-update">
                 <dt>Signed offline update</dt>
@@ -224,7 +228,7 @@
               </div>
               <div class="glossary-entry" id="core-appliance">
                 <dt>Core Appliance</dt>
-                <dd>The supported customer-premises product: local inference, Application APIs and credentials, the operational Console, identity, Activity and Audit, the observability layer, lifecycle tooling and the LXC agentic runtime.</dd>
+                <dd>The supported customer-premises deployment. It combines the managed inference core with the included LXC advanced-integration runtime while keeping their operating and delivery boundaries distinct.</dd>
               </div>
               <div class="glossary-entry" id="agent">
                 <dt>Agent <span class="term-aka">agentic workflow</span></dt>
@@ -232,11 +236,11 @@
               </div>
               <div class="glossary-entry" id="tool-call-transport">
                 <dt>Tool-call transport <span class="term-aka">function calling</span></dt>
-                <dd>The Application API can carry structured tool-call messages produced by a model. Connected Applications and the LXC agentic runtime use those messages to continue familiar tool-enabled workflows.</dd>
+                <dd>The Application API can carry structured tool-call messages produced by a model. Customer applications and separately scoped advanced integrations can use those messages to continue tool-enabled workflows.</dd>
               </div>
               <div class="glossary-entry" id="lxc-agentic-runtime">
-                <dt>LXC agentic runtime</dt>
-                <dd>The isolated Linux container runtime included with the Core Appliance for agentic workflows and approved tool execution. It runs locally alongside the inference and operational layers.</dd>
+                <dt>LXC advanced-integration runtime</dt>
+                <dd>An isolated Linux container runtime included alongside the managed inference core to enable advanced integration capabilities, such as agentic use and approved tool execution. Specific workflows, tools, and acceptance criteria are delivered through a separately scoped integration or consulting engagement.</dd>
               </div>
               <div class="glossary-entry" id="observability-layer">
                 <dt>Observability layer</dt>
@@ -260,11 +264,11 @@
               </div>
               <div class="glossary-entry" id="pseudonymisation">
                 <dt>Pseudonymisation vs anonymisation</dt>
-                <dd>Pseudonymisation replaces identifiers with reversible tokens — it remains personal data under GDPR. Anonymisation removes identifiers irreversibly and the result is no longer personal data. Most "anonymisation" in industry is actually pseudonymisation.</dd>
+                <dd>Pseudonymisation replaces identifiers with reversible tokens; it remains personal data under GDPR. Anonymisation removes identifiers irreversibly and the result is no longer personal data. Most "anonymisation" in industry is actually pseudonymisation.</dd>
               </div>
               <div class="glossary-entry" id="data-residency">
                 <dt>Data residency</dt>
-                <dd>A requirement that data physically resides in a particular geographic location. Often confused with sovereignty — residency is about where bytes sit; sovereignty is about which legal regime governs them.</dd>
+                <dd>A requirement that data physically resides in a particular geographic location. It is often confused with sovereignty: residency is about where bytes sit, while sovereignty is about which legal regime governs them.</dd>
               </div>
               <div class="glossary-entry" id="data-sovereignty">
                 <dt>Data sovereignty</dt>
@@ -308,6 +312,10 @@
               </div>
               <div class="glossary-entry" id="activity-audit">
                 <dt>Activity &amp; Audit</dt>
+              <div class="glossary-entry" id="operational-metadata">
+                <dt>Operational metadata</dt>
+                <dd>Service data used to operate and support the appliance, such as timestamps, application identifiers, model aliases, token counts, latency, status, capacity signals, and administrative events. Workload content such as prompts, model responses, tool arguments, tool results, and request or response bodies is kept outside this metadata set.</dd>
+              </div>
                 <dd>The Console section for metadata-only operational and security events, with signed JSON and CSV exports. It records who changed which resource and when, without retaining prompts, model responses or tool content.</dd>
               </div>
             </dl>
@@ -340,7 +348,7 @@
               </div>
               <div class="glossary-entry" id="dpa">
                 <dt>DPA</dt>
-                <dd><strong>Data Processing Agreement.</strong> The contract between a data controller and a data processor mandated by GDPR Article 28. Note: DPA also stands for Data Protection Authority — the national regulator. Context determines meaning.</dd>
+                <dd><strong>Data Processing Agreement.</strong> The contract between a data controller and a data processor mandated by GDPR Article 28. Note: DPA also stands for Data Protection Authority, the national regulator. Context determines meaning.</dd>
               </div>
               <div class="glossary-entry" id="dpia">
                 <dt>DPIA</dt>
@@ -380,11 +388,11 @@
               </div>
               <div class="glossary-entry" id="pre-flight">
                 <dt>Pre-flight check</dt>
-                <dd>Validating that all prerequisites — network, identity, storage, power — are in place before the appliance ships.</dd>
+                <dd>Validating that all prerequisites, including network, identity, storage and power, are in place before the appliance ships.</dd>
               </div>
               <div class="glossary-entry" id="smoke-test">
                 <dt>Smoke test</dt>
-                <dd>A fast end-to-end test confirming a freshly installed system performs core functions correctly. Not a full QA suite — just enough to catch broken deployments early.</dd>
+                <dd>A fast end-to-end test confirming a freshly installed system performs core functions correctly. It is a focused validation that catches broken deployments early.</dd>
               </div>
               <div class="glossary-entry" id="self-test">
                 <dt>Self-test</dt>
@@ -392,6 +400,18 @@
               </div>
               <div class="glossary-entry" id="pre-shipment">
                 <dt>Pre-shipment</dt>
+              <div class="glossary-entry" id="api-handoff">
+                <dt>API handoff</dt>
+                <dd>The completion point for standard onboarding, when validated Models and Chat Completions endpoints, application credentials, model allowlists, operating documentation, and acceptance results are handed to the Customer for use by its chosen applications.</dd>
+              </div>
+              <div class="glossary-entry" id="support-session">
+                <dt>Support session</dt>
+                <dd>An explicitly authorised, time-limited access window used to diagnose or resolve an agreed issue. Its scope, approvals, logging, and revocation follow the signed support terms and the Customer's access controls.</dd>
+              </div>
+              <div class="glossary-entry" id="outcome-led-consulting">
+                <dt>Outcome-led consulting</dt>
+                <dd>A separate engagement organised around a defined business or integration outcome, a bounded delivery, measurable acceptance criteria, and documented handoff. Advanced integrations can use the included LXC runtime, with the Customer operating the accepted application or workflow after handoff.</dd>
+              </div>
                 <dd>Everything that happens before hardware leaves our integration facility: offline entitlement preparation, image preparation and signed manifest assembly.</dd>
               </div>
               <div class="glossary-entry" id="sla">
@@ -421,7 +441,7 @@
     <div class="container">
       <span class="label" style="justify-content:center;">Next</span>
       <h2>Want this in your stack?</h2>
-      <p>Run local inference, your connected Applications and agentic workflows inside infrastructure you control.</p>
+      <p>Run managed local inference and connect your preferred applications inside infrastructure you control.</p>
       <div class="hero-ctas">
         <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
         <a href="../technology/" class="btn btn-ghost">Explore the technology</a>
@@ -437,7 +457,7 @@
           <div class="foot-brand">
             <img class="brand-full" src="../assets/LLM-machines-logo-full.png" alt="LLM Machines" />
           </div>
-          <p class="foot-tag">A European AI appliance company. Customer-premises inference, operational control and agentic workflows inside your infrastructure.</p>
+          <p class="foot-tag">Private inference, operational control and model choice inside infrastructure you control.</p>
         </div>
         <div class="foot-col">
           <h4>Product</h4>
