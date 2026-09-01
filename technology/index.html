@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>On-Prem Inference Architecture | LLM Machines</title>
-  <meta name="description" content="Explore the LLM Machines customer-premises architecture: infrastructure, local inference, gateway and policy, an operational Console, an Observability layer, lifecycle and recovery, plus an LXC boundary for advanced integrations." />
+  <meta name="description" content="Explore the LLM Machines customer-premises architecture: Product edge, local inference, gateway and policy, operational Console, observability, lifecycle and recovery, plus a customer application boundary." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/technology/" />
@@ -17,7 +17,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="A compact on-prem inference stack | LLM Machines" />
-  <meta property="og:description" content="Private inference, operational control and model choice inside infrastructure you control, with an LXC boundary for advanced integrations." />
+  <meta property="og:description" content="Private inference, operational control and model choice inside infrastructure you control, with a documented customer application boundary." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -28,7 +28,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="A compact on-prem inference stack | LLM Machines" />
-  <meta name="twitter:description" content="Private inference, operational control and model choice inside infrastructure you control, with an LXC boundary for advanced integrations." />
+  <meta name="twitter:description" content="Private inference, operational control and model choice inside infrastructure you control, with a documented customer application boundary." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <!-- Theme + indexing -->
@@ -46,9 +46,7 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../assets/styles.css" />
   <script type="application/ld+json">
@@ -58,7 +56,7 @@
   "name": "LLM Machines",
   "url": "https://llm-machines.com/",
   "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
-  "description": "A Croatia-based startup building sovereign on-premise AI appliances for European enterprises. Built for EU-regulated environments.",
+  "description": "A Croatia-based technical team configuring and maintaining managed private inference inside customer-controlled infrastructure.",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "HR"
@@ -83,10 +81,10 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Can existing API clients use LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chat Completions is the documented API protocol your favourite apps and harnesses use to access approved local models. The /models endpoint exposes the approved model set." } },
-    { "@type": "Question", "name": "Can the appliance operate without public-internet access?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure." } },
+    { "@type": "Question", "name": "Can the appliance operate without public-internet access?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Signed offline release and update bundles plus local model registries support isolated operation inside your infrastructure." } },
     { "@type": "Question", "name": "Which models can run locally?", "acceptedAnswer": { "@type": "Answer", "text": "The architecture is designed for open-weight model families such as Llama, Mistral and Qwen, with model choice sized to your hardware, latency and quality requirements." } },
     { "@type": "Question", "name": "How do applications authenticate?", "acceptedAnswer": { "@type": "Answer", "text": "Each Application receives its own credential, model access and operational controls through the local Console." } },
-    { "@type": "Question", "name": "How does the LXC runtime support advanced integrations?", "acceptedAnswer": { "@type": "Answer", "text": "The LXC runtime provides a secondary execution boundary for separately scoped advanced integrations, including agentic use cases. It connects to approved models through the documented inference API." } },
+    { "@type": "Question", "name": "How is Product source licensed?", "acceptedAnswer": { "@type": "Answer", "text": "Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party components retain their upstream licences." } },
     { "@type": "Question", "name": "What is inside the managed inference core?", "acceptedAnswer": { "@type": "Answer", "text": "The managed inference core includes the infrastructure platform, local inference runtime, gateway and policy, operational Console, identity, Observability layer, and lifecycle and recovery controls." } }
   ]
 }
@@ -150,7 +148,7 @@
       <div class="sect-head reveal">
         <span class="label">01 · Architecture</span>
         <h2>Reference architecture.</h2>
-        <p>A managed inference core runs inside your infrastructure. Customer applications connect through a documented boundary, while an LXC runtime provides a secondary boundary for separately scoped advanced integrations.</p>
+        <p>A managed inference core runs inside your infrastructure. Customer applications connect only through the documented Product edge and remain under customer ownership.</p>
       </div>
 
       <div class="arch zoom-in reveal">
@@ -259,11 +257,11 @@
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">LXC Advanced Integration Boundary</h4>
-              <p class="layer-detail">A secondary execution boundary for separately scoped advanced integrations, including agentic use cases</p>
-              <p class="layer-eg">Connects to approved models through the documented inference API</p>
+              <h4 class="layer-title">Product Edge</h4>
+              <p class="layer-detail">Sole customer ingress · authentication boundary · no-bypass enforcement · approved service routing</p>
+              <p class="layer-eg">Documented Application API · private administrative routes</p>
             </div>
-            <span class="tier-badge t2">ADV</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="pure-boundary">
@@ -294,9 +292,9 @@
             <p>Use one documented contract across the client applications and harnesses your teams already prefer.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">Advanced integrations</div>
-            <h3>A dedicated LXC boundary.</h3>
-            <p>The LXC runtime enables separately scoped advanced integrations, including agentic use cases, while the inference core remains dedicated to serving approved models.</p>
+            <div class="callout-tag">Source rights</div>
+            <h3>Inspect the first-party Product layer.</h3>
+            <p>Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party components retain their upstream licences.</p>
           </div>
         </div>
       </div>
@@ -323,9 +321,9 @@
           <p>Application credentials, model access, routing and rate policies are configured against the customer application boundary.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Advanced integrations</div>
-          <h3>Extend through the LXC boundary.</h3>
-          <p>Separately scoped integrations, including agentic use cases, can run in the secondary LXC boundary and access approved models through the same API contract.</p>
+          <div class="pc-tag">Customer boundary</div>
+          <h3>Keep applications in customer ownership.</h3>
+          <p>Application selection, permissions, data and workflows stay outside the standard Product. Optional integration consulting uses a separate scope and documented handoff.</p>
         </article>
       </div>
     </div>
@@ -346,7 +344,7 @@
         </article>
         <article class="faq-item">
           <h3>Can the appliance operate without public-internet access?</h3>
-          <p>Yes. Signed offline entitlements and local model registries support isolated operation inside your infrastructure.</p>
+          <p>Yes. Signed offline release and update bundles plus local model registries support isolated operation inside your infrastructure.</p>
         </article>
         <article class="faq-item">
           <h3>Which models can run locally?</h3>
@@ -357,8 +355,8 @@
           <p>Each Application receives its own credential, model access and operational controls through the local Console.</p>
         </article>
         <article class="faq-item">
-          <h3>How does the LXC runtime support advanced integrations?</h3>
-          <p>The LXC runtime provides a secondary execution boundary for separately scoped advanced integrations, including agentic use cases. It connects to approved models through the documented inference API.</p>
+          <h3>How is Product source licensed?</h3>
+          <p>Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party components retain their upstream licences.</p>
         </article>
         <article class="faq-item">
           <h3>What is inside the managed inference core?</h3>
@@ -418,7 +416,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · A European company</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Private AI infrastructure for EU-regulated teams</span>
       </div>
     </div>

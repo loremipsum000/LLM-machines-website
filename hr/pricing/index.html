@@ -40,9 +40,7 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../../assets/styles.css" />
   <script type="application/ld+json">
@@ -52,7 +50,7 @@
   "name": "LLM Machines",
   "url": "https://llm-machines.com/",
   "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
-  "description": "Hrvatski startup koji gradi suverene on-premise AI appliance-e za europska poduzeća.",
+  "description": "Hrvatski tehnički tim koji konfigurira i održava upravljanu privatnu inferenciju unutar infrastrukture pod kontrolom Klijenta.",
   "address": { "@type": "PostalAddress", "addressCountry": "HR" },
   "areaServed": "EU",
   "sameAs": []
@@ -76,7 +74,7 @@
   "mainEntity": [
     { "@type": "Question", "name": "Kako se oblikuje ponuda?", "acceptedAnswer": { "@type": "Answer", "text": "Prilagođeni prijedlog izrađujemo nakon discovery faze. Opseg određuju infrastrukturni otisak, inferencijska cjelina, dostupnost, politika ažuriranja, opseg oporavka, pregledi kapaciteta, pristup podršci i izvještavanje." } },
     { "@type": "Question", "name": "Što uključuje standardni opseg proizvoda?", "acceptedAnswer": { "@type": "Answer", "text": "Standardni opseg objedinjuje Core Appliance, operativni Console, kontrole identiteta i politika, observability sloj, podršku životnom ciklusu i dokumentiranu API primopredaju." } },
-    { "@type": "Question", "name": "Kako se koristi LXC runtime?", "acceptedAnswer": { "@type": "Answer", "text": "LXC je dostupan dio stacka kada zasebno ugovorena napredna integracija, uključujući agentic slučaj uporabe, zahtijeva izoliranu izvršnu granicu." } },
+    { "@type": "Question", "name": "Kako je licenciran izvorni kod Producta?", "acceptedAnswer": { "@type": "Answer", "text": "Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod za internu poslovnu uporabu i interne izmjene Klijenta pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Softver trećih strana ostaje pod svojim postojećim upstream licencama." } },
     { "@type": "Question", "name": "Tko je vlasnik hardvera?", "acceptedAnswer": { "@type": "Answer", "text": "Appliance dimenzioniramo s vašim timom, nabavljamo kroz distributerski podržane kanale i implementiramo kao infrastrukturu pod vašom kontrolom. Jamstvo slijedi dokumentaciju dobavljača i proizvođača te potpisani Order Form." } },
     { "@type": "Question", "name": "Kako se povezuju postojeće aplikacije?", "acceptedAnswer": { "@type": "Answer", "text": "Chat Completions je dokumentirani API protokol putem kojeg vaše omiljene aplikacije i harnessi pristupaju odobrenim lokalnim modelima." } },
     { "@type": "Question", "name": "Kako se ugovara integracijsko savjetovanje?", "acceptedAnswer": { "@type": "Answer", "text": "Napredno integracijsko savjetovanje koristi zaseban opis posla s mjerljivim ciljem, izričitim kriterijima prihvata i dokumentiranom primopredajom u vlasništvo klijenta." } }
@@ -175,7 +173,7 @@
           <div class="tier-positioning">Lokalna inferencija · operativna jezgra</div>
           <div class="tier-target">Podržani hardversko-softverski proizvod za privatno posluživanje modela u vašoj infrastrukturi.</div>
           <ul>
-            <li>Lokalna inferencija otvorenih modela</li>
+            <li>Lokalna inferencija open-weight modela</li>
             <li>Odabir, konfiguracija i validacija modela</li>
             <li>Dokumentirani Models API</li>
             <li>Kompaktni operativni Console</li>
@@ -334,12 +332,12 @@
         <div class="tier feature reveal">
           <div class="tier-name">Zasebno definirana isporuka</div>
           <div class="tier-positioning">SOW · milestoneovi · dokazi</div>
-          <div class="tier-target">Napredne i agentic integracije isporučuju se kroz zaseban opis posla, a ne kao pretpostavljeni dio standardnog onboardinga ili održavanja.</div>
+          <div class="tier-target">Integracije aplikacija i workflowa Klijenta isporučuju se kroz zaseban opis posla, a ne kao pretpostavljeni dio standardnog onboardinga ili održavanja.</div>
           <ul>
             <li>Izričiti deliverables i isključenja</li>
             <li>Dokazi po milestoneovima i decision gateovi</li>
             <li>Odobrene vjerodajnice i ograničenja resursa</li>
-            <li>LXC runtime kada je potrebna izolirana izvršna granica</li>
+            <li>Aplikacije i izvršno okruženje koje odabire Klijent</li>
           </ul>
         </div>
 
@@ -378,7 +376,7 @@
           <tbody>
             <tr><td>Kontrola podataka</td><td class="v-no">Promptovi napuštaju vaš perimetar</td><td class="hot v-yes">Podaci ostaju unutar vašeg okruženja</td></tr>
             <tr><td>Komercijalni model</td><td class="v-no">Potrošnja prema pravilima providera</td><td class="hot v-yes">Ponuda prema kapacitetu i opsegu usluge</td></tr>
-            <tr><td>Vendor lock-in</td><td class="v-mid">Provider-specifični API-ji i politike</td><td class="hot v-yes">Open-source stack i dokumentirani Models i Chat Completions endpointi</td></tr>
+            <tr><td>Vendor lock-in</td><td class="v-mid">Provider-specifični API-ji i politike</td><td class="hot v-yes">Dokumentirani API i source-available izvorni kod Producta koji je razvio LLM Machines</td></tr>
             <tr><td>Implementacija</td><td class="v-yes">Brz početak, ograničena lokalna kontrola</td><td class="hot v-yes">Kontrolirana implementacija u vašem okruženju</td></tr>
             <tr><td>Auditabilnost</td><td class="v-mid">Ograničena na kontrole providera</td><td class="hot v-yes">Activity &amp; Audit i operativne kontrole u vašem perimetru</td></tr>
           </tbody>
@@ -405,8 +403,8 @@
           <p>Standardni opseg objedinjuje Core Appliance, operativni Console, kontrole identiteta i politika, observability sloj, podršku životnom ciklusu i dokumentiranu API primopredaju.</p>
         </article>
         <article class="faq-item">
-          <h3>Kako se koristi LXC runtime?</h3>
-          <p>LXC je dostupan dio stacka kada zasebno ugovorena napredna integracija, uključujući agentic slučaj uporabe, zahtijeva izoliranu izvršnu granicu.</p>
+          <h3>Kako je licenciran izvorni kod Producta?</h3>
+          <p>Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod za internu poslovnu uporabu i interne izmjene Klijenta pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Softver trećih strana ostaje pod svojim postojećim upstream licencama.</p>
         </article>
         <article class="faq-item">
           <h3>Tko je vlasnik hardvera?</h3>
@@ -473,7 +471,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · Europska tvrtka</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Privatna inferencija, operativna kontrola i izbor modela</span>
       </div>
     </div>

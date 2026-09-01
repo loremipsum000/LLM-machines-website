@@ -45,6 +45,12 @@
     (function () {
       const STAGGER_MS = 50;
       const STAGGER_MAX = 200;
+      const reveals = document.querySelectorAll('.reveal');
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        reveals.forEach((el) => el.classList.add('in'));
+        return;
+      }
 
       const io = new IntersectionObserver(
         (entries) => {
@@ -68,7 +74,7 @@
         },
         { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
       );
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    reveals.forEach((el) => io.observe(el));
     })();
 
 /* ----- Mobile / tablet menu drawer ----- */
@@ -78,11 +84,17 @@
   if (!toggle || !drawer) return;
 
   const links = drawer.querySelectorAll('a');
+  const openLabel = toggle.getAttribute('aria-label') || 'Open menu';
+  const closeLabel = document.documentElement.lang.toLowerCase().startsWith('hr')
+    ? 'Zatvori izbornik'
+    : 'Close menu';
+  let closeTimer;
 
   function openMenu() {
+    window.clearTimeout(closeTimer);
     drawer.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'Close menu');
+    toggle.setAttribute('aria-label', closeLabel);
     document.body.classList.add('menu-open');
     requestAnimationFrame(() => drawer.classList.add('open'));
   }
@@ -90,8 +102,11 @@
   function closeMenu() {
     drawer.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
+    toggle.setAttribute('aria-label', openLabel);
     document.body.classList.remove('menu-open');
+    closeTimer = window.setTimeout(() => {
+      if (!drawer.classList.contains('open')) drawer.hidden = true;
+    }, 260);
   }
 
   toggle.addEventListener('click', () => {
@@ -157,6 +172,20 @@
 
 /* ----- Stat counter ----- */
 (function () {
+  const counters = document.querySelectorAll('[data-counter]');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    counters.forEach((el) => {
+      const target = parseFloat(el.dataset.target);
+      if (isNaN(target)) return;
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      el.textContent = prefix + target.toFixed(decimals) + suffix;
+    });
+    return;
+  }
+
   function animate(el) {
     const target = parseFloat(el.dataset.target);
     if (isNaN(target)) return;
@@ -179,7 +208,7 @@
       if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
     });
   }, { threshold: 0.4 });
-  document.querySelectorAll('[data-counter]').forEach((el) => io.observe(el));
+  counters.forEach((el) => io.observe(el));
 })();
 
 /* ----- Architecture zoom-in ----- */
@@ -381,6 +410,8 @@
    user has opted in (or on subsequent visits when previously opted in).
    ============================================================ */
 function __ccBootUnicorn() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   // Project-style targets (legacy data-us-project)
   if (document.querySelector('[data-us-project]')) {
     if (window.UnicornStudio && window.UnicornStudio.init) {
@@ -451,45 +482,41 @@ if (window.__cc_functional_allowed === true) {
 }
 
 /* ============================================================
-   COOKIE CONSENT MODULE (GDPR / ePrivacy / EU AI Act friendly)
+   SITE PREFERENCE MODULE
    - Strict opt-in: nothing non-essential loads until accepted
-   - Bottom-left banner + full granular preferences modal
+   - Bottom-left banner + preference modal
    - Bilingual (EN / HR) — picks via <html lang>
    - Persisted in localStorage as 'llm-consent-v1'
-   - Re-openable via "Cookie settings" link injected in footer
+   - Re-openable via the preference link injected in the footer
    ============================================================ */
 (function () {
   const STORAGE_KEY = 'llm-consent-v1';
-  const CURRENT_VERSION = '1.0';
+  const CURRENT_VERSION = '1.1';
+  const CONSENT_TTL_MS = 365 * 24 * 60 * 60 * 1000;
   const lang = (document.documentElement.lang || 'en').toLowerCase().startsWith('hr') ? 'hr' : 'en';
 
   // -------- i18n strings --------
   const STRINGS = {
     en: {
-      bannerLabel: 'Cookie notice',
+      bannerLabel: 'Privacy choices',
       bannerTitle: 'We respect your data.',
-      bannerBody: 'This site loads only the cookies and third-party assets you allow. Strictly necessary storage is on by default; everything else is off until you opt in. See our <a href="/privacy/">Privacy Policy</a> for details.',
-      btnAcceptAll: 'Accept all',
-      btnRejectAll: 'Reject all',
+      bannerBody: 'This site uses necessary local storage to remember your choice. Optional fonts and visual assets stay off until you allow them. See our <a href="/privacy/">Privacy Policy</a> for details.',
+      btnAcceptAll: 'Allow functional assets',
+      btnRejectAll: 'Essential only',
       btnCustomize: 'Customise preferences',
-      modalTitle: 'Cookie preferences',
-      modalIntro: 'Below is the complete list of storage and third-party assets this site can use, grouped by purpose. Strictly necessary items can\'t be disabled because the site can\'t remember your choice without them. Everything else stays off until you switch it on.',
+      modalTitle: 'Site preferences',
+      modalIntro: 'This is the complete list of browser storage and optional third-party assets used by the current site. The necessary local-storage record remembers your choice. Functional providers stay off until you switch them on.',
       catNecessary: 'Strictly necessary',
-      catNecessaryDesc: 'Required for the site to function and to remember your consent choices. Cannot be disabled.',
+      catNecessaryDesc: 'Required to remember your site preference. Cannot be disabled.',
       catFunctional: 'Functional',
       catFunctionalDesc: 'Loads visual assets — hero/background animations and the Urbanist webfont — that make the site feel like our brand. The site works without them, just with system fonts and static backgrounds.',
-      catAnalytics: 'Analytics',
-      catAnalyticsDesc: 'We don\'t currently use any analytics, tracking, or measurement tools. This toggle exists so future analytics will only run with your explicit consent. Stays off by default.',
-      catMarketing: 'Marketing',
-      catMarketingDesc: 'We don\'t run any marketing tags, retargeting pixels, or ad networks. If that ever changes, you\'ll see the specific vendors listed here and be asked again. Stays off by default.',
       always: 'Always on',
-      empty: 'No cookies or third-party assets currently used in this category.',
       btnSavePrefs: 'Save preferences',
-      btnAcceptAllModal: 'Accept all',
-      btnRejectAllModal: 'Reject all',
+      btnAcceptAllModal: 'Allow functional assets',
+      btnRejectAllModal: 'Essential only',
       version: 'v ' + CURRENT_VERSION,
-      footerLink: 'Cookie settings',
-      ariaClose: 'Close cookie preferences',
+      footerLink: 'Privacy settings',
+      ariaClose: 'Close site preferences',
       labels: {
         type: 'Type',
         storage: 'localStorage',
@@ -513,43 +540,34 @@ if (window.__cc_functional_allowed === true) {
         },
         unicorn: {
           name: 'Unicorn Studio',
-          purpose: 'Animation engine used for the hero and call-to-action background visuals. Loaded from a public CDN. No cookies set; the CDN logs the request (IP + user agent) per standard HTTP behaviour.',
+          purpose: 'Loads the animation runtime from jsDelivr and scene media from assets.unicorn.studio. Your browser sends standard request data, including its IP address and browser headers, to those providers.',
         },
         fonts: {
           name: 'Google Fonts (Urbanist)',
-          purpose: 'Loads the Urbanist body font used across the site. Google receives your IP address when the font CSS is fetched. We do not pass any personal data. Declining falls back to your system font.',
-        },
-        formsubmit: {
-          name: 'FormSubmit (contact form)',
-          purpose: 'Used only when you submit the contact form. The data you typed plus your IP are sent to formsubmit.co to be delivered to us by email. Never loaded otherwise.',
+          purpose: 'Your browser requests the Urbanist font directly from Google and sends standard request data, including its IP address, requested URL, browser headers and referrer where provided. Declining uses your system font.',
         },
       },
     },
     hr: {
-      bannerLabel: 'Obavijest o kolačićima',
+      bannerLabel: 'Postavke privatnosti',
       bannerTitle: 'Poštujemo vaše podatke.',
-      bannerBody: 'Ova stranica učitava samo one kolačiće i resurse trećih strana koje vi dopustite. Strogo nužna pohrana uključena je prema zadanim postavkama; sve ostalo je isključeno dok se ne odlučite uključiti. Detalji u <a href="/privacy/">Pravilima privatnosti</a>.',
-      btnAcceptAll: 'Prihvati sve',
-      btnRejectAll: 'Odbij sve',
+      bannerBody: 'Ova stranica koristi nužnu lokalnu pohranu kako bi zapamtila vaš izbor. Neobavezni fontovi i vizualni resursi ostaju isključeni dok ih ne dopustite. Detalji su u <a href="/privacy/">Pravilima privatnosti</a>.',
+      btnAcceptAll: 'Dopusti funkcionalne resurse',
+      btnRejectAll: 'Samo nužno',
       btnCustomize: 'Prilagodi postavke',
-      modalTitle: 'Postavke kolačića',
-      modalIntro: 'Ispod je potpuni popis pohrane i resursa trećih strana koje ova stranica može koristiti, grupirano po namjeni. Strogo nužne stavke ne mogu se onemogućiti jer stranica bez njih ne može zapamtiti vaš izbor. Sve ostalo ostaje isključeno dok ga ne uključite.',
+      modalTitle: 'Postavke stranice',
+      modalIntro: 'Ovo je potpuni popis pohrane preglednika i neobaveznih resursa trećih strana koje koristi trenutačna stranica. Nužni zapis lokalne pohrane pamti vaš izbor. Funkcionalni pružatelji ostaju isključeni dok ih ne uključite.',
       catNecessary: 'Strogo nužni',
-      catNecessaryDesc: 'Potrebni za rad stranice i za pamćenje vaše odluke o pristanku. Ne mogu se onemogućiti.',
+      catNecessaryDesc: 'Potrebni za pamćenje vaših postavki stranice. Ne mogu se onemogućiti.',
       catFunctional: 'Funkcionalni',
       catFunctionalDesc: 'Učitava vizualne resurse — animacije hero i pozadinskih scena te Urbanist webfont — koji daju stranici naš brand. Stranica radi i bez njih, samo sa sistemskim fontovima i statičnim pozadinama.',
-      catAnalytics: 'Analitika',
-      catAnalyticsDesc: 'Trenutno ne koristimo nijedan alat za analitiku, praćenje ili mjerenje. Ovaj prekidač postoji kako bi se eventualna buduća analitika pokretala samo uz vaš izričiti pristanak. Prema zadanim postavkama isključen.',
-      catMarketing: 'Marketing',
-      catMarketingDesc: 'Ne koristimo marketinške oznake, retargeting piksele ni reklamne mreže. Ako se to ikad promijeni, ovdje ćete vidjeti konkretne dobavljače i bit ćete ponovno upitani. Prema zadanim postavkama isključen.',
       always: 'Uvijek uključeno',
-      empty: 'Trenutno se u ovoj kategoriji ne koriste nikakvi kolačići ni resursi trećih strana.',
       btnSavePrefs: 'Spremi postavke',
-      btnAcceptAllModal: 'Prihvati sve',
-      btnRejectAllModal: 'Odbij sve',
+      btnAcceptAllModal: 'Dopusti funkcionalne resurse',
+      btnRejectAllModal: 'Samo nužno',
       version: 'v ' + CURRENT_VERSION,
-      footerLink: 'Postavke kolačića',
-      ariaClose: 'Zatvori postavke kolačića',
+      footerLink: 'Postavke privatnosti',
+      ariaClose: 'Zatvori postavke stranice',
       labels: {
         type: 'Vrsta',
         storage: 'localStorage',
@@ -573,15 +591,11 @@ if (window.__cc_functional_allowed === true) {
         },
         unicorn: {
           name: 'Unicorn Studio',
-          purpose: 'Engine za animacije koji se koristi za hero i call-to-action pozadinske vizuale. Učitava se s javnog CDN-a. Ne postavlja kolačiće; CDN bilježi zahtjev (IP + user agent) prema standardnom HTTP ponašanju.',
+          purpose: 'Učitava animacijski runtime putem jsDelivra i resurse scena s assets.unicorn.studio. Vaš preglednik tim pružateljima šalje standardne podatke zahtjeva, uključujući IP adresu i zaglavlja preglednika.',
         },
         fonts: {
           name: 'Google Fonts (Urbanist)',
-          purpose: 'Učitava Urbanist font tijela teksta koji se koristi na cijeloj stranici. Google prima vašu IP adresu kada se font CSS dohvati. Ne prosljeđujemo nikakve osobne podatke. Ako odbijete, koristi se vaš sistemski font.',
-        },
-        formsubmit: {
-          name: 'FormSubmit (kontakt obrazac)',
-          purpose: 'Koristi se samo kada pošaljete kontakt obrazac. Podaci koje ste upisali i vaša IP adresa šalju se na formsubmit.co i nama dostavljaju email-om. Inače se ne učitava.',
+          purpose: 'Vaš preglednik izravno traži Urbanist font od Googlea i šalje standardne podatke zahtjeva, uključujući IP adresu, traženi URL, zaglavlja preglednika i referrer ako je dostupan. Ako odbijete, koristi se sistemski font.',
         },
       },
     },
@@ -595,7 +609,17 @@ if (window.__cc_functional_allowed === true) {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return null;
       const obj = JSON.parse(raw);
-      if (obj.version !== CURRENT_VERSION) return null;
+      const timestamp = Date.parse(obj.timestamp);
+      const age = Date.now() - timestamp;
+      if (
+        obj.version !== CURRENT_VERSION ||
+        !Number.isFinite(timestamp) ||
+        age < 0 ||
+        age >= CONSENT_TTL_MS
+      ) {
+        localStorage.removeItem(STORAGE_KEY);
+        return null;
+      }
       return obj;
     } catch (e) { return null; }
   }
@@ -603,8 +627,6 @@ if (window.__cc_functional_allowed === true) {
     const payload = {
       necessary: true,
       functional: !!prefs.functional,
-      analytics: !!prefs.analytics,
-      marketing: !!prefs.marketing,
       timestamp: new Date().toISOString(),
       version: CURRENT_VERSION,
     };
@@ -613,13 +635,49 @@ if (window.__cc_functional_allowed === true) {
   }
 
   // -------- apply consent (load or unload functional assets) --------
+  function setGoogleFontPreconnect(enabled) {
+    const selectors = [
+      'link[data-cc="google-fonts-preconnect"][href="https://fonts.googleapis.com"]',
+      'link[data-cc="google-fonts-preconnect"][href="https://fonts.gstatic.com"]',
+    ];
+
+    if (!enabled) {
+      selectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => el.remove());
+      });
+      return;
+    }
+
+    if (!document.querySelector(selectors[0])) {
+      const googleApis = document.createElement('link');
+      googleApis.rel = 'preconnect';
+      googleApis.href = 'https://fonts.googleapis.com';
+      googleApis.setAttribute('data-cc', 'google-fonts-preconnect');
+      document.head.appendChild(googleApis);
+    }
+
+    if (!document.querySelector(selectors[1])) {
+      const googleStatic = document.createElement('link');
+      googleStatic.rel = 'preconnect';
+      googleStatic.href = 'https://fonts.gstatic.com';
+      googleStatic.crossOrigin = '';
+      googleStatic.setAttribute('data-cc', 'google-fonts-preconnect');
+      document.head.appendChild(googleStatic);
+    }
+  }
+
   function applyConsent(prefs) {
     const wasAllowed = window.__cc_functional_allowed === true;
     window.__cc_functional_allowed = !!prefs.functional;
 
-    // Google Fonts (Urbanist) — already in <head>. Toggle by disabling/restoring.
-    document.querySelectorAll('link[href*="fonts.googleapis.com"], link[href*="fonts.gstatic.com"]').forEach(el => {
+    // Google Fonts (Urbanist) — load only after functional consent.
+    setGoogleFontPreconnect(!!prefs.functional);
+    document.querySelectorAll('link[data-cc="google-fonts"]').forEach(el => {
       if (prefs.functional) {
+        if (el.dataset.ccHref && !el.getAttribute('href')) {
+          el.setAttribute('href', el.dataset.ccHref);
+        }
+        el.disabled = false;
         el.removeAttribute('disabled');
         if (el.hasAttribute('data-cc-original-media')) {
           el.setAttribute('media', el.getAttribute('data-cc-original-media'));
@@ -629,7 +687,10 @@ if (window.__cc_functional_allowed === true) {
         if (!el.hasAttribute('data-cc-original-media')) {
           el.setAttribute('data-cc-original-media', el.getAttribute('media') || 'all');
         }
+        el.disabled = true;
         el.setAttribute('media', 'not all');
+        el.setAttribute('disabled', '');
+        el.removeAttribute('href');
       }
     });
 
@@ -638,8 +699,11 @@ if (window.__cc_functional_allowed === true) {
       window.dispatchEvent(new CustomEvent('cc:functional-allowed'));
     }
     if (!prefs.functional && wasAllowed) {
-      // Best-effort tear-down: remove injected Unicorn script tag.
+      // Reload after withdrawal so already-running third-party scenes stop.
       document.querySelectorAll('script[data-cc="unicorn"]').forEach(el => el.remove());
+      window.__unicornLoaded = false;
+      window.__usScriptLoading = false;
+      window.setTimeout(() => window.location.reload(), 0);
     }
   }
 
@@ -663,10 +727,17 @@ if (window.__cc_functional_allowed === true) {
   }
 
   // -------- banner --------
-  let bannerEl, modalEl;
+  let bannerEl, modalEl, modalReturnFocus;
+
+  function focusPageStart() {
+    const target = document.querySelector('.brand, h1');
+    if (target && typeof target.focus === 'function') {
+      target.focus({ preventScroll: true });
+    }
+  }
 
   function buildBanner() {
-    const banner = el('div', { class: 'cc-banner', role: 'dialog', 'aria-modal': 'false', 'aria-labelledby': 'cc-banner-title' });
+    const banner = el('div', { class: 'cc-banner', role: 'dialog', 'aria-modal': 'false', 'aria-labelledby': 'cc-banner-title', tabindex: '-1' });
 
     const head = el('div', { class: 'cc-banner-head' },
       el('span', { class: 'cc-banner-mark' }, t.bannerLabel)
@@ -676,7 +747,7 @@ if (window.__cc_functional_allowed === true) {
 
     const accept = el('button', { class: 'cc-btn cc-btn--primary', type: 'button', onclick: onAcceptAll }, t.btnAcceptAll);
     const reject = el('button', { class: 'cc-btn', type: 'button', onclick: onRejectAll }, t.btnRejectAll);
-    const customize = el('button', { class: 'cc-btn cc-btn-customize', type: 'button', onclick: () => { hideBanner(); showModal(); } }, t.btnCustomize);
+    const customize = el('button', { class: 'cc-btn cc-btn-customize', type: 'button', onclick: () => { showModal(); hideBanner(false); } }, t.btnCustomize);
 
     const actions = el('div', { class: 'cc-banner-actions' }, accept, reject, customize);
 
@@ -707,7 +778,7 @@ if (window.__cc_functional_allowed === true) {
       const cat = el('section', { class: 'cc-cat', 'data-cat': catKey });
       const catHead = el('div', { class: 'cc-cat-head' },
         el('h4', null, name),
-        buildToggleControl(catKey, !!initialPrefs[catKey], always)
+        buildToggleControl(catKey, name, !!initialPrefs[catKey], always)
       );
       const descP = el('p', { class: 'cc-cat-desc' }, desc);
       cat.appendChild(catHead);
@@ -716,14 +787,12 @@ if (window.__cc_functional_allowed === true) {
         const ul = el('ul', { class: 'cc-tech-list' });
         techList.forEach(it => ul.appendChild(buildTech(it)));
         cat.appendChild(ul);
-      } else {
-        cat.appendChild(el('div', { class: 'cc-empty' }, t.empty));
       }
       return cat;
     }
 
-    function buildToggleControl(catKey, checked, always) {
-      const wrap = el('label', { class: 'cc-toggle', 'aria-label': name });
+    function buildToggleControl(catKey, label, checked, always) {
+      const wrap = el('label', { class: 'cc-toggle', 'aria-label': label });
       const input = el('input', { type: 'checkbox', 'data-cat-toggle': catKey });
       if (checked || always) input.checked = true;
       if (always) input.disabled = true;
@@ -774,7 +843,7 @@ if (window.__cc_functional_allowed === true) {
         purpose: t.items.unicorn.purpose,
         type: t.labels.script,
         duration: t.labels.loadFunctional,
-        domain: 'cdn.jsdelivr.net',
+        domain: 'cdn.jsdelivr.net · assets.unicorn.studio',
       },
       {
         name: t.items.fonts.name,
@@ -784,21 +853,7 @@ if (window.__cc_functional_allowed === true) {
         duration: t.labels.loadFunctional,
         domain: 'fonts.googleapis.com · fonts.gstatic.com',
       },
-      {
-        name: t.items.formsubmit.name,
-        code: 'formsubmit.co',
-        purpose: t.items.formsubmit.purpose,
-        type: t.labels.formAction,
-        duration: t.labels.loadOnly,
-        domain: 'formsubmit.co',
-      },
     ]));
-
-    // Analytics — empty by design
-    body.appendChild(buildCategory('analytics', t.catAnalytics, t.catAnalyticsDesc, false, []));
-
-    // Marketing — empty by design
-    body.appendChild(buildCategory('marketing', t.catMarketing, t.catMarketingDesc, false, []));
 
     // Foot
     const foot = el('div', { class: 'cc-modal-foot' });
@@ -825,36 +880,83 @@ if (window.__cc_functional_allowed === true) {
       bannerEl = buildBanner();
       document.body.appendChild(bannerEl);
     }
-    requestAnimationFrame(() => bannerEl.classList.add('is-open'));
+    bannerEl.hidden = false;
+    bannerEl.removeAttribute('aria-hidden');
+    requestAnimationFrame(() => {
+      bannerEl.classList.add('is-open');
+      bannerEl.focus({ preventScroll: true });
+    });
   }
-  function hideBanner() {
-    if (bannerEl) bannerEl.classList.remove('is-open');
+  function hideBanner(restoreFocus = true) {
+    if (!bannerEl) return;
+    const hadFocus = bannerEl.contains(document.activeElement) || document.activeElement === bannerEl;
+    bannerEl.classList.remove('is-open');
+    bannerEl.hidden = true;
+    bannerEl.setAttribute('aria-hidden', 'true');
+    if (restoreFocus && hadFocus) focusPageStart();
   }
   function showModal() {
-    const current = loadConsent() || { necessary: true, functional: false, analytics: false, marketing: false };
+    const current = loadConsent() || { necessary: true, functional: false };
     if (modalEl) { modalEl.remove(); modalEl = null; }
+    modalReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     modalEl = buildModal(current);
     document.body.appendChild(modalEl);
-    requestAnimationFrame(() => modalEl.classList.add('is-open'));
+    modalEl.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        hideModal();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(modalEl.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    requestAnimationFrame(() => {
+      modalEl.classList.add('is-open');
+      const firstControl = modalEl.querySelector('.cc-modal-close');
+      if (firstControl) firstControl.focus({ preventScroll: true });
+    });
     document.body.style.overflow = 'hidden';
   }
   function hideModal() {
     if (modalEl) {
-      modalEl.classList.remove('is-open');
-      setTimeout(() => { if (modalEl) { modalEl.remove(); modalEl = null; } }, 320);
+      const closingModal = modalEl;
+      closingModal.classList.remove('is-open');
+      closingModal.setAttribute('aria-hidden', 'true');
+      closingModal.inert = true;
+      setTimeout(() => {
+        closingModal.remove();
+        if (modalEl === closingModal) modalEl = null;
+      }, 320);
+      const returnTarget = modalReturnFocus;
+      modalReturnFocus = null;
+      if (returnTarget && returnTarget.isConnected && !returnTarget.closest('[hidden]')) {
+        returnTarget.focus({ preventScroll: true });
+      } else {
+        focusPageStart();
+      }
     }
     document.body.style.overflow = '';
   }
 
   // -------- handlers --------
   function onAcceptAll() {
-    const prefs = saveConsent({ functional: true, analytics: true, marketing: true });
+    const prefs = saveConsent({ functional: true });
     applyConsent(prefs);
     hideBanner();
     hideModal();
   }
   function onRejectAll() {
-    const prefs = saveConsent({ functional: false, analytics: false, marketing: false });
+    const prefs = saveConsent({ functional: false });
     applyConsent(prefs);
     hideBanner();
     hideModal();
@@ -868,8 +970,6 @@ if (window.__cc_functional_allowed === true) {
     };
     const prefs = saveConsent({
       functional: get('functional'),
-      analytics: get('analytics'),
-      marketing: get('marketing'),
     });
     applyConsent(prefs);
     hideBanner();
@@ -893,7 +993,7 @@ if (window.__cc_functional_allowed === true) {
       applyConsent(consent);
     } else {
       // No prior consent — disable Google Fonts immediately
-      applyConsent({ necessary: true, functional: false, analytics: false, marketing: false });
+      applyConsent({ necessary: true, functional: false });
       showBanner();
     }
     injectFooterLink();

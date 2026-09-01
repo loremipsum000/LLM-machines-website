@@ -47,9 +47,7 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../assets/styles.css" />
   <script type="application/ld+json">
@@ -216,11 +214,11 @@
               </div>
               <div class="glossary-entry" id="support-boundary">
                 <dt>Support boundary <span class="term-aka">T1 / T2</span></dt>
-                <dd>The managed inference core is the primary supported service. Customer applications connect through the documented API contract. The included LXC runtime forms a separate advanced-integration boundary for separately scoped capabilities such as agentic use.</dd>
+                <dd>The managed inference core is the primary supported service. Customer applications, their data, permissions and workflows remain outside the standard Product and connect through the documented API contract. Optional integration consulting is separately scoped.</dd>
               </div>
               <div class="glossary-entry" id="emergency-isolation-mode">
                 <dt>Emergency Isolation Mode</dt>
-                <dd>An administrative control that blocks Application inference traffic and separately configured LXC execution while keeping the Console, identity, audit, hardware monitoring, backup and recovery available.</dd>
+                <dd>An administrative control that blocks Application inference traffic at the Product edge while keeping the Console, identity, audit, hardware monitoring, backup and recovery available.</dd>
               </div>
               <div class="glossary-entry" id="signed-offline-update">
                 <dt>Signed offline update</dt>
@@ -228,19 +226,19 @@
               </div>
               <div class="glossary-entry" id="core-appliance">
                 <dt>Core Appliance</dt>
-                <dd>The supported customer-premises deployment. It combines the managed inference core with the included LXC advanced-integration runtime while keeping their operating and delivery boundaries distinct.</dd>
+                <dd>The supported customer-premises deployment: Product edge, managed inference core, operational Console, identity, observability, lifecycle and recovery controls inside Customer-controlled infrastructure.</dd>
               </div>
               <div class="glossary-entry" id="agent">
                 <dt>Agent <span class="term-aka">agentic workflow</span></dt>
-                <dd>An AI system that plans, decides and calls tools to complete a multi-step task. Agentic workflows use the local model and can run multiple inference steps per request.</dd>
+                <dd>An application-level pattern in which an AI system plans, decides and calls tools to complete a multi-step task. It is not a bundled or first-party LLM Machines Product surface.</dd>
               </div>
               <div class="glossary-entry" id="tool-call-transport">
                 <dt>Tool-call transport <span class="term-aka">function calling</span></dt>
                 <dd>The Application API can carry structured tool-call messages produced by a model. Customer applications and separately scoped advanced integrations can use those messages to continue tool-enabled workflows.</dd>
               </div>
-              <div class="glossary-entry" id="lxc-agentic-runtime">
-                <dt>LXC advanced-integration runtime</dt>
-                <dd>An isolated Linux container runtime included alongside the managed inference core to enable advanced integration capabilities, such as agentic use and approved tool execution. Specific workflows, tools, and acceptance criteria are delivered through a separately scoped integration or consulting engagement.</dd>
+              <div class="glossary-entry" id="source-available-product-source">
+                <dt>Source-available first-party Product source</dt>
+                <dd>Original first-party LLM Machines Product source licensed under the unmodified PolyForm Internal Use License 1.0.0 for customer internal business use and internal changes. It may not be distributed, sublicensed or transferred under that licence. Third-party software remains under its upstream licence.</dd>
               </div>
               <div class="glossary-entry" id="observability-layer">
                 <dt>Observability layer</dt>
@@ -312,11 +310,11 @@
               </div>
               <div class="glossary-entry" id="activity-audit">
                 <dt>Activity &amp; Audit</dt>
+                <dd>The Console section for metadata-only operational and security events, with signed JSON and CSV exports. It records who changed which resource and when, without retaining prompts, model responses or tool content.</dd>
+              </div>
               <div class="glossary-entry" id="operational-metadata">
                 <dt>Operational metadata</dt>
                 <dd>Service data used to operate and support the appliance, such as timestamps, application identifiers, model aliases, token counts, latency, status, capacity signals, and administrative events. Workload content such as prompts, model responses, tool arguments, tool results, and request or response bodies is kept outside this metadata set.</dd>
-              </div>
-                <dd>The Console section for metadata-only operational and security events, with signed JSON and CSV exports. It records who changed which resource and when, without retaining prompts, model responses or tool content.</dd>
               </div>
             </dl>
           </section>
@@ -400,6 +398,8 @@
               </div>
               <div class="glossary-entry" id="pre-shipment">
                 <dt>Pre-shipment</dt>
+                <dd>Everything that happens before hardware leaves our integration facility: image preparation, signed release-manifest assembly and recovery-material preparation.</dd>
+              </div>
               <div class="glossary-entry" id="api-handoff">
                 <dt>API handoff</dt>
                 <dd>The completion point for standard onboarding, when validated Models and Chat Completions endpoints, application credentials, model allowlists, operating documentation, and acceptance results are handed to the Customer for use by its chosen applications.</dd>
@@ -410,9 +410,7 @@
               </div>
               <div class="glossary-entry" id="outcome-led-consulting">
                 <dt>Outcome-led consulting</dt>
-                <dd>A separate engagement organised around a defined business or integration outcome, a bounded delivery, measurable acceptance criteria, and documented handoff. Advanced integrations can use the included LXC runtime, with the Customer operating the accepted application or workflow after handoff.</dd>
-              </div>
-                <dd>Everything that happens before hardware leaves our integration facility: offline entitlement preparation, image preparation and signed manifest assembly.</dd>
+                <dd>A separate engagement organised around a defined business or integration outcome, a bounded delivery, measurable acceptance criteria, and documented handoff. The Customer selects and operates the accepted application, tools and workflow after handoff.</dd>
               </div>
               <div class="glossary-entry" id="sla">
                 <dt>SLA</dt>
@@ -483,7 +481,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · A European company</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Private AI infrastructure for EU-regulated teams</span>
       </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt — LLM Machines</title>
+  <title>Kontakt | LLM Machines</title>
   <meta name="description" content="Kontaktirajte LLM Machines za upravljanu privatnu inferenciju, distributersku nabavu Supermicro infrastrukture, API primopredaju ili outcome-led integracijski consulting." />
 
   <link rel="canonical" href="https://llm-machines.com/hr/contact/" />
@@ -12,7 +12,7 @@
   <link rel="alternate" hreflang="x-default" href="https://llm-machines.com/contact/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Kontakt — LLM Machines" />
+  <meta property="og:title" content="Kontakt | LLM Machines" />
   <meta property="og:description" content="Razgovarajte s nama o upravljanoj privatnoj inferenciji unutar infrastrukture koju kontrolirate. hello@llm-machines.com" />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
   <meta property="og:locale" content="hr_HR" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kontakt — LLM Machines" />
+  <meta name="twitter:title" content="Kontakt | LLM Machines" />
   <meta name="twitter:description" content="Razgovarajte s nama o upravljanoj privatnoj inferenciji unutar infrastrukture koju kontrolirate." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta name="theme-color" content="#0E0E0E" />
@@ -38,16 +38,14 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
   <link rel="stylesheet" href="../../assets/styles.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "inLanguage": "hr-HR",
-  "name": "Kontakt — LLM Machines",
+  "name": "Kontakt | LLM Machines",
   "url": "https://llm-machines.com/hr/contact/",
   "mainEntity": {
     "@type": "Organization",
@@ -112,14 +110,14 @@
     <div class="container">
       <span class="label">Kontakt</span>
       <h1>Razgovarajte s nama.</h1>
-      <p class="lead">Discovery poziv za sizing upravljane privatne inferencije, distributerske nabave Supermicro infrastrukture i API primopredaje za vaše aplikacije. Napredne integracije mogu se zasebno ugovoriti oko uključene LXC granice.</p>
+      <p class="lead">Discovery poziv za sizing upravljane privatne inferencije, distributerske nabave Supermicro infrastrukture i API primopredaje za vaše aplikacije. Opcionalna integracija aplikacije ili workflowa može se ugovoriti zasebno, uz mjerljivi prihvat i vlasništvo Klijenta nakon primopredaje.</p>
     </div>
   </header>
 
   <section id="channels">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">01 — Kanali</span>
+        <span class="label">01 · Kanali</span>
         <h2>Tri načina da nas kontaktirate.</h2>
         <p>Odaberite kanal koji odgovara temi vašeg upita.</p>
       </div>
@@ -150,16 +148,13 @@
   <section id="form">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">02 — Strukturirani zahtjev</span>
+        <span class="label">02 · Strukturirani zahtjev</span>
         <h2>Ili pošaljite strukturiranu poruku.</h2>
-        <p>Pošaljite ovaj obrazac i otvorit će se pre-ispunjen email prema <strong style="color:var(--fg);">hello@llm-machines.com</strong>. Ništa se ne pohranjuje na našoj strani dok ne pritisnete pošalji.</p>
+        <p>Web stranica ne prenosi vrijednosti iz ovog obrasca. Vaš preglednik zatražit će od postavljene email aplikacije da izradi pre-ispunjeni nacrt prema <strong style="color:var(--fg);">hello@llm-machines.com</strong>. Prije slanja provjerite nacrt i način na koji vaš email pružatelj obrađuje podatke.</p>
       </div>
 
-      <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/ajax/hello@llm-machines.com" method="POST">
-        <input type="hidden" name="_subject" value="Novi upit — LLM Machines website" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off" />
+      <form class="contact-form reveal" id="contact-form" action="mailto:hello@llm-machines.com" method="GET" data-recipient="hello@llm-machines.com">
+        <input type="hidden" name="_honey" value="" tabindex="-1" />
 
         <div class="form-row">
           <label>
@@ -195,13 +190,13 @@
         </label>
         <label>
           <span class="form-label">Što bismo trebali znati?</span>
-          <textarea name="message" rows="5" placeholder="Veličina tima, trenutna AI potrošnja, što pokušavate isporučiti, ograničenja implementacije, vremenski okvir — što god je korisno." required></textarea>
+          <textarea name="message" rows="5" placeholder="Veličina tima, trenutna AI potrošnja, što pokušavate isporučiti, ograničenja implementacije i vremenski okvir. Dodajte sve što je korisno." required></textarea>
         </label>
 
         <div class="form-status" id="form-status" hidden></div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary" id="form-submit">Pošaljite poruku <span class="arr">→</span></button>
+          <button type="submit" class="btn btn-primary" id="form-submit">Otvori email nacrt <span class="arr">→</span></button>
           <a href="mailto:hello@llm-machines.com" class="btn btn-ghost">Ili koristite svoj mail klijent</a>
         </div>
       </form>
@@ -213,42 +208,46 @@
           const submitBtn = document.getElementById('form-submit');
           if (!form) return;
 
-          form.addEventListener('submit', async function (e) {
+          form.addEventListener('submit', function (e) {
             e.preventDefault();
             if (form.querySelector('input[name="_honey"]').value) return;
 
             const originalLabel = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Šalje se…';
+            submitBtn.innerHTML = 'Otvaranje email nacrta...';
             status.hidden = true;
             status.className = 'form-status';
 
-            try {
-              const data = new FormData(form);
-              const res = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-              });
-              const json = await res.json().catch(function () { return {}; });
+            const data = new FormData(form);
+            const recipient = form.dataset.recipient || 'hello@llm-machines.com';
+            const topic = String(data.get('topic') || 'Website enquiry');
+            const company = String(data.get('company') || '').trim();
+            const subjectParts = ['LLM Machines website upit', topic];
+            if (company) subjectParts.push(company);
+            const bodyLines = [
+              'Ime: ' + String(data.get('name') || ''),
+              'Poslovni email: ' + String(data.get('email') || ''),
+              'Tvrtka: ' + company,
+              'Uloga: ' + String(data.get('role') || ''),
+              'Tema: ' + topic,
+              '',
+              'Poruka:',
+              String(data.get('message') || ''),
+            ];
+            const mailto = 'mailto:' + encodeURIComponent(recipient) +
+              '?subject=' + encodeURIComponent(subjectParts.join(' - ')) +
+              '&body=' + encodeURIComponent(bodyLines.join('\n'));
 
-              if (res.ok && (json.success === 'true' || json.success === true || res.status === 200)) {
-                status.className = 'form-status form-status--ok';
-                status.innerHTML = '<strong>Poruka poslana.</strong> Odgovaramo unutar jednog radnog dana. Ako ne dobijete odgovor, javite nam izravno na <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a>.';
-                status.hidden = false;
-                form.reset();
-                submitBtn.innerHTML = 'Poslano ✓';
-              } else {
-                throw new Error(json.message || 'submit failed');
-              }
-            } catch (err) {
-              status.className = 'form-status form-status--err';
-              status.innerHTML = '<strong>Nije moguće poslati.</strong> Molimo, pišite nam na <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a> — odgovorit ćemo unutar jednog radnog dana.';
-              status.hidden = false;
+            window.location.href = mailto;
+            status.className = 'form-status form-status--ok';
+            status.innerHTML = '<strong>Zatražili smo od vašeg uređaja da otvori email nacrt.</strong> Ako se nacrt ne pojavi, upotrijebite izravnu email poveznicu. Web stranica nije poslala podatke obrasca.';
+            status.hidden = false;
+            submitBtn.innerHTML = 'Nacrt zatražen';
+
+            window.setTimeout(function () {
               submitBtn.disabled = false;
               submitBtn.innerHTML = originalLabel;
-              console.error('[contact form]', err);
-            }
+            }, 2500);
           });
         })();
       </script>
@@ -258,7 +257,7 @@
   <section id="response">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">03 — Što se sljedeće događa</span>
+        <span class="label">03 · Što se sljedeće događa</span>
         <h2>Tri koraka nakon što pritisnete pošalji.</h2>
         <p>Jasan tijek od početnog odgovora do discoveryja i, prema potrebi, prijedloga implementacije.</p>
       </div>
@@ -314,7 +313,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · Europska tvrtka</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Privatna AI infrastruktura za regulirane timove u EU</span>
       </div>
     </div>

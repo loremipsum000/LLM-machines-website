@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — LLM Machines</title>
+  <title>Contact | LLM Machines</title>
   <meta name="description" content="Contact LLM Machines to scope managed private inference, distributor-backed Supermicro infrastructure, API handoff or outcome-led integration consulting." />
 
   <link rel="canonical" href="https://llm-machines.com/contact/" />
@@ -13,7 +13,7 @@
   <link rel="alternate" hreflang="hr" href="https://llm-machines.com/hr/contact/" />
   <link rel="alternate" hreflang="x-default" href="https://llm-machines.com/contact/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Contact — LLM Machines" />
+  <meta property="og:title" content="Contact | LLM Machines" />
   <meta property="og:description" content="Talk to us about managed private inference inside infrastructure you control. hello@llm-machines.com" />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
   <meta property="og:site_name" content="LLM Machines" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact — LLM Machines" />
+  <meta name="twitter:title" content="Contact | LLM Machines" />
   <meta name="twitter:description" content="Talk to us about managed private inference inside infrastructure you control." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta name="theme-color" content="#0E0E0E" />
@@ -39,15 +39,13 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
   <link rel="stylesheet" href="../assets/styles.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "name": "Contact — LLM Machines",
+  "name": "Contact | LLM Machines",
   "url": "https://llm-machines.com/contact/",
   "mainEntity": {
     "@type": "Organization",
@@ -112,14 +110,14 @@
     <div class="container">
       <span class="label">Contact</span>
       <h1>Talk to us.</h1>
-      <p class="lead">A discovery call to size managed private inference, distributor-backed Supermicro infrastructure and the API handoff for your applications. Advanced integrations can be scoped separately around the included LXC boundary.</p>
+      <p class="lead">A discovery call to size managed private inference, distributor-backed Supermicro infrastructure and the API handoff for your applications. Optional application or workflow integration can be scoped separately with measurable acceptance and customer ownership after handoff.</p>
     </div>
   </header>
 
   <section id="channels">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">01 — Channels</span>
+        <span class="label">01 · Channels</span>
         <h2>Three ways to reach us.</h2>
         <p>Pick whatever's easiest. Same team answers all of them.</p>
       </div>
@@ -150,16 +148,13 @@
   <section id="form">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">02 — Structured request</span>
+        <span class="label">02 · Structured request</span>
         <h2>Or send a structured note.</h2>
-        <p>Submit this form and your email client will open a pre-filled draft to <strong style="color:var(--fg);">hello@llm-machines.com</strong>. No data is stored on our side until you press send.</p>
+        <p>The website does not transmit these form values. Your browser will ask your configured email application to create a pre-filled draft to <strong style="color:var(--fg);">hello@llm-machines.com</strong>. Review the draft and your email provider's handling before sending.</p>
       </div>
 
-      <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/ajax/hello@llm-machines.com" method="POST">
-        <input type="hidden" name="_subject" value="New enquiry — LLM Machines website" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_honey" value="" tabindex="-1" autocomplete="off" />
+      <form class="contact-form reveal" id="contact-form" action="mailto:hello@llm-machines.com" method="GET" data-recipient="hello@llm-machines.com">
+        <input type="hidden" name="_honey" value="" tabindex="-1" />
 
         <div class="form-row">
           <label>
@@ -201,7 +196,7 @@
         <div class="form-status" id="form-status" hidden></div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary" id="form-submit">Send message <span class="arr">→</span></button>
+          <button type="submit" class="btn btn-primary" id="form-submit">Open email draft <span class="arr">→</span></button>
           <a href="mailto:hello@llm-machines.com" class="btn btn-ghost">Or use your mail client</a>
         </div>
       </form>
@@ -213,44 +208,48 @@
           const submitBtn = document.getElementById('form-submit');
           if (!form) return;
 
-          form.addEventListener('submit', async function (e) {
+          form.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Honeypot — silently drop bots
+            // Honeypot: silently drop bots
             if (form.querySelector('input[name="_honey"]').value) return;
 
             const originalLabel = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending…';
+            submitBtn.innerHTML = 'Opening email draft...';
             status.hidden = true;
             status.className = 'form-status';
 
-            try {
-              const data = new FormData(form);
-              const res = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-              });
-              const json = await res.json().catch(function () { return {}; });
+            const data = new FormData(form);
+            const recipient = form.dataset.recipient || 'hello@llm-machines.com';
+            const topic = String(data.get('topic') || 'Website enquiry');
+            const company = String(data.get('company') || '').trim();
+            const subjectParts = ['LLM Machines website enquiry', topic];
+            if (company) subjectParts.push(company);
+            const bodyLines = [
+              'Name: ' + String(data.get('name') || ''),
+              'Work email: ' + String(data.get('email') || ''),
+              'Company: ' + company,
+              'Role: ' + String(data.get('role') || ''),
+              'Topic: ' + topic,
+              '',
+              'Message:',
+              String(data.get('message') || ''),
+            ];
+            const mailto = 'mailto:' + encodeURIComponent(recipient) +
+              '?subject=' + encodeURIComponent(subjectParts.join(' - ')) +
+              '&body=' + encodeURIComponent(bodyLines.join('\n'));
 
-              if (res.ok && (json.success === 'true' || json.success === true || res.status === 200)) {
-                status.className = 'form-status form-status--ok';
-                status.innerHTML = '<strong>Message sent.</strong> We\'ll reply within one business day. If you don\'t hear back, email us directly at <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a>.';
-                status.hidden = false;
-                form.reset();
-                submitBtn.innerHTML = 'Sent ✓';
-              } else {
-                throw new Error(json.message || 'submit failed');
-              }
-            } catch (err) {
-              status.className = 'form-status form-status--err';
-              status.innerHTML = '<strong>Couldn\'t send.</strong> Please email us at <a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a> — we\'ll reply within one business day.';
-              status.hidden = false;
+            window.location.href = mailto;
+            status.className = 'form-status form-status--ok';
+            status.innerHTML = '<strong>We asked your device to open an email draft.</strong> If no draft appears, use the direct email link. No form data is submitted by this website.';
+            status.hidden = false;
+            submitBtn.innerHTML = 'Draft requested';
+
+            window.setTimeout(function () {
               submitBtn.disabled = false;
               submitBtn.innerHTML = originalLabel;
-              console.error('[contact form]', err);
-            }
+            }, 2500);
           });
         })();
       </script>
@@ -260,7 +259,7 @@
   <section id="response">
     <div class="container">
       <div class="sect-head reveal">
-        <span class="label">03 — What happens next</span>
+        <span class="label">03 · What happens next</span>
         <h2>Three steps after you press send.</h2>
         <p>Same playbook for every enquiry. No black-hole funnels.</p>
       </div>
@@ -316,7 +315,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · A European company</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Private AI infrastructure for EU-regulated teams</span>
       </div>
     </div>

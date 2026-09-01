@@ -48,9 +48,7 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../../assets/styles.css" />
   <script type="application/ld+json">
@@ -217,11 +215,11 @@
               </div>
               <div class="glossary-entry" id="support-boundary">
                 <dt>Granica podrške <span class="term-aka">T1 / T2</span></dt>
-                <dd>Upravljana inference jezgra primarna je podržana usluga. Aplikacije Klijenta povezuju se kroz dokumentirani API ugovor. Uključeni LXC runtime čini zasebnu granicu napredne integracije za posebno ugovorene mogućnosti poput agentic primjene.</dd>
+                <dd>Upravljana inference jezgra primarna je podržana usluga. Aplikacije Klijenta, njihovi podaci, dozvole i workflowi ostaju izvan standardnog Producta i povezuju se kroz dokumentirani API ugovor. Opcionalno integracijsko savjetovanje ugovara se zasebno.</dd>
               </div>
               <div class="glossary-entry" id="emergency-isolation-mode">
                 <dt>Emergency Isolation Mode</dt>
-                <dd>Operativna kontrola koja zaustavlja Application inferenciju i zasebno konfigurirano LXC izvršavanje, dok Console, identitet, Activity &amp; Audit, hardverski nadzor, backup i recovery ostaju dostupni.</dd>
+                <dd>Operativna kontrola koja zaustavlja Application inferenciju na sloju Product edge, dok Console, identitet, Activity &amp; Audit, hardverski nadzor, backup i recovery ostaju dostupni.</dd>
               </div>
               <div class="glossary-entry" id="manifest-enforcement">
                 <dt>Manifest enforcement</dt>
@@ -229,11 +227,15 @@
               </div>
               <div class="glossary-entry" id="core-appliance">
                 <dt>Core Appliance</dt>
-                <dd>Podržana implementacija u prostorima Klijenta. Kombinira upravljanu inference jezgru s uključenim LXC runtimeom za napredne integracije, uz odvojene operativne granice i granice isporuke.</dd>
+                <dd>Podržana implementacija u prostorima Klijenta: Product edge, upravljana inference jezgra, operativni Console, identitet, observability te lifecycle i recovery kontrole unutar infrastrukture Klijenta.</dd>
               </div>
-              <div class="glossary-entry" id="lxc-agentic-runtime">
-                <dt>LXC runtime za napredne integracije</dt>
-                <dd>Izolirano Linux container okruženje uključeno uz upravljanu inference jezgru kako bi omogućilo napredne integracije, poput agentic primjene i odobrenog izvršavanja alata. Konkretni workflowi, alati i kriteriji prihvata isporučuju se kroz posebno ugovorenu integraciju ili savjetodavni angažman.</dd>
+              <div class="glossary-entry" id="agent">
+                <dt>Agent <span class="term-aka">agentic workflow</span></dt>
+                <dd>Obrazac na razini aplikacije u kojem AI sustav planira, odlučuje i poziva alate kako bi dovršio zadatak u više koraka. Nije uključen u standardni Product niti ga LLM Machines pruža kao first-party aplikacijsku površinu.</dd>
+              </div>
+              <div class="glossary-entry" id="source-available-product-source">
+                <dt>Source-available izvorni kod Producta koji je razvio LLM Machines</dt>
+                <dd>Izvorni kod Producta koji je razvio LLM Machines, licenciran pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0 za internu poslovnu uporabu i interne izmjene Klijenta. Ta licenca ne dopušta distribuciju, podlicenciranje ni prijenos. Softver trećih strana ostaje pod svojim postojećim upstream licencama.</dd>
               </div>
               <div class="glossary-entry" id="tool-call-transport">
                 <dt>Tool-call transport</dt>
@@ -313,11 +315,11 @@
               </div>
               <div class="glossary-entry" id="activity-audit">
                 <dt>Activity &amp; Audit</dt>
+                <dd>Primarna Console površina za administrativne događaje i Application usage metapodatke. Ne uključuje promptove, odgovore, tool argumente, rezultate ni request/response bodyje.</dd>
+              </div>
               <div class="glossary-entry" id="operational-metadata">
                 <dt>Operativni metapodaci</dt>
                 <dd>Podaci usluge koji se koriste za upravljanje i podršku appliance-a, poput vremenskih oznaka, identifikatora aplikacija, model aliasa, broja tokena, latencije, statusa, signala kapaciteta i administrativnih događaja. Sadržaj workloada, poput promptova, odgovora modela, argumenata i rezultata alata te request/response bodyja, drži se izvan tog skupa metapodataka.</dd>
-              </div>
-                <dd>Primarna Console površina za administrativne događaje i Application usage metapodatke. Ne uključuje promptove, odgovore, tool argumente, rezultate ni request/response bodyje.</dd>
               </div>
             </dl>
           </section>
@@ -401,6 +403,8 @@
               </div>
               <div class="glossary-entry" id="pre-shipment">
                 <dt>Pre-shipment</dt>
+                <dd>Sve što se događa prije nego što hardver napusti našu integracijsku ustanovu: priprema imagea, sastavljanje potpisanog manifesta izdanja i priprema recovery materijala.</dd>
+              </div>
               <div class="glossary-entry" id="api-handoff">
                 <dt>API handoff</dt>
                 <dd>Završna točka standardnog onboardinga, kada se Klijentu predaju validirani Models i Chat Completions endpointi, vjerodajnice aplikacija, popisi dopuštenih modela, operativna dokumentacija i rezultati prihvata za korištenje u odabranim aplikacijama.</dd>
@@ -411,17 +415,15 @@
               </div>
               <div class="glossary-entry" id="outcome-led-consulting">
                 <dt>Savjetovanje usmjereno na ishod</dt>
-                <dd>Zaseban angažman organiziran oko definiranog poslovnog ili integracijskog ishoda, ograničene isporuke, mjerljivih kriterija prihvata i dokumentirane primopredaje. Napredne integracije mogu koristiti uključeni LXC runtime, a Klijent nakon primopredaje upravlja prihvaćenom aplikacijom ili workflowom.</dd>
-              </div>
-                <dd>Sve što se događa prije nego što hardver napusti našu integracijsku ustanovu: priprema potpisanog offline entitlementa, priprema imagea i sastavljanje potpisanog manifesta.</dd>
+                <dd>Zaseban angažman organiziran oko definiranog poslovnog ili integracijskog ishoda, ograničene isporuke, mjerljivih kriterija prihvata i dokumentirane primopredaje. Klijent nakon primopredaje odabire i upravlja prihvaćenom aplikacijom, alatima i workflowom.</dd>
               </div>
               <div class="glossary-entry" id="application-credential">
                 <dt>Application vjerodajnica</dt>
                 <dd>Zasebni statički ključ ili OAuth client credential kojim se Application autenticira prema API-ju. Može se rotirati ili opozvati bez utjecaja na druge Applications.</dd>
               </div>
-              <div class="glossary-entry" id="signed-offline-entitlement">
-                <dt>Potpisani offline entitlement</dt>
-                <dd>Lokalno provjerljiv dokaz prava korištenja koji ne zahtijeva call-home. Njegov istek ne zaustavlja postojeću inferenciju, Console, backup, recovery ili LXC runtime za napredne integracije.</dd>
+              <div class="glossary-entry" id="maintenance-entitlement">
+                <dt>Maintenance entitlement</dt>
+                <dd>Lokalno provjerljiv dokaz prava na buduća vendor izdanja i podršku koji ne zahtijeva call-home. Njegov istek ne zaustavlja postojeću inferenciju, Console, backup ili recovery i ne poništava već isporučena prava na izvorni kod.</dd>
               </div>
               <div class="glossary-entry" id="sla">
                 <dt>SLA</dt>
@@ -500,7 +502,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · Europska tvrtka</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Privatna AI infrastruktura za regulirane timove u EU</span>
       </div>
     </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>On-Prem AI Inference Appliance — LLM Machines</title>
-  <meta name="description" content="Upravljana privatna inferencija konfigurirana, nadzirana i održavana unutar infrastrukture pod vašom kontrolom, uz dokumentirani API i LXC granicu za napredne integracije." />
+  <meta name="description" content="Upravljana privatna inferencija konfigurirana, nadzirana i održavana unutar infrastrukture pod vašom kontrolom, uz dokumentirani API, lifecycle kontrole i granicu aplikacija Klijenta." />
   <link rel="canonical" href="https://llm-machines.com/hr/on-prem-ai-appliance/" />
 
   <link rel="alternate" hreflang="en" href="https://llm-machines.com/on-prem-ai-appliance/" />
@@ -27,20 +27,18 @@
   <link rel="icon" type="image/svg+xml" href="/assets/Favi-32.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
   <link rel="stylesheet" href="../../assets/styles.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "On-Prem AI Inference Appliance",
-  "description": "Upravljana privatna inferencija uz sizing, konfiguraciju, observability, podršku životnom ciklusu, API primopredaju i LXC granicu za napredne integracije.",
+  "description": "Upravljana privatna inferencija uz sizing, konfiguraciju, observability, podršku životnom ciklusu, API primopredaju i aplikacije pod kontrolom Klijenta.",
   "url": "https://llm-machines.com/hr/on-prem-ai-appliance/",
   "isPartOf": { "@id": "https://llm-machines.com/#website" },
   "inLanguage": "hr-HR",
-  "about": ["upravljana privatna inferencija", "on-prem AI appliance", "sizing", "operativna kontrola", "dokumentirani inferencijski API", "napredne LXC integracije"]
+  "about": ["upravljana privatna inferencija", "on-prem AI appliance", "sizing", "operativna kontrola", "dokumentirani inferencijski API", "source-available izvorni kod Producta koji je razvio LLM Machines"]
 }
   </script>
 </head>
@@ -58,7 +56,7 @@
     <div class="container">
       <span class="label">On-prem AI appliance</span>
       <h1>Upravljana privatna inferencija, unutar vaše infrastrukture.</h1>
-      <p class="lead">LLM Machines dimenzionira, konfigurira, nadzire i održava privatnu inferenciju unutar infrastrukture koju kontrolirate. Povežite svoje omiljene aplikacije i harness alate putem dokumentiranog API-ja. Stack uključuje i lokalnu LXC granicu za zasebno definirane napredne integracije, uključujući agentic primjene. Ništa ne napušta vašu infrastrukturu.</p>
+      <p class="lead">LLM Machines dimenzionira, konfigurira, nadzire i održava privatnu inferenciju unutar infrastrukture koju kontrolirate. Povežite svoje omiljene aplikacije i harness alate putem dokumentiranog API-ja, dok aplikacije, dozvole, podaci i workflowi ostaju pod vašim vlasništvom. Ništa ne napušta vašu infrastrukturu.</p>
     </div>
   </header>
 
@@ -71,7 +69,7 @@
         <article class="seo-card"><div class="pc-tag">Observability</div><h3>Operativna vidljivost.</h3><p>Pratite stanje modela, kapacitet, metapodatke zahtjeva, upozorenja i hardver kroz lokalni Observability sloj.</p></article>
         <article class="seo-card"><div class="pc-tag">Ažuriranja i oporavak</div><h3>Održavana operativna osnova.</h3><p>Upravljajte kontroliranim ažuriranjima, backupom, oporavkom i postupcima izolacije kroz dogovorene termine održavanja.</p></article>
         <article class="seo-card"><div class="pc-tag">API primopredaja</div><h3>Povežite svoje omiljene aplikacije i harness alate.</h3><p>Chat Completions dokumentirani je API protokol putem kojeg se vaše omiljene aplikacije i harness alati povezuju s odobrenim lokalnim modelima.</p></article>
-        <article class="seo-card"><div class="pc-tag">Napredne integracije</div><h3>Lokalna LXC integracijska granica.</h3><p>Stack uključuje LXC runtime za zasebno definirane napredne integracije, uključujući agentic primjene. Workflowi ostaju pod kontrolom klijenta.</p></article>
+        <article class="seo-card"><div class="pc-tag">Prava na izvorni kod</div><h3>Interno koristite i mijenjajte izvorni kod Producta razvijen unutar tvrtke.</h3><p>Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Komponente trećih strana zadržavaju svoje upstream licence.</p></article>
       </div>
     </div>
   </section>
@@ -80,7 +78,7 @@
     <div class="container">
       <div class="sect-head reveal"><span class="label">02 · Granica odgovornosti</span><h2>Dizajnirano za infrastrukturu pod kontrolom klijenta.</h2><p>Inferencija, operativne kontrole i odobrene granice naprednih integracija rade unutar okruženja koje kontrolirate.</p></div>
       <div class="seo-columns reveal">
-        <article class="seo-copy"><h3>Za IT i sigurnosne timove.</h3><p>Identity federation, Admin i Operator uloge, Application vjerodajnice, mrežni pre-flight i audit kontrole definiraju se tijekom onboardinga.</p><ul><li>OIDC / SAML identity federation</li><li>Potpisani offline entitlement</li><li>Application vjerodajnice pod vašom kontrolom</li></ul></article>
+        <article class="seo-copy"><h3>Za IT i sigurnosne timove.</h3><p>Identity federation, Admin i Operator uloge, Application vjerodajnice, mrežni pre-flight i audit kontrole definiraju se tijekom onboardinga.</p><ul><li>OIDC / SAML identity federation</li><li>Provjera potpisanog offline izdanja</li><li>Application vjerodajnice pod vašom kontrolom</li></ul></article>
         <article class="seo-copy"><h3>Za aplikacijske timove.</h3><p>LLM Machines pruža lokalnu inferenciju i dokumentiranu API primopredaju. Vaši timovi zadržavaju odabrane aplikacije, dozvole, podatke i vlasništvo nad workflowima.</p><ul><li>Omiljene aplikacije i harness alati</li><li>Zasebno definirane napredne integracije</li><li>Operacije pod kontrolom klijenta</li></ul></article>
       </div>
     </div>
@@ -92,7 +90,7 @@
     <div class="container"><span class="label" style="justify-content:center;">Sljedeće</span><h2>Dimenzionirajte appliance za vaše radno opterećenje.</h2><p>Pregledajte arhitekturu, plan implementacije i cjenovni model prije discovery poziva.</p><div class="hero-ctas"><a href="../technology/" class="btn btn-ghost">Pogledajte arhitekturu</a><a href="../onboarding/" class="btn btn-ghost">Pogledajte onboarding</a><a href="mailto:hello@llm-machines.com" class="btn btn-primary">Razgovarajte s prodajom <span class="arr">→</span></a></div></div>
   </section>
 
-  <footer><div class="container"><div class="foot-grid"><div><div class="foot-brand"><img class="brand-full" src="../../assets/LLM-machines-logo-full.png" alt="LLM Machines" /></div><p class="foot-tag">Privatna inferencija, operativna kontrola i odabir modela unutar infrastrukture koju kontrolirate.</p></div><div class="foot-col"><h4>Proizvod</h4><a href="../technology/">Tehnologija</a><a href="../pricing/">Cijene</a><a href="../onboarding/">Onboarding</a><a href="./">On-Prem AI Appliance</a></div><div class="foot-col"><h4>Vodiči</h4><a href="../sovereign-ai/">Sovereign AI</a><a href="../cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a><a href="../use-cases/regulated-enterprise/">Regulirana poduzeća</a><a href="../glossary/">Pojmovnik</a><a href="../contact/">Kontakt</a></div><div class="foot-col"><h4>Pravno</h4><a href="../../privacy/">Privacy Policy</a><a href="../../terms/">Terms &amp; Conditions</a><a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a></div></div><div class="foot-bottom"><span>© 2026 LLM Machines · Europska tvrtka</span><span>Privatna AI infrastruktura za regulirane timove u EU</span></div></div></footer>
+  <footer><div class="container"><div class="foot-grid"><div><div class="foot-brand"><img class="brand-full" src="../../assets/LLM-machines-logo-full.png" alt="LLM Machines" /></div><p class="foot-tag">Privatna inferencija, operativna kontrola i odabir modela unutar infrastrukture koju kontrolirate.</p></div><div class="foot-col"><h4>Proizvod</h4><a href="../technology/">Tehnologija</a><a href="../pricing/">Cijene</a><a href="../onboarding/">Onboarding</a><a href="./">On-Prem AI Appliance</a></div><div class="foot-col"><h4>Vodiči</h4><a href="../sovereign-ai/">Sovereign AI</a><a href="../cloud-ai-vs-on-prem-ai/">Cloud vs On-Prem AI</a><a href="../use-cases/regulated-enterprise/">Regulirana poduzeća</a><a href="../glossary/">Pojmovnik</a><a href="../contact/">Kontakt</a></div><div class="foot-col"><h4>Pravno</h4><a href="../../privacy/">Privacy Policy</a><a href="../../terms/">Terms &amp; Conditions</a><a href="mailto:hello@llm-machines.com">hello@llm-machines.com</a></div></div><div class="foot-bottom"><span>Copyright © 2026 LLM Machines</span><span>Privatna AI infrastruktura za regulirane timove u EU</span></div></div></footer>
   <script src="../../assets/site.js" defer></script>
 </body>
 </html>

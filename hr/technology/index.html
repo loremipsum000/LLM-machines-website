@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kompaktni on-prem inference stack | LLM Machines</title>
-  <meta name="description" content="Istražite LLM Machines customer-premises arhitekturu: infrastrukturu, lokalnu inferenciju, gateway i pravila, operativni Console, Observability sloj, lifecycle i recovery te LXC granicu za napredne integracije." />
+  <meta name="description" content="Istražite LLM Machines customer-premises arhitekturu: Product edge, lokalnu inferenciju, gateway i pravila, operativni Console, observability, lifecycle i recovery te granicu aplikacija Klijenta." />
 
   <link rel="canonical" href="https://llm-machines.com/hr/technology/" />
   <link rel="alternate" hreflang="en" href="https://llm-machines.com/technology/" />
@@ -13,7 +13,7 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Kompaktni on-prem inference stack | LLM Machines" />
-  <meta property="og:description" content="Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate, uz LXC granicu za napredne integracije." />
+  <meta property="og:description" content="Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate, uz dokumentiranu granicu aplikacija Klijenta." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,7 +24,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kompaktni on-prem inference stack | LLM Machines" />
-  <meta name="twitter:description" content="Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate, uz LXC granicu za napredne integracije." />
+  <meta name="twitter:description" content="Privatna inferencija, operativna kontrola i izbor modela unutar infrastrukture kojom upravljate, uz dokumentiranu granicu aplikacija Klijenta." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <meta name="theme-color" content="#0E0E0E" />
@@ -40,9 +40,7 @@
   <meta name="msapplication-TileColor" content="#0E0E0E" />
   <meta name="msapplication-TileImage" content="/android-chrome-192x192.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../../assets/styles.css" />
   <script type="application/ld+json">
@@ -52,7 +50,7 @@
   "name": "LLM Machines",
   "url": "https://llm-machines.com/",
   "logo": "https://llm-machines.com/assets/LLM-machines-logo-full.png",
-  "description": "Hrvatski startup koji gradi customer-premises AI appliance-e za lokalnu inferenciju i regulirana europska okruženja.",
+  "description": "Hrvatski tehnički tim koji konfigurira i održava upravljanu privatnu inferenciju unutar infrastrukture pod kontrolom Klijenta.",
   "address": { "@type": "PostalAddress", "addressCountry": "HR" },
   "areaServed": "EU",
   "sameAs": []
@@ -75,10 +73,10 @@
   "inLanguage": "hr-HR",
   "mainEntity": [
     { "@type": "Question", "name": "Mogu li postojeći API klijenti koristiti LLM Machines?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Chat Completions je dokumentirani API protokol putem kojeg se vaše omiljene aplikacije i harness alati povezuju s odobrenim lokalnim modelima. /models endpoint prikazuje skup odobrenih modela." } },
-    { "@type": "Question", "name": "Može li appliance raditi bez pristupa javnom internetu?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Potpisani offline entitlement i lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture." } },
+    { "@type": "Question", "name": "Može li appliance raditi bez pristupa javnom internetu?", "acceptedAnswer": { "@type": "Answer", "text": "Da. Potpisani offline paketi izdanja i ažuriranja te lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture." } },
     { "@type": "Question", "name": "Koji se modeli mogu pokretati lokalno?", "acceptedAnswer": { "@type": "Answer", "text": "Arhitektura je dizajnirana za open-weight familije modela kao što su Llama, Mistral i Qwen, s izborom modela dimenzioniranim prema vašim zahtjevima za hardver, latenciju i kvalitetu." } },
     { "@type": "Question", "name": "Kako se upravlja Application vjerodajnicama?", "acceptedAnswer": { "@type": "Answer", "text": "Svaka Application dobiva vlastiti statički ključ ili OAuth client credentials, zasebne modele i lokalno upravljanje rotacijom i opozivom." } },
-    { "@type": "Question", "name": "Kako LXC runtime podržava napredne integracije?", "acceptedAnswer": { "@type": "Answer", "text": "LXC runtime pruža sekundarnu granicu izvođenja za zasebno ugovorene napredne integracije, uključujući agentic primjene. S odobrenim modelima povezuje se kroz dokumentirani inferencijski API." } },
+    { "@type": "Question", "name": "Kako je licenciran izvorni kod Producta?", "acceptedAnswer": { "@type": "Answer", "text": "Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Komponente trećih strana zadržavaju svoje upstream licence." } },
     { "@type": "Question", "name": "Što čini upravljanu inferencijsku jezgru?", "acceptedAnswer": { "@type": "Answer", "text": "Upravljana inferencijska jezgra obuhvaća infrastrukturnu platformu, lokalni inference runtime, gateway i pravila, operativni Console, identitet, Observability sloj te lifecycle i recovery kontrole." } }
   ]
 }
@@ -142,7 +140,7 @@
       <div class="sect-head reveal">
         <span class="label">01 · Arhitektura</span>
         <h2>Referentna arhitektura.</h2>
-        <p>Upravljana inferencijska jezgra radi unutar vaše infrastrukture. Klijentske aplikacije povezuju se kroz dokumentiranu granicu, dok LXC runtime pruža sekundarnu granicu za zasebno ugovorene napredne integracije.</p>
+        <p>Upravljana inferencijska jezgra radi unutar vaše infrastrukture. Aplikacije Klijenta povezuju se isključivo kroz dokumentirani Product edge i ostaju pod kontrolom Klijenta.</p>
       </div>
 
       <div class="arch zoom-in reveal">
@@ -186,9 +184,9 @@
             <div class="layer-info">
               <h4 class="layer-title">Lokalni inference runtime</h4>
               <p class="layer-detail">Kvalificirano posluživanje open-weight modela konfigurirano prema ciljevima propusnosti, latencije, kvalitete i kapaciteta</p>
-            <span class="tier-badge t1">CORE</span>
               <p class="layer-eg">Odobreni modeli · lokalni registar modela · upravljana konfiguracija</p>
             </div>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="layer">
@@ -233,11 +231,11 @@
 
           <div class="layer">
             <div class="layer-info">
-              <h4 class="layer-title">LXC granica za napredne integracije</h4>
-              <p class="layer-detail">Sekundarna granica izvođenja za zasebno ugovorene napredne integracije, uključujući agentic primjene</p>
-              <p class="layer-eg">Povezuje se s odobrenim modelima kroz dokumentirani inferencijski API</p>
+              <h4 class="layer-title">Product edge</h4>
+              <p class="layer-detail">Jedini ulaz za Klijenta · granica autentikacije · no-bypass provedba · odobreno usmjeravanje servisa</p>
+              <p class="layer-eg">Dokumentirani Application API · privatne administrativne rute</p>
             </div>
-            <span class="tier-badge t2">ADV</span>
+            <span class="tier-badge t1">CORE</span>
           </div>
 
           <div class="pure-boundary">
@@ -267,9 +265,9 @@
             <p>Jedan dokumentirani ugovor povezuje klijentske aplikacije i harness alate koje vaši timovi već koriste.</p>
           </div>
           <div class="callout reveal">
-            <div class="callout-tag">Napredne integracije</div>
-            <h3>Namjenska LXC granica.</h3>
-            <p>LXC runtime omogućuje zasebno ugovorene napredne integracije, uključujući agentic primjene, dok inferencijska jezgra ostaje posvećena posluživanju odobrenih modela.</p>
+            <div class="callout-tag">Prava na izvorni kod</div>
+            <h3>Pregledajte sloj Producta razvijen unutar tvrtke.</h3>
+            <p>Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Komponente trećih strana zadržavaju svoje upstream licence.</p>
           </div>
         </div>
       </div>
@@ -296,9 +294,9 @@
           <p>Application vjerodajnice, pristup modelima, routing i rate pravila konfiguriraju se prema granici klijentskih aplikacija.</p>
         </article>
         <article class="seo-card">
-          <div class="pc-tag">Napredne integracije</div>
-          <h3>Proširite mogućnosti kroz LXC granicu.</h3>
-          <p>Zasebno ugovorene integracije, uključujući agentic primjene, mogu raditi u sekundarnoj LXC granici i pristupati odobrenim modelima kroz isti API ugovor.</p>
+          <div class="pc-tag">Granica Klijenta</div>
+          <h3>Zadržite aplikacije pod kontrolom Klijenta.</h3>
+          <p>Odabir aplikacija, dozvole, podaci i workflowi ostaju izvan standardnog Producta. Opcionalno integracijsko savjetovanje koristi zaseban opseg i dokumentiranu primopredaju.</p>
         </article>
       </div>
     </div>
@@ -319,7 +317,7 @@
         </article>
         <article class="faq-item">
           <h3>Može li appliance raditi bez pristupa javnom internetu?</h3>
-          <p>Da. Potpisani offline entitlement i lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture.</p>
+          <p>Da. Potpisani offline paketi izdanja i ažuriranja te lokalni registri modela podržavaju izolirani rad unutar vaše infrastrukture.</p>
         </article>
         <article class="faq-item">
           <h3>Koji se modeli mogu pokretati lokalno?</h3>
@@ -330,8 +328,8 @@
           <p>Svaka Application dobiva vlastiti statički ključ ili OAuth client credentials, zasebne modele i lokalno upravljanje rotacijom i opozivom.</p>
         </article>
         <article class="faq-item">
-          <h3>Kako LXC runtime podržava napredne integracije?</h3>
-          <p>LXC runtime pruža sekundarnu granicu izvođenja za zasebno ugovorene napredne integracije, uključujući agentic primjene. S odobrenim modelima povezuje se kroz dokumentirani inferencijski API.</p>
+          <h3>Kako je licenciran izvorni kod Producta?</h3>
+          <p>Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Komponente trećih strana zadržavaju svoje upstream licence.</p>
         </article>
         <article class="faq-item">
           <h3>Što čini upravljanu inferencijsku jezgru?</h3>
@@ -391,7 +389,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 LLM Machines · Europska tvrtka</span>
+        <span>Copyright © 2026 LLM Machines</span>
         <span>Privatna AI infrastruktura za regulirane timove u EU</span>
       </div>
     </div>
