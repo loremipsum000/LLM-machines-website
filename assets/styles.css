@@ -3155,6 +3155,13 @@ table.compare thead th {
   height: 80% !important;
 }
 
+@media (min-width: 1600px) {
+  html[lang="en"] .hero-blur {
+    width: calc(100% + 200px) !important;
+    max-width: 1800px;
+  }
+}
+
 /* ============================================================
    PILLAR LIST — fix jumpiness when scrolling/clicking
    Use grid-template-rows animation (no max-height layout thrash)
