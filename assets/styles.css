@@ -2791,6 +2791,16 @@ img.brand-mark {
   text-align: center;
 }
 
+@media (min-width: 1600px) {
+  html[lang="en"] .hero-content {
+    max-width: 1600px;
+  }
+  html[lang="en"] .hero-content h1 {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 /* ============================================================
    SOLUTION pillars — sticky stacking (progressive tops)
    Replaces previous fade-in panels with vertical stack
