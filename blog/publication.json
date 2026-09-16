@@ -1,6 +1,7 @@
 {
-  "fingerprint": "f7f19bfb7ce934b5053a90c08016de2d2bcac69cab7dbd53687837cac132e2c2",
+  "fingerprint": "3b1ba07e14106b3de5808e31423dde5cf6ae5b08fb9c59fcff64e05dd999448c",
   "articles": [
+    "https://llm-machines.com/blog/benchmark-score-to-private-ai-model-shortlist/",
     "https://llm-machines.com/blog/private-ai-infrastructure-control-checklist/",
     "https://llm-machines.com/blog/how-llm-machines-managed-private-inference-works/",
     "https://llm-machines.com/blog/introducing-llm-machines-private-inference/"
