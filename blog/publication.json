@@ -1,6 +1,7 @@
 {
-  "fingerprint": "6607902d528286dad42945d65d10628e6a19e58c5af9695dec021e9defce7db7",
+  "fingerprint": "b446de7400b58d6553f84628c2659ae4daad5dc4361cfd5b0bb2ea2c780e997d",
   "articles": [
+    "https://llm-machines.com/blog/operating-plan-for-private-ai/",
     "https://llm-machines.com/blog/how-to-design-an-inference-benchmark/",
     "https://llm-machines.com/blog/ai-server-beyond-the-chip-headline/",
     "https://llm-machines.com/blog/sglang-prefix-reuse-inference-optimisation/",
