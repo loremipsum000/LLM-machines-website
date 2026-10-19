@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cijene on-prem AI appliance-a | LLM Machines</title>
-  <meta name="description" content="Ponuda za LLM Machines on-prem AI appliance oblikuje se prema potrebnom kapacitetu inferencije, hardverskom otisku, razini dostupnosti i opsegu podrške." />
+  <meta name="description" content="Privatna inferencija na novom appliance-u ili postojećoj infrastrukturi. Prilagodba hardvera, konfiguracija i kontinuirano održavanje uz ponudu prema vašim potrebama." />
 
   <link rel="canonical" href="https://llm-machines.com/hr/pricing/" />
   <link rel="alternate" hreflang="en" href="https://llm-machines.com/pricing/" />
@@ -13,7 +13,7 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ponuda za privatnu inferenciju | LLM Machines" />
-  <meta property="og:description" content="Prilagođeni prijedlog za privatnu inferencijsku infrastrukturu i kontinuirane operacije, izrađen nakon discovery faze." />
+  <meta property="og:description" content="Privatna inferencija na novom appliance-u ili postojećoj infrastrukturi. Prilagodba hardvera, konfiguracija i kontinuirano održavanje uz ponudu prema vašim potrebama." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,7 +24,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ponuda za privatnu inferenciju | LLM Machines" />
-  <meta name="twitter:description" content="Prilagođeni prijedlog za privatnu inferencijsku infrastrukturu i kontinuirane operacije, izrađen nakon discovery faze." />
+  <meta name="twitter:description" content="Privatna inferencija na novom appliance-u ili postojećoj infrastrukturi. Prilagodba hardvera, konfiguracija i kontinuirano održavanje uz ponudu prema vašim potrebama." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <meta name="theme-color" content="#0E0E0E" />
@@ -43,6 +43,7 @@
   <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../../assets/styles.css" />
+  <link rel="stylesheet" href="../../assets/pricing.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,18 +73,44 @@
   "@type": "FAQPage",
   "inLanguage": "hr-HR",
   "mainEntity": [
-    { "@type": "Question", "name": "Kako se oblikuje ponuda?", "acceptedAnswer": { "@type": "Answer", "text": "Prilagođeni prijedlog izrađujemo nakon discovery faze. Opseg određuju infrastrukturni otisak, inferencijska cjelina, dostupnost, politika ažuriranja, opseg oporavka, pregledi kapaciteta, pristup podršci i izvještavanje." } },
-    { "@type": "Question", "name": "Što uključuje standardni opseg proizvoda?", "acceptedAnswer": { "@type": "Answer", "text": "Standardni opseg objedinjuje Core Appliance, operativni Console, kontrole identiteta i politika, observability sloj, podršku životnom ciklusu i dokumentiranu API primopredaju." } },
-    { "@type": "Question", "name": "Kako je licenciran izvorni kod Producta?", "acceptedAnswer": { "@type": "Answer", "text": "Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod za internu poslovnu uporabu i interne izmjene Klijenta pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Softver trećih strana ostaje pod svojim postojećim upstream licencama." } },
-    { "@type": "Question", "name": "Tko je vlasnik hardvera?", "acceptedAnswer": { "@type": "Answer", "text": "Appliance dimenzioniramo s vašim timom, nabavljamo kroz distributerski podržane kanale i implementiramo kao infrastrukturu pod vašom kontrolom. Jamstvo slijedi dokumentaciju dobavljača i proizvođača te potpisani Order Form." } },
-    { "@type": "Question", "name": "Kako se povezuju postojeće aplikacije?", "acceptedAnswer": { "@type": "Answer", "text": "Chat Completions je dokumentirani API protokol putem kojeg vaše omiljene aplikacije i harnessi pristupaju odobrenim lokalnim modelima." } },
-    { "@type": "Question", "name": "Kako se ugovara integracijsko savjetovanje?", "acceptedAnswer": { "@type": "Answer", "text": "Napredno integracijsko savjetovanje koristi zaseban opis posla s mjerljivim ciljem, izričitim kriterijima prihvata i dokumentiranom primopredajom u vlasništvo klijenta." } }
+    {
+      "@type": "Question",
+      "name": "Što trebamo poslati za procjenu postojećeg hardvera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Specifikacije poslužitelja ili appliance-a, model GPU-a i njegovu memoriju, sistemski RAM, pohranu i mrežnu konfiguraciju te modele i radna opterećenja koja želite pokretati. Na temelju tih podataka procjenjujemo prikladnost i potrebne nadogradnje prije izrade ponude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Možete li pomoći povezati naše aplikacije?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Povežite svoje omiljene aplikacije i harness alate putem našeg dokumentiranog inferencijskog API-ja. Za prilagođene workflowe možemo zasebno definirati integracijski angažman s mjerljivim rezultatom."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gdje će sustav raditi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "U vašim prostorima ili u podatkovnom centru koji ugovarate i kojim upravljate. Inferencija se izvršava unutar vašeg okruženja, na novom appliance-u ili prikladnom postojećem hardveru."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kako je licenciran izvorni kod Producta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod za internu poslovnu uporabu i interne izmjene Klijenta pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Softver trećih strana ostaje pod svojim postojećim upstream licencama."
+      }
+    }
   ]
 }
   </script>
 </head>
 
-<body>
+<body class="pricing-page">
 
   <!-- ============== NAV ============== -->
   <nav class="top">
@@ -103,7 +130,7 @@
           <a href="../../pricing/" class="lang-opt" hreflang="en">EN</a>
           <a href="./" class="lang-opt" aria-current="page" hreflang="hr">HR</a>
         </div>
-        <a href="../#contact" class="nav-cta">Razgovarajte s prodajom <span class="arr">→</span></a>
+        <a href="../contact/#contact-form" class="nav-cta">Razgovarajte s prodajom <span class="arr">→</span></a>
         <button class="menu-toggle" type="button" aria-label="Otvori izbornik" aria-controls="mobile-menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -127,315 +154,202 @@
 
   <!-- ============== PAGE HERO ============== -->
   <header class="page-hero">
-    <div class="container">
-      <span class="label">Cijene</span>
-      <h1>Ponuda oblikovana prema vašoj infrastrukturi</h1>
-      <p class="lead">Svaki Core Appliance dimenzioniramo prema modelima koje želite pokretati, potrebnom kapacitetu inferencije, hardverskom otisku i razini dostupnosti. Dobivate jednu jasnu specifikaciju proizvoda, implementacije i podrške.</p>
+    <div class="container pricing-hero-layout">
+      <div>
+        <span class="label">Cijene</span>
+        <h1>Privatna inferencija.<br>Hardver po mjeri.</h1>
+      </div>
+      <div class="pricing-hero-copy">
+        <p class="lead">Novi appliance ili infrastruktura koju već imate. Konfiguriramo i održavamo privatnu inferenciju prema potrebama vašeg poslovanja.</p>
+        <div class="pricing-hero-actions">
+          <a href="../contact/#contact-form" class="btn btn-primary">Razgovarajte s prodajom <span class="arr" aria-hidden="true">→</span></a>
+          <a href="#pricing" class="pricing-text-link">Istražite mogućnosti</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ============== PRICING ============== -->
-  <section id="pricing">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">01 · Ulazi u ponudu</span>
-        <h2>Osam parametara. Jedan jasan opseg.</h2>
-        <p>Vaše infrastrukturne, inferencijske i operativne zahtjeve pretvaramo u prilagođeni prijedlog nakon discovery faze.</p>
+  <main>
+    <section id="pricing" class="pricing-options-section" aria-labelledby="pricing-options-title">
+      <div class="container">
+        <div class="pricing-section-heading">
+          <h2 id="pricing-options-title">Dva načina za početak.</h2>
+          <p>Odaberite polazište. Mi se brinemo za inferencijsko okruženje.</p>
+        </div>
+        <div class="deployment-options">
+          <article class="deployment-option">
+            <span class="deployment-option-tag">Novi hardver</span>
+            <h3>Novi appliance.</h3>
+            <p>Namjenski sustav dimenzioniran za vaša radna opterećenja, nabavljen kroz naš distributerski kanal i konfiguriran za vaše okruženje.</p>
+            <ul>
+              <li>Procjena radnih opterećenja i dimenzioniranje hardvera</li>
+              <li>Nabava hardvera i konfiguracija sustava</li>
+              <li>Implementacija, validacija i operativna primopredaja</li>
+            </ul>
+            <div class="deployment-option-footer">
+              <span>Vaša ponuda obuhvaća</span>
+              <p>Hardver, konfiguraciju i kontinuirano održavanje.</p>
+            </div>
+            <a href="../contact/?topic=Pricing%20%26%20quote#contact-form" class="btn btn-primary">Ponuda za novi appliance <span class="arr" aria-hidden="true">→</span></a>
+          </article>
+          <article class="deployment-option">
+            <span class="deployment-option-tag">Postojeći hardver</span>
+            <h3>Prilagodba vaše infrastrukture.</h3>
+            <p>Iskoristite poslužitelje ili appliance-e koje već imate. Procjenjujemo hardver, pripremamo okruženje i konfiguriramo ga za rad s našim inferencijskim sustavom.</p>
+            <ul>
+              <li>Procjena prikladnosti hardvera i kapaciteta</li>
+              <li>Instalacija i konfiguracija na podržanom hardveru</li>
+              <li>Validacija, optimizacija i operativna primopredaja</li>
+            </ul>
+            <div class="deployment-option-footer">
+              <span>Vaša ponuda obuhvaća</span>
+              <p>Konfiguraciju i kontinuirano održavanje.</p>
+              <small>Potrebne hardverske nadogradnje utvrđujemo tijekom procjene.</small>
+            </div>
+            <a href="../contact/?topic=Retrofitting%20existing%20infrastructure#contact-form" class="btn btn-primary">Razgovor o prilagodbi <span class="arr" aria-hidden="true">→</span></a>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="pricing-note reveal">
-        <div class="pricing-note-mark">Dimenzioniranje</div>
-        <div class="pricing-note-list">
-          <div class="pricing-note-item">
-            <div class="pn-num">Infrastruktura</div>
-            <div class="pn-label">Infrastrukturni otisak, topologija čvorova, akceleratori, memorija, mreža, montaža i distributerski podržana nabava.</div>
+    <section id="service-scope" aria-labelledby="service-scope-title">
+      <div class="container pricing-split">
+        <div class="pricing-section-heading">
+          <h2 id="service-scope-title">Ista upravljana usluga.<br>U oba slučaja.</h2>
+          <p>Ponudu oblikujemo prema modelima i radnim opterećenjima koja trebate, opsegu infrastrukture i razini operativne podrške koju odaberete.</p>
+        </div>
+        <dl class="pricing-service-list">
+          <div>
+            <dt>Konfiguracija</dt>
+            <dd>Odabir modela, inferencijsko izvršno okruženje, kontrole pristupa i dokumentirana API primopredaja.</dd>
           </div>
-          <div class="pricing-note-item">
-            <div class="pn-num">Inferencija</div>
-            <div class="pn-label">Inferencijska cjelina, modeli, kontekst, istodobni zahtjevi, očekivana propusnost i ritam pregleda kapaciteta.</div>
+          <div>
+            <dt>Održavanje</dt>
+            <dd>Operativni nadzor, dogovorena ažuriranja, podrška te postupci sigurnosnog kopiranja i oporavka.</dd>
           </div>
-          <div class="pricing-note-item">
-            <div class="pn-num">Operacije</div>
-            <div class="pn-label">Dostupnost, politika ažuriranja, opseg oporavka, pristup podršci i izvještavanje definiraju kontinuirani operativni model.</div>
+          <div>
+            <dt>Optimizacija</dt>
+            <dd>Optimizacija performansi i pregledi kapaciteta kako se vaša radna opterećenja razvijaju.</dd>
           </div>
-        </div>
+        </dl>
       </div>
+    </section>
 
-      <div class="sect-head reveal" style="margin-top: 80px;">
-        <span class="label">02 · Opseg proizvoda</span>
-        <h2>Podržani put od inferencije do API primopredaje.</h2>
-        <p>Standardni opseg obuhvaća inferencijsku jezgru, kontinuirane operacije i dokumentirani ugovor za aplikacije koje vaši timovi već koriste.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="tier reveal">
-          <div class="tier-name">Core Appliance</div>
-          <div class="tier-positioning">Lokalna inferencija · operativna jezgra</div>
-          <div class="tier-target">Podržani hardversko-softverski proizvod za privatno posluživanje modela u vašoj infrastrukturi.</div>
-          <ul>
-            <li>Lokalna inferencija open-weight modela</li>
-            <li>Odabir, konfiguracija i validacija modela</li>
-            <li>Dokumentirani Models API</li>
-            <li>Kompaktni operativni Console</li>
-            <li>Application vjerodajnice i politike modela</li>
-            <li>Activity &amp; Audit s metapodacima korištenja</li>
-          </ul>
+    <section id="build-vs-partner" aria-labelledby="estimate-title">
+      <div class="container pricing-split">
+        <div class="pricing-section-heading">
+          <h2 id="estimate-title">Koliko stoji vlastita implementacija?</h2>
+          <p>Hardver je samo dio troška. Izgradnja i održavanje okruženja zahtijevaju inženjersko vrijeme, operativnu pokrivenost i specijalističko znanje.</p>
+          <p class="pricing-partner-note">Uz LLM Machines dobivate definiran opseg konfiguracije i održavanja, uz ponudu prilagođenu vašem okruženju.</p>
         </div>
-
-        <div class="tier feature reveal">
-          <div class="tier-name">Upravljane operacije</div>
-          <div class="tier-positioning">Životni ciklus · operativni kontinuitet</div>
-          <div class="tier-target">Kontinuirani operativni opseg usklađen s vašim zahtjevima dostupnosti, životnog ciklusa, oporavka i podrške.</div>
-          <ul>
-            <li>Observability sloj i operativno izvještavanje</li>
-            <li>Dogovorena politika ažuriranja i održavanja</li>
-            <li>Opseg backupa i oporavka</li>
-            <li>Planirani pregledi kapaciteta</li>
-            <li>Definirani pristup podršci i eskalacija</li>
-            <li>Operativno zdravlje i upravljanje životnim ciklusom</li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-name">API primopredaja</div>
-          <div class="tier-positioning">Vaše aplikacije · dokumentirani pristup</div>
-          <div class="tier-target">Chat Completions je dokumentirani API protokol putem kojeg vaše omiljene aplikacije i harnessi pristupaju odobrenim lokalnim modelima.</div>
-          <ul>
-            <li>Application vjerodajnice po aplikaciji</li>
-            <li>Eksplicitne liste dopuštenih modela</li>
-            <li>Streaming Chat Completions</li>
-            <li>Tool-call transport poruka</li>
-            <li>Metapodaci korištenja u Consoleu</li>
-            <li>Validirana API primopredaja i dokumentacija pristupa</li>
-          </ul>
-        </div>
-
-        <div class="pricing-cta reveal">
-          <a href="../#contact" class="btn btn-primary">Razgovarajte s prodajom <span class="arr">→</span></a>
-        </div>
-      </div>
-
-      <div class="sect-head reveal" style="margin-top: 80px;">
-        <span class="label">03 · Implementacija</span>
-        <h2>U vašoj infrastrukturi.<br>Pod vašom kontrolom.</h2>
-        <p>LLM Machines pruža privatnu inferenciju, kontinuirane operacije i dokumentirani API ugovor. Vaše aplikacije kroz taj ugovor pristupaju odobrenim lokalnim modelima.</p>
-      </div>
-
-      <div class="deploy-modes reveal">
-        <div class="deploy-mode">
-          <div class="deploy-tag">Customer-premises · Core</div>
-          <h4>Appliance ostaje kod vas.</h4>
-          <p>Hardver, modeli, identitet, API pristup, audit metapodaci i observability sloj rade u infrastrukturi kojom upravljate.</p>
-        </div>
-        <div class="deploy-mode">
-          <div class="deploy-tag">Granica podataka · 02</div>
-          <h4>Ništa ne napušta vašu infrastrukturu.</h4>
-          <p>Inferencijski ulazi, izlazi i sadržaj opterećenja ostaju u vašem okruženju, dok su operativni zapisi usmjereni na metapodatke.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== BUILD vs PARTNER ============== -->
-  <section id="build-vs-partner">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">04 · Graditi vs. partnerirati</span>
-        <h2>Matematika vlastite gradnje.</h2>
-        <p>Što privatna on-prem inferencija može koštati kada je interno sastavljate i održavate, u usporedbi s partnerstvom definiranim prema opsegu. Ilustrativni SME profil za prvu godinu.</p>
-      </div>
-
-      <div class="versus reveal">
-        <div class="vs-col vs-build">
-          <span class="vs-tag">Opcija A · DIY</span>
-          <h3>Gradite u kući.</h3>
-          <p class="vs-sub">Zaposlite tim. Sastavite OSS. Upravljajte i održavajte svaki sloj.</p>
-
-          <ul class="vs-list">
-            <li><span class="vs-line">2× ML / infrastrukturna inženjera (puni trošak)</span><span class="vs-num bad">€220K</span></li>
-            <li><span class="vs-line">1× DevOps / SRE</span><span class="vs-num bad">€100K</span></li>
-            <li><span class="vs-line">1× voditelj sigurnosti i usklađenosti</span><span class="vs-num bad">€80K</span></li>
-            <li><span class="vs-line">Pravna provjera: EU AI Act, GDPR, NIS2, EU Data Act</span><span class="vs-num bad">€60K</span></li>
-            <li><span class="vs-line">Nabava hardvera, montaža i integracija</span><span class="vs-num bad">€100K</span></li>
-            <li><span class="vs-line">Sigurnosni alati, testni kapacitet i životni ciklus modela</span><span class="vs-num bad">€36K&nbsp;/&nbsp;god</span></li>
-            <li><span class="vs-line">Šest mjeseci integracije, debugiranja i on-call rada</span><span class="vs-num bad">oportunitet</span></li>
-            <li><span class="vs-line">Rizik isporuke i ključne osobe</span><span class="vs-num bad">neograničen</span></li>
-          </ul>
-
-          <div class="vs-total vs-total--build">
-            <span class="vs-total-label">Prva godina, tipično</span>
-            <span class="vs-total-num">€600K – €1M+</span>
+        <div class="estimate-panel" data-inhouse-estimate>
+          <div class="estimate-results" aria-live="polite" aria-atomic="true">
+            <div>
+              <span class="estimate-label">Ilustrativni budžet za vlastitu implementaciju</span>
+              <output class="estimate-total" data-estimate-total>596.000 €</output>
+              <span class="estimate-period">Prva godina</span>
+            </div>
+            <p class="estimate-staff"><output data-estimate-staff>400.000 €</output> od toga čini godišnji trošak tima.</p>
           </div>
-        </div>
-
-        <div class="vs-col vs-us">
-          <span class="vs-tag accent">Opcija B · LLM Machines</span>
-          <h3>Partnerirajte s nama.</h3>
-          <p class="vs-sub">Definirajte operativni opseg bez interne izgradnje i održavanja svakog platformskog sloja.</p>
-
-          <ul class="vs-list">
-            <li><span class="vs-line">Discovery i kvalifikacija opterećenja</span><span class="vs-num good">definirano</span></li>
-            <li><span class="vs-line">Distributerski podržano dimenzioniranje i nabava hardvera</span><span class="vs-num good">definirano</span></li>
-            <li><span class="vs-line">Konfiguracija inferencije i validacija implementacije</span><span class="vs-num good">definirano</span></li>
-            <li><span class="vs-line">Dostupnost, nadzor i izvještavanje</span><span class="vs-num good">dogovoreno</span></li>
-            <li><span class="vs-line">Politika ažuriranja, backupa i oporavka</span><span class="vs-num good">dogovoreno</span></li>
-            <li><span class="vs-line">Pregledi kapaciteta, pristup podršci i eskalacija</span><span class="vs-num good">dogovoreno</span></li>
-            <li><span class="vs-line">API validacija i operativna primopredaja</span><span class="vs-num good">prihvaćeno</span></li>
-            <li><span class="vs-line">Isporuka naprednih integracija</span><span class="vs-num good">zaseban SOW</span></li>
-          </ul>
-
-          <div class="vs-total vs-total--us">
-            <span class="vs-total-label">Komercijalni prijedlog</span>
-            <span class="vs-total-num">Prilagođena ponuda nakon discovery faze</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vs-bars reveal">
-        <div class="vs-bar" style="--target: 100%;">
-          <div class="vs-bar-label">Vlastita gradnja</div>
-          <div class="vs-bar-track"><div class="vs-bar-fill build"></div></div>
-          <div class="vs-bar-num">€600K – €1M+</div>
-        </div>
-        <div class="vs-bar" style="--target: 100%;">
-          <div class="vs-bar-label">Implementacija s LLM Machines</div>
-          <div class="vs-bar-track"><div class="vs-bar-fill us"></div></div>
-          <div class="vs-bar-num">Ponuda prema opsegu</div>
-        </div>
-        <div class="vs-bar-note">Interna procjena koristi ilustrativne pune godišnje troškove četveročlanog platformskog, infrastrukturnog i compliance tima te pravne, hardverske i alatne pretpostavke. Svaki ulaz provjerite prema vlastitoj lokaciji i pravilima. Cijena LLM Machines usluge daje se tek nakon što discovery faza definira implementaciju i kontinuirani operativni opseg.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== CONSULTING ============== -->
-  <section id="consulting">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">05 · Savjetovanje za napredne integracije</span>
-        <h2>Definirani rezultat izvan standardne API primopredaje.</h2>
-        <p>Kada integracija zahtijeva više od dokumentiranog pristupa modelima, zasebni savjetodavni angažman oblikujemo oko jednog mjerljivog operativnog rezultata.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="tier reveal">
-          <div class="tier-name">Discovery usmjeren na rezultat</div>
-          <div class="tier-positioning">Problem · cilj · ograničenja</div>
-          <div class="tier-target">Prije implementacije definiramo workflow, sustave, granicu podataka i ciljani rezultat.</div>
-          <ul>
-            <li>Imenovani poslovni i tehnički vlasnik</li>
-            <li>Ograničeni workflow i integracijska površina</li>
-            <li>Početna vrijednost i mjerljivi cilj</li>
-            <li>Sigurnosna i operativna ograničenja</li>
-          </ul>
-        </div>
-
-        <div class="tier feature reveal">
-          <div class="tier-name">Zasebno definirana isporuka</div>
-          <div class="tier-positioning">SOW · milestoneovi · dokazi</div>
-          <div class="tier-target">Integracije aplikacija i workflowa Klijenta isporučuju se kroz zaseban opis posla, a ne kao pretpostavljeni dio standardnog onboardinga ili održavanja.</div>
-          <ul>
-            <li>Izričiti deliverables i isključenja</li>
-            <li>Dokazi po milestoneovima i decision gateovi</li>
-            <li>Odobrene vjerodajnice i ograničenja resursa</li>
-            <li>Aplikacije i izvršno okruženje koje odabire Klijent</li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-name">Prihvat i primopredaja</div>
-          <div class="tier-positioning">Izmjeri · dokumentiraj · preuzmi</div>
-          <div class="tier-target">Završetak je vezan uz dogovorene kriterije prihvata i dokumentiranu primopredaju u vlasništvo vašeg tima.</div>
-          <ul>
-            <li>Izmjereni rezultat prema dogovorenom cilju</li>
-            <li>Runbook i primopredaja konfiguracije</li>
-            <li>Poznata ograničenja i operativne odgovornosti</li>
-            <li>Vlasništvo klijenta nakon prihvata</li>
-          </ul>
+          <details class="estimate-details">
+            <summary>Prilagodite procjenu vlastitih troškova</summary>
+            <div class="estimate-fields">
+              <label class="estimate-field" for="estimate-0">
+                <span>2× ML / infrastrukturni inženjer</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-0" type="number" min="0" step="1000" value="220000" data-estimate-cost data-staff-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-1">
+                <span>1× DevOps / SRE inženjer</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-1" type="number" min="0" step="1000" value="100000" data-estimate-cost data-staff-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-2">
+                <span>1× voditelj sigurnosti i compliance-a</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-2" type="number" min="0" step="1000" value="80000" data-estimate-cost data-staff-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-3">
+                <span>Pravna provjera</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-3" type="number" min="0" step="1000" value="60000" data-estimate-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-4">
+                <span>Nabava i ugradnja hardvera</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-4" type="number" min="0" step="1000" value="100000" data-estimate-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-5">
+                <span>Alati i testni kapacitet</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-5" type="number" min="0" step="1000" value="36000" data-estimate-cost /></span>
+              </label>
+            </div>
+            <p class="estimate-help">Unesite godišnje troškove tima sa svim troškovima zaposlenja, godišnje troškove alata te pravne i hardverske troškove prve godine u eurima. Već imate hardver? Postavite taj iznos na nulu.</p>
+          </details>
+          <p class="estimate-note">Ilustrativni scenarij prve godine za namjenski četveročlani tim. Prilagodite planske ulaze svom timu, lokaciji i postojećoj infrastrukturi.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============== CLOUD VS ON-PREM ============== -->
-  <section id="cloud-vs-on-prem">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">06 · Cloud vs. on-prem</span>
-        <h2>Vlastita infrastruktura donosi predvidivu kontrolu.</h2>
-        <p>Public-cloud AI izgleda fleksibilno dok osjetljivi podaci, zahtjevi audita, rate limiti i ovisnost o provideru ne postanu operativna briga.</p>
+    <section id="cloud-vs-on-prem" class="pricing-comparison" aria-labelledby="comparison-title">
+      <div class="container">
+        <div class="pricing-section-heading">
+          <h2 id="comparison-title">Cloud vs. on-prem.</h2>
+          <p>Usporedite infrastrukturu, komercijalni model i operativnu kontrolu.</p>
+        </div>
+        <div class="compare-wrap" tabindex="0" role="region" aria-label="Usporedba cloud i on-prem infrastrukture">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col">Područje</th>
+                <th scope="col">Cloud AI API-ji</th>
+                <th scope="col" class="hot">LLM Machines</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Kontrola podataka</td><td class="v-no">Promptovi napuštaju vaš perimetar</td><td class="hot v-yes">Podaci ostaju unutar vašeg okruženja</td></tr>
+              <tr><td>Komercijalni model</td><td class="v-no">Potrošnja prema pravilima providera</td><td class="hot v-yes">Ponuda prema kapacitetu i opsegu usluge</td></tr>
+              <tr><td>Vendor lock-in</td><td class="v-mid">Provider-specifični API-ji i politike</td><td class="hot v-yes">Dokumentirani API i source-available izvorni kod Producta koji je razvio LLM Machines</td></tr>
+              <tr><td>Implementacija</td><td class="v-yes">Brz početak, ograničena lokalna kontrola</td><td class="hot v-yes">Kontrolirana implementacija u vašem okruženju</td></tr>
+              <tr><td>Auditabilnost</td><td class="v-mid">Ograničena na kontrole providera</td><td class="hot v-yes">Activity &amp; Audit i operativne kontrole u vašem perimetru</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="compare-wrap reveal">
-        <table class="compare">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Cloud AI API-ji</th>
-              <th class="hot">LLM Machines</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Kontrola podataka</td><td class="v-no">Promptovi napuštaju vaš perimetar</td><td class="hot v-yes">Podaci ostaju unutar vašeg okruženja</td></tr>
-            <tr><td>Komercijalni model</td><td class="v-no">Potrošnja prema pravilima providera</td><td class="hot v-yes">Ponuda prema kapacitetu i opsegu usluge</td></tr>
-            <tr><td>Vendor lock-in</td><td class="v-mid">Provider-specifični API-ji i politike</td><td class="hot v-yes">Dokumentirani API i source-available izvorni kod Producta koji je razvio LLM Machines</td></tr>
-            <tr><td>Implementacija</td><td class="v-yes">Brz početak, ograničena lokalna kontrola</td><td class="hot v-yes">Kontrolirana implementacija u vašem okruženju</td></tr>
-            <tr><td>Auditabilnost</td><td class="v-mid">Ograničena na kontrole providera</td><td class="hot v-yes">Activity &amp; Audit i operativne kontrole u vašem perimetru</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============== FAQ ============== -->
-  <section id="pricing-faq">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">07 · FAQ</span>
-        <h2>Pitanja o ponudi.</h2>
-        <p>Kako se proizvod dimenzionira, što uključuje i kako se uklapa u vašu postojeću infrastrukturu.</p>
+    <section id="pricing-faq" aria-labelledby="pricing-faq-title">
+      <div class="container pricing-split">
+        <div class="pricing-section-heading">
+          <h2 id="pricing-faq-title">Prije razgovora.</h2>
+          <p>Nekoliko korisnih detalja za vaš prvi razgovor s nama.</p>
+        </div>
+        <div class="pricing-questions">
+          <details class="pricing-question">
+            <summary>Što trebamo poslati za procjenu postojećeg hardvera?</summary>
+            <p>Specifikacije poslužitelja ili appliance-a, model GPU-a i njegovu memoriju, sistemski RAM, pohranu i mrežnu konfiguraciju te modele i radna opterećenja koja želite pokretati. Na temelju tih podataka procjenjujemo prikladnost i potrebne nadogradnje prije izrade ponude.</p>
+          </details>
+          <details class="pricing-question">
+            <summary>Možete li pomoći povezati naše aplikacije?</summary>
+            <p>Povežite svoje omiljene aplikacije i harness alate putem našeg dokumentiranog inferencijskog API-ja. Za prilagođene workflowe možemo zasebno definirati integracijski angažman s mjerljivim rezultatom.</p>
+          </details>
+          <details class="pricing-question">
+            <summary>Gdje će sustav raditi?</summary>
+            <p>U vašim prostorima ili u podatkovnom centru koji ugovarate i kojim upravljate. Inferencija se izvršava unutar vašeg okruženja, na novom appliance-u ili prikladnom postojećem hardveru.</p>
+          </details>
+          <details class="pricing-question">
+            <summary>Kako je licenciran izvorni kod Producta?</summary>
+            <p>Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod za internu poslovnu uporabu i interne izmjene Klijenta pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Softver trećih strana ostaje pod svojim postojećim upstream licencama.</p>
+          </details>
+        </div>
       </div>
-      <div class="faq-list reveal">
-        <article class="faq-item">
-          <h3>Kako se oblikuje ponuda?</h3>
-          <p>Prilagođeni prijedlog izrađujemo nakon discovery faze. Opseg određuju infrastrukturni otisak, inferencijska cjelina, dostupnost, politika ažuriranja, opseg oporavka, pregledi kapaciteta, pristup podršci i izvještavanje.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Što uključuje standardni opseg proizvoda?</h3>
-          <p>Standardni opseg objedinjuje Core Appliance, operativni Console, kontrole identiteta i politika, observability sloj, podršku životnom ciklusu i dokumentiranu API primopredaju.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Kako je licenciran izvorni kod Producta?</h3>
-          <p>Izvorni kod Producta koji je razvio LLM Machines dostupan je kao source-available kod za internu poslovnu uporabu i interne izmjene Klijenta pod neizmijenjenom licencom PolyForm Internal Use License 1.0.0. Softver trećih strana ostaje pod svojim postojećim upstream licencama.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Tko je vlasnik hardvera?</h3>
-          <p>Appliance dimenzioniramo s vašim timom, nabavljamo kroz distributerski podržane kanale i implementiramo kao infrastrukturu pod vašom kontrolom. Jamstvo slijedi dokumentaciju dobavljača i proizvođača te potpisani Order Form.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Kako se povezuju postojeće aplikacije?</h3>
-          <p>Postojeće aplikacije povezuju se kroz dokumentirani Chat Completions protokol i dobivaju pristup samo odobrenim lokalnim modelima.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Kako se ugovara integracijsko savjetovanje?</h3>
-          <p>Napredno integracijsko savjetovanje koristi zaseban opis posla s mjerljivim ciljem, izričitim kriterijima prihvata i dokumentiranom primopredajom u vlasništvo klijenta.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============== PAGE CTA ============== -->
-  <section class="page-cta">
-    <div id="us-cta-pricing" class="cta-bg" data-us-scene="../../assets/whats-next_background.json"></div>
-    <div class="cta-blur"></div>
-    <div class="container">
-      <span class="label" style="justify-content:center;">Što slijedi</span>
-      <h2>Zatražite ponudu dimenzioniranu vašem okruženju.</h2>
-      <p>Discovery poziv, workload profil, dimenzionirana specifikacija appliance-a i jasan opseg implementacije, validacije i podrške.</p>
-      <div class="hero-ctas">
-        <a href="../onboarding/" class="btn btn-ghost">Pogledajte onboarding</a>
-        <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Razgovarajte s prodajom <span class="arr">→</span></a>
+    <section class="pricing-close" aria-labelledby="pricing-close-title">
+      <div class="container">
+        <div>
+          <h2 id="pricing-close-title">Krenimo od vaših potreba.</h2>
+          <p>Javite nam radno opterećenje, specifikaciju hardvera ili jednostavno postavite pitanje.</p>
+        </div>
+        <a href="../contact/#contact-form" class="btn btn-primary">Razgovarajte s prodajom <span class="arr" aria-hidden="true">→</span></a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ============== FOOTER ============== -->
   <footer>
@@ -478,5 +392,6 @@
   </footer>
 
   <script src="../../assets/site.js" defer></script>
+  <script src="../../assets/pricing.js" defer></script>
 </body>
 </html>

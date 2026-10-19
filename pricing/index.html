@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing | LLM Machines</title>
-  <meta name="description" content="Scope-based private inference infrastructure, sized around your inference estate, infrastructure footprint, availability, lifecycle and support requirements." />
+  <meta name="description" content="Managed private inference on a new appliance or your existing infrastructure. Hardware retrofitting, configuration and ongoing maintenance, quoted for your business." />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://llm-machines.com/pricing/" />
@@ -17,7 +17,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Scope-based private inference | LLM Machines" />
-  <meta property="og:description" content="A custom proposal for private inference infrastructure and recurring operations, prepared after discovery." />
+  <meta property="og:description" content="Managed private inference on a new appliance or your existing infrastructure. Hardware retrofitting, configuration and ongoing maintenance, quoted for your business." />
   <meta property="og:image" content="https://llm-machines.com/assets/link-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -28,7 +28,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Scope-based private inference | LLM Machines" />
-  <meta name="twitter:description" content="A custom proposal for private inference infrastructure and recurring operations, prepared after discovery." />
+  <meta name="twitter:description" content="Managed private inference on a new appliance or your existing infrastructure. Hardware retrofitting, configuration and ongoing maintenance, quoted for your business." />
   <meta name="twitter:image" content="https://llm-machines.com/assets/link-preview.jpg" />
 
   <!-- Theme + indexing -->
@@ -49,6 +49,7 @@
   <link rel="stylesheet" data-cc="google-fonts" data-cc-href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" disabled />
 
   <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/pricing.css" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,19 +80,46 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "inLanguage": "en",
   "mainEntity": [
-    { "@type": "Question", "name": "How is each deployment quoted?", "acceptedAnswer": { "@type": "Answer", "text": "We prepare a custom proposal after discovery. Scope drivers include the infrastructure footprint, inference estate, availability, update policy, recovery scope, capacity reviews, support access and reporting." } },
-    { "@type": "Question", "name": "What is included in the standard product scope?", "acceptedAnswer": { "@type": "Answer", "text": "The standard scope combines the Core Appliance, operational Console, identity and policy controls, observability layer, lifecycle support and a documented API handoff." } },
-    { "@type": "Question", "name": "How is Product source licensed?", "acceptedAnswer": { "@type": "Answer", "text": "Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party software keeps its upstream licence." } },
-    { "@type": "Question", "name": "Who owns the hardware?", "acceptedAnswer": { "@type": "Answer", "text": "The appliance is sized with your team, procured through distributor-backed channels and deployed as infrastructure you control. Warranty coverage follows the supplier and manufacturer documents and the signed Order Form." } },
-    { "@type": "Question", "name": "How do existing applications connect?", "acceptedAnswer": { "@type": "Answer", "text": "Chat Completions is the documented API protocol your favourite apps and harnesses use to access approved local models." } },
-    { "@type": "Question", "name": "How is integration consulting scoped?", "acceptedAnswer": { "@type": "Answer", "text": "Advanced integration consulting uses a separate statement of work with a measurable target, explicit acceptance criteria and a documented handoff into customer ownership." } }
+    {
+      "@type": "Question",
+      "name": "What should we share for a retrofit review?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your server or appliance specifications, GPU model and memory, system RAM, storage and network setup, plus the models and workloads you want to run. We use this to assess suitability and identify any upgrades before preparing a quote."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help connect our applications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Connect your favourite apps and harnesses through our documented inference API. For custom workflows, we can scope a separate integration engagement with a measurable outcome."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where will the system run?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At your premises or in a data centre you contract and control. Inference runs inside your environment, on a new appliance or suitable existing hardware."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Product source licensed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party software keeps its upstream licence."
+      }
+    }
   ]
 }
   </script>
 </head>
 
-<body>
+<body class="pricing-page">
 
   <!-- ============== NAV ============== -->
   <nav class="top">
@@ -111,7 +139,7 @@
           <a href="./" class="lang-opt" aria-current="page" hreflang="en">EN</a>
           <a href="../hr/pricing/" class="lang-opt" hreflang="hr">HR</a>
         </div>
-        <a href="../#contact" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <a href="../contact/#contact-form" class="nav-cta">Talk to sales <span class="arr">→</span></a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -135,315 +163,202 @@
 
   <!-- ============== PAGE HERO ============== -->
   <header class="page-hero">
-    <div class="container">
-      <span class="label">Pricing</span>
-      <h1>Custom-Quoted On-Prem AI Infrastructure</h1>
-      <p class="lead">Every deployment is sized around the inference capacity, hardware topology, connected applications and operational support your organisation actually needs.</p>
+    <div class="container pricing-hero-layout">
+      <div>
+        <span class="label">Pricing</span>
+        <h1>Private inference.<br>Hardware that fits.</h1>
+      </div>
+      <div class="pricing-hero-copy">
+        <p class="lead">A new appliance, or the infrastructure you already own. We configure and maintain private inference around your business.</p>
+        <div class="pricing-hero-actions">
+          <a href="../contact/#contact-form" class="btn btn-primary">Talk to sales <span class="arr" aria-hidden="true">→</span></a>
+          <a href="#pricing" class="pricing-text-link">Explore your options</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ============== PRICING ============== -->
-  <section id="pricing">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">01 · Quote foundation</span>
-        <h2>Eight drivers. One clear scope.</h2>
-        <p>We turn your infrastructure, inference and operating requirements into a custom proposal after discovery.</p>
+  <main>
+    <section id="pricing" class="pricing-options-section" aria-labelledby="pricing-options-title">
+      <div class="container">
+        <div class="pricing-section-heading">
+          <h2 id="pricing-options-title">Two ways to get started.</h2>
+          <p>Choose your starting point. We take care of the inference environment.</p>
+        </div>
+        <div class="deployment-options">
+          <article class="deployment-option">
+            <span class="deployment-option-tag">New hardware</span>
+            <h3>A new appliance.</h3>
+            <p>A dedicated system sized for your workloads, sourced through our distributor-backed channel and configured for your environment.</p>
+            <ul>
+              <li>Workload assessment and hardware sizing</li>
+              <li>Hardware sourcing and system configuration</li>
+              <li>Deployment, validation and operational handoff</li>
+            </ul>
+            <div class="deployment-option-footer">
+              <span>Your proposal covers</span>
+              <p>Hardware, configuration and ongoing maintenance.</p>
+            </div>
+            <a href="../contact/?topic=Pricing%20%26%20quote#contact-form" class="btn btn-primary">Get an appliance quote <span class="arr" aria-hidden="true">→</span></a>
+          </article>
+          <article class="deployment-option">
+            <span class="deployment-option-tag">Existing hardware</span>
+            <h3>Retrofit your infrastructure.</h3>
+            <p>Put your existing servers or appliances to work. We assess the hardware, prepare the environment and configure it to run our inference system.</p>
+            <ul>
+              <li>Hardware and capacity suitability review</li>
+              <li>Installation and configuration on supported hardware</li>
+              <li>Validation, tuning and operational handoff</li>
+            </ul>
+            <div class="deployment-option-footer">
+              <span>Your proposal covers</span>
+              <p>Configuration and ongoing maintenance.</p>
+              <small>Any hardware upgrades are identified during the review.</small>
+            </div>
+            <a href="../contact/?topic=Retrofitting%20existing%20infrastructure#contact-form" class="btn btn-primary">Discuss a retrofit <span class="arr" aria-hidden="true">→</span></a>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="pricing-note reveal">
-        <div class="pricing-note-mark">Quote&nbsp;scope</div>
-        <div class="pricing-note-list">
-          <div class="pricing-note-item">
-            <div class="pn-num">Infrastructure</div>
-            <div class="pn-label">Infrastructure footprint, node topology, accelerator and memory needs, networking, racking and distributor-backed procurement.</div>
+    <section id="service-scope" aria-labelledby="service-scope-title">
+      <div class="container pricing-split">
+        <div class="pricing-section-heading">
+          <h2 id="service-scope-title">The same managed service.<br>Either way.</h2>
+          <p>Your quote reflects the models and workloads you need, the infrastructure involved and the level of operational support you choose.</p>
+        </div>
+        <dl class="pricing-service-list">
+          <div>
+            <dt>Configure</dt>
+            <dd>Model selection, inference runtime, access controls and a documented API handoff.</dd>
           </div>
-          <div class="pricing-note-item">
-            <div class="pn-num">Inference</div>
-            <div class="pn-label">Inference estate, model mix, concurrency, context requirements, expected throughput and the cadence of capacity reviews.</div>
+          <div>
+            <dt>Maintain</dt>
+            <dd>Operational monitoring, agreed updates, support, and backup and recovery procedures.</dd>
           </div>
-          <div class="pricing-note-item">
-            <div class="pn-num">Operations</div>
-            <div class="pn-label">Availability, update policy, recovery scope, support access and reporting define the recurring operating model.</div>
+          <div>
+            <dt>Optimize</dt>
+            <dd>Performance tuning and capacity reviews as your workloads evolve.</dd>
           </div>
-        </div>
+        </dl>
       </div>
+    </section>
 
-      <div class="sect-head reveal" style="margin-top: 80px;">
-        <span class="label">02 · Product scope</span>
-        <h2>A supported path from inference to API handoff.</h2>
-        <p>The standard scope covers the inference core, recurring operations and a documented contract for the applications your teams already use.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="tier reveal">
-          <div class="tier-name">Core Appliance</div>
-          <div class="tier-positioning">Local inference · operational control</div>
-          <div class="tier-target">The customer-premises foundation for private model serving, governed API access and day-to-day operations.</div>
-          <ul>
-            <li>Local open-weight model inference</li>
-            <li>Model selection, configuration and validation</li>
-            <li>Documented Models API</li>
-            <li>Compact operational Console</li>
-            <li>Application credentials and model policies</li>
-            <li>Metadata-only activity and audit records</li>
-          </ul>
+    <section id="build-vs-partner" aria-labelledby="estimate-title">
+      <div class="container pricing-split">
+        <div class="pricing-section-heading">
+          <h2 id="estimate-title">What does doing it yourself cost?</h2>
+          <p>The hardware is only part of it. Building and maintaining the environment takes engineering time, operational coverage and specialist expertise.</p>
+          <p class="pricing-partner-note">With LLM Machines, you get a defined configuration and maintenance scope, quoted for your environment.</p>
         </div>
-
-        <div class="tier feature reveal">
-          <div class="tier-name">Managed Operations</div>
-          <div class="tier-positioning">Lifecycle · operational continuity</div>
-          <div class="tier-target">A recurring operating scope aligned to your availability, lifecycle, recovery and support requirements.</div>
-          <ul>
-            <li>Observability layer and operational reporting</li>
-            <li>Agreed update and maintenance policy</li>
-            <li>Backup and recovery scope</li>
-            <li>Scheduled capacity reviews</li>
-            <li>Defined support access and escalation</li>
-            <li>Operational health and lifecycle management</li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-name">API Handoff</div>
-          <div class="tier-positioning">Your applications · documented access</div>
-          <div class="tier-target">Chat Completions is the documented API protocol your favourite apps and harnesses use to access approved local models.</div>
-          <ul>
-            <li>Application-specific credentials</li>
-            <li>Explicit model allowlists</li>
-            <li>Streaming Chat Completions</li>
-            <li>Tool-call message transport</li>
-            <li>Usage metadata in the Console</li>
-            <li>Validated API handoff and access documentation</li>
-          </ul>
-        </div>
-
-        <div class="pricing-cta reveal">
-          <a href="../#contact" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
-        </div>
-      </div>
-
-      <div class="sect-head reveal" style="margin-top: 80px;">
-        <span class="label">03 · Deployment boundary</span>
-        <h2>Inside your infrastructure.<br>Under your control.</h2>
-        <p>LLM Machines provides private inference, recurring operations and a documented API contract. Your applications continue to access approved local models through that contract.</p>
-      </div>
-
-      <div class="deploy-modes reveal">
-        <div class="deploy-mode">
-          <div class="deploy-tag">Infrastructure · 01</div>
-          <h4>Customer-premises appliance.</h4>
-          <p>The inference core, Console, identity, observability layer and lifecycle tooling are deployed inside the environment you control.</p>
-        </div>
-        <div class="deploy-mode">
-          <div class="deploy-tag">Data boundary · 02</div>
-          <h4>Nothing leaves your infrastructure.</h4>
-          <p>Inference inputs, outputs and workload content remain inside your environment, while operational records stay focused on metadata.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== BUILD vs PARTNER ============== -->
-  <section id="build-vs-partner">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">04 · Build vs. partner</span>
-        <h2>The build-it-yourself maths.</h2>
-        <p>What private on-prem inference can cost to assemble and operate internally, compared with a scope-based partnership. Illustrative Year 1 SME planning profile.</p>
-      </div>
-
-      <div class="versus reveal">
-        <div class="vs-col vs-build">
-          <span class="vs-tag">Option A · DIY</span>
-          <h3>Build it in-house.</h3>
-          <p class="vs-sub">Hire the team. Stitch the OSS. Operate and maintain every layer.</p>
-
-          <ul class="vs-list">
-            <li><span class="vs-line">2× ML / infrastructure engineers (loaded)</span><span class="vs-num bad">€220K</span></li>
-            <li><span class="vs-line">1× DevOps / SRE</span><span class="vs-num bad">€100K</span></li>
-            <li><span class="vs-line">1× security and compliance lead</span><span class="vs-num bad">€80K</span></li>
-            <li><span class="vs-line">Legal review: EU AI Act, GDPR, NIS2, EU Data Act</span><span class="vs-num bad">€60K</span></li>
-            <li><span class="vs-line">Hardware procurement, racking and integration</span><span class="vs-num bad">€100K</span></li>
-            <li><span class="vs-line">Security tooling, test capacity and model lifecycle work</span><span class="vs-num bad">€36K&nbsp;/&nbsp;yr</span></li>
-            <li><span class="vs-line">Six months of integration, debugging and on-call work</span><span class="vs-num bad">opportunity</span></li>
-            <li><span class="vs-line">Delivery and key-person risk</span><span class="vs-num bad">unbounded</span></li>
-          </ul>
-
-          <div class="vs-total vs-total--build">
-            <span class="vs-total-label">Year 1 typical</span>
-            <span class="vs-total-num">€600K – €1M+</span>
+        <div class="estimate-panel" data-inhouse-estimate>
+          <div class="estimate-results" aria-live="polite" aria-atomic="true">
+            <div>
+              <span class="estimate-label">Illustrative in-house budget</span>
+              <output class="estimate-total" data-estimate-total>€596,000</output>
+              <span class="estimate-period">Year one</span>
+            </div>
+            <p class="estimate-staff"><output data-estimate-staff>€400,000</output> of this is annual team cost.</p>
           </div>
-        </div>
-
-        <div class="vs-col vs-us">
-          <span class="vs-tag accent">Option B · LLM Machines</span>
-          <h3>Partner with us.</h3>
-          <p class="vs-sub">Define the operating scope without building and maintaining every platform layer internally.</p>
-
-          <ul class="vs-list">
-            <li><span class="vs-line">Discovery and workload qualification</span><span class="vs-num good">scoped</span></li>
-            <li><span class="vs-line">Distributor-backed hardware sizing and procurement</span><span class="vs-num good">scoped</span></li>
-            <li><span class="vs-line">Inference configuration and deployment validation</span><span class="vs-num good">scoped</span></li>
-            <li><span class="vs-line">Availability, monitoring and reporting</span><span class="vs-num good">agreed</span></li>
-            <li><span class="vs-line">Update, backup and recovery policy</span><span class="vs-num good">agreed</span></li>
-            <li><span class="vs-line">Capacity reviews, support access and escalation</span><span class="vs-num good">agreed</span></li>
-            <li><span class="vs-line">Documented API validation and operational handoff</span><span class="vs-num good">accepted</span></li>
-            <li><span class="vs-line">Advanced integration delivery</span><span class="vs-num good">separate SOW</span></li>
-          </ul>
-
-          <div class="vs-total vs-total--us">
-            <span class="vs-total-label">Commercial proposal</span>
-            <span class="vs-total-num">Custom quote after discovery</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="vs-bars reveal">
-        <div class="vs-bar" style="--target: 100%;">
-          <div class="vs-bar-label">Build in-house</div>
-          <div class="vs-bar-track"><div class="vs-bar-fill build"></div></div>
-          <div class="vs-bar-num">€600K – €1M+</div>
-        </div>
-        <div class="vs-bar" style="--target: 100%;">
-          <div class="vs-bar-label">Deploy with LLM Machines</div>
-          <div class="vs-bar-track"><div class="vs-bar-fill us"></div></div>
-          <div class="vs-bar-num">Scope-based proposal</div>
-        </div>
-        <div class="vs-bar-note">The internal estimate uses illustrative loaded annual costs for a four-person platform, infrastructure and compliance team plus legal, hardware and tooling assumptions. Validate each input against your location and policies. LLM Machines pricing is provided only after discovery defines the deployment and recurring operating scope.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== CONSULTING ============== -->
-  <section id="consulting">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">05 · Advanced integration consulting</span>
-        <h2>A defined outcome beyond the standard API handoff.</h2>
-        <p>When an integration needs more than documented model access, we scope a separate consulting engagement around one measurable operational outcome.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="tier reveal">
-          <div class="tier-name">Outcome-led discovery</div>
-          <div class="tier-positioning">Problem · target · constraints</div>
-          <div class="tier-target">Define the workflow, systems, data boundary and target result before implementation begins.</div>
-          <ul>
-            <li>Named business and technical owner</li>
-            <li>Bounded workflow and integration surface</li>
-            <li>Baseline and measurable target</li>
-            <li>Security and operating constraints</li>
-          </ul>
-        </div>
-
-        <div class="tier feature reveal">
-          <div class="tier-name">Separately scoped delivery</div>
-          <div class="tier-positioning">SOW · milestones · evidence</div>
-          <div class="tier-target">Customer application and workflow integrations are delivered under a separate statement of work, not assumed in standard onboarding or maintenance.</div>
-          <ul>
-            <li>Explicit deliverables and exclusions</li>
-            <li>Milestone evidence and decision gates</li>
-            <li>Approved credentials and resource limits</li>
-            <li>Customer-selected applications and execution environment</li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-name">Acceptance and handoff</div>
-          <div class="tier-positioning">Measure · document · own</div>
-          <div class="tier-target">Completion is tied to agreed acceptance criteria and a documented handoff into your team's ownership.</div>
-          <ul>
-            <li>Measured result against the agreed target</li>
-            <li>Runbook and configuration handoff</li>
-            <li>Known limits and operating responsibilities</li>
-            <li>Customer ownership after acceptance</li>
-          </ul>
+          <details class="estimate-details">
+            <summary>Adjust the in-house estimate</summary>
+            <div class="estimate-fields">
+              <label class="estimate-field" for="estimate-0">
+                <span>2× ML / infrastructure engineers</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-0" type="number" min="0" step="1000" value="220000" data-estimate-cost data-staff-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-1">
+                <span>1× DevOps / SRE engineer</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-1" type="number" min="0" step="1000" value="100000" data-estimate-cost data-staff-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-2">
+                <span>1× security and compliance lead</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-2" type="number" min="0" step="1000" value="80000" data-estimate-cost data-staff-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-3">
+                <span>Legal review</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-3" type="number" min="0" step="1000" value="60000" data-estimate-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-4">
+                <span>Hardware purchase and installation</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-4" type="number" min="0" step="1000" value="100000" data-estimate-cost /></span>
+              </label>
+              <label class="estimate-field" for="estimate-5">
+                <span>Tooling and test capacity</span>
+                <span class="estimate-input"><span aria-hidden="true">€</span><input id="estimate-5" type="number" min="0" step="1000" value="36000" data-estimate-cost /></span>
+              </label>
+            </div>
+            <p class="estimate-help">Enter annual team costs including employment overheads, annual tooling costs, and year-one legal and hardware costs in euros. Already own the hardware? Set that input to zero.</p>
+          </details>
+          <p class="estimate-note">Illustrative year-one scenario for a dedicated four-person team. Adjust these planning inputs for your team, region and existing infrastructure.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============== CLOUD VS ON-PREM ============== -->
-  <section id="cloud-vs-on-prem">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">06 · Cloud vs. on-prem</span>
-        <h2>Own the infrastructure and the operating boundary.</h2>
-        <p>Move inference inside your environment while preserving the applications and workflows your teams already use.</p>
+    <section id="cloud-vs-on-prem" class="pricing-comparison" aria-labelledby="comparison-title">
+      <div class="container">
+        <div class="pricing-section-heading">
+          <h2 id="comparison-title">Cloud vs. on-prem.</h2>
+          <p>Compare the infrastructure, commercial model and operational control.</p>
+        </div>
+        <div class="compare-wrap" tabindex="0" role="region" aria-label="Cloud and on-prem comparison">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col">Area</th>
+                <th scope="col">Cloud AI APIs</th>
+                <th scope="col" class="hot">LLM Machines</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Data control</td><td class="v-no">Prompts leave your perimeter</td><td class="hot v-yes">Data stays inside your environment</td></tr>
+              <tr><td>Commercial model</td><td class="v-no">Usage-based token billing</td><td class="hot v-yes">Custom quote for owned infrastructure</td></tr>
+              <tr><td>Portability</td><td class="v-mid">Provider-specific APIs and policies</td><td class="hot v-yes">Documented API and source-available first-party Product source</td></tr>
+              <tr><td>Deployment</td><td class="v-yes">Fast to start, external to your perimeter</td><td class="hot v-yes">Controlled deployment inside your infrastructure</td></tr>
+              <tr><td>Auditability</td><td class="v-mid">Limited to provider exports</td><td class="hot v-yes">Metadata-only activity and audit records on-prem</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="compare-wrap reveal">
-        <table class="compare">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Cloud AI APIs</th>
-              <th class="hot">LLM Machines</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Data control</td><td class="v-no">Prompts leave your perimeter</td><td class="hot v-yes">Data stays inside your environment</td></tr>
-            <tr><td>Commercial model</td><td class="v-no">Usage-based token billing</td><td class="hot v-yes">Custom quote for owned infrastructure</td></tr>
-            <tr><td>Portability</td><td class="v-mid">Provider-specific APIs and policies</td><td class="hot v-yes">Documented API and source-available first-party Product source</td></tr>
-            <tr><td>Deployment</td><td class="v-yes">Fast to start, external to your perimeter</td><td class="hot v-yes">Controlled deployment inside your infrastructure</td></tr>
-            <tr><td>Auditability</td><td class="v-mid">Limited to provider exports</td><td class="hot v-yes">Metadata-only activity and audit records on-prem</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============== FAQ ============== -->
-  <section id="pricing-faq">
-    <div class="container">
-      <div class="sect-head reveal">
-        <span class="label">07 · FAQ</span>
-        <h2>Pricing questions.</h2>
-        <p>How quotes, hardware, product scope and scaling work before a commercial conversation.</p>
+    <section id="pricing-faq" aria-labelledby="pricing-faq-title">
+      <div class="container pricing-split">
+        <div class="pricing-section-heading">
+          <h2 id="pricing-faq-title">Before we talk.</h2>
+          <p>A few useful details for your first conversation.</p>
+        </div>
+        <div class="pricing-questions">
+          <details class="pricing-question">
+            <summary>What should we share for a retrofit review?</summary>
+            <p>Your server or appliance specifications, GPU model and memory, system RAM, storage and network setup, plus the models and workloads you want to run. We use this to assess suitability and identify any upgrades before preparing a quote.</p>
+          </details>
+          <details class="pricing-question">
+            <summary>Can you help connect our applications?</summary>
+            <p>Connect your favourite apps and harnesses through our documented inference API. For custom workflows, we can scope a separate integration engagement with a measurable outcome.</p>
+          </details>
+          <details class="pricing-question">
+            <summary>Where will the system run?</summary>
+            <p>At your premises or in a data centre you contract and control. Inference runs inside your environment, on a new appliance or suitable existing hardware.</p>
+          </details>
+          <details class="pricing-question">
+            <summary>How is Product source licensed?</summary>
+            <p>Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party software keeps its upstream licence.</p>
+          </details>
+        </div>
       </div>
-      <div class="faq-list reveal">
-        <article class="faq-item">
-          <h3>How is each deployment quoted?</h3>
-          <p>We prepare a custom proposal after discovery. Scope drivers include the infrastructure footprint, inference estate, availability, update policy, recovery scope, capacity reviews, support access and reporting.</p>
-        </article>
-        <article class="faq-item">
-          <h3>What is included in the standard product scope?</h3>
-          <p>The standard scope combines the Core Appliance, operational Console, identity and policy controls, observability layer, lifecycle support and a documented API handoff.</p>
-        </article>
-        <article class="faq-item">
-          <h3>How is Product source licensed?</h3>
-          <p>Original first-party LLM Machines Product source is source-available under the unmodified PolyForm Internal Use License 1.0.0. Third-party software keeps its upstream licence.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Who owns the hardware?</h3>
-          <p>The appliance is sized with your team, procured through distributor-backed channels and deployed as infrastructure you control. Warranty coverage follows the supplier and manufacturer documents and the signed Order Form.</p>
-        </article>
-        <article class="faq-item">
-          <h3>How do existing applications connect?</h3>
-          <p>Existing applications connect through the documented Chat Completions protocol and receive access only to approved local models.</p>
-        </article>
-        <article class="faq-item">
-          <h3>How is integration consulting scoped?</h3>
-          <p>Advanced integration consulting uses a separate statement of work with a measurable target, explicit acceptance criteria and a documented handoff into customer ownership.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============== PAGE CTA ============== -->
-  <section class="page-cta">
-    <div id="us-cta-pricing" class="cta-bg" data-us-scene="../assets/whats-next_background.json"></div>
-    <div class="cta-blur"></div>
-    <div class="container">
-      <span class="label" style="justify-content:center;">What's next</span>
-      <h2>Get a quote sized to your environment.</h2>
-      <p>Discovery call, workload review, sized appliance specification and a quote matched to your environment.</p>
-      <div class="hero-ctas">
-        <a href="../onboarding/" class="btn btn-ghost">See the onboarding</a>
-        <a href="mailto:hello@llm-machines.com" class="btn btn-primary">Talk to sales <span class="arr">→</span></a>
+    <section class="pricing-close" aria-labelledby="pricing-close-title">
+      <div class="container">
+        <div>
+          <h2 id="pricing-close-title">Start with what you need.</h2>
+          <p>Bring a workload, a hardware specification or simply a question.</p>
+        </div>
+        <a href="../contact/#contact-form" class="btn btn-primary">Talk to sales <span class="arr" aria-hidden="true">→</span></a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ============== FOOTER ============== -->
   <footer>
@@ -486,5 +401,6 @@
   </footer>
 
   <script src="../assets/site.js" defer></script>
+  <script src="../assets/pricing.js" defer></script>
 </body>
 </html>

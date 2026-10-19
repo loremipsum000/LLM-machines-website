@@ -84,7 +84,7 @@
           <a href="./" class="lang-opt" aria-current="page" hreflang="en">EN</a>
           <a href="../hr/contact/" class="lang-opt" hreflang="hr">HR</a>
         </div>
-        <a href="mailto:hello@llm-machines.com" class="nav-cta">Talk to sales <span class="arr">→</span></a>
+        <a href="#contact-form" class="nav-cta">Talk to sales <span class="arr">→</span></a>
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -181,6 +181,7 @@
           <select name="topic">
             <option value="Discovery call">Discovery call</option>
             <option value="Pricing &amp; quote">Pricing &amp; quote</option>
+            <option value="Retrofitting existing infrastructure">Retrofitting existing infrastructure</option>
             <option value="Pilot deployment">Pilot deployment</option>
             <option value="Advanced integration consulting">Advanced integration consulting</option>
             <option value="Compliance / DPA">Compliance / DPA</option>
@@ -207,6 +208,12 @@
           const status = document.getElementById('form-status');
           const submitBtn = document.getElementById('form-submit');
           if (!form) return;
+
+          const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+          const topicField = form.elements.namedItem('topic');
+          if (Array.from(topicField.options).some(option => option.value === requestedTopic)) {
+            topicField.value = requestedTopic;
+          }
 
           form.addEventListener('submit', function (e) {
             e.preventDefault();

@@ -84,7 +84,7 @@
           <a href="../../contact/" class="lang-opt" hreflang="en">EN</a>
           <a href="./" class="lang-opt" aria-current="page" hreflang="hr">HR</a>
         </div>
-        <a href="mailto:hello@llm-machines.com" class="nav-cta">Razgovarajte s prodajom <span class="arr">→</span></a>
+        <a href="#contact-form" class="nav-cta">Razgovarajte s prodajom <span class="arr">→</span></a>
         <button class="menu-toggle" type="button" aria-label="Otvori izbornik" aria-controls="mobile-menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -181,6 +181,7 @@
           <select name="topic">
             <option value="Discovery call">Discovery poziv</option>
             <option value="Pricing &amp; quote">Cijene i ponuda</option>
+            <option value="Retrofitting existing infrastructure">Prilagodba postojeće infrastrukture</option>
             <option value="Pilot deployment">Pilot implementacija</option>
             <option value="Advanced integration consulting">Consulting za napredne integracije</option>
             <option value="Compliance / DPA">Compliance / DPA</option>
@@ -207,6 +208,12 @@
           const status = document.getElementById('form-status');
           const submitBtn = document.getElementById('form-submit');
           if (!form) return;
+
+          const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+          const topicField = form.elements.namedItem('topic');
+          if (Array.from(topicField.options).some(option => option.value === requestedTopic)) {
+            topicField.value = requestedTopic;
+          }
 
           form.addEventListener('submit', function (e) {
             e.preventDefault();
