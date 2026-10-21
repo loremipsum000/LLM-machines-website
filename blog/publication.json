@@ -1,6 +1,7 @@
 {
-  "fingerprint": "b8af0a29f05351b188a119165e98f7e6300f704c74b2f1c63028b41ad1729449",
+  "fingerprint": "9dbea7311dc1b409fc3bd8b872cad2d81f4708c8ba18ba6707e5293988e81614",
   "articles": [
+    "https://llm-machines.com/blog/when-long-prompts-delay-short-requests/",
     "https://llm-machines.com/blog/operating-plan-for-private-ai/",
     "https://llm-machines.com/blog/how-to-design-an-inference-benchmark/",
     "https://llm-machines.com/blog/ai-server-beyond-the-chip-headline/",
