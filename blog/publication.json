@@ -1,6 +1,7 @@
 {
-  "fingerprint": "9dbea7311dc1b409fc3bd8b872cad2d81f4708c8ba18ba6707e5293988e81614",
+  "fingerprint": "45086431eb73f0575cc91e6787a7dabfa1c415941c3907395d5f8bfb0331c7a4",
   "articles": [
+    "https://llm-machines.com/blog/deepinfer-comparison-what-it-settles/",
     "https://llm-machines.com/blog/when-long-prompts-delay-short-requests/",
     "https://llm-machines.com/blog/operating-plan-for-private-ai/",
     "https://llm-machines.com/blog/how-to-design-an-inference-benchmark/",
